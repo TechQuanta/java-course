@@ -1,18 +1,17 @@
-function loadContent(filePath) {
-  fetch(`${filePath}.md`)
-    .then(res => {
-      if (!res.ok) throw new Error("Content not found.");
-      return res.text();
-    })
-    .then(md => {
-      const html = marked.parse(md);
-      document.getElementById("dynamic-content").innerHTML = html;
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    })
-    .catch(err => {
-      document.getElementById("dynamic-content").innerHTML = `<p style="color:red;">${err.message}</p>`;
-    });
+async function loadContent(path) {
+  const markdownPath = path + 'index.md';
+
+  try {
+    const res = await fetch(markdownPath);
+    const md = await res.text();
+    const html = marked.parse(md); // Using marked.js to convert Markdown to HTML
+    document.getElementById("dynamic-content").innerHTML = html;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  } catch (err) {
+    document.getElementById("dynamic-content").innerHTML = `<p>Error loading content: ${err.message}</p>`;
+  }
 }
+
 
 // Dropdown
 document.querySelectorAll('.dropdown-btn').forEach(btn => {
@@ -46,17 +45,3 @@ window.addEventListener('DOMContentLoaded', () => {
   const savedTheme = localStorage.getItem('theme') || 'light';
   document.documentElement.setAttribute('data-theme', savedTheme);
 });
-async function loadContent(path) {
-  // Construct the full path to the markdown file
-  const markdownPath = path + 'index.md';
-
-  try {
-    const res = await fetch(markdownPath);
-    const md = await res.text();
-    const html = marked.parse(md);
-    document.getElementById("dynamic-content").innerHTML = html;
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  } catch (err) {
-    document.getElementById("dynamic-content").innerHTML = `<p>Error loading content: ${err.message}</p>`;
-  }
-}
