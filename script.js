@@ -1,27 +1,21 @@
-// Function to load the content from the given Markdown file and display it in the content area
-function loadContent(path) {
-    // Construct the file path
-    const url = `${path}.md`;
+function loadContent(filePath) {
+    // Assuming the filePath will be like 'core/arrays/index' or 'advanced/multithreading/index'
+    const file = `./${filePath}.md`; // You need the '.md' extension for markdown files
 
-    // Fetch the markdown file
-    fetch(url)
+    fetch(file)
         .then(response => {
             if (!response.ok) {
-                throw new Error(`Failed to fetch ${url}`);
+                throw new Error('File not found');
             }
             return response.text();
         })
-        .then(markdownText => {
-            // Convert Markdown to HTML using the Marked.js library
-            const htmlContent = marked(markdownText);
-
-            // Display the converted HTML in the content area
-            document.getElementById("dynamic-content").innerHTML = htmlContent;
+        .then(data => {
+            // Convert the markdown text to HTML using 'marked.js'
+            const content = marked(data);
+            document.getElementById('dynamic-content').innerHTML = content;
         })
-        .catch(error => {
-            // If an error occurs, display an error message in the content area
-            document.getElementById("dynamic-content").innerHTML = `
-                <p style="color: red;">Error loading content: ${error.message}</p>
-            `;
+        .catch(err => {
+            document.getElementById('dynamic-content').innerHTML = `<p>Error loading content: ${err.message}</p>`;
+            console.error("Error fetching file:", err);
         });
 }
