@@ -1,87 +1,162 @@
-/* General Reset */
+:root {
+  --bg: #ffffff;
+  --fg: #1a1a1a;
+  --sidebar-bg: #f0f0f0;
+  --sidebar-fg: #333;
+  --accent: #0066cc;
+  --link-hover: #005bb5;
+  --shadow: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+  --bg: #1e1e1e;
+  --fg: #f5f5f5;
+  --sidebar-bg: #2b2b2b;
+  --sidebar-fg: #e0e0e0;
+  --accent: #4da8ff;
+  --link-hover: #87c4ff;
+  --shadow: rgba(255, 255, 255, 0.05);
+}
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Body Styling */
 body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    height: 100vh;
-    background-color: #f4f4f4;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--bg);
+  color: var(--fg);
+  display: flex;
+  min-height: 100vh;
+  overflow: hidden;
+  transition: background 0.3s, color 0.3s;
 }
 
-/* Container to hold sidebar and content */
-.container {
-    display: flex;
-    width: 100%;
-    height: 100%;
+/* Theme Toggle Button */
+#theme-toggle {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  z-index: 1001;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
-/* Sidebar Styling */
+/* Sidebar Toggle for Mobile */
+#menu-toggle {
+  display: none;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  background-color: var(--accent);
+  color: white;
+  font-size: 20px;
+  border: none;
+  padding: 10px;
+  z-index: 1000;
+  border-radius: 4px;
+}
+
+/* Sidebar */
 #sidebar {
-    width: 250px;
-    background-color: #2c3e50;
-    color: white;
-    padding: 20px;
-    position: fixed;
-    height: 100%;
-    overflow-y: auto;
+  width: 270px;
+  background-color: var(--sidebar-bg);
+  color: var(--sidebar-fg);
+  padding: 20px;
+  height: 100vh;
+  overflow-y: auto;
+  position: fixed;
+  transition: transform 0.3s ease;
 }
 
-#sidebar h3 {
-    text-align: center;
-    font-size: 1.3em;
-    margin-bottom: 20px;
-    color: #ecf0f1;
+#sidebar.active {
+  transform: translateX(0);
 }
 
-#sidebar ul {
-    list-style-type: none;
+.logo h2 {
+  text-align: center;
+  margin-bottom: 30px;
 }
 
-#sidebar ul li {
-    margin: 10px 0;
+/* Dropdown Section */
+.nav-sections section {
+  margin-bottom: 20px;
 }
 
-#sidebar ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.1em;
-    display: block;
-    padding: 8px;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+.dropdown-btn {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 17px;
+  width: 100%;
+  text-align: left;
+  padding: 10px;
+  cursor: pointer;
 }
 
-#sidebar ul li a:hover {
-    background-color: #34495e;
+.dropdown-container {
+  list-style: none;
+  padding-left: 20px;
+  display: none;
 }
 
-/* Main Content Area */
-#content {
-    margin-left: 270px;  /* To make space for the sidebar */
-    padding: 20px;
-    flex-grow: 1;
+.dropdown-container li {
+  margin: 10px 0;
 }
 
-#content h1 {
-    font-size: 2em;
-    margin-bottom: 20px;
+.dropdown-container a {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.dropdown-container a:hover {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
+/* Main Content */
+#main-content {
+  margin-left: 270px;
+  padding: 40px 20px;
+  flex: 1;
+  transition: margin 0.3s;
 }
 
 #dynamic-content {
-    margin-top: 20px;
-    padding: 15px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    min-height: 300px;
-    line-height: 1.6;
+  margin-top: 20px;
+  background: var(--bg);
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px var(--shadow);
+  transition: background 0.3s, color 0.3s;
 }
 
-#dynamic-content p {
-    color: #333;
+/* Responsive */
+@media (max-width: 768px) {
+  #sidebar {
+    transform: translateX(-100%);
+    z-index: 999;
+  }
+
+  #sidebar.active {
+    transform: translateX(0);
+  }
+
+  #menu-toggle {
+    display: block;
+  }
+
+  #main-content {
+    margin-left: 0;
+    padding-top: 70px;
+  }
 }
