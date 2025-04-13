@@ -1,4 +1,4 @@
-/* Default theme (light) colors */
+/* Default Font and Sizes */
 :root {
   --bg: #ffffff;
   --fg: #1a1a1a;
@@ -7,9 +7,10 @@
   --accent: #0066cc;
   --link-hover: #005bb5;
   --shadow: rgba(0, 0, 0, 0.1);
+  --font-size: 16px;
+  --heading-font-size: 24px;
 }
 
-/* Dark theme colors */
 [data-theme="dark"] {
   --bg: #1e1e1e;
   --fg: #f5f5f5;
@@ -18,16 +19,16 @@
   --accent: #4da8ff;
   --link-hover: #87c4ff;
   --shadow: rgba(255, 255, 255, 0.05);
+  --font-size: 16px;
+  --heading-font-size: 24px;
 }
 
-/* Reset CSS */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* General Body Styles */
 body {
   font-family: 'Segoe UI', sans-serif;
   background-color: var(--bg);
@@ -35,7 +36,8 @@ body {
   display: flex;
   min-height: 100vh;
   overflow: hidden;
-  transition: background 0.3s, color 0.3s;
+  transition: background 0.3s, color 0.3s, font-size 0.3s;
+  font-size: var(--font-size); /* Use variable for body font size */
 }
 
 /* Theme Toggle Button */
@@ -54,7 +56,7 @@ body {
   transition: background 0.3s;
 }
 
-/* Sidebar toggle for mobile */
+/* Sidebar Toggle for Mobile */
 #menu-toggle {
   display: none;
   position: fixed;
@@ -69,7 +71,7 @@ body {
   border-radius: 4px;
 }
 
-/* Sidebar Styles */
+/* Sidebar */
 #sidebar {
   width: 270px;
   background-color: var(--sidebar-bg);
@@ -81,12 +83,17 @@ body {
   transition: transform 0.3s ease;
 }
 
-/* Show sidebar on mobile */
 #sidebar.active {
   transform: translateX(0);
 }
 
-/* Dropdown Styles */
+.logo h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 22px; /* Ensure logo size remains consistent */
+}
+
+/* Dropdown Section */
 .nav-sections section {
   margin-bottom: 20px;
 }
@@ -123,7 +130,7 @@ body {
   text-decoration: underline;
 }
 
-/* Main Content Styles */
+/* Main Content */
 #main-content {
   margin-left: 270px;
   padding: 40px 20px;
@@ -131,6 +138,7 @@ body {
   transition: margin 0.3s;
 }
 
+/* Content */
 #dynamic-content {
   margin-top: 20px;
   background: var(--bg);
@@ -140,23 +148,28 @@ body {
   transition: background 0.3s, color 0.3s;
 }
 
-/* Responsive Styles */
+h1 {
+  font-size: var(--heading-font-size);
+  line-height: 1.3;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
   #sidebar {
-      transform: translateX(-100%);
-      z-index: 999;
+    transform: translateX(-100%);
+    z-index: 999;
   }
 
   #sidebar.active {
-      transform: translateX(0);
+    transform: translateX(0);
   }
 
   #menu-toggle {
-      display: block;
+    display: block;
   }
 
   #main-content {
-      margin-left: 0;
-      padding-top: 70px;
+    margin-left: 0;
+    padding-top: 70px;
   }
 }
