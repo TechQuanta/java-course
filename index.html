@@ -1,55 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Java Learning Platform</title>
     <link rel="stylesheet" href="styles.css" />
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-</head>
-
-<body>
-    <!-- Theme Toggle Button -->
-    <button id="theme-toggle">Toggle Theme</button>
+  </head>
+  <body>
+    <!-- Theme Toggle -->
+    <button id="theme-toggle">🌓</button>
 
     <!-- Mobile Nav Toggle -->
     <button id="menu-toggle">☰</button>
 
     <!-- Sidebar -->
     <aside id="sidebar">
-        <div class="logo">
-            <h2>Java Course</h2>
-        </div>
-        <nav class="nav-sections">
-            <section>
-                <button class="dropdown-btn">Core Level ▾</button>
-                <ul class="dropdown-container">
-                    <li><a href="#" onclick="loadContent('core-java/arrays-collections/')">Arrays & Collections</a></li>
-                    <li><a href="#" onclick="loadContent('core-java/control-flow/')">Control Flow</a></li>
-                </ul>
-            </section>
-            <section>
-                <button class="dropdown-btn">Advanced Level ▾</button>
-                <ul class="dropdown-container">
-                    <li><a href="#" onclick="loadContent('advanced-java/multithreading/')">Multithreading</a></li>
-                </ul>
-            </section>
-        </nav>
+      <div class="logo">
+        <img src="Java.svg" alt="Java Logo" class="java-logo" />
+        <h2>Java Course</h2>
+        <br />
+        <h3>Beginner ---> Advance </h3>
+        <hr class="styled-hr" />
+      </div>
+
+      <nav class="nav-sections">
+        <!-- Core Java -->
+        <section>
+          <button class="dropdown-btn">Core Java ▾</button>
+          <ul class="dropdown-container">
+            <hr class="styled-hr" />
+            <li>
+              <a href="#core-java/java-basics" onclick="loadContent('core-java/java-basics/')"
+                >📘 Java Basics</a
+              >
+            </li>
+            <li>
+              <a
+                href="#core-java/variables-data-types"
+                onclick="loadContent('core-java/variables-data-types/')"
+                >🔡 Variables & Data Types</a
+              >
+            </li>
+            <li>
+              <a href="#core-java/control-flow" onclick="loadContent('core-java/control-flow/')"
+                >🔁 Control Flow</a
+              >
+            </li>
+            <li>
+              <a href="#core-java/exception-handling" onclick="loadContent('core-java/exception-handling/')"
+                >⚠️ Exception Handling</a
+              >
+            </li>
+            <li>
+              <a href="#core-java/methods" onclick="loadContent('core-java/methods/')"
+                >🔧 Methods</a
+              >
+            </li>
+            <li>
+              <a href="#core-java/oops-basics" onclick="loadContent('core-java/oops-basics/')"
+                >🏛️ OOP Basics</a
+              >
+            </li>
+            <li>
+              <a href="#core-java/threads" onclick="loadContent('core-java/threads/')"
+                >🧵 Threads</a
+              >
+            </li>
+            <li>
+              <a
+                href="#core-java/functional-programming"
+                onclick="loadContent('core-java/functional-programming/')"
+                >🧠 Functional Programming</a
+              >
+            </li>
+            <li>
+              <a href="#core-java/arrays-collections" onclick="loadContent('core-java/arrays-collections/')"
+                >[1,2,3] Arrays & Collections</a
+              >
+            </li>
+          </ul>
+        </section>
+
+        <!-- Advanced Java -->
+        <section>
+          <button class="dropdown-btn">Advanced Java ▾</button>
+          <ul class="dropdown-container">
+            <hr class="styled-hr" />
+            <li>
+              <a href="#advanced-java/abstraction" onclick="loadContent('advanced-java/abstraction/')"
+                >🌀 Abstraction</a
+              >
+            </li>
+            <li>
+              <a
+                href="#advanced-java/advanced-threads"
+                onclick="loadContent('advanced-java/advanced-threads/')"
+                >🔀 Advanced Threads</a
+              >
+            </li>
+            <li>
+              <a href="#advanced-java/collections" onclick="loadContent('advanced-java/collections/')"
+                >📚 Collections</a
+              >
+            </li>
+            <li>
+              <a href="#advanced-java/file-io" onclick="loadContent('advanced-java/file-io/')"
+                >📁 File I/O</a
+              >
+            </li>
+            <li>
+              <a
+                href="#advanced-java/inheritance-polymorphism"
+                onclick="loadContent('advanced-java/inheritance-polymorphism/')"
+                >🧬 Inheritance & Polymorphism</a
+              >
+            </li>
+            <li>
+              <a href="#advanced-java/jdbc" onclick="loadContent('advanced-java/jdbc/')"
+                >🗄️ JDBC</a
+              >
+            </li>
+            <li>
+              <a href="#advanced-java/COLLECTIONS" onclick="loadContent('advanced-java/COLLECTIONS/')"
+                >📦 COLLECTIONS</a
+              >
+            </li>
+          </ul>
+        </section>
+
+        <!-- Senior Level -->
+        <section>
+          <button class="dropdown-btn">Senior Level ▾</button>
+          <ul class="dropdown-container">
+            <hr class="styled-hr" />
+            <li>
+              <a href="#senior-java/advanced-jdbc" onclick="loadContent('senior-java/advanced-jdbc/')"
+                >🔌 Advanced JDBC</a
+              >
+            </li>
+            <li>
+              <a href="#senior-java/big-data" onclick="loadContent('senior-java/big-data/')"
+                >📊 Big Data</a
+              >
+            </li>
+            <li>
+              <a href="#senior-java/design-pattern" onclick="loadContent('senior-java/design-pattern/')"
+                >🎨 Design Pattern</a
+              >
+            </li>
+            <li>
+              <a href="#senior-java/microservices" onclick="loadContent('senior-java/microservices/')"
+                >☁️ Microservices</a
+              >
+            </li>
+            <li>
+              <a
+                href="#senior-java/performance-tunning"
+                onclick="loadContent('senior-java/performance-tunning/')"
+                >🚀 Performance Tuning</a
+              >
+            </li>
+            <li>
+              <a href="#senior-java/servelt-jsp" onclick="loadContent('senior-java/servelt-jsp/')"
+                >🌐 Servlet & JSP</a
+              >
+            </li>
+            <li>
+              <a
+                href="#senior-java/spring-framework"
+                onclick="loadContent('senior-java/spring-framework/')"
+                >🌿 Spring Framework</a
+              >
+            </li>
+          </ul>
+        </section>
+      </nav>
     </aside>
 
     <!-- Main Content -->
     <main id="main-content">
-        <header>
-            <h1>Welcome to Your Java Journey</h1>
-            <p>Click on a topic in the sidebar to begin learning.</p>
-        </header>
-        <section id="dynamic-content">
-            <!-- Content will be loaded here -->
-        </section>
+      <header>
+        <h1 class="welcome">Welcome to Your Java(Oak) Journey</h1>
+        <p class="guide">Click on a topic in the sidebar to begin learning.</p>
+      </header>
+      <section id="dynamic-content">
+        <!-- Markdown content will be loaded here -->
+      </section>
     </main>
 
+    <!-- JavaScript -->
     <script src="script.js"></script>
-</body>
-
+  </body>
 </html>
