@@ -1,3 +1,4 @@
+/* Default theme (light) colors */
 :root {
   --bg: #ffffff;
   --fg: #1a1a1a;
@@ -8,6 +9,7 @@
   --shadow: rgba(0, 0, 0, 0.1);
 }
 
+/* Dark theme colors */
 [data-theme="dark"] {
   --bg: #1e1e1e;
   --fg: #f5f5f5;
@@ -18,12 +20,14 @@
   --shadow: rgba(255, 255, 255, 0.05);
 }
 
+/* Reset CSS */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* General Body Styles */
 body {
   font-family: 'Segoe UI', sans-serif;
   background-color: var(--bg);
@@ -50,7 +54,7 @@ body {
   transition: background 0.3s;
 }
 
-/* Sidebar Toggle for Mobile */
+/* Sidebar toggle for mobile */
 #menu-toggle {
   display: none;
   position: fixed;
@@ -65,7 +69,7 @@ body {
   border-radius: 4px;
 }
 
-/* Sidebar */
+/* Sidebar Styles */
 #sidebar {
   width: 270px;
   background-color: var(--sidebar-bg);
@@ -77,16 +81,12 @@ body {
   transition: transform 0.3s ease;
 }
 
+/* Show sidebar on mobile */
 #sidebar.active {
   transform: translateX(0);
 }
 
-.logo h2 {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-/* Dropdown Section */
+/* Dropdown Styles */
 .nav-sections section {
   margin-bottom: 20px;
 }
@@ -123,7 +123,7 @@ body {
   text-decoration: underline;
 }
 
-/* Main Content */
+/* Main Content Styles */
 #main-content {
   margin-left: 270px;
   padding: 40px 20px;
@@ -140,23 +140,23 @@ body {
   transition: background 0.3s, color 0.3s;
 }
 
-/* Responsive */
+/* Responsive Styles */
 @media (max-width: 768px) {
   #sidebar {
-    transform: translateX(-100%);
-    z-index: 999;
+      transform: translateX(-100%);
+      z-index: 999;
   }
 
   #sidebar.active {
-    transform: translateX(0);
+      transform: translateX(0);
   }
 
   #menu-toggle {
-    display: block;
+      display: block;
   }
 
   #main-content {
-    margin-left: 0;
-    padding-top: 70px;
+      margin-left: 0;
+      padding-top: 70px;
   }
 }
