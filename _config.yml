@@ -1,0 +1,6 @@
+title: "Java Learning Platform"
+description: "Learn Java from Core to Senior level"
+baseurl: ""
+url: "https://ashmeet07.github.io/java-course"
+theme: minima  # Optional: Choose a Jekyll theme, you can use 'minima' or any other theme
+markdown: kramdown  # Ensure you're using kramdown for better Markdown rendering

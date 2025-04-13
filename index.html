@@ -1,68 +1,55 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Java Learning Platform</title>
-  <link rel="stylesheet" href="styles.css" />
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Java Learning Platform</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
+
 <body>
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle">Toggle Theme</button>
 
-  <!-- Theme Toggle -->
-  <button id="theme-toggle" title="Toggle Theme">🌓</button>
+    <!-- Mobile Nav Toggle -->
+    <button id="menu-toggle">☰</button>
 
-  <!-- Mobile Nav Toggle -->
-  <button id="menu-toggle">☰</button>
+    <!-- Sidebar -->
+    <aside id="sidebar">
+        <div class="logo">
+            <h2>Java Course</h2>
+        </div>
+        <nav class="nav-sections">
+            <section>
+                <button class="dropdown-btn">Core Level ▾</button>
+                <ul class="dropdown-container">
+                    <li><a href="#" onclick="loadContent('core-java/arrays-collections/')">Arrays & Collections</a></li>
+                    <li><a href="#" onclick="loadContent('core-java/control-flow/')">Control Flow</a></li>
+                </ul>
+            </section>
+            <section>
+                <button class="dropdown-btn">Advanced Level ▾</button>
+                <ul class="dropdown-container">
+                    <li><a href="#" onclick="loadContent('advanced-java/multithreading/')">Multithreading</a></li>
+                </ul>
+            </section>
+        </nav>
+    </aside>
 
-  <!-- Sidebar -->
-  <aside id="sidebar">
-    <div class="logo">
-      <h2>Java Course</h2>
-    </div>
+    <!-- Main Content -->
+    <main id="main-content">
+        <header>
+            <h1>Welcome to Your Java Journey</h1>
+            <p>Click on a topic in the sidebar to begin learning.</p>
+        </header>
+        <section id="dynamic-content">
+            <!-- Content will be loaded here -->
+        </section>
+    </main>
 
-    <nav class="nav-sections">
-      <!-- Core Level -->
-      <section>
-        <button class="dropdown-btn">Core Level ▾</button>
-        <ul class="dropdown-container">
-          <li><a href="/core-java/arrays-collections/index.md" onclick="loadContent('/core-java/arrays-collections/index')">Arrays</a></li>
-          <li><a href="#" onclick="loadContent('content/core/control-flow/index')">Control Flow</a></li>
-          <li><a href="#" onclick="loadContent('content/core/methods/index')">Methods</a></li>
-          <li><a href="#" onclick="loadContent('content/core/oops-basics/index')">OOP Basics</a></li>
-        </ul>
-      </section>
-
-      <!-- Advanced Level -->
-      <section>
-        <button class="dropdown-btn">Advanced Level ▾</button>
-        <ul class="dropdown-container">
-          <li><a href="#" onclick="loadContent('content/advanced/multithreading/index')">Multithreading</a></li>
-          <li><a href="#" onclick="loadContent('content/advanced/streams-api/index')">Streams API</a></li>
-        </ul>
-      </section>
-
-      <!-- Senior Level -->
-      <section>
-        <button class="dropdown-btn">Senior Level ▾</button>
-        <ul class="dropdown-container">
-          <li><a href="#" onclick="loadContent('content/senior/jvm-internals/index')">JVM Internals</a></li>
-          <li><a href="#" onclick="loadContent('content/senior/gc-tuning/index')">GC Tuning</a></li>
-        </ul>
-      </section>
-    </nav>
-  </aside>
-
-  <!-- Main Content -->
-  <main id="main-content">
-    <header>
-      <h1>Welcome to Your Java Journey</h1>
-      <p>Click on a topic in the sidebar to begin learning.</p>
-    </header>
-    <section id="dynamic-content">
-      <!-- Content will be loaded here -->
-    </section>
-  </main>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
+
+</html>
