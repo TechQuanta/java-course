@@ -5,7 +5,9 @@ Java is class-based, **object-oriented** programming language developed by *Jame
 
 - It is WORA (write once and run anywhere) means without any need of recompilation the Java code run each and every platform with portability.
 
-### History of Oak
+# How Java Code Executes
+
+## History of Oak
 
 Java implementation was begun in 1991 by *James Gosling, Mike Sheridan, and Patrick Naughton* a team of engineers at Sun Microsystems known as the Green Team. The name was inspired by Java coffee and the first version released was Java 1.0.
 - *Arthur Van Hoff* rewrote the Java 1.0 compiler to strictly comply with its specifications.
@@ -19,7 +21,7 @@ Java implementation was begun in 1991 by *James Gosling, Mike Sheridan, and Patr
 
 - At that time Java made itself a preferred language for various applications including, Internet programming, Gaming & e-business etc.
 
-### Features of Java
+## Features of Java
 - Java is known for its simplicity, robustness and security features making it a popular choice for enterprise-level applications.
 
 - Java eliminates complex features like: pointers(*) and multiple inheritance, making it easier to write, debug, and maintain code.
@@ -32,7 +34,7 @@ Java implementation was begun in 1991 by *James Gosling, Mike Sheridan, and Patr
 
 - It helps to create modular programming by providing modularity like: abstract classes, interfaces, inheritance etc.
 
-### Key Features of Java
+## Key Features of Java
 **Platform Independent**:  
 It's said to be independent because the byte code which comes from the compilation of source code can run on any machine which has JVM and on each machine the output will be same.  
 Each OS has a different JVM. That is why we call Java a platform-independent language.
