@@ -71,7 +71,8 @@ Java-arch is designed in such a way that reduce overhead during runtime and uses
 - Creating file name it use (.java) extension in any IDE(Integrated Development Environment) IntelliJ IDEA, Eclipse, or NetBeans.
 - Compiling the file/program with (java compiler javac) convert the source code -> bytecode(.class) file which can be execute on any os having JVM.
 - Running the program using (java) tool the JVM execute the compiled bytecode into machine level code using JIT and MC executed by the CPU.
-*Example Program*:
+
+**Example Program**:
 ```java
 public class HelloWorld {
     public static void main(String[] args)
@@ -79,3 +80,10 @@ public class HelloWorld {
         System.out.println("Hello, World!");
     }
 }
+```
+- Creating this program in your file do make sure you are on right path on command.
+
+```java
+javac HelloWrold.java
+java HelloWorld
+```
