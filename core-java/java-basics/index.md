@@ -85,9 +85,8 @@ Java implementation was begun in 1991 by *James Gosling, Mike Sheridan, and Patr
 - Java-arch is designed in such a way that reduce overhead during runtime and uses JIT (Just In Time) compiler where the compiler compile only those methods that are called, making app run faster.
 <br/>
 
-# How we can create our first Java program
-<hr/>
-
+# How we can create our first Java program<hr/>
+<br/>
 - Creating file name it use (**.java**) extension in any IDE(**Integrated Development Environment**) IntelliJ IDEA, Eclipse, or NetBeans.
 - Compiling the file/program with (java compiler **javac**) convert the source code -> bytecode(**.class**) file which can be execute on any os having JVM.
 - Running the program using (**java**) tool the JVM execute the compiled bytecode into machine level code using JIT and MC executed by the CPU.
@@ -153,4 +152,15 @@ The name itself suggests that it is the kit which includes each tool used to run
 | `jconsole`   |    Java Monitoring Console                             |
 
 <br/>
+
 So, **JDK is the toolbox, not just the hammer**.
+
+- **JRE(Java Runtime Environment)**
+JDK includes JRE installation on our computers allows to run programs. We cannot compile it. JRE include a browser, JVM, applet support, & plugins. 
+For running the java program, a computer needs JRE.
+
+- **Garbage Collector**
+
+- **Profiler**
+
+- **JIT**
