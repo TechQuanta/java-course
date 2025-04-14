@@ -10,7 +10,7 @@ async function loadContent(path) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   } catch (err) {
     document.getElementById("dynamic-content").innerHTML =
-      `<p style="color: red;">Please go through the nav links to find your relevant content.</p>`;
+      `<p style="color: red;">Updates are on the way for this course.</p>`;
   }
 }
 

@@ -442,6 +442,11 @@ a:hover {
   border-radius: 20px;
   background:transparent;
 }
+.jdk-arch{
+  width: 100%;
+  height: 100%;
+  background:transparent;
+}
 .code-container {
   font-family: Arial, sans-serif;
   padding: 20px;

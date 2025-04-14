@@ -123,6 +123,14 @@ It is an integral part of Java platform responsible for execution of `.class` by
 
 **Write Program → Compile Program (javac) → JVM Output**
 
+It provide runtime env not for java progarm for bytecode .class files to be executed.
+
+JVM is platform-dependent because its tailored to specific hardware and software platforms.
+
+JVM implementation is known as JRE.
+
+When ever we create an instance of Java file using Java command on terminal with file name we initialise the instance of the JVM.
+
 - Programmer will write the code.  
 - `javac` compiler will compile it. It is in JDK (Java Development Toolkit). It takes the program, converts it into bytecode as output.  
 - In Running Phase, JVM will take bytecode, convert it to machine code, and show output to the user.
@@ -154,6 +162,14 @@ The name itself suggests that it is the kit which includes each tool used to run
 
 <br/>
 
+## **JDK Architecture**
+<hr/>
+ <div align="center" width=700 height=200>
+<img src="https://github.com/user-attachments/assets/f78be70a-0aff-4a31-80c7-f4a386388e49" class="jdk-arch" alt="Architecture">
+</div>
+
+<br/>
+
 So, **JDK is the toolbox, not just the hammer**.
 
 - **JRE(Java Runtime Environment)**
@@ -161,15 +177,19 @@ JDK includes JRE installation on our computers allows to run programs. We cannot
 For running the java program, a computer needs JRE.
 
 - **Garbage Collector**
-
+It is used as a JVM tool which helps to delete object space in Java programmer can't delete the Objects.So, Java makes the life easy for programmer handle memroy management.
+However if object deleted by the GC will not be recoverable.
 - **Profiler**
-
+Profiler helps to see the runtime performance of the program by collecting data related to its execution & runtime behavior of an application.
+For Example: 
+- *Types of Profiling*(CPU, Memory, Thread, I/O)Profiling.
 - **JIT**
+It is Just-In-Time tool is a compiler that compile modules which required at the time of calling the moudle enhance the performance.
 
+<br/>
 
-- **JDK**
+## JVM Architecture
 
-  <div align="center" width=700 height=200>
-<img src="https://github.com/user-attachments/assets/f78be70a-0aff-4a31-80c7-f4a386388e49" class="execution" alt="Architecture">
+<div align="center" width=700 height=200>
+<img src="https://github.com/user-attachments/assets/35075ccb-5472-4bb3-8d65-f21c485be654" class="execution" alt="JVM">
 </div>
-
