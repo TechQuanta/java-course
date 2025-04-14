@@ -7,7 +7,7 @@ Java is class-based, **object-oriented** programming language developed by *Jame
 
 # How Java Code Executes
 
-<div align="center">
+<div align="center" width=700 height=200>
   
 <img src="https://github.com/user-attachments/assets/6fbace23-57fa-4761-a3d1-1352fb3cbd84" class="execution" alt="Java Code Execution" width=700 height=200>
 
