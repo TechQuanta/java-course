@@ -97,7 +97,7 @@ Java implementation was begun in 1991 by *James Gosling, Mike Sheridan, and Patr
   <h3>Example Program:</h3>
   <pre><code class="code-block">
 <span class="keyword">public</span> <span class="keyword">class</span> <span class="classname">HelloWorld</span> {
-    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="method">main</span><span class="parens">(</span><span class="type">String</span>[] args<span class="parens">)</span>
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="method">main</span><span class="parens">(</span><span class="type">String</span>[] args<span class="parens">)</span>//Signature where the java program starts
     {
         <span class="class-ref">System</span>.<span class="method">out</span>.<span class="method">println</span><span class="parens">(</span><span class="string">"Hello, World!"</span><span class="parens">)</span>;
     }
