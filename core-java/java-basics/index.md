@@ -83,9 +83,9 @@ Java implementation was begun in 1991 by *James Gosling, Mike Sheridan, and Patr
 <br/>
 
 # How we can create our first Java program
-- Creating file name it use (.java) extension in any IDE(Integrated Development Environment) IntelliJ IDEA, Eclipse, or NetBeans.
-- Compiling the file/program with (java compiler javac) convert the source code -> bytecode(.class) file which can be execute on any os having JVM.
-- Running the program using (java) tool the JVM execute the compiled bytecode into machine level code using JIT and MC executed by the CPU.
+- Creating file name it use (**.java**) extension in any IDE(**Integrated Development Environment**) IntelliJ IDEA, Eclipse, or NetBeans.
+- Compiling the file/program with (java compiler **javac**) convert the source code -> bytecode(**.class**) file which can be execute on any os having JVM.
+- Running the program using (**java**) tool the JVM execute the compiled bytecode into machine level code using JIT and MC executed by the CPU.
 
 <br/>
 <div class="code-container">
@@ -99,7 +99,7 @@ Java implementation was begun in 1991 by *James Gosling, Mike Sheridan, and Patr
 }
   </code></pre>
 
-  <p class="note">- Creating this program in your file. Do make sure you are on the right path on the terminal.</p>
+  <p class="note">Creating this program in your file. Do make sure you are on the right path on the terminal.</p>
 
   <pre><code class="code-block">
 <span class="command">javac</span> HelloWorld.java
