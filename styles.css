@@ -326,7 +326,6 @@ body {
   background: var(--bg);
   padding: 100px;
   border-radius: 10px;
-  box-shadow: 0 0 15px var(--shadow);
   transition: background 0.3s, color 0.3s;
 }
 
