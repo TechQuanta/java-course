@@ -7,6 +7,12 @@ Java is class-based, **object-oriented** programming language developed by *Jame
 
 # How Java Code Executes
 
+<div align="center">
+  
+<img src="https://github.com/user-attachments/assets/6fbace23-57fa-4761-a3d1-1352fb3cbd84" alt="Java Code Execution">
+
+</div
+
 ## History of Oak
 
 Java implementation was begun in 1991 by *James Gosling, Mike Sheridan, and Patrick Naughton* a team of engineers at Sun Microsystems known as the Green Team. The name was inspired by Java coffee and the first version released was Java 1.0.
