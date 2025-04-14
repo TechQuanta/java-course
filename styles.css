@@ -310,7 +310,6 @@ body {
 /* Main Content Area */
 #main-content {
   margin-left: 270px;
-  padding: 25px;
   margin-top: 70px;
   flex: 1;
   transition: margin 0.3s ease;
