@@ -168,3 +168,8 @@ For running the java program, a computer needs JRE.
 
 
 - **JDK**
+
+  <div align="center" width=700 height=200>
+<img src="https://github.com/user-attachments/assets/f78be70a-0aff-4a31-80c7-f4a386388e49" class="execution" alt="Architecture">
+</div>
+
