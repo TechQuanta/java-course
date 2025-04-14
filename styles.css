@@ -323,7 +323,7 @@ body {
 #dynamic-content {
   margin-top: 20px;
   background: var(--bg);
-  padding: 50px;
+  padding: 100px;
   border-radius: 10px;
   box-shadow: 0 0 15px var(--shadow);
   transition: background 0.3s, color 0.3s;
