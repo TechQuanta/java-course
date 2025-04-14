@@ -88,20 +88,21 @@ Java implementation was begun in 1991 by *James Gosling, Mike Sheridan, and Patr
 - Running the program using (java) tool the JVM execute the compiled bytecode into machine level code using JIT and MC executed by the CPU.
 
 <br/>
-
-**Example Program**:
-```java
-public class HelloWorld {
-    public static void main(String[] args)
+<div class="code-container">
+  <h3>Example Program:</h3>
+  <pre><code class="code-block">
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="classname">HelloWorld</span> {
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="method">main</span><span class="parens">(</span><span class="type">String</span>[] args<span class="parens">)</span>
     {
-        System.out.println("Hello, World!");
+        <span class="class-ref">System</span>.<span class="method">out</span>.<span class="method">println</span><span class="parens">(</span><span class="string">"Hello, World!"</span><span class="parens">)</span>;
     }
 }
-```
-- Creating this program in your file do make sure you are on right path on command.
-<br/>
+  </code></pre>
 
-```java
-javac HelloWrold.java
-java HelloWorld
-```
+  <p class="note">- Creating this program in your file. Do make sure you are on the right path on the terminal.</p>
+
+  <pre><code class="code-block">
+<span class="command">javac</span> HelloWorld.java
+<span class="command">java</span> HelloWorld
+  </code></pre>
+</div>

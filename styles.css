@@ -425,6 +425,46 @@ a:hover {
 .execution{
   width: 100%;
   height: 100%;
-  border-radius: 10px;
-  box-shadow: 0 0 15px var(--shadow);
+  border-radius: 20px;
+  background:transparent;
+}
+.code-container {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  max-width: 700px;
+  margin: 20px auto;
+}
+
+.code-container h3 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.code-block {
+  background-color: #272822;
+  color: #f8f8f2;
+  padding: 15px;
+  border-radius: 6px;
+  overflow-x: auto;
+  display: block;
+  white-space: pre;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+}
+
+/* Syntax Highlighting */
+.keyword     { color: #66d9ef; }      /* public, class, static, void */
+.classname   { color: #a6e22e; }      /* HelloWorld */
+.method      { color: #fd971f; }      /* main, println */
+.type        { color: #f92672; }      /* String */
+.parens      { color: #f8f8f2; }      /* () */
+.string      { color: #e6db74; }      /* "Hello, World!" */
+.class-ref   { color: #ae81ff; }      /* System, out */
+.command     { color: #66d9ef; font-weight: bold; }  /* javac, java */
+
+.note {
+  margin-top: 15px;
+  color: #444;
 }
