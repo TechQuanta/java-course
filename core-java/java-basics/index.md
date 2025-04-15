@@ -194,53 +194,80 @@ It is Just-In-Time tool is a compiler that compile modules which required at the
 <img src="https://github.com/user-attachments/assets/35075ccb-5472-4bb3-8d65-f21c485be654" class="execution" alt="JVM">
 </div>
 
-## Class Loader
-It is an essential part of the Java Runtime Environment use to load the classes for execution.
-Every class you use need to load into memory first before it can be used.
-It loads the class over the network, Jars etc at the time of runtime.
+## Class Loader Sub-System
 
-Java Uses a hierarchical delegation model for class loading.
-- Bootstrap ClassLoader -> It Loads the classes which need at the time of execution like Native classes (rt.jar).
-- Extension ClassLoader -> It Loads Classes from the **ext/** folder path JAVA_HOME/lib/ext.
-- Application ClassLoader -> It Loads the user classes or form classpath  eg (-cp or CLASSPATH).
+It is an essential part of the Java Runtime Environment used to load the classes for execution.  
+Every class you use needs to be loaded into memory first before it can be used.  
+It loads the class over the network, JARs, etc., at the time of runtime.
 
-Each class Loader loads the parent first, If that unable to find the class then it load itself know as delegation model.
+Java uses a **hierarchical delegation model** for class loading:
+- **Bootstrap ClassLoader** → It loads the classes needed at the time of execution, like native classes (rt.jar).
+- **Extension ClassLoader** → It loads classes from the `ext/` folder path (`JAVA_HOME/lib/ext`).
+- **Application ClassLoader** → It loads user classes or classes from the classpath (e.g., `-cp` or `CLASSPATH`).
 
-# Loading Phase
-## ClassLoader & Memory(Runtime Data Area)
-When JVM starts it setup different memory areas.
-The classloader loads class files from storage.
-- Method Area
-It store class metadata like : class name, method, fields, constant pool etc.
-The class structure store here basically.
-- Heap
-In this area the objects and arrays what ever created at runtime store here.
-Also In this we have literal pool and all the variables are the part of the method so its reference is store in heap.
-ClassLoader itself an object store it here.
-- Stack 
-In this it is create for each thread because each thread has its own stack.
-Store method call, local variable etc.
- 
-# Linking Phase
-## Verify 
-It verify the .class file that execute properly means cannot be able to penetrate by other malfunction bytecode.
-## Prepare
-In the prepration module we allocates the stack and heap area for static variables.
-## Resolve
-In the resolution we replace symbols with actual references 
+Each class loader loads its parent first. If that is unable to find the class, it loads itself — this is known as the **delegation model**.
 
-# Working
+---
 
-**.class file** -> **JVM** -> **Create The Heap after verifing the .class file** -> **Create the stack for method calls**
+## Loading Phase
+
+### ClassLoader & Memory (Runtime Data Area)
+
+When the JVM starts, it sets up different memory areas.  
+The class loader loads class files from storage.
+
+- **Method Area**  
+  It stores class metadata such as class name, methods, fields, constant pool, etc.  
+  The class structure is stored here, basically.
+
+- **Heap**  
+  In this area, the objects and arrays created at runtime are stored.  
+  Also, this is where the literal pool and all variables that are part of the method are stored, with their references being stored in the heap.  
+  The **ClassLoader** itself is an object stored in the heap.
+
+- **Stack**  
+  This is created for each thread, as each thread has its own stack.  
+  It stores method calls, local variables, etc.
+
+---
+
+## Linking Phase
+
+### Verify
+It verifies the `.class` file to ensure it executes properly and cannot be penetrated by malfunctioning bytecode.
+
+### Prepare
+In the preparation module, the stack and heap areas are allocated for static variables.
+
+### Resolve
+In the resolution phase, symbolic references are replaced with actual references.
+
+---
+
+## Initializing Phase
+
+In this phase, variables are initialized with their actual values.
+
+---
+
+## Working
+
+**.class file** → **JVM** → **Create the Heap after verifying the .class file** → **Create the Stack for method calls**
+
+---
 
 ## Execution Engine
-It Runs the bytecode.
-**Interpreter** -> Interpret the Bytecode line by line.(One Time Call)
-**Jit Compiler** -> Compiles the areas of the code for better performance.(Repeated)
 
-## JNI(Java Native Interface)
-It is use to call the method from the Native Method Stack at the time of native code execution by JNI.
-It provides a bridge between Java code and Native Code.
-It allow calling native libraries written in c/c++ or like .dll, .sl files.
-Used system level API's like : OpenGl etc.
+It runs the bytecode.
 
+- **Interpreter** → Interprets the bytecode line by line (one-time call).
+- **JIT Compiler** → Compiles areas of the code for better performance (repeated).
+
+---
+
+## JNI (Java Native Interface)
+
+It is used to call methods from the **Native Method Stack** during native code execution by JNI.  
+It provides a bridge between Java code and native code.  
+It allows calling native libraries written in C/C++ or libraries like `.dll`, `.so`, etc.  
+It is used for system-level APIs like **OpenGL**, etc.
