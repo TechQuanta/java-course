@@ -206,7 +206,8 @@ Java Uses a hierarchical delegation model for class loading.
 
 Each class Loader loads the parent first, If that unable to find the class then it load itself know as delegation model.
 
-# ClassLoader & Memory(Runtime Data Area)
+# Loading Phase
+## ClassLoader & Memory(Runtime Data Area)
 When JVM starts it setup different memory areas.
 The classloader loads class files from storage.
 - Method Area
@@ -219,6 +220,14 @@ ClassLoader itself an object store it here.
 - Stack 
 In this it is create for each thread because each thread has its own stack.
 Store method call, local variable etc.
+ 
+# Linking Phase
+## Verify 
+It verify the .class file that execute properly means cannot be able to penetrate by other malfunction bytecode.
+## Prepare
+In the prepration module we allocates the stack and heap area for static variables.
+## Resolve
+In the resolution we replace symbols with actual references 
 
 # Working
 
@@ -234,3 +243,4 @@ It is use to call the method from the Native Method Stack at the time of native 
 It provides a bridge between Java code and Native Code.
 It allow calling native libraries written in c/c++ or like .dll, .sl files.
 Used system level API's like : OpenGl etc.
+
