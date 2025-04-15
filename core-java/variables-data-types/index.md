@@ -15,6 +15,7 @@ The Java compiler breaks the line of code into text words is called **Java token
 
 # Tokens:-
 <hr><br/>
+
 It is the smallest unit in java program.
 <div align="center" width=700 height=200>
 <img src="https://github.com/user-attachments/assets/77230a9c-a012-4be8-8170-441e1c4d651e" class="execution" alt="DT">
@@ -24,6 +25,7 @@ There are primarily 8 tokens in java which used to write the source code.
 
 # Keywords:-
 <hr><br/>
+
 These are pre-defined reserved words of any programming langauge.  
 
 Each keyword has a speacial meaning it is always written in lower case.  
@@ -180,6 +182,7 @@ They Define **Structure & Flow**
 
 # Identifiers
 <hr><br/>
+
 They name which user provide for class, Variable, interfaces etc.
 
 - **Rules**  
@@ -189,12 +192,14 @@ They name which user provide for class, Variable, interfaces etc.
   - Case-Sensitive  
 
 *In Java you apply Pascal and Camel Casing for identifiers.*  
+
 Like : Camel Case `addNote()` for variables &functions etc.  
 Pascal Case `HelloWorld` for class names etc.
 
 
 # Literals
 <hr><br/>
+
 It is the fixed values directly used in the code  
 **Types of literals**:  
 - Integer: `1`  
@@ -207,9 +212,11 @@ It is the fixed values directly used in the code
 
 # Operators
 <hr><br/>
+
 These are use to perform operation on variables and values.
 
 *In Java there are 9 types of operators*  
+
 Types:  
 - **Arithmetic**: `+`, `-`, `*`, `/`, `%`  
 <div class="code-container">
