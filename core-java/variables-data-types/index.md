@@ -41,3 +41,29 @@ Each keyword has a speacial meaning it is always written in lower case.
 | 08  | char        | 18  | for         | 28  | package     | 38  | this        | 48  | enum        |
 | 09  | continue    | 19  | if          | 29  | private     | 39  | throw       | 49  | goto        |
 | 10  | default     | 20  | implements  | 30  | protected   | 40  | throws      | 50  | strictfp    |
+
+They Define **Structure & Flow** const & goto are reserved not in use.
+
+# Identifiers
+
+They name which user provide for class, Variable, interfaces etc.
+
+- Rules
+Must start with "_" & "$" in JAVA.
+Cannot start with number.
+cannot be a keyword.
+Case-Sensitive
+
+*In Java you apply Pascal and Camel Casing for identifiers.*
+Like : Pascal Case "addNote()" for functions.
+Camel Case "HelloWorld" for class names etc.
+
+# Literals
+It is the fixed values directly used in the code
+Types of literals: Integer(1), Floating point number(1.2), Character('c'), String("Hello World!"), Boolean(true,false), Null(null)
+
+# Operators
+These are use to perform operation on variables and values.
+
+*In Java there are 9 types of operators*
+Types: Arithmetic(	+, -, *, /, %), Assignment(=, +=, -=, *=, /=, %=), Comparision(==, !=, <, >, <=, >=), Logical(&&,`), Bitwise(&,`), Unary(+, -, ++, --, !), Ternary(?, :), InstanceCheck(instanceof), lambda(->).
