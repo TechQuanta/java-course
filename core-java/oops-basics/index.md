@@ -62,7 +62,6 @@ class Car {
         System.out.println("Engine started");
     }
 }
-
 public class Main {
     public static void main(String[] args) {
         Car car1 = new Car();
@@ -103,7 +102,6 @@ class Animal {
         System.out.println("Animal is eating");
     }
 }
-
 class Dog extends Animal {
     void bark() {
         System.out.println("Dog is barking");
@@ -135,7 +133,6 @@ class Animal {
         System.out.println("Animal makes a sound");
     }
 }
-
 class Dog extends Animal {
     void sound() {
         System.out.println("Dog barks");
@@ -154,7 +151,6 @@ class Dog extends Animal {
 abstract class Animal {
     abstract void sound();
 }
-
 class Dog extends Animal {
     void sound() {
         System.out.println("Dog barks");
@@ -166,7 +162,6 @@ class Dog extends Animal {
 interface Animal {
     void sound();
 }
-
 class Dog implements Animal {
     public void sound() {
         System.out.println("Dog barks");
