@@ -299,5 +299,5 @@ Example:
 
 # Data Types
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/dfd27266-b2a4-40df-b1e0-b74155362cfe" alt="DATATypes" width="700" height="200"/>
+  <img src="https://github.com/user-attachments/assets/dfd27266-b2a4-40df-b1e0-b74155362cfe" alt="DATATypes" />
 </div>
