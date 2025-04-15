@@ -13,12 +13,11 @@ The Java compiler breaks the line of code into text words is called Java tokens.
 *The delimiters are not the part of the Java Tokens*
 
 # Tokens:-
-- Identifier
-- Keyword
-- Separator
-- Operator
-- Literal
-- Comment
+<div align="center" width=700 height=200>
+<img src="https://github.com/user-attachments/assets/77230a9c-a012-4be8-8170-441e1c4d651e" class="execution" alt="JVM">
+</div><br/>
+
+
 <br/>
 
 # Keywords:-
