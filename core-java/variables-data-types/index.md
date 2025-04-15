@@ -14,7 +14,7 @@ The Java compiler breaks the line of code into text words is called **Java token
 
 
 # Tokens:-
----
+<hr><br/>
 It is the smallest unit in java program.
 <div align="center" width=700 height=200>
 <img src="https://github.com/user-attachments/assets/77230a9c-a012-4be8-8170-441e1c4d651e" class="execution" alt="DT">
@@ -23,7 +23,7 @@ There are primarily 8 tokens in java which used to write the source code.
 
 
 # Keywords:-
----
+<hr><br/>
 These are pre-defined reserved words of any programming langauge.  
 
 Each keyword has a speacial meaning it is always written in lower case.  
@@ -179,7 +179,7 @@ They Define **Structure & Flow**
 
 
 # Identifiers
----
+<hr><br/>
 They name which user provide for class, Variable, interfaces etc.
 
 - **Rules**  
@@ -194,7 +194,7 @@ Pascal Case `HelloWorld` for class names etc.
 
 
 # Literals
----
+<hr><br/>
 It is the fixed values directly used in the code  
 **Types of literals**:  
 - Integer: `1`  
@@ -206,7 +206,7 @@ It is the fixed values directly used in the code
 
 
 # Operators
----
+<hr><br/>
 These are use to perform operation on variables and values.
 
 *In Java there are 9 types of operators*  
@@ -348,7 +348,8 @@ Types:
 
 
 # Seprators
----
+<hr><br/>
+
 Character that help to define the boundaries of the statements & code block.
 
 **List of Seperators**: `;`, `{}`, `()`, `[]`, `,`, `.`
@@ -368,7 +369,7 @@ Character that help to define the boundaries of the statements & code block.
 
 
 # Comments in JAVA
----
+<hr><br/>
 There are two types of comments in java.
 <div class="code-container">
 <h4>Single line comment</h4>
@@ -395,7 +396,8 @@ There are two types of comments in java.
 
 
 # White Spaces in Java
----
+<hr><br/>
+
 It is use to seperate tokens with its value and it is ignored by the compiler at the time of compilation.
 <div class="code-container">
   <h3>Example Program:</h3>
@@ -409,11 +411,13 @@ It is use to seperate tokens with its value and it is ignored by the compiler at
 
 
 # Special Symbols
----
+<hr><br/>
+
 In java special symbols create in special context in java.
 Symbols: @, _ (from java 9 "_" alone is not allowed), $ can be used in identifiers not allowed for user code.
 like: In java we use annotation like for overriding the method we use @override anotation to prevent it overriding.
 Example: 
+
 <div class="code-container">
   <h3>Example Program:</h3>
   <pre><code class="code-block">
@@ -431,3 +435,179 @@ Example:
 <div align="center" width=700 height=200>
 <img src="https://github.com/user-attachments/assets/dfd27266-b2a4-40df-b1e0-b74155362cfe" class="execution" alt="DT">
 </div><br/>
+
+
+
+<br/>
+
+# 🧠 Java Data Types
+<hr><br/>
+
+Java has two main types of data types: **Primitive** and **Non-Primitive**. Let's explore each category and their usage.
+
+<br/>
+
+## 🔢 Primitive Data Types
+<hr><br/>
+
+Primitive data types are the most basic data types available in Java. They hold simple values and are not objects. There are **8** primitive data types in Java.
+
+
+<br/>
+
+### 📝 List of Primitive Data Types:
+<hr><br/>
+<table border="1" cellspacing="0" cellpadding="6">
+  <thead>
+    <tr>
+      <th>Data Type</th>
+      <th>Size (in bits)</th>
+      <th>Default Value</th>
+      <th>Examples</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>byte</code></td>
+      <td>8</td>
+      <td>0</td>
+      <td>Used to save memory in large arrays, where the memory savings is most needed.</td>
+    </tr>
+    <tr>
+      <td><code>short</code></td>
+      <td>16</td>
+      <td>0</td>
+      <td>Can be used in applications where memory is limited.</td>
+    </tr>
+    <tr>
+      <td><code>int</code></td>
+      <td>32</td>
+      <td>0</td>
+      <td>The default data type for integer values unless there is a concern about memory.</td>
+    </tr>
+    <tr>
+      <td><code>long</code></td>
+      <td>64</td>
+      <td>0L</td>
+      <td>Used when a wider range than <code>int</code> is needed.</td>
+    </tr>
+    <tr>
+      <td><code>float</code></td>
+      <td>32</td>
+      <td>0.0f</td>
+      <td>Used for decimal values, more precise than <code>double</code>.</td>
+    </tr>
+    <tr>
+      <td><code>double</code></td>
+      <td>64</td>
+      <td>0.0d</td>
+      <td>The default data type for decimal values.</td>
+    </tr>
+    <tr>
+      <td><code>char</code></td>
+      <td>16</td>
+      <td>'\u0000'</td>
+      <td>Used to store single characters. For example, <code>'a'</code>, <code>'1'</code>.</td>
+    </tr>
+    <tr>
+      <td><code>boolean</code></td>
+      <td>1</td>
+      <td>false</td>
+      <td>Used for <code>true</code> or <code>false</code> values.</td>
+    </tr>
+  </tbody>
+</table>
+
+<br/>
+
+## 🔢 Non-Primitive Data Types
+<hr><br/>
+
+Non-primitive data types are objects in Java. These include **arrays**, **strings**, **classes**, and **interfaces**. They are used to represent more complex types.
+
+<br/>
+
+### 📝 List of Non-Primitive Data Types:
+<hr><br/>
+<table border="1" cellspacing="0" cellpadding="6">
+  <thead>
+    <tr>
+      <th>Data Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>String</code></td>
+      <td>A sequence of characters.</td>
+    </tr>
+    <tr>
+      <td><code>Array</code></td>
+      <td>A container object that holds a fixed number of values of a single type.</td>
+    </tr>
+    <tr>
+      <td><code>Class</code></td>
+      <td>A blueprint for creating objects. A class contains fields (variables) and methods (functions).</td>
+    </tr>
+    <tr>
+      <td><code>Interface</code></td>
+      <td>A reference type in Java, it is similar to a class, but it can contain only constants, method signatures, default methods, static methods, and nested types.</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<br/>
+
+## 🧑‍💻 Wrapper Classes
+<hr><br/>
+
+In Java, each primitive data type has a corresponding wrapper class that allows it to be treated as an object. This is useful in situations such as when you need to use primitives in collections like **ArrayLists** or **Vectors**.
+
+<br/>
+
+### 📝 List of Wrapper Classes:
+<hr><br/>
+
+<table border="1" cellspacing="0" cellpadding="6">
+  <thead>
+    <tr>
+      <th>Primitive Type</th>
+      <th>Wrapper Class</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>byte</code></td>
+      <td><code>Byte</code></td>
+    </tr>
+    <tr>
+      <td><code>short</code></td>
+      <td><code>Short</code></td>
+    </tr>
+    <tr>
+      <td><code>int</code></td>
+      <td><code>Integer</code></td>
+    </tr>
+    <tr>
+      <td><code>long</code></td>
+      <td><code>Long</code></td>
+    </tr>
+    <tr>
+      <td><code>float</code></td>
+      <td><code>Float</code></td>
+    </tr>
+    <tr>
+      <td><code>double</code></td>
+      <td><code>Double</code></td>
+    </tr>
+    <tr>
+      <td><code>char</code></td>
+      <td><code>Character</code></td>
+    </tr>
+    <tr>
+      <td><code>boolean</code></td>
+      <td><code>Boolean</code></td>
+    </tr>
+  </tbody>
+</table>
