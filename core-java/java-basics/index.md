@@ -192,10 +192,10 @@ It is Just-In-Time tool is a compiler that compile modules which required at the
 
 <div align="center" width=700 height=200>
 <img src="https://github.com/user-attachments/assets/35075ccb-5472-4bb3-8d65-f21c485be654" class="execution" alt="JVM">
-</div>
+</div><br/>
 
 ## Class Loader Sub-System
-
+---
 It is an essential part of the Java Runtime Environment used to load the classes for execution.  
 Every class you use needs to be loaded into memory first before it can be used.  
 It loads the class over the network, JARs, etc., at the time of runtime.
@@ -207,10 +207,10 @@ Java uses a **hierarchical delegation model** for class loading:
 
 Each class loader loads its parent first. If that is unable to find the class, it loads itself — this is known as the **delegation model**.
 
----
+
 
 ## Loading Phase
-
+---
 ### ClassLoader & Memory (Runtime Data Area)
 
 When the JVM starts, it sets up different memory areas.  
@@ -229,10 +229,10 @@ The class loader loads class files from storage.
   This is created for each thread, as each thread has its own stack.  
   It stores method calls, local variables, etc.
 
----
+
 
 ## Linking Phase
-
+---
 ### Verify
 It verifies the `.class` file to ensure it executes properly and cannot be penetrated by malfunctioning bytecode.
 
@@ -242,31 +242,30 @@ In the preparation module, the stack and heap areas are allocated for static var
 ### Resolve
 In the resolution phase, symbolic references are replaced with actual references.
 
----
+
 
 ## Initializing Phase
-
+---
 In this phase, variables are initialized with their actual values.
 
----
 
 ## Working
-
+---
 **.class file** → **JVM** → **Create the Heap after verifying the .class file** → **Create the Stack for method calls**
 
----
+
 
 ## Execution Engine
-
+---
 It runs the bytecode.
 
 - **Interpreter** → Interprets the bytecode line by line (one-time call).
 - **JIT Compiler** → Compiles areas of the code for better performance (repeated).
 
----
+
 
 ## JNI (Java Native Interface)
-
+---
 It is used to call methods from the **Native Method Stack** during native code execution by JNI.  
 It provides a bridge between Java code and native code.  
 It allows calling native libraries written in C/C++ or libraries like `.dll`, `.so`, etc.  
