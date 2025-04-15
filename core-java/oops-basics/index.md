@@ -58,7 +58,6 @@ Object-Oriented Programming (OOP) is a programming paradigm that is based on the
 class Car {
     String model;
     int year;
-
     void startEngine() {
         System.out.println("Engine started");
     }
@@ -83,11 +82,9 @@ public class Main {
     <pre><code>
 class Person {
     private String name;
-
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
@@ -126,13 +123,11 @@ class Calculator {
     int add(int a, int b) {
         return a + b;
     }
-
     double add(double a, double b) {
         return a + b;
     }
 }
     </code></pre>
-
     <h4>Method Overriding</h4>
     <pre><code>
 class Animal {
@@ -154,7 +149,6 @@ class Dog extends Animal {
 <div class="section">
     <h2>5. Abstraction</h2>
     <p>Abstraction means hiding internal details and showing only the functionality. It is achieved using <code>abstract</code> classes and <code>interfaces</code>.</p>
-
     <h4>Using Abstract Class</h4>
     <pre><code>
 abstract class Animal {
@@ -167,7 +161,6 @@ class Dog extends Animal {
     }
 }
     </code></pre>
-
     <h4>Using Interface</h4>
     <pre><code>
 interface Animal {
@@ -191,7 +184,6 @@ class Dog implements Animal {
 class Car {
     String model;
     int year;
-
     Car(String model, int year) {
         this.model = model;
         this.year = year;
