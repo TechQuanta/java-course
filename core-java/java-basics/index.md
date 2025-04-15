@@ -193,3 +193,44 @@ It is Just-In-Time tool is a compiler that compile modules which required at the
 <div align="center" width=700 height=200>
 <img src="https://github.com/user-attachments/assets/35075ccb-5472-4bb3-8d65-f21c485be654" class="execution" alt="JVM">
 </div>
+
+## Class Loader
+It is an essential part of the Java Runtime Environment use to load the classes for execution.
+Every class you use need to load into memory first before it can be used.
+It loads the class over the network, Jars etc at the time of runtime.
+
+Java Uses a hierarchical delegation model for class loading.
+- Bootstrap ClassLoader -> It Loads the classes which need at the time of execution like Native classes (rt.jar).
+- Extension ClassLoader -> It Loads Classes from the **ext/** folder path JAVA_HOME/lib/ext.
+- Application ClassLoader -> It Loads the user classes or form classpath  eg (-cp or CLASSPATH).
+
+Each class Loader loads the parent first, If that unable to find the class then it load itself know as delegation model.
+
+# ClassLoader & Memory(Runtime Data Area)
+When JVM starts it setup different memory areas.
+The classloader loads class files from storage.
+- Method Area
+It store class metadata like : class name, method, fields, constant pool etc.
+The class structure store here basically.
+- Heap
+In this area the objects and arrays what ever created at runtime store here.
+Also In this we have literal pool and all the variables are the part of the method so its reference is store in heap.
+ClassLoader itself an object store it here.
+- Stack 
+In this it is create for each thread because each thread has its own stack.
+Store method call, local variable etc.
+
+# Working
+
+**.class file** -> **JVM** -> **Create The Heap after verifing the .class file** -> **Create the stack for method calls**
+
+## Execution Engine
+It Runs the bytecode.
+**Interpreter** -> Interpret the Bytecode line by line.(One Time Call)
+**Jit Compiler** -> Compiles the areas of the code for better performance.(Repeated)
+
+## JNI(Java Native Interface)
+It is use to call the method from the Native Method Stack at the time of native code execution by JNI.
+It provides a bridge between Java code and Native Code.
+It allow calling native libraries written in c/c++ or like .dll, .sl files.
+Used system level API's like : OpenGl etc.
