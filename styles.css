@@ -72,7 +72,24 @@ body {
 
   .welcome {
     font-size: 1.5em;
+    top:25px;
+    right:30px;
+    text-align: center;
+    position:fixed;
+    font-family: 'Segoe UI', sans-serif;
+    color: var(--fg);
+    font-size: 1.5rem;
+    width:60%;
+    font-weight: 600;
+    padding:5px;
+    background: linear-gradient(135deg, #db2598, #2575fc);
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 12px 12px 8px rgba(128, 24, 198, 0.714);
+    animation: fadeIn 1s ease-out;
+    
   }
+
 }
 
 
@@ -187,12 +204,12 @@ body {
 }
 
 #theme-toggle:hover {
-  background-color: #005bb5;
+  background-color: #0f92cf;
   transform: scale(1.1);
 }
 
 #theme-toggle:active {
-  background-color: #00408d;
+  background-color: #00ffff;
 }
 
 /* Sidebar Toggle for Mobile */
