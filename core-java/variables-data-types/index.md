@@ -16,9 +16,9 @@ The Java compiler breaks the line of code into text words is called **Java token
 # Tokens:-
 ---
 It is the smallest unit in java program.
-<div align="center">
-  <img src="https://github.com/user-attachments/assets/77230a9c-a012-4be8-8170-441e1c4d651e" alt="JVM" width="700" height="200"/>
-</div>
+<div align="center" width=700 height=200>
+<img src="https://github.com/user-attachments/assets/77230a9c-a012-4be8-8170-441e1c4d651e" class="execution" alt="DT">
+</div><br/>
 There are primarily 8 tokens in java which used to write the source code.
 
 
@@ -27,23 +27,151 @@ There are primarily 8 tokens in java which used to write the source code.
 These are pre-defined reserved words of any programming langauge.  
 
 Each keyword has a speacial meaning it is always written in lower case.  
+<br/>
 
-
-### ✅ JAVA Keywords
----
-
-| No. | Keyword     | No. | Keyword     | No. | Keyword     | No. | Keyword     | No. | Keyword     |
-|-----|-------------|-----|-------------|-----|-------------|-----|-------------|-----|-------------|
-| 01  | `abstract`  | 11  | `do`        | 21  | `import`    | 31  | `public`    | 41  | `transient` |
-| 02  | `boolean`   | 12  | `double`    | 22  | `instanceof`| 32  | `return`    | 42  | `try`       |
-| 03  | `byte`      | 13  | `else`      | 23  | `int`       | 33  | `short`     | 43  | `void`      |
-| 04  | `break`     | 14  | `extends`   | 24  | `interface` | 34  | `static`    | 44  | `volatile`  |
-| 05  | `class`     | 15  | `final`     | 25  | `long`      | 35  | `super`     | 45  | `while`     |
-| 06  | `case`      | 16  | `finally`   | 26  | `native`    | 36  | `switch`    | 46  | `assert`    |
-| 07  | `catch`     | 17  | `float`     | 27  | `new`       | 37  | `synchronized`|47| `const`     |
-| 08  | `char`      | 18  | `for`       | 28  | `package`   | 38  | `this`      | 48  | `enum`      |
-| 09  | `continue`  | 19  | `if`        | 29  | `private`   | 39  | `throw`     | 49  | `goto`      |
-| 10  | `default`   | 20  | `implements`| 30  | `protected` | 40  | `throws`    | 50  | `strictfp`  |
+<h3>✅ JAVA Keywords</h3><br/>
+<table border="1" cellspacing="0" cellpadding="6">
+  <thead>
+    <tr>
+      <th>No.</th>
+      <th>Keyword</th>
+      <th>No.</th>
+      <th>Keyword</th>
+      <th>No.</th>
+      <th>Keyword</th>
+      <th>No.</th>
+      <th>Keyword</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>01</td>
+      <td><code>abstract</code></td>
+      <td>11</td>
+      <td><code>do</code></td>
+      <td>21</td>
+      <td><code>import</code></td>
+      <td>31</td>
+      <td><code>public</code></td>
+    </tr>
+    <tr>
+      <td>02</td>
+      <td><code>boolean</code></td>
+      <td>12</td>
+      <td><code>double</code></td>
+      <td>22</td>
+      <td><code>instanceof</code></td>
+      <td>32</td>
+      <td><code>return</code></td>
+    </tr>
+    <tr>
+      <td>03</td>
+      <td><code>byte</code></td>
+      <td>13</td>
+      <td><code>else</code></td>
+      <td>23</td>
+      <td><code>int</code></td>
+      <td>33</td>
+      <td><code>short</code></td>
+    </tr>
+    <tr>
+      <td>04</td>
+      <td><code>break</code></td>
+      <td>14</td>
+      <td><code>extends</code></td>
+      <td>24</td>
+      <td><code>interface</code></td>
+      <td>34</td>
+      <td><code>static</code></td>
+    </tr>
+    <tr>
+      <td>05</td>
+      <td><code>class</code></td>
+      <td>15</td>
+      <td><code>final</code></td>
+      <td>25</td>
+      <td><code>long</code></td>
+      <td>35</td>
+      <td><code>super</code></td>
+    </tr>
+    <tr>
+      <td>06</td>
+      <td><code>case</code></td>
+      <td>16</td>
+      <td><code>finally</code></td>
+      <td>26</td>
+      <td><code>native</code></td>
+      <td>36</td>
+      <td><code>switch</code></td>
+    </tr>
+    <tr>
+      <td>07</td>
+      <td><code>catch</code></td>
+      <td>17</td>
+      <td><code>float</code></td>
+      <td>27</td>
+      <td><code>new</code></td>
+      <td>37</td>
+      <td><code>synchronized</code></td>
+    </tr>
+    <tr>
+      <td>08</td>
+      <td><code>char</code></td>
+      <td>18</td>
+      <td><code>for</code></td>
+      <td>28</td>
+      <td><code>package</code></td>
+      <td>38</td>
+      <td><code>this</code></td>
+    </tr>
+    <tr>
+      <td>09</td>
+      <td><code>continue</code></td>
+      <td>19</td>
+      <td><code>if</code></td>
+      <td>29</td>
+      <td><code>private</code></td>
+      <td>39</td>
+      <td><code>throw</code></td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td><code>default</code></td>
+      <td>20</td>
+      <td><code>implements</code></td>
+      <td>30</td>
+      <td><code>protected</code></td>
+      <td>40</td>
+      <td><code>throws</code></td>
+    </tr>
+    <tr>
+      <td>41</td>
+      <td><code>transient</code></td>
+      <td>42</td>
+      <td><code>try</code></td>
+      <td>43</td>
+      <td><code>void</code></td>
+      <td>44</td>
+      <td><code>volatile</code></td>
+    </tr>
+    <tr>
+      <td>45</td>
+      <td><code>while</code></td>
+      <td>46</td>
+      <td><code>assert</code></td>
+      <td>47</td>
+      <td><code>const</code></td>
+      <td>48</td>
+      <td><code>enum</code></td>
+    </tr>
+    <tr>
+      <td>49</td>
+      <td><code>goto</code></td>
+      <td>50</td>
+      <td><code>strictfp</code></td>
+    </tr>
+  </tbody>
+</table>
 
 They Define **Structure & Flow**  
 `const` & `goto` are reserved but not in use.

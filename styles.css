@@ -487,3 +487,61 @@ a:hover {
   margin-top: 15px;
   color: #444;
 }
+
+/* Style for the JAVA Keywords Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+  padding: 10px;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+}
+
+th {
+  background-color: #333;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+td {
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+td code {
+  background-color: #f1f1f1;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'Courier New', Courier, monospace;
+  color: #d6336c;
+}
+
+tr:hover td {
+  background-color: #f1f1f1;
+  transition: background-color 0.3s;
+}
+
+tr:nth-child(even) td {
+  background-color: #f9f9f9;
+}
+
+tr:nth-child(odd) td {
+  background-color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  table {
+    font-size: 12px;
+  }
+
+  th, td {
+    padding: 8px;
+  }
+}
