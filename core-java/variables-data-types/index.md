@@ -17,9 +17,11 @@ The Java compiler breaks the line of code into text words is called **Java token
 <hr><br/>
 
 It is the smallest unit in java program.
+
 <div align="center" width=700 height=200>
 <img src="https://github.com/user-attachments/assets/77230a9c-a012-4be8-8170-441e1c4d651e" class="execution" alt="DT">
 </div><br/>
+
 There are primarily 8 tokens in java which used to write the source code.
 
 

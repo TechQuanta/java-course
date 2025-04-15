@@ -1,32 +1,98 @@
-/* Default Font and Sizes */
 :root {
-  --bg: #ffffff;
-  --fg: #1a1a1a;
-  --sidebar-bg: #570978;
-  --sidebar-fg: #ffffff;
-  --accent: #ffffff;
-  --link-hover: #000000;
-  --shadow: rgba(0, 0, 0, 0.1);
+  /* 🌞 Light Mode — Spicy Metallic Citrus */
+  --bg: #e9fff1;               /* Warm ivory */
+  --fg: #03152a;               /* Rich espresso */
+  --sidebar-bg: linear-gradient(135deg, #ff8800, #ffcc00); /* Citrus fire */
+  --sidebar-fg: #000000;
+  --accent: #000000;           /* Burnt orange */
+  --link-hover: #ff9900;       /* Gold flare */
+  /* --shadow: rgba(255, 102, 0, 0.15); */
+
   --font-size: 16px;
-  --heading-font-size: 26px;  /* Larger headings */
-  --body-font-family: 'Segoe UI', sans-serif;
-  --padding: 20px;  /* General padding */
-  --sidebar-padding: 30px; /* Sidebar padding */
-  --content-padding: 25px; /* Main content padding */
-  --button-radius: 50px;
-  --button-size: 40px;
-  --button-padding: 12px;
+  --heading-font-size: 28px;
+  --body-font-family: 'Poppins', sans-serif;
+
+  --padding: 22px;
+  --sidebar-padding: 30px;
+  --content-padding: 26px;
+
+  --button-radius: 40px;
+  --button-size: 44px;
+  --button-padding: 14px;
+
+  --glass-blur: blur(16px);
+  --glass-bg: rgba(134, 79, 8, 0.15);
+  --glass-border: rgba(255, 155, 0, 0.3);
 }
 
-/* Dark Theme */
 [data-theme="dark"] {
-  --bg: #1e1e1e;
-  --fg: #f5f5f5;
-  --sidebar-bg: #2b2b2b;
-  --sidebar-fg: #e0e0e0;
-  --accent: #ffffff;
-  --link-hover: #000000;
-  --shadow: rgba(255, 255, 255, 0.05);
+  /* 🌒 Dark Mode — Chrome Heat */
+  --bg: #0a0409e3;                 /* Dark graphite */
+  --fg: #ffffff;                 /* Warm peach-cream */
+  --sidebar-bg: linear-gradient(135deg, #331100, #c14900); /* Molten metallic */
+  --sidebar-fg: #ffffff;
+  --accent: #ffffff;             /* Orange glow */
+  --link-hover: #ffb347;         /* Bright sun-kissed */
+
+  --glass-bg: rgba(255, 115, 0, 0.18);
+  --glass-border: rgba(255, 180, 100, 0.15);
+}
+
+/* 💫 General Layout */
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--body-font-family);
+  font-size: var(--font-size);
+  margin: 0;
+  padding: var(--padding);
+  transition: all 0.3s ease-in-out;
+}
+
+/* 🎛 Sidebar */
+.sidebar {
+  background: var(--sidebar-bg);
+  color: var(--sidebar-fg);
+  padding: var(--sidebar-padding);
+  height: 100vh;
+  width: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 0 24px var(--shadow);
+}
+
+/* ✨ Glass Card */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  box-shadow: 0 16px 40px var(--shadow);
+  padding: var(--content-padding);
+  color: var(--fg);
+  transition: all 0.4s ease;
+}
+
+/* 🔘 Buttons of Fire */
+.button {
+  background: var(--accent);
+  color: #fff;
+  padding: var(--button-padding);
+  border-radius: var(--button-radius);
+  border: none;
+  font-weight: 700;
+  font-family: inherit;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(255, 100, 0, 0.25);
+  transition: all 0.3s ease-in-out;
+}
+
+.button:hover {
+  transform: scale(1.08) translateY(-3px);
+  background: linear-gradient(135deg, var(--accent), var(--link-hover));
+  box-shadow: 0 14px 32px rgba(255, 140, 0, 0.4);
 }
 
 /* Global Reset */
@@ -48,7 +114,7 @@ body {
 }
 /* Welcome Section */
 .welcome {
-  top:10px;
+  top:17px;
   right:50px;
   text-align: center;
   position:fixed;
@@ -57,7 +123,7 @@ body {
   font-size: 1.5rem;
   width:60%;
   font-weight: 600;
-  padding: 20px 10px;
+  padding: 10px 10px;
   background: linear-gradient(135deg, #db2598, #2575fc);
   color: #fff;
   border-radius: 10px;
@@ -318,9 +384,9 @@ body {
 }
 
 .dropdown-container a:hover {
-  color: var(--link-hover);
-  background-color: #ffffff;
-  border-radius: 100px;
+  color: #ffffff;
+  background-color: #000000;
+  border-radius: 10px;
   
 }
 
