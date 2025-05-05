@@ -2,8 +2,8 @@
 :root {
   --bg: #ffffff;
   --fg: #1a1a1a;
-  --sidebar-bg: #0976789a;
-  --sidebar-fg: #ffffff;
+  --sidebar-bg: #ffffffef;
+  --sidebar-fg: #560525;
   --accent: #000000b9;
   --link-hover: #000000;
   --shadow: rgba(0, 0, 0, 0.1);
@@ -32,6 +32,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
 }
 
 body {
@@ -241,6 +243,8 @@ body {
   height: 100vh;
   overflow-y: auto;
   position: fixed;
+  border-right:4px solid black;
+  border-radius: 180px 180px 0px 0;
   transition: transform 0.3s ease;
 }
 
