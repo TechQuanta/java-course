@@ -454,9 +454,10 @@ hr {
   background:transparent;
 }
 .jdk-arch{
-  width: 100%;
-  height: 100%;
-  background:transparent;
+  width:auto;
+  height:auto;
+  background-color:black;
+
 }
 .code-container {
   font-family: Arial, sans-serif;
@@ -464,7 +465,7 @@ hr {
   background-color: #f9f9f9;
   border-radius: 8px;
   max-width: 700px;
-  margin: 20px auto;
+  margin: 10px auto;
 }
 
 .code-container h3 {
@@ -473,9 +474,7 @@ hr {
 }
 
 .code-block {
-  background-color: #272822;
-  color: #f8f8f2;
-  padding: 15px;
+  padding: 1px;
   border-radius: 6px;
   overflow-x: auto;
   display: block;
@@ -607,21 +606,25 @@ tr:nth-child(odd) td {
     background-color: #1e1e1e;
   }
 }
-
 /* Code Container Styling */
 .code-container {
-  padding: var(--padding);
+  padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 4px 20px var(--shadow);
-  margin: 30px 0;
+  background: #ffffff;  /* White background */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);  /* Soft shadow */
+  border: 0px solid #e0e0e0;  /* Light border */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.code-container:hover {
+  transform: scale(1.01);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);  /* Slightly larger shadow on hover */
+}
 
-/* Universal code font */
+/* Universal Code Font Styling */
 pre, code {
   font-family: 'Fira Code', 'Courier New', monospace;
-  font-size: 15px;
-  line-height: 1.6;
+  line-height: 1.8;
   white-space: pre-wrap;
   word-break: break-word;
   overflow-x: auto;
@@ -630,69 +633,103 @@ pre, code {
   transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* Block pre */
+/* Block Code */
 pre {
-  background-color: #1e1e2e;
-  color: #f8f8f2;
-  margin-top: 16px;
+  background: #fafafa;  /* Light background */
+  color: #333;  /* Dark text color */
+  position: relative;
+  border-left: 5px solid #40b3ff;  /* Colorful left border */
+  padding-left: 10px;
 }
 
-/* Inline code */
-code {
-  background-color: #2a2a3a;
-  padding: 3px 6px;
+/* Pre Code Block Label */
+pre::before {
+  content: "Code Block";
+  position: absolute;
+  top: -3px;
+  left: 0px;
+  background-color: #b71fc551;  /* Pink label background */
+  padding: 1px 3px;
   border-radius: 5px;
-  color: #ffffff;
-  font-size: 14px;
-  font-family:'Courier New', Courier, monospace;
+  font-size: 12px;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
 }
+
+/* Inline Code Styling */
+code {
+  background-color: #f5f5f5;
+  padding: 4px 8px;
+  border-radius: 5px;
+  color: #333;
+  font-size: 20px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Hover Effects for Code */
+
+
+/* Syntax Highlighting */
+.keyword {
+  color: #000000;  /* Bright Yellow for keywords */
+  font-weight: bold;
+}
+
+.classname {
+  color: #82ff7b;  /* Light Green for class names */
+  font-weight: bold;
+}
+
+.method {
+  color: #ff4081;  /* Pink for methods */
+}
+
+.parens {
+  color: #5e35b1;  /* Purple for parentheses */
+}
+
+.string {
+  color: #80deea;  /* Light Cyan for strings */
+}
+
+.type {
+  color: #f57c00;  /* Orange for types */
+}
+
+.class-ref {
+  color: #ff7043;  /* Deep Orange for class references */
+}
+
+.command {
+  color: #aed581;  /* Light Green for commands */
+  font-weight: bold;
+}
+.variable {
+  color: #d6336c; /* Purple-red for variables */
+  font-weight: bold;
+}
+
 
 /* Scrollbars */
 pre::-webkit-scrollbar {
   height: 8px;
-}
-pre::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 8px;
-}
-pre::-webkit-scrollbar-track {
-  background: #2a2a2a;
+
 }
 
-/* Syntax Highlighting */
-.keyword {
-  color: #c792ea; /* Purple */
-  font-weight: bold;
+pre::-webkit-scrollbar-thumb {
+  background: #b0bec5;
+  border-radius: 8px;
 }
-.classname {
-  color: #82aaff; /* Light Blue */
-  font-weight: bold;
-}
-.method {
-  color: #ffcb6b; /* Yellow */
-}
-.parens {
-  color: #89ddff; /* Cyan */
-}
-.string {
-  color: #c3e88d; /* Green */
-}
-.type {
-  color: #f78c6c; /* Orange */
-}
-.class-ref {
-  color: #f07178; /* Soft Red */
-}
-.command {
-  color: #89ddff;
-  font-weight: bold;
+
+pre::-webkit-scrollbar-track {
+  background: #f9f9f9;  /* Subtle background for scroll track */
 }
 
 /* Terminal note paragraph */
 .note {
   font-size: 14px;
   font-style: italic;
-  color: #ccc;
+  color: #000000;
   margin-top: 12px;
   padding-left: 12px;
 }

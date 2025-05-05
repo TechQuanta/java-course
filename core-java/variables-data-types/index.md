@@ -220,7 +220,8 @@ These are use to perform operation on variables and values.
 *In Java there are 9 types of operators*  
 
 Types:  
-- **Arithmetic**: `+`, `-`, `*`, `/`, `%`  
+- **Arithmetic**: `+`, `-`, `*`, `/`, `%` 
+ 
 <div class="code-container">
   <h3>Arithmetic Operators:</h3>
   <pre><code class="code-block">
@@ -621,28 +622,28 @@ In Java, each primitive data type has a corresponding wrapper class that allows 
   </tbody>
 </table>
 
-<pre>
-<code>
-class IntegerWrapper {
-    private int value;
+<div class="code-container">
+  <h3>Integer Wrapper Class Example:</h3>
+  <pre><code class="code-block">
+<span class="keyword">class</span> <span class="classname">IntegerWrapper</span> <span class="punctuation">{</span>
+    <span class="keyword">private</span> <span class="type">int</span> <span class="var">value</span>;
+    <span class="keyword">public</span> <span class="classname">IntegerWrapper</span>(<span class="type">int</span> <span class="var">value</span>) <span class="punctuation">{</span>
+        <span class="keyword">this</span>.<span class="var">value</span> <span class="operator">=</span> <span class="var">value</span><span class="punctuation">;</span>
+    <span class="punctuation">}</span>  
+    <span class="keyword">public</span> <span class="type">int</span> <span class="method">getValue</span><span class="parens">()</span> <span class="punctuation">{</span>
+        <span class="keyword">return</span> <span class="var">value</span><span class="punctuation">;</span>
+    <span class="punctuation">}</span>
+<span class="punctuation">}</span>
 
-    public IntegerWrapper(int value) {
-        this.value = value;
-    }
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="classname">Main</span> <span class="punctuation">{</span>
+    <span class="keyword">public static void</span> <span class="method">main</span><span class="parens">(</span><span class="type">String</span>[] <span class="var">args</span><span class="parens">)</span> <span class="punctuation">{</span>
+        <span class="classname">IntegerWrapper</span> <span class="var">myInt</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="classname">IntegerWrapper</span>(<span class="number">10</span>);
+        <span class="keyword">System</span>.<span class="method">out</span>.<span class="method">println</span><span class="parens">(</span><span class="string">"Value: "</span> + <span class="var">myInt</span>.<span class="method">getValue</span><span class="parens">())</span><span class="punctuation">;</span>
+    <span class="punctuation">}</span>
+<span class="punctuation">}</span>
+  </code></pre>
+</div>
 
-    public int getValue() {
-        return value;
-    }
-}
-
-public class Main {
-    public static void main(String[] args) {
-        IntegerWrapper myInt = new IntegerWrapper(10);
-        System.out.println("Value: " + myInt.getValue());
-    }
-}
-</code>
-</pre>
 
 <h1 style="text-align: center;">Memory Size Comparison: Wrapper Classes vs Primitive Types</h1>
 
