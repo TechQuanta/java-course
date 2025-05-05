@@ -1,27 +1,18 @@
 <style>
         h1, h2, h3 {
-            color: #4CAF50;
+            color:rgb(76, 125, 175);
         }
-        code {
-            background-color:rgb(0, 0, 0);
-            padding: 5px;
-            border-radius: 3px;
-            font-size: 1.1em;
-        }
-        pre {
-            background-color: #333;
-            color: #fff;
-            padding: 15px;
-            border-radius: 5px;
-            font-size: 1em;
-            overflow-x: auto;
-        }
+       
         ul {
             list-style-type: none;
             padding: 0;
         }
-        li {
+        .li {
             margin-bottom: 10px;
+            padding:4px;
+            display:inline-block;
+            background-color:rgba(76, 175, 79, 0.51);
+            border-radius:10px;
         }
         .table-container {
             margin-top: 20px;
@@ -34,8 +25,9 @@
             border-bottom: 1px solid #ddd;
         }
         .table-container th {
-            background-color: #4CAF50;
+            background: linear-gradient(135deg,rgb(0, 0, 0),rgb(92, 92, 93));
             color: white;
+            text-align:center;
         }
         .section-header {
             margin-top: 30px;
@@ -47,17 +39,17 @@
     <p>This page provides an in-depth guide to <strong>Java methods</strong>, their access modifiers, scope, and other key concepts. It covers the basic structure of a Java method, access levels, and how different modifiers affect method visibility and behavior.</p>
     <div class="section-header">
         <h2>Table of Contents</h2>
-        <ul>
-            <li><a href="#what-are-java-methods">What are Java Methods?</a></li>
-            <li><a href="#method-syntax">Method Syntax</a></li>
-            <li><a href="#access-modifiers">Access Modifiers</a></li>
-            <li><a href="#method-scope">Method Scope</a></li>
-            <li><a href="#method-return-types">Method Return Types</a></li>
-            <li><a href="#method-overloading">Method Overloading</a></li>
-            <li><a href="#method-overriding">Method Overriding</a></li>
-            <li><a href="#summary">Summary</a></li>
+        <ul style="display:block;font-weight:bolder;">
+            <li class="li" style="margin:10px;    text-align:center; border-radius:10px;"><a href="#what-are-java-methods">What are Java Methods?</a></li>
+            <li class="li" style="margin:10px;  text-align:center;"><a href="#method-syntax">Method Syntax</a></li>
+            <li class="li" style="margin:10px;  text-align:center;"><a href="#access-modifiers">Access Modifiers</a></li>
+            <li class="li" style="margin:10px;  text-align:center;"><a href="#method-scope">Method Scope</a></li>
+            <li class="li" style="margin:10px;  text-align:center;"><a href="#method-return-types">Method Return Types</a></li>
+            <li class="li" style="margin:10px;  text-align:center;"><a href="#method-overloading">Method Overloading</a></li>
+            <li class="li" style="margin:10px;  text-align:center;"><a href="#method-overriding">Method Overriding</a></li>
+            <li class="li" style="margin:10px;  text-align:center;"><a href="#summary">Summary</a></li>
         </ul>
-    </div>
+    </div><br/>
     <h3 id="what-are-java-methods">What are Java Methods?</h3>
     <p>A <strong>method</strong> in Java is a block of code that performs a specific task. It is a part of a class and can be called to execute that task whenever needed. Methods in Java can have parameters, return values, and can be invoked based on their scope and visibility.</p>
     <h3 id="method-syntax">Method Syntax</h3>
@@ -67,13 +59,15 @@
 // Method body
 }
 </code></pre>
+<br>
     <ul>
-        <li><strong>Access Modifier</strong>: Defines the visibility of the method.</li>
-        <li><strong>Return Type</strong>: Specifies what the method will return (if anything).</li>
-        <li><strong>Method Name</strong>: The name of the method.</li>
-        <li><strong>Parameters</strong>: The inputs to the method (optional).</li>
-        <li><strong>Method Body</strong>: The code that the method will execute.</li>
+        <li><strong class="li">Access Modifier</strong> : Defines the visibility of the method.</li>
+        <li><strong class="li">Return Type</strong> : Specifies what the method will return (if anything).</li>
+        <li><strong class="li">Method Name</strong> : The name of the method.</li>
+        <li><strong class="li">Parameters</strong>  : The inputs to the method (optional).</li>
+        <li><strong class="li">Method Body</strong> : The code that the method will execute.</li>
     </ul>
+    <br>
     <h3 id="access-modifiers">Access Modifiers</h3>
     <p>Access modifiers define the visibility of methods in Java. Here are the common modifiers:</p>
     <div class="table-container">
@@ -107,7 +101,6 @@
     </div>
     <p>Example:</p>
     <pre><code>
-
 public class MyClass {
 public void publicMethod() {
 System.out.println("I am public.");
@@ -123,6 +116,7 @@ System.out.println("I am public.");
     }
 }
 </code></pre>
+<br>
     <h3 id="method-scope">Method Scope</h3>
     <p>The scope of a method defines where it can be accessed from in your program. The scope is determined by the access modifier and where the method is declared (inside or outside the class).</p>
     <div class="table-container">
@@ -165,9 +159,9 @@ System.out.println("I am static.");
 
 }
 </code></pre>
+<br>
     <h3 id="method-return-types">Method Return Types</h3>
     <p>Java methods can return values or be declared void to indicate that they do not return anything. The return type is specified before the method name.</p>
-
     <div class="table-container">
         <table>
             <tr>
@@ -200,6 +194,7 @@ public void printMessage(String message) {
 System.out.println(message);
 }
 </code></pre>
+<br>
     <h3 id="method-overloading">Method Overloading</h3>
     <p>Java allows methods to have the same name but different parameter lists. This feature is known as method overloading. Overloading can happen by changing the number or type of parameters.</p>
     <pre><code>
@@ -212,6 +207,7 @@ System.out.println("Message: " + msg);
     }
 }
 </code></pre>
+<br>
     <h3 id="method-overriding">Method Overriding</h3>
     <p>Method overriding occurs when a subclass provides a specific implementation of a method already defined in its superclass. The method in the subclass should have the same name, return type, and parameters.</p>
     <pre><code>
@@ -228,12 +224,13 @@ System.out.println("Dog barks");
 }
 }
 </code></pre>
+<br>
     <h3 id="summary">Summary</h3>
     <p>Java methods are essential building blocks for implementing behavior in your application. Understanding the following concepts is crucial for effective method usage:</p>
     <ul>
-        <li>Access Modifiers: Control the visibility of your methods.</li>
-        <li>Scope: Determines where the method can be accessed.</li>
-        <li>Return Types: Define the type of value (if any) that a method returns.</li>
-        <li>Overloading and Overriding: Offer flexibility in defining method behavior.</li>
-    </ul>
+        <li><strong class="li">Access Modifiers</strong> : Control the visibility of your methods.</li>
+        <li><strong class="li">Scope</strong> : Determines where the method can be accessed.</li>
+        <li><strong class="li">Return Types</strong> : Define the type of value (if any) that a method returns.</li>
+        <li><strong class="li">Overloading and Overriding</strong> : Offer flexibility in defining method behavior.</li>
+    </ul><br/>
     <p>By mastering these concepts, you can write clean, efficient, and organized Java code.</p>

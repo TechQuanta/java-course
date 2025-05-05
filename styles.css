@@ -48,24 +48,38 @@ body {
 }
 /* Welcome Section */
 .welcome {
-  top:20px;
-  right:40px;
+  top:25px;
+  right:79px;
   text-align: center;
   position:fixed;
   font-family: 'Segoe UI', sans-serif;
   color: var(--fg);
   font-size: 1.5rem;
-  width:40%;
+  width:38%;
   z-index: 400;
   font-weight: 600;
-  padding: 5px 10px;
-  background: linear-gradient(135deg, #db2598, #2575fc);
+  padding: 2px 2px;
+  background: linear-gradient(135deg, #db25b1, #fcc6259d);
   color: #fff;
   border-radius: 10px;
-  box-shadow: 12px 12px 8px rgba(0, 0, 0, 0.714);
-  animation: fadeIn 1s ease-out;
+  box-shadow: 9px 8px 1px rgba(209, 49, 132, 0.468);
+  animation: slideDown 2s ease-out;
 }
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateX(0px);
+  }
+  30%{
+    opacity: 0;
+    transform: translateY(-30px);
+  }
 
+  100% {
+    opacity: 1;
+    transform: translatex(0px);
+  }
+}
 @media (max-width: 1100px) {
   .hide-on-mobile {
     display: none;
@@ -73,20 +87,20 @@ body {
 
   .welcome {
     font-size: 1.5em;
-    top:25px;
-    right:30px;
+    top:20px;
+    right:80px;
     text-align: center;
     position:fixed;
     font-family: 'Segoe UI', sans-serif;
     color: var(--fg);
     font-size: 1.5rem;
-    width:60%;
+    width:38%;
     font-weight: 600;
     padding:5px;
-    background: linear-gradient(135deg, #db2598, #2575fc);
+    background: linear-gradient(135deg, #dbb725, #c09e19);
     color: #fff;
     border-radius: 10px;
-    box-shadow: 12px 12px 8px rgba(128, 24, 198, 0.714);
+    box-shadow: 5px 12px 2px rgba(0, 0, 0, 0.714);
     animation: fadeIn 1s ease-out;
     
   }
@@ -184,31 +198,27 @@ body {
   }
 }
 
+
 /* Theme Toggle Button */
 #theme-toggle {
   position: fixed;
   top: 20px;
+  text-align:center;
   right: 20px;
-  background: var(--accent);
   color: var(--sidebar-fg);
   border: none;
-  font-size: 18px;
-  padding: var(--button-padding);
+  font-size: 38px;
   border-radius: var(--button-radius);
-  z-index: 1001;
+  z-index: 1000;
   cursor: pointer;
   transition: background 0.3s ease, transform 0.3s;
-  box-shadow: 0 4px 6px rgba(0, 255, 255, 0.2);
+
 }
 
 #theme-toggle:hover {
-  background-color: #0f92cf00;
   transform: scale(1.1);
 }
 
-#theme-toggle:active {
-  background-color: #00ffff00;
-}
 
 /* Sidebar Toggle for Mobile */
 #menu-toggle {
@@ -217,13 +227,10 @@ body {
   top: 20px;
   left: 20px;
   background-color:rgb(16, 192, 232);
-  color: rgb(0, 0, 0);
-  font-size: 20px;
+  font-size: 39px;
   border: none;
-  padding: var(--button-padding);
   z-index: 1000;
   border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(45, 18, 43, 0);
 }
 
 #menu-toggle:hover {
