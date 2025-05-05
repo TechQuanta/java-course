@@ -620,3 +620,72 @@ In Java, each primitive data type has a corresponding wrapper class that allows 
     </tr>
   </tbody>
 </table>
+
+<pre>
+<code>
+class IntegerWrapper {
+    private int value;
+
+    public IntegerWrapper(int value) {
+        this.value = value;
+    }
+
+    public int getValue() {
+        return value;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        IntegerWrapper myInt = new IntegerWrapper(10);
+        System.out.println("Value: " + myInt.getValue());
+    }
+}
+</code>
+</pre>
+
+<h1 style="text-align: center;">Memory Size Comparison: Wrapper Classes vs Primitive Types</h1>
+
+  <table>
+    <caption>Wrapper Classes vs Primitive Data Types Memory Size</caption>
+    <thead>
+      <tr>
+        <th>Data Type</th>
+        <th>Wrapper Class</th>
+        <th>Memory Size</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>int</td>
+        <td>Integer</td>
+        <td>4 bytes (primitive), 16 bytes (wrapper)</td>
+        <td>Primitive data type takes 4 bytes; Wrapper class takes 16 bytes due to additional object overhead.</td>
+      </tr>
+      <tr>
+        <td>double</td>
+        <td>Double</td>
+        <td>8 bytes (primitive), 24 bytes (wrapper)</td>
+        <td>Primitive data type takes 8 bytes; Wrapper class takes 24 bytes due to object overhead.</td>
+      </tr>
+      <tr>
+        <td>char</td>
+        <td>Character</td>
+        <td>2 bytes (primitive), 16 bytes (wrapper)</td>
+        <td>Primitive data type takes 2 bytes; Wrapper class takes 16 bytes due to object overhead.</td>
+      </tr>
+      <tr>
+        <td>boolean</td>
+        <td>Boolean</td>
+        <td>1 byte (primitive), 16 bytes (wrapper)</td>
+        <td>Primitive data type takes 1 byte; Wrapper class takes 16 bytes due to object overhead.</td>
+      </tr>
+      <tr>
+        <td>long</td>
+        <td>Long</td>
+        <td>8 bytes (primitive), 16 bytes (wrapper)</td>
+        <td>Primitive data type takes 8 bytes; Wrapper class takes 16 bytes due to object overhead.</td>
+      </tr>
+    </tbody>
+  </table>
