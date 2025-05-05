@@ -17,13 +17,15 @@ async function loadContent(path) {
 // Static welcome content
 const defaultStaticHTML = `
   <div class="welcome-block">
-    <h2>🚀 Let's Get Started with Java</h2>
+  <img src="Java.svg" alt="Java Logo" class="java-logo" />
+    <h2>Let's Get Started with Java</h2>
     <p>Explore the structured Java path starting from Core to Senior level topics:</p>
+    <br/>
     <ul class="starter-list">
       <li>🔰 Core Java: Variables, Control Flow, OOP Basics</li>
       <li>⚙️ Advanced Java: Threads, Collections, File I/O</li>
       <li>👨‍💻 Senior Level: JVM, Microservices, Performance</li>
-    </ul>
+    </ul><br/>
     <p class="start-note">Use the sidebar to begin your journey. Happy learning! ☕</p>
   </div>
 `;

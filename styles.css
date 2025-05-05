@@ -1,10 +1,10 @@
 /* Default Font and Sizes */
 :root {
-  --bg: #aad6da;
+  --bg: #ffffff;
   --fg: #1a1a1a;
-  --sidebar-bg: #570978;
+  --sidebar-bg: #0976789a;
   --sidebar-fg: #ffffff;
-  --accent: #ffffff;
+  --accent: #000000b9;
   --link-hover: #000000;
   --shadow: rgba(0, 0, 0, 0.1);
   --font-size: 16px;
@@ -48,8 +48,8 @@ body {
 }
 /* Welcome Section */
 .welcome {
-  top:10px;
-  right:50px;
+  top:20px;
+  right:40px;
   text-align: center;
   position:fixed;
   font-family: 'Segoe UI', sans-serif;
@@ -57,11 +57,11 @@ body {
   font-size: 1.5rem;
   width:60%;
   font-weight: 600;
-  padding: 10px 10px;
+  padding: 5px 10px;
   background: linear-gradient(135deg, #db2598, #2575fc);
   color: #fff;
   border-radius: 10px;
-  box-shadow: 12px 12px 8px rgba(128, 24, 198, 0.714);
+  box-shadow: 12px 12px 8px rgba(0, 0, 0, 0.714);
   animation: fadeIn 1s ease-out;
 }
 
@@ -96,31 +96,28 @@ body {
 
 .welcome-block {
   text-align: center;
-  padding: 30px;
   background: var(--bg);
   border-radius: 10px;
-  box-shadow: 0 0 10px var(--shadow);
 }
 
 .welcome-block h2 {
   font-size: 24px;
-  margin-bottom: 10px;
+
 }
 
 .welcome-block .starter-list {
   list-style: none;
   padding: 0;
-  margin: 20px 0;
+
 }
 
 .welcome-block .starter-list li {
-  margin: 8px 0;
+
   font-size: 16px;
 }
 
 .start-note {
   font-style: italic;
-  margin-top: 15px;
 }
 
 
@@ -200,16 +197,16 @@ body {
   z-index: 1001;
   cursor: pointer;
   transition: background 0.3s ease, transform 0.3s;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 6px rgba(0, 255, 255, 0.2);
 }
 
 #theme-toggle:hover {
-  background-color: #0f92cf;
+  background-color: #0f92cf00;
   transform: scale(1.1);
 }
 
 #theme-toggle:active {
-  background-color: #00ffff;
+  background-color: #00ffff00;
 }
 
 /* Sidebar Toggle for Mobile */
@@ -229,12 +226,12 @@ body {
 }
 
 #menu-toggle:hover {
-  background-color: #005bb5;
+  background-color: #005bb500;
   transform: scale(1.1);
 }
 
 #menu-toggle:active {
-  background-color: #00408d;
+  background-color: #003f8d00;
 }
 
 /* Sidebar */
