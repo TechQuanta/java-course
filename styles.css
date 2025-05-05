@@ -20,8 +20,6 @@
 
 /* Dark Theme */
 [data-theme="dark"] {
-  --bg: #1e1e1e;
-  --fg: #f5f5f5;
   --sidebar-bg: #2b2b2b;
   --sidebar-fg: #e0e0e0;
   --accent: #ffffff;
@@ -498,15 +496,14 @@ hr {
   margin-top: 15px;
   color: #444;
 }
-
-/* Style for the JAVA Keywords Table */
+/* Base Styles (Light Theme Default) */
 table {
   width: 100%;
   border-collapse: collapse;
   margin: 20px 0;
   background-color: #f9f9f9;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  table-layout: auto; /* Adjusts columns to fit content */
+  table-layout: auto;
 }
 
 th, td {
@@ -532,7 +529,6 @@ td code {
   background-color: #f1f1f1;
   padding: 2px 6px;
   border-radius: 4px;
-  font-family: 'Courier New', Courier, monospace;
   color: #d6336c;
 }
 
@@ -549,12 +545,13 @@ tr:nth-child(odd) td {
   background-color: #ffffff;
 }
 
-/* Container for making the table scrollable */
+/* Scrollable table container */
 .table-container {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 }
 
+/* Responsive */
 @media (max-width: 768px) {
   table {
     font-size: 12px;
@@ -567,4 +564,128 @@ tr:nth-child(odd) td {
   td code {
     font-size: 12px;
   }
+}
+
+/* 🌙 Dark Mode Overrides */
+@media (prefers-color-scheme: dark) {
+  table {
+    background-color: #1e1e1e;
+    box-shadow: 0 2px 12px rgba(255, 255, 255, 0.05);
+  }
+
+  th {
+    background-color: #555;
+    color: #f8f8f2;
+  }
+
+  td {
+    background-color: #000000;
+    border-bottom: 1px solid #444;
+    color: #e0e0e0;
+  }
+
+  td code {
+    background-color: #3a3a3a;
+    color: #ff79c6;
+  }
+
+  tr:hover td {
+    background-color: #333;
+  }
+
+  tr:nth-child(even) td {
+    background-color: #262626;
+  }
+
+  tr:nth-child(odd) td {
+    background-color: #1e1e1e;
+  }
+}
+
+/* Code Container Styling */
+.code-container {
+  background: var(--sidebar-bg);
+  padding: var(--padding);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px var(--shadow);
+  margin: 30px 0;
+}
+
+/* Universal code font */
+pre, code {
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 15px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-x: auto;
+  border-radius: 8px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Block pre */
+pre {
+  background-color: #1e1e2e;
+  color: #f8f8f2;
+  padding: 16px;
+  margin-top: 16px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Inline code */
+code {
+  background-color: #2a2a3a;
+  padding: 3px 6px;
+  border-radius: 5px;
+  color: #ffffff;
+}
+
+/* Scrollbars */
+pre::-webkit-scrollbar {
+  height: 8px;
+}
+pre::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 8px;
+}
+pre::-webkit-scrollbar-track {
+  background: #2a2a2a;
+}
+
+/* Syntax Highlighting */
+.keyword {
+  color: #c792ea; /* Purple */
+  font-weight: bold;
+}
+.classname {
+  color: #82aaff; /* Light Blue */
+  font-weight: bold;
+}
+.method {
+  color: #ffcb6b; /* Yellow */
+}
+.parens {
+  color: #89ddff; /* Cyan */
+}
+.string {
+  color: #c3e88d; /* Green */
+}
+.type {
+  color: #f78c6c; /* Orange */
+}
+.class-ref {
+  color: #f07178; /* Soft Red */
+}
+.command {
+  color: #89ddff;
+  font-weight: bold;
+}
+
+/* Terminal note paragraph */
+.note {
+  font-size: 14px;
+  font-style: italic;
+  color: #ccc;
+  margin-top: 12px;
+  padding-left: 12px;
 }
