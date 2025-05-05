@@ -460,6 +460,12 @@ hr {
   border-radius: 20px;
   background:transparent;
 }
+.lifecycle{
+  width: 80%;
+  height: 500px;
+  border-radius: 20px;
+  background:transparent;
+}
 .jdk-arch{
   width:auto;
   height:auto;
@@ -745,4 +751,30 @@ caption {
   font-size: 1rem;
   margin: 10px 0;
   color: rgba(156, 156, 156, 0.684);
+}
+.li {
+  margin-bottom: 10px;
+  padding:4px;
+  display:inline-block;
+  background-color:rgba(76, 175, 79, 0.51);
+  border-radius:10px;
+}
+.table-container {
+  margin-top: 20px;
+  border-collapse: collapse;
+  width: 100%;
+}
+.table-container th, .table-container td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+.table-container th {
+  color: white;
+  text-align:center;
+}
+.section-header {
+  margin-top: 30px;
+  padding: 10px 0;
+  border-bottom: 2px solid #4CAF50;
 }

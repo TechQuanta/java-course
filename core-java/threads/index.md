@@ -1,60 +1,24 @@
-# Java Threads and the `Runnable` Interface
 
-Threads in Java enable concurrent execution of tasks, improving performance and responsiveness, especially in scenarios where tasks can run independently. This guide will delve deeper into the `Runnable` interface and other related concepts.
+ <h1>Java Threads and the <code>Runnable</code> Interface</h1>
 
- <h1>Java Threads and the `Runnable` Interface</h1>
-    <h2>Table of Contents</h2>
-    <ul>
-        <li><a href="#what-are-threads">What are Threads?</a></li>
-        <li><a href="#creating-threads">Creating Threads</a></li>
-        <ul>
-            <li><a href="#using-the-runnable-interface">Using the `Runnable` Interface</a></li>
-            <li><a href="#using-the-thread-class">Using the `Thread` Class</a></li>
-        </ul>
-        <li><a href="#thread-lifecycle">Thread Lifecycle</a></li>
-        <li><a href="#thread-states">Thread States</a></li>
-        <li><a href="#thread-synchronization">Thread Synchronization</a></li>
-        <li><a href="#thread-communication">Thread Communication</a></li>
-        <li><a href="#thread-pooling">Thread Pooling</a></li>
-        <li><a href="#thread-safety">Thread Safety</a></li>
-        <li><a href="#best-practices-for-multithreading">Best Practices for Multithreading</a></li>
-        <li><a href="#thread-class-hierarchy">Thread Class Hierarchy</a></li>
-        <li><a href="#summary">Summary</a></li>
-    </ul>
-<!-- Custom Styles for Code Examples and Sections -->
-<style>
-    pre {
-        background-color: #f4f4f4;
-        border: 1px solid #ccc;
-        padding: 10px;
-        font-family: 'Courier New', Courier, monospace;
-        font-size: 16px;
-        color: #333;
-    }
-
-    code {
-        background-color: #f4f4f4;
-        padding: 2px 4px;
-        border-radius: 4px;
-        font-family: 'Courier New', Courier, monospace;
-        color: #d14;
-    }
-
-    blockquote {
-        border-left: 4px solid #ccc;
-        padding-left: 10px;
-        font-style: italic;
-        color: #666;
-    }
-
-    ul {
-        font-size: 16px;
-    }
-
-    li {
-        margin-bottom: 8px;
-    }
-</style>
+  <h2>Table of Contents</h2>
+  <ul>
+    <li class="li"><a href="#what-are-threads">What are Threads?</a></li>
+    <li><a href="#creating-threads">Creating Threads</a>
+      <ul>
+        <li><a href="#using-the-runnable-interface">Using the <code>Runnable</code> Interface</a></li>
+        <li><a href="#using-the-thread-class">Using the <code>Thread</code> Class</a></li>
+      </ul>
+    </li>
+    <li class="li"><a href="#thread-states">Thread States</a></li>
+    <li class="li"><a href="#thread-synchronization">Thread Synchronization</a></li>
+    <li class="li"><a href="#thread-communication">Thread Communication</a></li>
+    <li class="li"><a href="#thread-pooling">Thread Pooling</a></li>
+    <li class="li"><a href="#thread-safety">Thread Safety</a></li>
+    <li class="li"><a href="#best-practices-for-multithreading">Best Practices for Multithreading</a></li>
+    <li class="li"><a href="#thread-class-hierarchy">Thread Class Hierarchy</a></li>
+    <li class="li"><a href="#summary">Summary</a></li>
+  </ul>
 
 ### What are Threads?
 A **thread** is the smallest unit of execution in a program. Threads allow the program to perform multiple tasks simultaneously, enabling more efficient use of system resources. Java supports multithreading, which is essential for applications that need to run multiple tasks concurrently, such as servers, real-time applications, and data processing.
@@ -120,12 +84,10 @@ class MyThread extends Thread {
 ### Thread Lifecycle
 A thread's lifecycle refers to the various stages it goes through from creation to termination. The primary stages are:
 
-1. **New**: When a thread is created but not started.
-2. **Runnable**: The thread is eligible to run but is waiting for CPU time.
-3. **Blocked**: The thread is waiting for a resource, such as I/O operations or data.
-4. **Waiting**: The thread is waiting for another thread to perform an action.
-5. **Timed Waiting**: The thread is waiting for a specific period (e.g., `sleep()`).
-6. **Terminated**: The thread has finished executing.
+<div align="center" width=500 height=200>
+<img src="IMAGES/threadlifecycle.png" class="lifecycle" alt="Java Code Execution" width=500 height=200>
+</div>
+<br/>
 
 ### Thread States
 
@@ -135,7 +97,7 @@ Threads can be in one of the following states:
 - **Blocked**: The thread is blocked and waiting for a resource (like I/O).
 - **Waiting**: The thread is waiting indefinitely for another thread to notify it.
 - **Timed Waiting**: The thread is waiting for a specified time (using `sleep()` or `join()`).
-- **Terminated**: The thread has completed its execution.
+- **DEAD/TERMINATED**: The thread has completed its execution.
 
 ### Thread Synchronization
 When multiple threads access shared resources, there is a risk of data inconsistency or corruption due to race conditions. **Synchronization** ensures that only one thread can access a resource at a time.
@@ -148,7 +110,6 @@ class Counter {
     public synchronized void increment() {
         count++;
     }
-
     public int getCount() {
         return count;
     }

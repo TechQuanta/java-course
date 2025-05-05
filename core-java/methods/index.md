@@ -54,11 +54,13 @@
     <p>A <strong>method</strong> in Java is a block of code that performs a specific task. It is a part of a class and can be called to execute that task whenever needed. Methods in Java can have parameters, return values, and can be invoked based on their scope and visibility.</p>
     <h3 id="method-syntax">Method Syntax</h3>
     <p>The basic syntax of a method in Java is as follows:</p>
-    <pre><code>
-[access_modifier] [return_type] method_name([parameters]) {
-// Method body
+<pre><code class="code-block">
+<span class="comment">// Method syntax</span>
+<span class="keyword">[access_modifier]</span> <span class="type">[return_type]</span> <span class="method">methodName</span>(<span class="type">[parameters]</span>) {
+    <span class="comment">// Method body</span>
 }
 </code></pre>
+
 <br>
     <ul>
         <li><strong class="li">Access Modifier</strong> : Defines the visibility of the method.</li>
@@ -100,23 +102,28 @@
         </table>
     </div>
     <p>Example:</p>
-    <pre><code>
-public class MyClass {
-public void publicMethod() {
-System.out.println("I am public.");
-}
-    private void privateMethod() {
-        System.out.println("I am private.");
+<pre><code class="code-block">
+<span class="keyword">public class</span> <span class="class-name">MyClass</span> {
+    <span class="keyword">public void</span> <span class="method">publicMethod</span>() {
+        <span class="keyword">System.out</span>.println(<span class="string">"I am public."</span>);
     }
-    protected void protectedMethod() {
-        System.out.println("I am protected.");
+    <span class="keyword">private void</span> <span class="method">privateMethod</span>() {
+        <span class="keyword">System.out</span>.println(<span class="string">"I am private."</span>);
     }
-    void defaultMethod() {
-        System.out.println("I am default.");
+    <span class="keyword">protected void</span> <span class="method">protectedMethod</span>() {
+        <span class="keyword">System.out</span>.println(<span class="string">"I am protected."</span>);
+    }
+    <span class="keyword">void</span> <span class="method">defaultMethod</span>() {
+        <span class="keyword">System.out</span>.println(<span class="string">"I am default."</span>);
     }
 }
 </code></pre>
+
 <br>
+<div align="center" width=700 height=200>
+<img src="IMAGES/package.png" class="execution" alt="Java Code Execution" width=700 height=200>
+</div>
+<br/>
     <h3 id="method-scope">Method Scope</h3>
     <p>The scope of a method defines where it can be accessed from in your program. The scope is determined by the access modifier and where the method is declared (inside or outside the class).</p>
     <div class="table-container">
@@ -148,17 +155,17 @@ System.out.println("I am public.");
             </tr>
         </table>
     </div>
-    <pre><code>
-class MyClass {
-static void staticMethod() {
-System.out.println("I am static.");
-}
-    void instanceMethod() {
-        System.out.println("I am an instance method.");
+<pre><code class="code-block">
+<span class="keyword">class</span> <span class="class-name">MyClass</span> {
+    <span class="keyword">static void</span> <span class="method">staticMethod</span>() {
+        <span class="keyword">System.out</span>.println(<span class="string">"I am static."</span>);
     }
-
+    <span class="keyword">void</span> <span class="method">instanceMethod</span>() {
+        <span class="keyword">System.out</span>.println(<span class="string">"I am an instance method."</span>);
+    }
 }
 </code></pre>
+
 <br>
     <h3 id="method-return-types">Method Return Types</h3>
     <p>Java methods can return values or be declared void to indicate that they do not return anything. The return type is specified before the method name.</p>
@@ -183,47 +190,50 @@ System.out.println("I am static.");
         </table>
     </div>
     <p>Example:</p>
-    <pre><code>
+<pre><code class="code-block">
 // Returning an integer
-public int addNumbers(int a, int b) {
-return a + b;
+<span class="keyword">public int</span> <span class="method">addNumbers</span>(<span class="type">int</span> a, <span class="type">int</span> b) {
+    <span class="keyword">return</span> a + b;
 }
 
 // Returning void
-public void printMessage(String message) {
-System.out.println(message);
+<span class="keyword">public void</span> <span class="method">printMessage</span>(<span class="type">String</span> message) {
+    <span class="keyword">System.out</span>.println(message);
 }
 </code></pre>
+
 <br>
     <h3 id="method-overloading">Method Overloading</h3>
     <p>Java allows methods to have the same name but different parameter lists. This feature is known as method overloading. Overloading can happen by changing the number or type of parameters.</p>
-    <pre><code>
-public class MyClass {
-public void display(String msg) {
-System.out.println("Message: " + msg);
-}
-    public void display(int num) {
-        System.out.println("Number: " + num);
+<pre><code class="code-block">
+<span class="keyword">public class</span> MyClass {
+    <span class="keyword">public void</span> <span class="method">display</span>(<span class="type">String</span> msg) {
+        <span class="keyword">System.out</span>.println(<span class="string">"Message: "</span> + msg);
+    }
+    <span class="keyword">public void</span> <span class="method">display</span>(<span class="type">int</span> num) {
+        <span class="keyword">System.out</span>.println(<span class="string">"Number: "</span> + num);
     }
 }
 </code></pre>
+
 <br>
     <h3 id="method-overriding">Method Overriding</h3>
     <p>Method overriding occurs when a subclass provides a specific implementation of a method already defined in its superclass. The method in the subclass should have the same name, return type, and parameters.</p>
-    <pre><code>
-class Animal {
-public void sound() {
-System.out.println("Animal makes a sound");
-}
+<pre><code class="code-block">
+<span class="keyword">class</span> Animal {
+    <span class="keyword">public void</span> <span class="method">sound</span>() {
+        <span class="keyword">System.out</span>.println(<span class="string">"Animal makes a sound"</span>);
+    }
 }
 
-class Dog extends Animal {
-@Override
-public void sound() {
-System.out.println("Dog barks");
-}
+<span class="keyword">class</span> Dog <span class="keyword">extends</span> Animal {
+    <span class="annotation">@Override</span>
+    <span class="keyword">public void</span> <span class="method">sound</span>() {
+        <span class="keyword">System.out</span>.println(<span class="string">"Dog barks"</span>);
+    }
 }
 </code></pre>
+
 <br>
     <h3 id="summary">Summary</h3>
     <p>Java methods are essential building blocks for implementing behavior in your application. Understanding the following concepts is crucial for effective method usage:</p>

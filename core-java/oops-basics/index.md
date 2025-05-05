@@ -45,15 +45,26 @@ Object-Oriented Programming (OOP) is a programming paradigm that is based on the
     <pre><code class="code-block">
 <span class="keyword">class</span> Person {
     <span class="keyword">private</span> <span class="type">String</span> name;
+    <span class="comment">// Getter method</span>
     <span class="keyword">public</span> <span class="type">String</span> <span class="method">getName</span>() {
         <span class="keyword">return</span> name;
     }
+    <span class="comment">// Setter method</span>
     <span class="keyword">public</span> <span class="type">void</span> <span class="method">setName</span>(<span class="type">String</span> name) {
-        this.name = name;
+        <span class="keyword">this</span>.name = name;
+    }
+}
+
+<span class="keyword">public class</span> Main {
+    <span class="keyword">public static void</span> <span class="method">main</span>(<span class="type">String</span>[] args) {
+        <span class="type">Person</span> person = <span class="keyword">new</span> <span class="type">Person</span>();
+        person.setName(<span class="string">"Alice"</span>);
+        System.out.println(<span class="string">"Name: "</span> + person.getName());
     }
 }
     </code></pre>
 </div>
+
 
 <br><br>
 <div class="section">
