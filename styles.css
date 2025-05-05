@@ -56,7 +56,7 @@ body {
   color: var(--fg);
   font-size: 1.5rem;
   width:40%;
-  z-index: 1000;
+  z-index: 400;
   font-weight: 600;
   padding: 5px 10px;
   background: linear-gradient(135deg, #db2598, #2575fc);
@@ -216,24 +216,20 @@ body {
   position: fixed;
   top: 20px;
   left: 20px;
-  background-color: var(--accent);
+  background-color:rgb(16, 192, 232);
   color: rgb(0, 0, 0);
   font-size: 20px;
   border: none;
   padding: var(--button-padding);
   z-index: 1000;
-  border-radius: var(--button-radius);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(45, 18, 43, 0);
 }
 
 #menu-toggle:hover {
-  background-color: #005bb500;
   transform: scale(1.1);
 }
 
-#menu-toggle:active {
-  background-color: #003f8d00;
-}
 
 /* Sidebar */
 #sidebar {
@@ -244,6 +240,7 @@ body {
   height: 100vh;
   overflow-y: auto;
   position: fixed;
+  z-index: 800;
   border-right:2px solid rgba(244, 6, 101, 0);
   border-radius: 180px 180px 0px 0;
   transition: transform 0.3s ease;
