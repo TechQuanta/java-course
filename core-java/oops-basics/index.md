@@ -16,7 +16,7 @@ Object-Oriented Programming (OOP) is a programming paradigm that is based on the
     <h2>1. Classes and Objects</h2>
     <p>A <strong>class</strong> is a blueprint or prototype from which objects are created. It defines the properties (fields) and behaviors (methods) that the objects created from the class will have.</p>
     <h3>Example</h3>
-    <pre><code class="code-block">
+    <pre><code class="code-container">
 <span class="keyword">class</span> Car {
     <span class="keyword">String</span> model;
     <span class="keyword">int</span> year;
@@ -36,13 +36,13 @@ Object-Oriented Programming (OOP) is a programming paradigm that is based on the
 </div>
 
 
----
+
 <br><br>
 <div class="section">
     <h2>2. Encapsulation</h2>
     <p>Encapsulation means binding the data (variables) and the code acting on the data (methods) together as a single unit. It’s achieved using <code>private</code> access modifiers and public getters/setters.</p>
     <h3>Example</h3>
-    <pre><code class="code-block">
+    <pre><code class="code-container">
 <span class="keyword">class</span> Person {
     <span class="keyword">private</span> <span class="type">String</span> name;
     <span class="comment">// Getter method</span>
@@ -70,7 +70,7 @@ Object-Oriented Programming (OOP) is a programming paradigm that is based on the
 <div class="section">
     <h2>3. Inheritance</h2>
     <p>Inheritance allows one class to inherit fields and methods from another class using the <code>extends</code> keyword.</p>
-    <pre><code class="code-block">
+    <pre><code class="code-container">
 <span class="keyword">class</span> Animal {
     <span class="method">void</span> eat() {
         <span class="keyword">System</span>.<span class="method">out</span>.<span class="method">println</span>(<span class="string">"Animal is eating"</span>);
@@ -84,13 +84,12 @@ Object-Oriented Programming (OOP) is a programming paradigm that is based on the
     </code></pre>
 </div>
 
----
 <br><br>
 <div class="section">
     <h2>4. Polymorphism</h2>
     <p><strong>Polymorphism</strong> allows methods to behave differently based on the object that is invoking them.</p>
     <h4>Method Overloading</h4>
-    <pre><code class="code-block">
+    <pre><code class="code-container">
 <span class="keyword">class</span> Calculator {
     <span class="method">int</span> add(<span class="type">int</span> a, <span class="type">int</span> b) {
         <span class="keyword">return</span> a + b;
@@ -101,7 +100,7 @@ Object-Oriented Programming (OOP) is a programming paradigm that is based on the
 }
     </code></pre>
     <h4>Method Overriding</h4>
-    <pre><code class="code-block">
+    <pre><code class="code-container">
 <span class="keyword">class</span> Animal {
     <span class="method">void</span> sound() {
         <span class="keyword">System</span>.<span class="method">out</span>.<span class="method">println</span>(<span class="string">"Animal makes a sound"</span>);
@@ -115,13 +114,13 @@ Object-Oriented Programming (OOP) is a programming paradigm that is based on the
     </code></pre>
 </div>
 
----
+
 <br><br>
 <div class="section">
     <h2>5. Abstraction</h2>
     <p>Abstraction means hiding internal details and showing only the functionality. It is achieved using <code>abstract</code> classes and <code>interfaces</code>.</p>
     <h4>Using Abstract Class</h4>
-    <pre><code class="code-block">
+    <pre><code class="code-container">
 <span class="keyword">abstract</span> <span class="keyword">class</span> Animal {
     <span class="method">abstract</span> <span class="method">void</span> sound();
 }
@@ -133,7 +132,7 @@ Object-Oriented Programming (OOP) is a programming paradigm that is based on the
 <br>
     </code></pre>
     <h4>Using Interface</h4>
-    <pre><code class="code-block">
+    <pre><code class="code-container">
 <span class="keyword">interface</span> Animal {
     <span class="method">void</span> sound();
 }
@@ -145,12 +144,11 @@ Object-Oriented Programming (OOP) is a programming paradigm that is based on the
     </code></pre>
 </div>
 
----
 <br><br>
 <div class="section">
     <h2>6. Constructors</h2>
-    <p>A constructor initializes an object. Java supports <strong>default</strong> and <strong>parameterized</strong> constructors.</p>
-    <pre><code class="code-block">
+    <p>A constructor initializes an object. Java supports <strong>default</strong> , <strong>parameterized</strong> and <strong> copy constructor</strong> constructors.</p>
+    <pre><code class="code-container">
 <span class="keyword">class</span> Car {
     <span class="type">String</span> model;
     <span class="type">int</span> year;
@@ -162,7 +160,7 @@ Object-Oriented Programming (OOP) is a programming paradigm that is based on the
     </code></pre>
 </div>
 
----
+<br>
 
 ## ✅ Conclusion
 

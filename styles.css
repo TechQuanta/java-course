@@ -416,8 +416,8 @@ hr {
   position: relative;
   border: none;
   height: 2px;
-  border-radius: 100%;
-  background: linear-gradient(to right, #ffffff, #9b7aa3, #00c6ff,#d400ff);
+  border-radius:10px;
+  background: linear-gradient(to right, #06e515, #c50ff3, #00c6ff,#d400ff);
   background-size: 300% 100%;
   background-position: 100% 0%;
   animation: hrFlowRTL 4s linear infinite;
@@ -461,7 +461,7 @@ hr {
   background:transparent;
 }
 .lifecycle{
-  width: 80%;
+  width: 100%;
   height: 500px;
   border-radius: 20px;
   background:transparent;
@@ -473,38 +473,40 @@ hr {
 
 }
 .code-container {
+  font-size: 15px;
+  font-weight: bolder;
   font-family: Arial, sans-serif;
-  padding: 20px;
   background-color: #f9f9f9;
   border-radius: 8px;
   max-width: 700px;
-  margin: 10px auto;
+  margin: 20px auto;
+
 }
 
 .code-container h3 {
   color: #333;
-  margin-bottom: 10px;
 }
 
 .code-block {
-  padding: 1px;
+  padding: 1px auto;
   border-radius: 6px;
   overflow-x: auto;
   display: block;
+  margin: 0 auto;
   white-space: pre;
   font-family: 'Courier New', monospace;
   font-size: 14px;
 }
 
 /* Syntax Highlighting */
-.keyword     { color: #66d9ef; }      /* public, class, static, void */
-.classname   { color: #a6e22e; }      /* HelloWorld */
-.method      { color: #fd971f; }      /* main, println */
-.type        { color: #f92672; }      /* String */
-.parens      { color: #f8f8f2; }      /* () */
-.string      { color: #e6db74; }      /* "Hello, World!" */
-.class-ref   { color: #ae81ff; }      /* System, out */
-.command     { color: #66d9ef; font-weight: bold; }  /* javac, java */
+.keyword     { color: #000000; }      /* public, class, static, void */
+.classname   { color: #e22e2e; }      /* HelloWorld */
+.method      { color: #b88400; }      /* main, println */
+.type        { color: #e100f6; }      /* String */
+.parens      { color: #ff0abe; }      /* () */
+.string      { color: #12b1c3; }      /* "Hello, World!" */
+.class-ref   { color: #00d512; }      /* System, out */
+.command     { color: #ef667f; font-weight: bold; }  /* javac, java */
 
 .note {
   margin-top: 15px;
@@ -515,7 +517,7 @@ table {
   width:auto;
   border:none;
   border-collapse: collapse;
-  margin: 20px 0;
+  margin: 20px auto;
   background-color: #f9f9f9;
   table-layout: auto;
 }
@@ -621,11 +623,10 @@ tr:nth-child(odd) td {
 }
 /* Code Container Styling */
 .code-container {
-  padding: 20px;
   border-radius: 12px;
   background: #ffffff;  /* White background */
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);  /* Soft shadow */
-  border: 0px solid #e0e0e0;  /* Light border */
+  border: 0px solid #000000;  /* Light border */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -682,45 +683,6 @@ code {
 /* Hover Effects for Code */
 
 
-/* Syntax Highlighting */
-.keyword {
-  color: #000000;  /* Bright Yellow for keywords */
-  font-weight: bold;
-}
-
-.classname {
-  color: #82ff7b;  /* Light Green for class names */
-  font-weight: bold;
-}
-
-.method {
-  color: #ff4081;  /* Pink for methods */
-}
-
-.parens {
-  color: #5e35b1;  /* Purple for parentheses */
-}
-
-.string {
-  color: #80deea;  /* Light Cyan for strings */
-}
-
-.type {
-  color: #f57c00;  /* Orange for types */
-}
-
-.class-ref {
-  color: #ff7043;  /* Deep Orange for class references */
-}
-
-.command {
-  color: #aed581;  /* Light Green for commands */
-  font-weight: bold;
-}
-.variable {
-  color: #d6336c; /* Purple-red for variables */
-  font-weight: bold;
-}
 
 
 /* Scrollbars */

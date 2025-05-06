@@ -243,24 +243,25 @@ Types:
   <h3>Assignment Operators:</h3>
   <pre><code class="code-block">
 <span class="keyword">public</span> <span class="keyword">class</span> <span class="classname">AssignmentDemo</span> <span class="punctuation">{</span>
-    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="method">main</span><span class="parens">(</span><span class="type">String</span>[] args<span class="parens">)</span> <span class="punctuation">{</span>
-        <span class="keyword">int</span> <span class="var">value</span> <span class="operator">=</span> <span class="number">5</span><span class="punctuation">;</span>
-        <span class="var">value</span> <span class="operator">+=</span> <span class="number">10</span><span class="punctuation">;</span>
-        <span class="var">value</span> <span class="operator">-=</span> <span class="number">3</span><span class="punctuation">;</span>
-        <span class="var">value</span> <span class="operator">*=</span> <span class="number">2</span><span class="punctuation">;</span>
-        <span class="var">value</span> <span class="operator">/=</span> <span class="number">4</span><span class="punctuation">;</span>
-        <span class="var">value</span> <span class="operator">%=</span> <span class="number">3</span><span class="punctuation">;</span>
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="method">main</span><span class="parens">(</span><span class="type">String</span>[] <span class="variable">args</span><span class="parens">)</span> <span class="punctuation">{</span>
+        <span class="keyword">int</span> <span class="variable">value</span> <span class="operator">=</span> <span class="number">5</span><span class="punctuation">;</span>
+        <span class="variable">value</span> <span class="operator">+=</span> <span class="number">10</span><span class="punctuation">;</span>
+        <span class="variable">value</span> <span class="operator">-=</span> <span class="number">3</span><span class="punctuation">;</span>
+        <span class="variable">value</span> <span class="operator">*=</span> <span class="number">2</span><span class="punctuation">;</span>
+        <span class="variable">value</span> <span class="operator">/=</span> <span class="number">4</span><span class="punctuation">;</span>
+        <span class="variable">value</span> <span class="operator">%=</span> <span class="number">3</span><span class="punctuation">;</span>
     <span class="punctuation">}</span>
 <span class="punctuation">}</span>
   </code></pre>
 </div>
+
 
 - **Comparision**: `==`, `!=`, `<`, `>`, `<=`, `>=`  
 <div class="code-container">
   <h3>Comparison Operators:</h3>
   <pre><code class="code-block">
 <span class="keyword">public</span> <span class="keyword">class</span> <span class="classname">ComparisonDemo</span> <span class="punctuation">{</span>
-    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="method">main</span><span class="parens">(</span><span class="type">String</span>[] args<span class="parens">)</span> <span class="punctuation">{</span>
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="method">main</span><span class="parens">(</span><span class="type">String</span>[] <span class="var">args</span><span class="parens">)</span> <span class="punctuation">{</span>
         <span class="keyword">int</span> <span class="var">a</span> <span class="operator">=</span> <span class="number">10</span><span class="punctuation">;</span>
         <span class="keyword">int</span> <span class="var">b</span> <span class="operator">=</span> <span class="number">20</span><span class="punctuation">;</span>
         <span class="keyword">boolean</span> <span class="var">isEqual</span> <span class="operator">=</span> <span class="var">a</span> <span class="operator">==</span> <span class="var">b</span><span class="punctuation">;</span>
@@ -269,6 +270,7 @@ Types:
 <span class="punctuation">}</span>
   </code></pre>
 </div>
+
 
 - **Logical**: `&&`, `||`  
 <div class="code-container">
@@ -291,7 +293,7 @@ Types:
   <h3>Bitwise Operators:</h3>
   <pre><code class="code-block">
 <span class="keyword">public</span> <span class="keyword">class</span> <span class="classname">BitwiseDemo</span> <span class="punctuation">{</span>
-    <span class="keyword">public</span> <span class="keyword">static void</span> <span class="method">main</span><span class="parens">(</span><span class="type">String</span>[] args<span class="parens">)</span> <span class="punctuation">{</span>
+    <span class="keyword">public</span> <span class="keyword">static void</span> <span class="method">main</span><span class="parens">(</span><span class="type">String</span>[] <span class="var">args</span><span class="parens">)</span> <span class="punctuation">{</span>
         <span class="keyword">int</span> <span class="var">x</span> <span class="operator">=</span> <span class="number">12</span><span class="punctuation">;</span> <span class="comment">// 1100 in binary</span>
         <span class="keyword">int</span> <span class="var">y</span> <span class="operator">=</span> <span class="number">5</span><span class="punctuation">;</span>   <span class="comment">// 0101 in binary</span>
         <span class="keyword">int</span> <span class="var">and</span> <span class="operator">=</span> <span class="var">x</span> <span class="operator">&amp;</span> <span class="var">y</span><span class="punctuation">;</span>
@@ -305,12 +307,13 @@ Types:
   </code></pre>
 </div>
 
+
 - **Unary**: `+`, `-`, `++`, `--`, `!`  
 <div class="code-container">
   <h3>Unary Operators:</h3>
   <pre><code class="code-block">
 <span class="keyword">public</span> <span class="keyword">class</span> <span class="classname">UnaryDemo</span> <span class="punctuation">{</span>
-    <span class="keyword">public</span> <span class="keyword">static void</span> <span class="method">main</span><span class="parens">(</span><span class="type">String</span>[] args<span class="parens">)</span> <span class="punctuation">{</span>
+    <span class="keyword">public</span> <span class="keyword">static void</span> <span class="method">main</span><span class="parens">(</span><span class="type">String</span>[] <span class="var">args</span><span class="parens">)</span> <span class="punctuation">{</span>
         <span class="keyword">int</span> <span class="var">num</span> <span class="operator">=</span> <span class="number">5</span><span class="punctuation">;</span>
         <span class="variable">++num</span><span class="punctuation">;</span> <span class="comment">// Prefix increment</span>
         <span class="variable">num++</span><span class="punctuation">;</span> <span class="comment">// Postfix increment</span>
@@ -323,18 +326,20 @@ Types:
   </code></pre>
 </div>
 
+
 - **Ternary**: `? :`  
 <div class="code-container">
   <h3>Ternary Operator:</h3>
   <pre><code class="code-block">
 <span class="keyword">public</span> <span class="keyword">class</span> <span class="classname">TernaryDemo</span> <span class="punctuation">{</span>
-    <span class="keyword">public</span> <span class="keyword">static void</span> <span class="method">main</span><span class="parens">(</span><span class="type">String</span>[] args<span class="parens">)</span> <span class="punctuation">{</span>
+    <span class="keyword">public</span> <span class="keyword">static void</span> <span class="method">main</span><span class="parens">(</span><span class="type">String</span>[] <span class="var">args</span><span class="parens">)</span> <span class="punctuation">{</span>
         <span class="keyword">int</span> <span class="var">score</span> <span class="operator">=</span> <span class="number">75</span><span class="punctuation">;</span>
         <span class="keyword">String</span> <span class="var">result</span> <span class="operator">=</span> <span class="var">score</span> <span class="operator">&gt;</span> <span class="number">50</span> <span class="operator">?</span> <span class="string">"Pass"</span> <span class="operator">:</span> <span class="string">"Fail"</span><span class="punctuation">;</span>
     <span class="punctuation">}</span>
 <span class="punctuation">}</span>
   </code></pre>
 </div>
+
 
 - **Instance Check**: `instanceof`  
 
@@ -378,6 +383,7 @@ Character that help to define the boundaries of the statements & code block.
 </div>
 
 
+
 # Comments in JAVA
 <hr><br/>
 There are two types of comments in java.
@@ -405,6 +411,7 @@ There are two types of comments in java.
 </div>
 
 
+
 # White Spaces in Java
 <hr><br/>
 
@@ -418,6 +425,7 @@ It is use to seperate tokens with its value and it is ignored by the compiler at
 
   <p class="note">In the first line, there is no space between the variable name and assignment operator, which makes it invalid. In the second line, spaces are correctly placed.</p>
 </div>
+
 
 
 # Special Symbols
@@ -439,6 +447,7 @@ Example:
 
   <p class="note">This method performs division between two integers.</p>
 </div>
+
 
 # Data Types
 
@@ -466,7 +475,7 @@ Primitive data types are the most basic data types available in Java. They hold 
 <br/>
 
 ### 📝 List of Primitive Data Types:
-<hr><br/>
+<br/>
 <table border="1" cellspacing="0" cellpadding="6">
   <thead>
     <tr>
@@ -531,14 +540,14 @@ Primitive data types are the most basic data types available in Java. They hold 
 <br/>
 
 ## 🔢 Non-Primitive Data Types
-<hr><br/>
+<br/>
 
 Non-primitive data types are objects in Java. These include **arrays**, **strings**, **classes**, and **interfaces**. They are used to represent more complex types.
 
 <br/>
 
 ### 📝 List of Non-Primitive Data Types:
-<hr><br/>
+<br/>
 <table border="1" cellspacing="0" cellpadding="6">
   <thead>
     <tr>
@@ -570,14 +579,14 @@ Non-primitive data types are objects in Java. These include **arrays**, **string
 <br/>
 
 ## 🧑‍💻 Wrapper Classes
-<hr><br/>
+<br/>
 
 In Java, each primitive data type has a corresponding wrapper class that allows it to be treated as an object. This is useful in situations such as when you need to use primitives in collections like **ArrayLists** or **Vectors**.
 
 <br/>
 
 ### 📝 List of Wrapper Classes:
-<hr><br/>
+<br/>
 
 <table border="1" cellspacing="0" cellpadding="6">
   <thead>
@@ -643,7 +652,6 @@ In Java, each primitive data type has a corresponding wrapper class that allows 
 <span class="punctuation">}</span>
   </code></pre>
 </div>
-
 
 <h1 style="text-align: center;">Memory Size Comparison: Wrapper Classes vs Primitive Types</h1>
 

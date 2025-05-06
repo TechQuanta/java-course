@@ -21,20 +21,27 @@
   </ul>
 
 ### What are Threads?
+<p id="what-are-threads">
 A **thread** is the smallest unit of execution in a program. Threads allow the program to perform multiple tasks simultaneously, enabling more efficient use of system resources. Java supports multithreading, which is essential for applications that need to run multiple tasks concurrently, such as servers, real-time applications, and data processing.
+</p>
+
 
 ### Creating Threads
-
+<p id="creating-threads">
 Threads in Java can be created in two primary ways:
+</p>
 
 1. **Using the `Runnable` Interface**  
 2. **Using the `Thread` Class**
 
 #### Using the `Runnable` Interface
-
+<p id="using-the-runnable-interface">
 The `Runnable` interface is a more flexible way to create threads. It allows you to define the code to be executed in a separate method (the `run()` method). This is useful if the class already extends another class, as Java allows only single inheritance but implements multiple interfaces.
+</p
+>
 
 ##### Steps to Implement `Runnable`:
+
 1. **Implement the `Runnable` interface.**
 2. **Override the `run()` method** to define the task to be executed.
 3. **Pass the `Runnable` object to a `Thread` object** and call `start()`.
@@ -57,10 +64,12 @@ class MyRunnable implements Runnable {
 </div>
 
 #### Using the `Thread` Class
-
+<p id="using-the-thread-class">
 You can also create a thread by extending the `Thread` class. However, this approach is less flexible because it doesn't allow you to inherit from any other class, as Java supports only single inheritance.
+</p>
 
 ##### Steps to Extend `Thread`:
+
 1. **Extend the `Thread` class.**
 2. **Override the `run()` method** to define the task to be executed.
 3. **Call the `start()` method** to begin execution.
@@ -90,8 +99,10 @@ A thread's lifecycle refers to the various stages it goes through from creation 
 <br/>
 
 ### Thread States
-
+<p id="thread-states">
 Threads can be in one of the following states:
+</p>
+
 - **New**: The thread has been created but not started.
 - **Runnable**: The thread is ready to run and will run when it gets CPU time.
 - **Blocked**: The thread is blocked and waiting for a resource (like I/O).
@@ -100,8 +111,9 @@ Threads can be in one of the following states:
 - **DEAD/TERMINATED**: The thread has completed its execution.
 
 ### Thread Synchronization
+<p id="thread-synchronization" >
 When multiple threads access shared resources, there is a risk of data inconsistency or corruption due to race conditions. **Synchronization** ensures that only one thread can access a resource at a time.
-
+</p>
 #### Synchronized Method
 <div class="example">
 <pre>
@@ -139,7 +151,9 @@ class Counter {
 - A synchronized block provides fine-grained control over which part of the code is synchronized.
 
 ### Thread Communication
+<p id="thread-communication">
 Threads can communicate with each other using `wait()`, `notify()`, and `notifyAll()`. These methods are used for coordinating the execution of threads.
+</p>
 
 #### Example of Producer-Consumer Problem:
 <div class="example">
@@ -167,7 +181,10 @@ class ProducerConsumer {
 </div>
 
 ### Thread Pooling
+<p id="thread-pooling">
+
 **Thread pooling** is a technique where a pool of threads is created and reused to perform tasks. This prevents the overhead of creating new threads each time a task needs to be executed. The `ExecutorService` in Java handles thread pooling.
+</p>
 
 #### Example Using `ExecutorService`:
 <div class="example">
@@ -194,6 +211,8 @@ class MyTask implements Runnable {
 - The `ExecutorService` creates a fixed number of threads and assigns tasks to them. The pool reuses threads, reducing the overhead of creating new threads each time.
 
 ### Thread Safety
+
+<br id="thread-safety">
 **Thread safety** ensures that multiple threads can access shared resources concurrently without causing data corruption. This can be achieved through synchronization, atomic variables, and thread-safe collections.
 
 #### Thread-Safe Collections:
@@ -218,11 +237,14 @@ class Counter {
 </div>
 
 ### Best Practices for Multithreading
+<br id="best-practices-for-multithreading">
+
 - **Minimize synchronization**: Synchronizing too much can lead to performance degradation. Only synchronize shared resources.
 - **Avoid deadlocks**: Design threads to avoid circular waiting. Use lock ordering and timeouts.
 - **Use thread pools**: Thread pools reduce the cost of thread creation and management.
 
 ### Thread Class Hierarchy
+<br id="thread-class-hierarchy">
 
 Java's thread-related classes are part of a well-defined hierarchy. Here's how they relate:
 
@@ -241,6 +263,9 @@ The `Thread` class can either implement the `Runnable` interface or extend the `
 <!-- Diagram placeholder -->
 
 ### Summary
+
+<br id="summary">
+
 - **Runnable Interface**: Ideal for creating threads without extending the `Thread` class. It allows more flexibility, especially when your class already extends another class.
 - **Thread Lifecycle**: Threads move through various states, including new, runnable, waiting, and terminated.
 - **Synchronization**: Ensures thread safety by controlling access to shared resources.
