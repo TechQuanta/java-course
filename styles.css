@@ -1,9 +1,7 @@
 /* Default Font and Sizes */
 :root {
-  --bg: #121212
-  ;
-  --fg:  #2ECC71
-  ;
+  --bg: #ffffff;
+  --fg: #1a1a1a;
   --sidebar-bg: #ffffffef;
   --sidebar-fg: #560525;
   --accent: #000000b9;
