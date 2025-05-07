@@ -16,8 +16,8 @@ async function loadContent(path) {
 
 // Static welcome content
 const defaultStaticHTML = `
-  <div class="welcome-block">
-  <img src="Java.svg" alt="Java Logo" class="java-logo" />
+  <div class="welcome-block animate-fade-in-up">
+    <img src="Java.svg" alt="Java Logo" class="java-logo animate-logo-pop" />
     <h2>Let's Get Started with Java</h2>
     <p>Explore the structured Java path starting from Core to Senior level topics:</p>
     <br/>
@@ -29,6 +29,7 @@ const defaultStaticHTML = `
     <p class="start-note">Use the sidebar to begin your journey. Happy learning! ☕</p>
   </div>
 `;
+
 
 // Handle dropdown toggle
 document.querySelectorAll('.dropdown-btn').forEach(btn => {

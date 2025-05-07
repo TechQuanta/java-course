@@ -46,25 +46,25 @@ body {
   font-size: var(--font-size);
   flex-direction: column;
 }
-/* Welcome Section */
+/* Welcome Section - Vertical Rotation */
 .welcome {
-  top:25px;
-  right:79px;
+  top: 300px; /* Adjusted for better visibility */
+  right: -160px; /* Adjusted so it's at the edge */
   text-align: center;
-  position:fixed;
+  position: fixed;
   font-family: 'Segoe UI', sans-serif;
-  color: var(--fg);
   font-size: 1.5rem;
-  width:38%;
-  z-index: 400;
   font-weight: 600;
-  padding: 2px 2px;
+  width: max-content;
+  z-index: 400;
+  padding: 10px;
   background: linear-gradient(135deg, #db25b1, #fcc6259d);
   color: #fff;
   border-radius: 10px;
   box-shadow: 9px 8px 1px rgba(209, 49, 132, 0.468);
-  animation: slideDown 2s ease-out;
+  transform: rotate(-90deg);
 }
+
 @keyframes slideDown {
   0% {
     opacity: 0;
@@ -83,26 +83,6 @@ body {
 @media (max-width: 1100px) {
   .hide-on-mobile {
     display: none;
-  }
-
-  .welcome {
-    font-size: 1.5em;
-    top:20px;
-    right:80px;
-    text-align: center;
-    position:fixed;
-    font-family: 'Segoe UI', sans-serif;
-    color: var(--fg);
-    font-size: 1.5rem;
-    width:38%;
-    font-weight: 600;
-    padding:2px;
-    background: linear-gradient(135deg, #dbb725, #c09e19);
-    color: #fff;
-    border-radius: 10px;
-    box-shadow: 5px 12px 2px rgba(0, 0, 0, 0.714);
-    animation: fadeIn 1s ease-out;
-    
   }
 
 }
@@ -280,12 +260,22 @@ body {
   text-align: center;
   margin-bottom: 40px;
 }
+.welcome-block {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(8px);
+  max-width: 600px;
+  margin: auto;
+}
 
 .java-logo {
-  width: 60px;
   height: 60px;
-  margin-bottom: 15px;
+  display: block;
+  margin: 0 auto 1rem;
 }
+
 
 .logo h2 {
   font-size: 24px;
@@ -890,4 +880,38 @@ caption {
   margin-top: 30px;
   padding: 10px 0;
   border-bottom: 2px solid #4CAF50;
+}
+/* Fade + slide in */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 1.2s ease-out;
+}
+
+/* Logo pop effect */
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) rotate(-10deg);
+  }
+  80% {
+    transform: scale(1.05) rotate(3deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+.animate-logo-pop {
+  animation: popIn 1s ease-out;
 }
