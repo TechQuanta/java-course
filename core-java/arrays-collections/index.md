@@ -13,6 +13,10 @@
   </ul>
 
   <h3>One-Dimensional Arrays</h3>
+  <br/>
+  <div align="center" width=700 height=200>
+  <img src="IMAGES/onedarray.png" class="execution" alt="exception hierarchy">
+  </div><br/>
   <p>A one-dimensional array stores a sequence of elements of the same type. It's the simplest type of array in Java.</p>
 
   <h4>Example of One-Dimensional Array:</h4><br>
@@ -30,6 +34,10 @@
 <br>
 
   <h3>Multi-Dimensional Arrays</h3>
+  <br/>
+  <div align="center" width=700 height=200>
+  <img src="IMAGES/twodarray.jpg" class="execution" alt="exception hierarchy">
+  </div><br/>
   <p>Multi-dimensional arrays are arrays of arrays, like a matrix or table of data.</p>
 
   <h4>Example of Multi-Dimensional Array:</h4><br>
