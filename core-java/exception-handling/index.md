@@ -17,26 +17,9 @@ An **exception** is an event that disrupts the normal flow of the program. It is
 - **Errors** – Serious issues that applications should not try to handle (e.g., `OutOfMemoryError`)
 
 <br/>
-
-```plaintext
-Throwable
- ├── Error
- │    ├── OutOfMemoryError
- │    ├── StackOverflowError
- │    └── VirtualMachineError
- └── Exception
-      ├── IOException
-      │    ├── FileNotFoundException
-      │    └── EOFException
-      ├── SQLException
-      ├── RuntimeException
-      │    ├── NullPointerException
-      │    ├── ArithmeticException
-      │    └── ArrayIndexOutOfBoundsException
-      ├── ExceptionInInitializerError
-      └── Custom Exception (User-defined)
-```
-
+<div align="center" width=700 height=200>
+<img src="IMAGES/exception.jpg" class="execution" alt="exception hierarchy">
+</div><br/>
 <br/>
 
 ## 🔹 Keywords in Exception Handling
