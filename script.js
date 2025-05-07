@@ -68,3 +68,23 @@ window.addEventListener('DOMContentLoaded', () => {
   const savedTheme = localStorage.getItem('theme') || 'light';
   document.documentElement.setAttribute('data-theme', savedTheme);
 });
+// Select all dropdown buttons
+const dropdownBtns = document.querySelectorAll('.dropdown-btn');
+
+// Add click event to toggle dropdown visibility
+dropdownBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const dropdownContainer = btn.nextElementSibling;
+
+    // Toggle the 'open' class to show or hide the dropdown
+    dropdownContainer.classList.toggle('open');
+  });
+});
+const links = document.querySelectorAll('.dropdown-container a');
+
+links.forEach(link => {
+  link.addEventListener('click', () => {
+    links.forEach(l => l.classList.remove('active')); // remove from all
+    link.classList.add('active'); // set to clicked one
+  });
+});

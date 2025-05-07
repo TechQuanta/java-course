@@ -78,11 +78,14 @@ Encapsulation ensures that the internal representation of an object is hidden fr
 
 ## 🧠 Advanced Encapsulation Concepts
 
+<br/>
+
 ### 🔄 Immutable Classes
 
 * Make class fields `final` and remove setters.
 * Provides thread safety and ensures consistent state.
 
+<br/><br/>
 <div class="code-container">
   <pre><code class="code-block">
     <span class="keyword">final</span> <span class="keyword">class</span> <span class="classname">Employee</span> {
@@ -103,11 +106,13 @@ Encapsulation ensures that the internal representation of an object is hidden fr
 </div>
 
 
+<br/>
 
 ### 🛑 Restricting Field Modification
 
 * Encapsulation lets you protect critical variables:
 
+<br/>
 <div class="code-container">
   <pre><code class="code-block">
     <span class="keyword">class</span> <span class="classname">BankAccount</span> {
@@ -130,15 +135,19 @@ Encapsulation ensures that the internal representation of an object is hidden fr
 </div>
 
 
-
+<br/>
 
 ### 🔐 Encapsulation + Access Levels
 
 * Use `protected`, `private`, and `default` wisely in complex applications with inheritance and packages.
 
+<br/>
+
 ### 📦 Encapsulation in API Design
 
 * Frameworks often encapsulate internal logic and provide interfaces or abstract classes for user extension.
+
+<br/>
 
 ### 🧪 Encapsulation and Unit Testing
 
@@ -148,12 +157,17 @@ Encapsulation ensures that the internal representation of an object is hidden fr
 
 ## 🧩 Summary
 
+---
+
+<br/>
+
 * Encapsulation is **fundamental for security and clean design** in Java.
 * It promotes **data hiding**, **controlled access**, and **modular code**.
 * Advanced techniques like **immutability** and **custom validation logic** improve robustness.
+<br/>
 
 > "Design classes like black boxes: expose only what is necessary and hide the rest."
 
----
+
 
 ✅ Now you're ready to encapsulate like a pro!
