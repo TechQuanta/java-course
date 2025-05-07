@@ -18,14 +18,16 @@ Abstraction is the process of hiding the implementation details and showing only
 - Promote loose coupling between components
 
 
+<br/>
+
 ## ⚙️ How is Abstraction Achieved in Java?
 
 There are **two primary ways** to implement abstraction in Java:
-
 1. **Abstract Classes**
 2. **Interfaces**
 
 
+<br/>
 
 ## 🧱 Abstract Classes
 
@@ -36,48 +38,51 @@ An abstract class:
 - Cannot be instantiated
 - Can contain constructors and instance variables
 
+<br/>
+
 ### 📄 Syntax
 
-<div class="example">
-  <pre><code class="language-java">
-<span class="keyword">abstract</span> <span class="keyword">class</span> <span class="class-name">Vehicle</span> {
-    <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="function-name">start</span>();
-    <span class="keyword">void</span> <span class="function-name">fuel</span>() {
-        <span class="class-name">System</span>.<span class="function-name">out</span>.<span class="function-name">println</span>(<span class="string">"Refueling..."</span>);
+<div class="code-container">
+  <pre><code class="code-block">
+<span class="keyword">abstract</span> <span class="keyword">class</span> <span class="classname">Vehicle</span> {
+    <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="method">start</span>();
+    <span class="keyword">void</span> <span class="method">fuel</span>() {
+        <span class="classname">System</span>.<span class="method">out</span>.<span class="method">println</span>(<span class="string">"Refueling..."</span>);
     }
 }
   </code></pre>
 </div>
+
 
 
 ### 🧪 Example
 
-<div class="example">
-  <pre><code class="language-java">
-<span class="keyword">abstract</span> <span class="keyword">class</span> <span class="class-name">Animal</span> {
-    <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="function-name">sound</span>();
-    <span class="keyword">void</span> <span class="function-name">breathe</span>() {
-        <span class="class-name">System</span>.<span class="function-name">out</span>.<span class="function-name">println</span>(<span class="string">"Breathing..."</span>);
+<div class="code-container">
+  <pre><code class="code-block">
+<span class="keyword">abstract</span> <span class="keyword">class</span> <span class="classname">Animal</span> {
+    <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="method">sound</span>();
+    <span class="keyword">void</span> <span class="method">breathe</span>() {
+        <span class="classname">System</span>.<span class="method">out</span>.<span class="method">println</span>(<span class="string">"Breathing..."</span>);
     }
 }
 
-<span class="keyword">class</span> <span class="class-name">Dog</span> <span class="keyword">extends</span> <span class="class-name">Animal</span> {
-    <span class="keyword">void</span> <span class="function-name">sound</span>() {
-        <span class="class-name">System</span>.<span class="function-name">out</span>.<span class="function-name">println</span>(<span class="string">"Barks"</span>);
+<span class="keyword">class</span> <span class="classname">Dog</span> <span class="keyword">extends</span> <span class="classname">Animal</span> {
+    <span class="keyword">void</span> <span class="method">sound</span>() {
+        <span class="classname">System</span>.<span class="method">out</span>.<span class="method">println</span>(<span class="string">"Barks"</span>);
     }
 }
 
-<span class="keyword">public</span> <span class="keyword">class</span> <span class="class-name">TestAbstraction</span> {
-    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="function-name">main</span>(<span class="class-name">String</span>[] <span class="variable-name">args</span>) {
-        <span class="class-name">Animal</span> <span class="variable-name">obj</span> = <span class="keyword">new</span> <span class="class-name">Dog</span>();
-        <span class="variable-name">obj</span>.<span class="function-name">sound</span>();   <span class="comment">// Output: Barks</span>
-        <span class="variable-name">obj</span>.<span class="function-name">breathe</span>(); <span class="comment">// Output: Breathing...</span>
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="classname">TestAbstraction</span> {
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="method">main</span>(<span class="classname">String</span>[] <span class="variable-name">args</span>) {
+        <span class="classname">Animal</span> <span class="variable-name">obj</span> = <span class="keyword">new</span> <span class="classname">Dog</span>();
+        <span class="variable-name">obj</span>.<span class="method">sound</span>();   <span class="comment">// Output: Barks</span>
+        <span class="variable-name">obj</span>.<span class="method">breathe</span>(); <span class="comment">// Output: Breathing...</span>
     }
 }
   </code></pre>
 </div>
 
-
+<br/>
 
 
 ## 🧾 Rules of Abstract Class
@@ -86,7 +91,7 @@ An abstract class:
 - Abstract classes **can** have constructors, static methods, and final methods.
 - A class **extending** an abstract class must **implement** all abstract methods unless it is also abstract.
 
-
+<br/>
 
 ## 🎮 Interfaces
 
@@ -99,38 +104,39 @@ An interface:
 
 ### 📄 Syntax
 
-<div class="example">
-  <pre><code class="language-java">
-<span class="keyword">interface</span> <span class="class-name">Drawable</span> {
-    <span class="keyword">void</span> <span class="function-name">draw</span>();
+<div class="code-container">
+  <pre><code class="code-block">
+<span class="keyword">interface</span> <span class="classname">Drawable</span> {
+    <span class="keyword">void</span> <span class="method">draw</span>();
 }
   </code></pre>
 </div>
+<br/>
 
 ### 🧪 Example
 
-<div class="example">
-  <pre><code class="language-java">
-<span class="keyword">interface</span> <span class="class-name">Drawable</span> {
-    <span class="keyword">void</span> <span class="function-name">draw</span>();
+<div class="code-container">
+  <pre><code class="code-block">
+<span class="keyword">interface</span> <span class="classname">Drawable</span> {
+    <span class="keyword">void</span> <span class="method">draw</span>();
 }
 
-<span class="keyword">class</span> <span class="class-name">Circle</span> <span class="keyword">implements</span> <span class="class-name">Drawable</span> {
-    <span class="keyword">public</span> <span class="keyword">void</span> <span class="function-name">draw</span>() {
-        <span class="class-name">System</span>.<span class="function-name">out</span>.<span class="function-name">println</span>(<span class="string">"Drawing Circle"</span>);
+<span class="keyword">class</span> <span class="classname">Circle</span> <span class="keyword">implements</span> <span class="classname">Drawable</span> {
+    <span class="keyword">public</span> <span class="keyword">void</span> <span class="method">draw</span>() {
+        <span class="classname">System</span>.<span class="method">out</span>.<span class="method">println</span>(<span class="string">"Drawing Circle"</span>);
     }
 }
 
-<span class="keyword">public</span> <span class="keyword">class</span> <span class="class-name">TestInterface</span> {
-    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="function-name">main</span>(<span class="class-name">String</span>[] <span class="variable-name">args</span>) {
-        <span class="class-name">Drawable</span> <span class="variable-name">d</span> = <span class="keyword">new</span> <span class="class-name">Circle</span>();
-        <span class="variable-name">d</span>.<span class="function-name">draw</span>(); <span class="comment">// Output: Drawing Circle</span>
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="classname">TestInterface</span> {
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="method">main</span>(<span class="classname">String</span>[] <span class="variable-name">args</span>) {
+        <span class="classname">Drawable</span> <span class="variable-name">d</span> = <span class="keyword">new</span> <span class="classname">Circle</span>();
+        <span class="variable-name">d</span>.<span class="method">draw</span>(); <span class="comment">// Output: Drawing Circle</span>
     }
 }
   </code></pre>
 </div>
 
-
+<br/>
 
 
 ## 🌟 Java 8+ Interface Enhancements
@@ -139,56 +145,63 @@ Java 8 introduced **default** and **static** methods in interfaces.
 
 ### ✅ Default Methods
 
-<div class="example">
-<pre><code class="language-java">
-interface MyInterface {
-    default void show() {
-        System.out.println("Default Show Method");
+<div class="code-container">
+  <pre><code class="code-block">
+<span class="keyword">interface</span> <span class="class-name">MyInterface</span> {
+    <span class="keyword">default</span> <span class="keyword">void</span> <span class="function-name">show</span>() {
+        <span class="class-ref">System</span>.out.<span class="function-name">println</span>(<span class="string">"Default Show Method"</span>);
     }
 }
-</code></pre>
+  </code></pre>
 </div>
+
+
+<br/>
 
 ### ✅ Static Methods
 
-<div class="example">
-<pre><code class="language-java">
-interface MyInterface {
-    static void display() {
-        System.out.println("Static Display Method");
+<div class="code-container">
+  <pre><code class="code-block">
+<span class="keyword">interface</span> <span class="class-name">MyInterface</span> {
+    <span class="keyword">static</span> <span class="keyword">void</span> <span class="function-name">display</span>() {
+        <span class="class-ref">System</span>.out.<span class="function-name">println</span>(<span class="string">"Static Display Method"</span>);
     }
 }
-</code></pre>
+  </code></pre>
 </div>
 
 
+<br/>
 
 ## 🧬 Multiple Inheritance with Interfaces
 
 Java does not allow multiple inheritance with classes but does support it using interfaces.
 
+<br/>
+
 ### 🧪 Example
 
-<div class="example">
-<pre><code class="language-java">
-interface Printable {
-    void print();
+<div class="code-container">
+<pre><code class="code-block">
+<span class="keyword">interface</span> <span class="class-name">Printable</span> {
+    <span class="keyword">void</span> <span class="function-name">print</span>();
 }
 
-interface Showable {
-    void show();
+<span class="keyword">interface</span> <span class="class-name">Showable</span> {
+    <span class="keyword">void</span> <span class="function-name">show</span>();
 }
 
-class A implements Printable, Showable {
-    public void print() {
-        System.out.println("Printing...");
+<span class="keyword">class</span> <span class="class-name">A</span> <span class="keyword">implements</span> <span class="class-name">Printable</span>, <span class="class-name">Showable</span> {
+    <span class="keyword">public</span> <span class="keyword">void</span> <span class="function-name">print</span>() {
+        <span class="class-ref">System</span>.out.<span class="function-name">println</span>(<span class="string">"Printing..."</span>);
     }
-    public void show() {
-        System.out.println("Showing...");
+    <span class="keyword">public</span> <span class="keyword">void</span> <span class="function-name">show</span>() {
+        <span class="class-ref">System</span>.out.<span class="function-name">println</span>(<span class="string">"Showing..."</span>);
     }
 }
 </code></pre>
 </div>
+
 
 
 
@@ -215,7 +228,7 @@ class A implements Printable, Showable {
 | Need multiple inheritance                    | ❌ Not supported         | ✅ Yes                   |
 | Java 8+ with default behavior                | ✅ Partial use allowed   | ✅ Default/static allowed |
 
-
+<br/>
 
 ## 🌐 Real-world Analogy
 
@@ -242,22 +255,23 @@ These are typical interfaces with abstract methods.
 - Only abstract methods (until Java 7)
 - Implemented by classes using `implements`
 - Cannot contain constructors
+<br/>
 
 #### 🧪 Example:
 
-<div class="example">
-<pre><code class="language-java">
-interface Shape {
-    void draw();
-    double area();
+<div class="code-container">
+<pre><code class="code-block">
+<span class="keyword">interface</span> <span class="class-name">Shape</span> {
+    <span class="keyword">void</span> <span class="function-name">draw</span>();
+    <span class="keyword">double</span> <span class="function-name">area</span>();
 }
 
-class Circle implements Shape {
-    public void draw() {
-        System.out.println("Drawing Circle");
+<span class="keyword">class</span> <span class="class-name">Circle</span> <span class="keyword">implements</span> <span class="class-name">Shape</span> {
+    <span class="keyword">public</span> <span class="keyword">void</span> <span class="function-name">draw</span>() {
+        <span class="class-ref">System</span>.out.<span class="function-name">println</span>(<span class="string">"Drawing Circle"</span>);
     }
-    public double area() {
-        return Math.PI * 5 * 5;
+    <span class="keyword">public</span> <span class="keyword">double</span> <span class="function-name">area</span>() {
+        <span class="keyword">return</span> <span class="class-ref">Math</span>.PI * <span class="number">5</span> * <span class="number">5</span>;
     }
 }
 </code></pre>
@@ -274,23 +288,28 @@ A **functional interface** is an interface with only **one abstract method**, us
 - Can have default and static methods
 - Introduced in Java 8
 
+<br/>
+
 #### 🧪 Example:
 
-<div class="example">
-<pre><code class="language-java">
-@FunctionalInterface
-interface Greeting {
-    void sayHello(String name);
+<div class="code-container">
+<pre><code class="code-block">
+<span class="annotation">@FunctionalInterface</span>
+<span class="keyword">interface</span> <span class="class-name">Greeting</span> {
+    <span class="keyword">void</span> <span class="function-name">sayHello</span>(<span class="class-name">String</span> <span class="variable-name">name</span>);
 }
 
-public class LambdaExample {
-    public static void main(String[] args) {
-        Greeting greet = (name) -> System.out.println("Hello " + name);
-        greet.sayHello("Alice");
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="class-name">LambdaExample</span> {
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="function-name">main</span>(<span class="class-name">String</span>[] <span class="variable-name">args</span>) {
+        <span class="class-name">Greeting</span> <span class="variable-name">greet</span> = (<span class="variable-name">name</span>) -> 
+            <span class="class-ref">System</span>.out.<span class="function-name">println</span>(<span class="string">"Hello "</span> + <span class="variable-name">name</span>);
+        <span class="variable-name">greet</span>.<span class="function-name">sayHello</span>(<span class="string">"Alice"</span>);
     }
 }
 </code></pre>
 </div>
+
+<br/>
 
 #### ✅ Built-in Functional Interfaces in `java.util.function`:
 
@@ -307,22 +326,27 @@ public class LambdaExample {
 
 A **marker interface** is an interface with **no methods** or **fields**. It is used to mark a class for special treatment by the JVM or frameworks.
 
+<br/>
+
 #### ✅ Examples:
 - `Serializable`
 - `Cloneable`
 - `Remote`
 
+<br/>
+
 #### 🧪 Example:
 
-<div class="example">
-<pre><code class="language-java">
-interface MyMarker {}
+<div class="code-container">
+<pre><code class="code-block">
+<span class="keyword">interface</span> <span class="class-name">MyMarker</span> {}
 
-class MyClass implements MyMarker {
-    // JVM or frameworks may treat this differently
+<span class="keyword">class</span> <span class="class-name">MyClass</span> <span class="keyword">implements</span> <span class="class-name">MyMarker</span> {
+    <span class="comment">// JVM or frameworks may treat this differently</span>
 }
 </code></pre>
 </div>
+
 
 > ☝️ Marker interfaces are often checked using `instanceof` to determine if an object has a specific capability.
 
@@ -336,20 +360,36 @@ In Java, interfaces are `public` by default when declared in their own file.
 - Accessible from any class
 - Must be placed in a file with the same name
 
+<br/>
+
 #### 🧪 Example:
 
-```java
-// File: Vehicle.java
-public interface Vehicle {
-    void run();
+<div class="code-container">
+  <pre><code class="code-block">
+<span class="keyword">public</span> <span class="keyword">interface</span> <span class="classname">Vehicle</span> {
+    <span class="keyword">void</span> <span class="method">run</span>();
 }
 
-## 🧠 Key Takeaways
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="classname">Car</span> <span class="keyword">implements</span> <span class="classname">Vehicle</span> {
+    <span class="keyword">public</span> <span class="keyword">void</span> <span class="method">run</span>() {
+        <span class="class-ref">System</span>.out.<span class="method">println</span>(<span class="string">"Car is running"</span>);
+    }
+}
 
-- **Abstraction** lets you define functionality without worrying about implementation.
-- Java supports abstraction through **abstract classes** and **interfaces**.
-- Use abstract classes for shared code.
-- Use interfaces to define contracts and support multiple inheritance.
-- Java 8+ gives more flexibility to interfaces with default and static methods.
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="classname">Bike</span> <span class="keyword">implements</span> <span class="classname">Vehicle</span> {
+    <span class="keyword">public</span> <span class="keyword">void</span> <span class="method">run</span>() {
+        <span class="class-ref">System</span>.out.<span class="method">println</span>(<span class="string">"Bike is running"</span>);
+    }
+}
 
----
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="classname">Main</span> {
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="method">main</span>(<span class="type">String</span>[] <span class="variable-name">args</span>) {
+        <span class="classname">Vehicle</span> <span class="variable-name">v1</span> = <span class="keyword">new</span> <span class="classname">Car</span>();
+        <span class="classname">Vehicle</span> <span class="variable-name">v2</span> = <span class="keyword">new</span> <span class="classname">Bike</span>();
+        <span class="variable-name">v1</span>.<span class="method">run</span>();
+        <span class="variable-name">v2</span>.<span class="method">run</span>();
+    }
+}
+  </code></pre>
+</div>
+

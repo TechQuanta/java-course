@@ -96,7 +96,7 @@ body {
     font-size: 1.5rem;
     width:38%;
     font-weight: 600;
-    padding:5px;
+    padding:2px;
     background: linear-gradient(135deg, #dbb725, #c09e19);
     color: #fff;
     border-radius: 10px;
@@ -218,23 +218,42 @@ body {
 #theme-toggle:hover {
   transform: scale(1.1);
 }
-
-
-/* Sidebar Toggle for Mobile */
+/* Style for the menu button */
 #menu-toggle {
-  display: none;
+  background: transparent;
+  border: none;
+  height  :50px;
+  width   :50px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
   position: fixed;
   top: 20px;
   left: 20px;
-  background-color:rgb(16, 192, 232);
   font-size: 39px;
   border: none;
   z-index: 1000;
   border-radius: 10px;
 }
 
+
+#menu-toggle img {
+  width: 50px;
+  height: 50px;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Add hover effect to button */
 #menu-toggle:hover {
   transform: scale(1.1);
+}
+
+#menu-toggle:hover img {
+  transform: rotate(90deg); /* Rotate the image when hovered */
+}
+
+/* Animation effect for the image when clicked */
+#menu-toggle:active img {
+  transform: rotate(45deg); /* Rotate image when button is clicked */
 }
 
 
@@ -495,7 +514,7 @@ hr {
   margin: 0 auto;
   white-space: pre;
   font-family: 'Courier New', monospace;
-  font-size: 14px;
+  text-wrap: break-word;
 }
 
 /* Syntax Highlighting */
@@ -507,7 +526,7 @@ hr {
 .string      { color: #12b1c3; }      /* "Hello, World!" */
 .class-ref   { color: #00d512; }      /* System, out */
 .command     { color: #ef667f; font-weight: bold; }  /* javac, java */
-
+.comment     { color: #b7ff00; font-weight: bold; }  /* javac, java */
 .note {
   margin-top: 15px;
   color: #444;
@@ -652,7 +671,8 @@ pre {
   background: #fafafa;  /* Light background */
   color: #333;  /* Dark text color */
   position: relative;
-  border-left: 5px solid #40b3ff;  /* Colorful left border */
+  border-top: 3px solid #40b3ff;  /* Colorful left border */
+  border-bottom: 3px solid #40b3ff;  /* Colorful left border */
   padding-left: 10px;
 }
 
