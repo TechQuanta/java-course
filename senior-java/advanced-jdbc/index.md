@@ -104,6 +104,11 @@ Applications use the JDBC API, which communicates with the JDBC Driver Manager. 
 
 ### Type-1: JDBC-ODBC Bridge Driver
 - **Description:** Converts JDBC calls to ODBC calls to connect to the database.The JDBC-ODBC bridge driver converts JDBC method calls into the ODBC function calls. Type-1 driver is also called Universal driver because it can be used to connect to any of the databases.
+   <br/>
+<div align="center" width=700 height=200>
+<img src="IMAGES/d1.jpg" class="execution" alt="exception hierarchy">
+</div><br/>
+
 
   - Built into JDK; no separate installation required.
   - Database independent.
@@ -111,6 +116,11 @@ Applications use the JDBC API, which communicates with the JDBC Driver Manager. 
 
 ### Type-2: Native-API Driver
 - **Description:** Uses database native client-side libraries to convert JDBC calls.Uses client-side libraries to convert JDBC calls into native database API calls. Requires local API for each database, providing more secure data transfer. Also known as a Partially Java driver.
+     
+     <br/>
+<div align="center" width=700 height=200>
+<img src="IMAGES/d2.jpg" class="execution" alt="exception hierarchy">
+</div><br/>
 
 
   - Better performance than Type-1.
@@ -119,31 +129,90 @@ Applications use the JDBC API, which communicates with the JDBC Driver Manager. 
 
 ### Type-3: Network Protocol Driver
 - **Description:** Uses middleware that converts JDBC calls to database-specific protocols.
+This driver uses a middleware server to convert JDBC calls into the database-specific protocol. It is more flexible and can be used with multiple databases without needing native libraries.
+
+<br/>
+<div align="center" width=700 height=200>
+<img src="IMAGES/d3.jpg" class="execution" alt="exception hierarchy">
+</div><br/>
+
   - Fully written in Java; portable.
   - No client-side libraries required.
   - Supports multiple databases and additional middleware features.
 
 ### Type-4: Thin Driver
 - **Description:** Directly interacts with the database using native protocol; no middleware involved.
+This driver converts JDBC calls directly into the database-specific protocol. It is written entirely in Java and does not require any native libraries, making it platform-independent and suitable for web applications.
+  <br/>
+<div align="center" width=700 height=200>
+<img src="IMAGES/d4.jpg" class="execution" alt="exception hierarchy">
+</div><br/>
 
   - No native library or middleware installation.
   - Fully Java-based; portable.
 
-## Choosing the Right Driver
+### Choosing the Right Driver
 
 - Use **Type-4** drivers for single database applications (e.g., Oracle).
 - Use **Type-3** drivers when accessing multiple different databases simultaneously.
 - Use **Type-2** drivers if Type-3 or Type-4 are unavailable for your database.
 - **Type-1** drivers are mainly for development and testing, not recommended for production.
+### How to Use a JDBC Driver
 
-## Conclusion
+1. **Add the JDBC Driver to Your Project**:  
+   You can include the JDBC driver in your project by adding the appropriate JAR file to your classpath. For example, for MySQL, you would include `mysql-connector-java-x.x.x.jar`.
+
+2. **Load the Driver**:  
+   You can load the driver using `Class.forName()` method (though this is not always necessary with newer JDBC versions).
+
+   ```java
+   Class.forName("com.mysql.cj.jdbc.Driver");
+   ```
+
+3. **Establish a Connection**:  
+   Use `DriverManager.getConnection()` to establish a connection to the database.
+
+   ```java
+   Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydatabase", "username", "password");
+   ```
+
+4. **Create a Statement**:  
+   Create a `Statement` or `PreparedStatement` to execute SQL queries.
+
+   ```java
+   Statement statement = connection.createStatement();
+   ResultSet resultSet = statement.executeQuery("SELECT * FROM mytable");
+   ```
+
+5. **Process the Results**:  
+   Iterate through the `ResultSet` to process the data returned by the query.
+
+6. **Close the Connection**:  
+   Always close the `ResultSet`, `Statement`, and `Connection` objects to free up resources.
+
+   ```java
+   resultSet.close();
+   statement.close();
+   connection.close();
+   ```
+
+### Conclusion
 
 Each JDBC driver type serves different scenarios with trade-offs in performance, portability, and installation requirements. Choosing the appropriate driver depends on your application’s needs and database environment.
 
 
 # Java Database Connectivity
 
-During programming, you may need to interact with a database to solve your problem. Java provides JDBC to connect to databases and work with them. Using standard library routines, you can open a connection to the database. JDBC allows the integration of SQL calls into a general programming environment by providing library routines, which interface with the database. In particular, Java’s JDBC has a rich collection of routines which makes such an interface extremely simple and intuitive.
+During programming, you may need to interact with a database to solve your problem. Java provides JDBC to connect to databases and work with them. Using standard library routines, you can open a connection to the database. 
+
+ <br/>
+<div align="center" width=700 height=200>
+<img src="IMAGES/connection.jpg" class="execution" alt="exception hierarchy">
+</div><br/>
+
+
+
+JDBC allows the integration of SQL calls into a general programming environment by providing library routines, which interface with the database. In particular, Java’s JDBC has a rich collection of routines which makes such an interface extremely simple and intuitive.
 
 ## Steps to Connect to a Database in Java
 
