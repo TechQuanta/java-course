@@ -46,7 +46,7 @@ public class HelloWorld extends HttpServlet {
    }
 }
 ```
-# Java Servlet Overview
+
 
 ## Explanation of the Code
 
@@ -65,7 +65,100 @@ The `doGet()` method processes GET requests. It retrieves data from the request 
 ### Cleanup
 The `destroy()` method is called when the servlet is taken out of service. This method can be overridden to release resources or perform cleanup tasks.
 
+# Java Servlet Overview
+- # Servlet Application Directory Structure
+
+The directory structure of a typical Java Servlet web application follows a specific layout to ensure compatibility and organization. This structure is recommended by Sun Microsystems (now Oracle).
+
+---
+
+## Standard Directory Layout
+YourWebAppRoot/
+│
+├── WEB-INF/
+│   ├── classes/
+│   │   └── (compiled .class files)
+│   └── lib/
+│       └── (JAR files)
+│
+├── src/
+│   └── (Java source files, e.g., .java files)
+│
+├── images/
+│   └── (image files, e.g., .png, .jpg)
+│
+├── css/
+│   └── (CSS files)
+│
+├── js/
+│   └── (JavaScript files)
+│
+├── html/
+│   └── (HTML files)
+│
+├── jsp/
+│   └── (JSP files)
+│
+└── index.html (or other entry point files)
+
+
+<br/>
+<div align="center" width=700 height=200>
+<img src="IMAGES\directly.png" class="execution" alt="exception hierarchy">
+</div><br/>
+
+<br/>
+
+---
+
+## Explanation
+
+- **YourWebAppRoot/**  
+  The root directory of your web application. You can name it as you wish.
+
+- **WEB-INF/**  
+  A crucial directory that is not accessible directly from the web. Contains:
+  - **classes/**: Holds compiled Java classes (`.class` files) for servlets and other classes.
+  - **lib/**: Contains JAR files your application depends on.
+
+- **src/**  
+  Contains Java source files (`.java`). Typically used during development.
+
+- **images/**  
+  Folder for images used within your web application.
+
+- **css/**  
+  Contains stylesheets (CSS files).
+
+- **js/**  
+  JavaScript files to add interactivity.
+
+- **html/**  
+  Static HTML pages.
+
+- **jsp/**  
+  JSP (JavaServer Pages) files for dynamic web content.
+
+- **index.html**  
+  Often the default entry point of your web application.
+
+---
+
+## Additional Notes
+
+- You can create other folders as needed under the root or WEB-INF directories.
+- The presence of the `WEB-INF` directory is mandatory for proper deployment.
+- Organizing your app using this structure helps manage resources and dependencies effectively.
+
+
 ## Applications of Servlets
+
+<br/>
+<div align="center" width=700 height=200>
+<img src="IMAGES\serv-req.jpg" class="execution" alt="exception hierarchy">
+</div><br/>
+
+<br/>
 
 1. **Reading Client Data**: 
    - Servlets can read explicit data sent by clients, such as form submissions. This allows for dynamic processing based on user input.
@@ -87,6 +180,14 @@ The `destroy()` method is called when the servlet is taken out of service. This 
 
 
 ## Servlet Architecture
+
+
+<br/>
+<div align="center" width=700 height=200>
+<img src="IMAGES\servlet-arch.jpg" class="execution" alt="exception hierarchy">
+</div><br/>
+
+<br/>
 
 1. **Client**: A web browser or any HTTP client that sends requests to the server.
 2. **Web Server**: A server that handles HTTP requests and responses. It can be a standalone server like Apache Tomcat or part of a larger application server.
@@ -204,6 +305,14 @@ Apache Tomcat is a popular open-source web server for running Java Servlets. Fol
 ## Servlet Lifecycle
 
 The lifecycle of a servlet is managed by the servlet container and consists of the following phases:
+
+
+<br/>
+<div align="center" width=700 height=200>
+<img src="IMAGES\serv-lifrcycle.jpg" class="execution" alt="exception hierarchy">
+</div><br/>
+
+<br/>
 
 1. **Loading and Instantiation**: The servlet container loads the servlet class and creates an instance of it.
 2. **Initialization**: The `init()` method is called to initialize the servlet. This is where resources can be allocated.
@@ -407,13 +516,13 @@ If you are not using annotations, you need to configure the `web.xml` file locat
 
 
 
-# Servlets - Form Data (Full HTML and Java Source)
+## Servlets - Form Data (Full HTML and Java Source)
 
 You often need to pass information from your browser to a web server and backend program using two HTTP methods: **GET** and **POST**.
 
 ---
 
-## GET Method
+### GET Method
 
 The GET method appends encoded user information to the URL after a `?`. Example:
 
@@ -426,13 +535,13 @@ Handled by servlet's `doGet()` method.
 
 ---
 
-## POST Method
+### POST Method
 
 The POST method sends data separately in the message body. It is more secure and reliable. Handled by servlet’s `doPost()` method.
 
 ---
 
-## Reading Form Data Using Servlet
+### Reading Form Data Using Servlet
 
 Servlet APIs provide:
 
@@ -448,7 +557,7 @@ Example URL passing first and last name:
 `http://localhost:8080/HelloForm?first_name=ZARA&last_name=ALI`
 
 
-### `HelloForm.java`
+#### `HelloForm.java`
 
 ```java
 // Import required java libraries
@@ -599,6 +708,7 @@ HTML form for POST method:
       </form>
    </body>
 </html>
+
 ### Passing Checkbox Data to Servlet Program
 Example `CheckBox.html`:
 ```html
@@ -623,7 +733,9 @@ Example `CheckBox.html`:
       </form>
    </body>
 </html>
+
 Example servlet `CheckBox.java`:
+
 ```java
 // Import required java libraries
 import java.io.*;
@@ -768,3 +880,430 @@ Example form to test`ReadParams servlet`:
     </tr>
   </tbody>
 </table>
+
+
+
+# JDBC Application Guide
+
+This guide explains how a JDBC (Java Database Connectivity) application works and what you need to set up before accessing a database through a Java Servlet.
+
+---
+
+## 🔁 How a JDBC Application Works with DATABASE
+
+JDBC acts as a bridge between Java applications and relational databases. Here's a step-by-step breakdown of the process:
+
+### 1. Load JDBC Driver
+
+Load the JDBC driver into memory.
+
+```java
+Class.forName("com.mysql.cj.jdbc.Driver"); // For MySQL
+```
+
+> This registers the driver with the DriverManager.
+
+---
+
+### 2. Establish a Database Connection
+
+Use the DriverManager to connect to your database.
+
+```java
+Connection con = DriverManager.getConnection(
+    "jdbc:mysql://localhost:3306/your_database", "username", "password");
+```
+
+---
+
+### 3. Create a Statement Object
+
+This is used to execute SQL queries.
+
+```java
+Statement stmt = con.createStatement();
+```
+
+Or, for dynamic queries:
+
+```java
+PreparedStatement pstmt = con.prepareStatement("SELECT * FROM users WHERE id=?");
+```
+
+---
+
+### 4. Execute SQL Queries
+
+Execute your query using the statement object.
+
+```java
+ResultSet rs = stmt.executeQuery("SELECT * FROM users");
+```
+
+---
+
+### 5. Process the Results
+
+Use the ResultSet to retrieve data.
+
+```java
+while(rs.next()) {
+    System.out.println(rs.getString("username"));
+}
+```
+
+---
+
+### 6. Close Resources
+
+Always close JDBC objects to prevent memory leaks.
+
+```java
+rs.close();
+stmt.close();
+con.close();
+```
+
+---
+
+## ✅ JDBC Environment Setup Before Servlet Access
+
+Before accessing a database using a Servlet, ensure the following:
+
+### 1. Install a Database Server
+
+Examples:
+- MySQL
+- PostgreSQL
+- Oracle DB
+
+Make sure:
+- The server is running.
+- The database and tables are created.
+
+---
+
+### 2. Add JDBC Driver to Classpath
+
+Include the JDBC driver `.jar` file in your project.
+
+For example, for MySQL:
+- Use `mysql-connector-j-8.0.x.jar`
+- Place it in your `WEB-INF/lib/` directory in a servlet-based project.
+
+---
+
+### 3. Setup Project Structure
+
+Typical structure of a web project:
+
+```
+YourWebApp/
+├── WEB-INF/
+│   ├── web.xml
+│   ├── lib/
+│   │   └── mysql-connector-j-8.0.x.jar
+├── index.html
+├── ServletClass.java
+```
+
+
+Once this setup is done, you can create Servlets that connect to and interact with your database using JDBC.
+---
+---
+
+**This  creating a table in MySQL, inserting data, and accessing it using a Java Servlet with JDBC**.
+
+
+
+## 🧱 Step 1: Create Table in MySQL
+
+Open Command Prompt and navigate to MySQL's bin directory:
+
+```bash
+C:\> cd Program Files\MySQL\bin
+```
+
+Login to MySQL as root:
+
+```bash
+C:\Program Files\MySQL\bin> mysql -u root -p
+Enter password: ********
+mysql>
+```
+
+Switch to the `TEST` database and create the `Employees` table:
+
+```sql
+mysql> use TEST;
+mysql> create table Employees (
+   id int not null,
+   age int not null,
+   first varchar(255),
+   last varchar(255)
+);
+```
+
+---
+
+## 📥 Step 2: Insert Data Records
+
+Insert some records into the `Employees` table:
+
+```sql
+mysql> INSERT INTO Employees VALUES (100, 18, 'Zara', 'Ali');
+mysql> INSERT INTO Employees VALUES (101, 25, 'Mahnaz', 'Fatma');
+mysql> INSERT INTO Employees VALUES (102, 30, 'Zaid', 'Khan');
+mysql> INSERT INTO Employees VALUES (103, 28, 'Sumit', 'Mittal');
+```
+
+---
+
+## 🌐 Step 3: Access Database Using Servlet
+
+Here is a complete Java Servlet example that connects to the `TEST` database and retrieves employee data:
+
+```java
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+import java.sql.*;
+
+public class DatabaseAccess extends HttpServlet {
+
+   public void doGet(HttpServletRequest request, HttpServletResponse response)
+      throws ServletException, IOException {
+      
+      // JDBC driver and DB URL
+      final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
+      final String DB_URL = "jdbc:mysql://localhost/TEST";
+
+      // Database credentials
+      final String USER = "root";
+      final String PASS = "password";
+
+      response.setContentType("text/html");
+      PrintWriter out = response.getWriter();
+      String title = "Database Result";
+
+      String docType =
+         "<!doctype html public "-//w3c//dtd html 4.0 transitional//en">\n";
+
+      out.println(docType +
+         "<html><head><title>" + title + "</title></head>" +
+         "<body bgcolor='#f0f0f0'><h1 align='center'>" + title + "</h1>");
+
+      Connection conn = null;
+      Statement stmt = null;
+      try {
+         Class.forName("com.mysql.jdbc.Driver");
+         conn = DriverManager.getConnection(DB_URL, USER, PASS);
+         stmt = conn.createStatement();
+         String sql = "SELECT id, first, last, age FROM Employees";
+         ResultSet rs = stmt.executeQuery(sql);
+
+         while(rs.next()){
+            int id  = rs.getInt("id");
+            int age = rs.getInt("age");
+            String first = rs.getString("first");
+            String last = rs.getString("last");
+
+            out.println("ID: " + id + "<br>");
+            out.println(", Age: " + age + "<br>");
+            out.println(", First: " + first + "<br>");
+            out.println(", Last: " + last + "<br><br>");
+         }
+         out.println("</body></html>");
+         rs.close();
+         stmt.close();
+         conn.close();
+      } catch(SQLException se) {
+         se.printStackTrace();
+      } catch(Exception e) {
+         e.printStackTrace();
+      } finally {
+         try {
+            if(stmt != null) stmt.close();
+         } catch(SQLException se2) { }
+         try {
+            if(conn != null) conn.close();
+         } catch(SQLException se) {
+            se.printStackTrace();
+         }
+      }
+   }
+}
+```
+
+---
+
+## 🔧 Step 4: Configure `web.xml`
+
+Add the servlet configuration to your `web.xml` file:
+
+```xml
+<servlet>
+   <servlet-name>DatabaseAccess</servlet-name>
+   <servlet-class>DatabaseAccess</servlet-class>
+</servlet>
+
+<servlet-mapping>
+   <servlet-name>DatabaseAccess</servlet-name>
+   <url-pattern>/DatabaseAccess</url-pattern>
+</servlet-mapping>
+```
+
+---
+
+## 🌍 Step 5: Accessing the Servlet
+
+Run your servlet and open the following URL in a browser:
+
+```
+http://localhost:8080/DatabaseAccess
+```
+
+You will see output like:
+
+```
+Database Result
+
+ID: 100, Age: 18, First: Zara, Last: Ali
+ID: 101, Age: 25, First: Mahnaz, Last: Fatma
+ID: 102, Age: 30, First: Zaid, Last: Khan
+ID: 103, Age: 28, First: Sumit, Last: Mittal
+```
+
+---
+
+✅ Done! You’ve successfully created and accessed a MySQL table using a Servlet with JDBC.
+
+
+# Introduction to JSP
+
+# JSP Life Cycle
+
+The **JSP Life Cycle** defines the steps from the creation to the destruction of a JSP page. It is similar to the **Servlet life cycle**, with an added step to compile the JSP into a Servlet.
+
+### Life Cycle Steps:
+
+<br/>
+<div align="center" width=700 height=200>
+<img src="IMAGES\jsp.png" class="execution" alt="exception hierarchy">
+</div><br/>
+
+<br/>
+1. **Compilation**
+2. **Initialization**
+3. **Execution**
+4. **Cleanup**
+
+### 1. Compilation
+When a browser requests a JSP page:
+- The JSP engine checks if the page needs compilation (e.g., if it's new or modified).
+- **Compilation Steps**:
+  - Parsing the JSP.
+  - Translating the JSP into a Servlet.
+  - Compiling the Servlet class.
+
+### 2. Initialization
+- The container calls the `jspInit()` method once, after loading the JSP but before processing any request.
+- You can override `jspInit()` to perform initialization tasks.
+
+### 3. Execution
+- For every request, the `_jspService(HttpServletRequest req, HttpServletResponse res)` method is called.
+- This method handles the response and supports all HTTP methods like `GET`, `POST`, `DELETE`, etc.
+
+### 4. Cleanup
+- When the JSP is removed or the server is shut down, `jspDestroy()` is called.
+- Override `jspDestroy()` to release resources like database connections or open files.
+
+---
+
+# JSP Elements
+
+JSP provides three types of elements to embed Java code within HTML:
+
+### 1. Declaration
+Used to declare variables or methods.
+
+```jsp
+<%! int i = 0; %>
+<%! int a, b, c; %>
+<%! Circle circle = new Circle(2.0); %>
+```
+
+### 2. Expression
+Outputs a value directly to the client.
+
+```jsp
+<p>Today's date: <%= new java.util.Date() %></p>
+```
+
+### 3. Scriptlet
+Contains any valid Java code.
+
+```jsp
+<%
+for (int i = 0; i < 10; i++) {
+    out.println("Value of counter = " + i + "<br>");
+}
+%>
+```
+
+---
+
+# JSP Implicit Objects
+
+JSP provides several **implicit objects** that are automatically available:
+
+| Object       | Description |
+|--------------|-------------|
+| `request`    | Instance of `HttpServletRequest`. Holds client request data. |
+| `response`   | Instance of `HttpServletResponse`. Used to send response to client. |
+| `out`        | Instance of `JspWriter` (a PrintWriter). Sends output to client. |
+| `session`    | Instance of `HttpSession`. Manages session data. |
+| `application`| Instance of `ServletContext`. Shared across the entire web app. |
+| `config`     | Instance of `ServletConfig`. Configuration info for this JSP page. |
+| `pageContext`| Provides access to all other implicit objects and environment details. |
+| `page`       | Refers to the current JSP page instance (`this`). |
+| `exception`  | Used in error pages to display exception information. |
+
+---
+
+# JSP Directives
+
+Directives are instructions to the JSP engine. They affect the entire JSP page and are used to set page-level instructions.
+
+### 1. `page` Directive
+Used to set various attributes for the JSP.
+
+```jsp
+<%@ page language="java" import="java.util.*" session="true" %>
+```
+
+Common attributes:
+- `import`: Import Java packages.
+- `session`: Enable/disable session tracking.
+- `errorPage`: Define error handler page.
+- `isErrorPage`: Mark if the current page is an error page.
+
+### 2. `include` Directive
+Includes the content of another file at **translation time**.
+
+```jsp
+<%@ include file="header.jsp" %>
+```
+
+### 3. `taglib` Directive
+Declares tag libraries used in the JSP.
+
+```jsp
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+```
+
+- `uri`: The location of the tag library descriptor.
+- `prefix`: Used as a namespace in custom tag usage.
+
+
+---
