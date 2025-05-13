@@ -72,7 +72,10 @@ The directory structure of a typical Java Servlet web application follows a spec
 
 ---
 
-## Standard Directory Layout
+
+<body>
+  <h1> Standard Directory Layout</h1>
+  <pre>
 YourWebAppRoot/
 │
 ├── WEB-INF/
@@ -100,10 +103,11 @@ YourWebAppRoot/
 │   └── (JSP files)
 │
 └── index.html (or other entry point files)
-
+  </pre>
+</body>
 
 <br/>
-<div align="center" width=700 height=200>
+<div align="center" width=600 height=100>
 <img src="IMAGES\directly.png" class="execution" alt="exception hierarchy">
 </div><br/>
 
