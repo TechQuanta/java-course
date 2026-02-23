@@ -1,68 +1,66 @@
-# Performance Tuning in Java
+# Big Data in Java 
 
-> Java performance tuning — from JVM internals and memory management to profiling, concurrency, database optimization, and production best practices.
+> Big Data ecosystem in Java — from core concepts and Hadoop to Spark, Kafka, Flink, HBase, Hive, and production-ready pipelines.
 
 ---
 
 ## Table of Contents
 
 ### PART 1 — FOUNDATIONS
-1. [Why Performance Tuning Matters](#1-why-performance-tuning-matters)
-2. [Performance Tuning Methodology](#2-performance-tuning-methodology)
-3. [Key Performance Metrics](#3-key-performance-metrics)
+1. [What is Big Data?](#1-what-is-big-data)
+2. [Big Data Architecture Patterns](#2-big-data-architecture-patterns)
+3. [Big Data Ecosystem Overview](#3-big-data-ecosystem-overview)
+4. [CAP Theorem & Distributed Systems Basics](#4-cap-theorem--distributed-systems-basics)
 
-### PART 2 — JVM INTERNALS
-4. [JVM Architecture Overview](#4-jvm-architecture-overview)
-5. [JVM Memory Structure](#5-jvm-memory-structure)
-6. [Class Loading & JIT Compilation](#6-class-loading--jit-compilation)
+### PART 2 — HADOOP ECOSYSTEM
+5. [Hadoop Core Concepts](#5-hadoop-core-concepts)
+6. [HDFS — Hadoop Distributed File System](#6-hdfs--hadoop-distributed-file-system)
+7. [MapReduce Programming Model](#7-mapreduce-programming-model)
+8. [YARN — Resource Management](#8-yarn--resource-management)
+9. [Hadoop Java API](#9-hadoop-java-api)
 
-### PART 3 — GARBAGE COLLECTION
-7. [Garbage Collection Basics](#7-garbage-collection-basics)
-8. [GC Algorithms](#8-gc-algorithms)
-9. [GC Tuning & Flags](#9-gc-tuning--flags)
-10. [GC Logging & Analysis](#10-gc-logging--analysis)
+### PART 3 — APACHE SPARK
+10. [Spark Architecture & Core Concepts](#10-spark-architecture--core-concepts)
+11. [Spark RDD — Resilient Distributed Datasets](#11-spark-rdd--resilient-distributed-datasets)
+12. [Spark DataFrames & Datasets](#12-spark-dataframes--datasets)
+13. [Spark SQL](#13-spark-sql)
+14. [Spark Streaming](#14-spark-streaming)
+15. [Spark MLlib — Machine Learning](#15-spark-mllib--machine-learning)
+16. [Spark Optimization & Tuning](#16-spark-optimization--tuning)
 
-### PART 4 — JVM TUNING FLAGS
-11. [Heap & Memory Flags](#11-heap--memory-flags)
-12. [GC Selection Flags](#12-gc-selection-flags)
-13. [JIT & Compilation Flags](#13-jit--compilation-flags)
-14. [Monitoring & Diagnostic Flags](#14-monitoring--diagnostic-flags)
+### PART 4 — APACHE KAFKA
+17. [Kafka Architecture & Core Concepts](#17-kafka-architecture--core-concepts)
+18. [Kafka Producer API in Java](#18-kafka-producer-api-in-java)
+19. [Kafka Consumer API in Java](#19-kafka-consumer-api-in-java)
+20. [Kafka Streams](#20-kafka-streams)
+21. [Kafka Connect](#21-kafka-connect)
 
-### PART 5 — PROFILING & TOOLS
-15. [Profiling Tools Overview](#15-profiling-tools-overview)
-16. [JDK Built-in Tools](#16-jdk-built-in-tools)
-17. [Heap Dump Analysis](#17-heap-dump-analysis)
-18. [Thread Dump Analysis](#18-thread-dump-analysis)
+### PART 5 — APACHE FLINK
+22. [Flink Architecture & Core Concepts](#22-flink-architecture--core-concepts)
+23. [Flink DataStream API](#23-flink-datastream-api)
+24. [Flink Table API & SQL](#24-flink-table-api--sql)
+25. [Flink Windowing & State Management](#25-flink-windowing--state-management)
 
-### PART 6 — CODE-LEVEL OPTIMIZATIONS
-19. [String Optimizations](#19-string-optimizations)
-20. [Collections & Data Structures](#20-collections--data-structures)
-21. [Java Streams & Lambdas](#21-java-streams--lambdas)
-22. [Object Creation & Memory](#22-object-creation--memory)
-23. [I/O Optimizations](#23-io-optimizations)
-24. [Reflection & Generics](#24-reflection--generics)
+### PART 6 — NOSQL & STORAGE
+26. [HBase — Wide-Column Store](#26-hbase--wide-column-store)
+27. [Apache Cassandra with Java](#27-apache-cassandra-with-java)
+28. [Apache Hive — Data Warehousing](#28-apache-hive--data-warehousing)
+29. [Apache Parquet & Avro — Data Formats](#29-apache-parquet--avro--data-formats)
 
-### PART 7 — CONCURRENCY PERFORMANCE
-25. [Threading Best Practices](#25-threading-best-practices)
-26. [Thread Pools & Executors](#26-thread-pools--executors)
-27. [Concurrency Utilities](#27-concurrency-utilities)
-28. [Avoiding Common Concurrency Bottlenecks](#28-avoiding-common-concurrency-bottlenecks)
+### PART 7 — DATA PIPELINES & ORCHESTRATION
+30. [Apache Airflow Concepts](#30-apache-airflow-concepts)
+31. [Spring Batch for Big Data](#31-spring-batch-for-big-data)
+32. [Building ETL Pipelines in Java](#32-building-etl-pipelines-in-java)
 
-### PART 8 — DATABASE & CACHING
-29. [JDBC & Connection Pooling](#29-jdbc--connection-pooling)
-30. [JPA & Hibernate Optimization](#30-jpa--hibernate-optimization)
-31. [Caching Strategies](#31-caching-strategies)
+### PART 8 — CLOUD & DEPLOYMENT
+33. [Big Data on AWS — EMR, S3, Glue](#33-big-data-on-aws--emr-s3-glue)
+34. [Big Data on GCP — Dataproc, BigQuery](#34-big-data-on-gcp--dataproc-bigquery)
+35. [Containerizing Big Data — Docker & Kubernetes](#35-containerizing-big-data--docker--kubernetes)
 
-### PART 9 — SPRING BOOT PERFORMANCE
-32. [Spring Boot Startup Optimization](#32-spring-boot-startup-optimization)
-33. [Spring Web Performance](#33-spring-web-performance)
-34. [Spring Data Performance](#34-spring-data-performance)
-
-### PART 10 — BENCHMARKING & BEST PRACTICES
-35. [Benchmarking with JMH](#35-benchmarking-with-jmh)
-36. [Performance Anti-Patterns](#36-performance-anti-patterns)
-37. [Production Performance Checklist](#37-production-performance-checklist)
-38. [Performance Tuning Cheat Sheet](#38-performance-tuning-cheat-sheet)
+### PART 9 — PATTERNS & BEST PRACTICES
+36. [Data Engineering Best Practices](#36-data-engineering-best-practices)
+37. [Big Data Design Patterns](#37-big-data-design-patterns)
+38. [Big Data Cheat Sheet](#38-big-data-cheat-sheet)
 
 ---
 
@@ -72,2659 +70,4327 @@
 
 ---
 
-## 1. Why Performance Tuning Matters
+## 1. What is Big Data?
 
-Performance tuning is the process of making a system faster, more efficient, and more scalable. Poor performance costs money, users, and reputation.
+**Big Data** refers to datasets so large, fast, or complex that traditional data processing tools cannot handle them efficiently. The definition is guided by the **5 V's**:
 
-### Real-World Impact
-
-```
-100ms delay  → Amazon loses 1% of sales
-1s delay     → Google gets 11% fewer searches
-53%          → Mobile users abandon a site that takes >3s to load
-```
-
-### Performance Goals
+### The 5 V's of Big Data
 
 ```
-Throughput       → How many requests can be handled per second
-Latency          → How fast does one request get a response
-Scalability      → How well does performance hold under increasing load
-Resource Usage   → CPU, Memory, Network, Disk consumption
-Availability     → System uptime and reliability
+Volume    → Scale of data
+           Terabytes → Petabytes → Exabytes
+           Example: Facebook stores 100+ petabytes of data
+
+Velocity  → Speed at which data arrives
+           Batch (daily) → Near-real-time (minutes) → Real-time (milliseconds)
+           Example: Twitter processes 500 million tweets/day
+
+Variety   → Different types and formats of data
+           Structured (SQL), Semi-structured (JSON, XML), Unstructured (text, video)
+           Example: Sensor data + logs + images + social media
+
+Veracity  → Trustworthiness and quality of data
+           Noisy data, missing values, inconsistencies
+           Example: IoT sensors with occasional faulty readings
+
+Value     → Business insights extracted from data
+           Raw data alone is worthless — insights drive decisions
+           Example: Netflix recommendations = $1 billion/year saved
 ```
 
-### The Golden Rule
+### Big Data vs Traditional Data
 
-```
-"Measure first, optimize second."
-Never guess where the bottleneck is.
-Always profile before making changes.
-Premature optimization is the root of all evil. — Donald Knuth
-```
-
----
-
-## 2. Performance Tuning Methodology
-
-Follow a structured approach — never tune randomly.
-
-### The Performance Tuning Cycle
-
-```
-1. DEFINE     → Set clear performance goals (SLAs, SLOs)
-      |
-      v
-2. MEASURE    → Establish baseline with real or realistic load
-      |
-      v
-3. PROFILE    → Find the actual bottleneck (CPU, memory, I/O, DB)
-      |
-      v
-4. ANALYZE    → Understand WHY the bottleneck exists
-      |
-      v
-5. OPTIMIZE   → Make ONE change at a time
-      |
-      v
-6. VERIFY     → Measure again — did it improve?
-      |
-      v
-7. REPEAT     → Until goals are met
-```
-
-### Where Bottlenecks Usually Live
-
-```
-~60%  → Database (slow queries, missing indexes, N+1 problems)
-~20%  → Network (too many calls, large payloads, no caching)
-~10%  → Application code (inefficient algorithms, bad data structures)
-~5%   → JVM / GC (excessive GC pauses, memory leaks)
-~5%   → I/O (blocking reads/writes, missing buffering)
-```
-
-### Performance Requirements (SLA Examples)
-
-```
-API Response Time:
-  P50 (median)   < 100ms
-  P95            < 500ms
-  P99            < 1000ms
-  P99.9          < 2000ms
-
-Throughput:
-  Minimum: 500 requests/second
-  Peak:    2000 requests/second
-
-Availability:
-  99.9% uptime (8.7 hours downtime/year)
-  99.99% uptime (52 minutes downtime/year)
-```
-
----
-
-## 3. Key Performance Metrics
-
-### Application Metrics
-
-| Metric | Description | Target |
+| Aspect | Traditional Data | Big Data |
 |---|---|---|
-| **Response Time** | Time to complete one request | < 200ms (p95) |
-| **Throughput** | Requests per second (RPS) | Define based on load |
-| **Error Rate** | % of failed requests | < 0.1% |
-| **Latency Percentiles** | p50, p95, p99, p99.9 | Define per SLA |
-| **Apdex Score** | User satisfaction score (0–1) | > 0.9 |
+| **Volume** | GB to TB | TB to PB to EB |
+| **Processing** | Single machine | Distributed cluster |
+| **Storage** | RDBMS (Oracle, MySQL) | HDFS, S3, NoSQL |
+| **Processing Style** | Batch (hourly/daily) | Batch + Streaming (real-time) |
+| **Schema** | Schema-on-write | Schema-on-read |
+| **Latency** | Seconds | Milliseconds to hours |
+| **Cost** | Expensive hardware | Commodity hardware |
+| **Tools** | SQL, ETL tools | Hadoop, Spark, Kafka, Flink |
 
-### JVM Metrics
-
-| Metric | Description | Alert Threshold |
-|---|---|---|
-| **Heap Usage** | Used heap / max heap | > 80% |
-| **GC Pause Time** | Time spent in GC stop-the-world | > 200ms |
-| **GC Frequency** | How often GC runs | Too frequent = memory pressure |
-| **GC Throughput** | % time NOT in GC | < 95% is a concern |
-| **Thread Count** | Active threads | Depends on app |
-| **CPU Usage** | Application CPU % | > 80% sustained |
-| **Off-Heap Memory** | Direct buffers, Metaspace | Monitor for leaks |
-
-### Monitoring Tools
+### When Do You Need Big Data?
 
 ```
-JVM Metrics:    JConsole, VisualVM, Java Mission Control (JMC)
-APM:            New Relic, Dynatrace, Datadog, AppDynamics
-Open Source:    Prometheus + Grafana + Micrometer
-Logs:           ELK Stack (Elasticsearch, Logstash, Kibana)
-Profilers:      async-profiler, JProfiler, YourKit
+✅ Data exceeds what a single server can process (> 1TB active data)
+✅ Processing time exceeds business requirements with traditional tools
+✅ Real-time or near-real-time processing is needed
+✅ Data variety requires flexible schema (logs, events, media)
+✅ Multiple heterogeneous data sources must be combined
+✅ Machine learning on large datasets
+
+❌ Data fits comfortably in a single database
+❌ Processing is not time-critical
+❌ Team lacks Big Data expertise
+❌ Cost of Big Data infrastructure > business value
 ```
 
 ---
 
----
+## 2. Big Data Architecture Patterns
 
-# PART 2 — JVM INTERNALS
+### Lambda Architecture
 
----
-
-## 4. JVM Architecture Overview
+Handles both batch and real-time processing with three layers:
 
 ```
-+────────────────────────────────────────────────────────────────+
-│                         JVM                                     │
-│                                                                  │
-│  ┌─────────────────┐    ┌──────────────────────────────────┐   │
-│  │  Class Loader   │    │           Memory Areas           │   │
-│  │  Subsystem      │    │                                  │   │
-│  │  ─────────────  │    │  ┌──────────┐  ┌────────────┐   │   │
-│  │  Bootstrap CL   │    │  │   Heap   │  │  Metaspace │   │   │
-│  │  Extension CL   │    │  │  (Young  │  │  (Classes) │   │   │
-│  │  Application CL │    │  │   + Old) │  │            │   │   │
-│  └─────────────────┘    │  └──────────┘  └────────────┘   │   │
-│                          │  ┌──────────┐  ┌────────────┐   │   │
-│  ┌─────────────────┐    │  │  Stack   │  │   Native   │   │   │
-│  │  Execution      │    │  │  (Frames)│  │   Method   │   │   │
-│  │  Engine         │    │  └──────────┘  │   Stack    │   │   │
-│  │  ─────────────  │    │  ┌──────────┐  └────────────┘   │   │
-│  │  Interpreter    │    │  │    PC    │  ┌────────────┐   │   │
-│  │  JIT Compiler   │    │  │ Register │  │   Code     │   │   │
-│  │  GC             │    │  └──────────┘  │   Cache    │   │   │
-│  └─────────────────┘    │               └────────────┘   │   │
-│                          └──────────────────────────────────┘   │
-+────────────────────────────────────────────────────────────────+
+                    ┌─────────────────────────────────────────┐
+Raw Data Source     │           LAMBDA ARCHITECTURE           │
+     │              └─────────────────────────────────────────┘
+     │
+     ├──────────────────────────────────────────────────────┐
+     │                                                       │
+     ▼                                                       ▼
+┌─────────────┐                                    ┌─────────────────┐
+│ Batch Layer │                                    │   Speed Layer   │
+│  (Hadoop /  │                                    │  (Kafka/Flink/  │
+│   Spark)    │                                    │  Spark Stream)  │
+│             │                                    │                 │
+│ Recomputes  │                                    │ Low-latency     │
+│ everything  │                                    │ real-time views │
+│ from raw    │                                    │ (last few mins) │
+│ data        │                                    └────────┬────────┘
+└──────┬──────┘                                            │
+       │                                                    │
+       ▼                                                    ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                     Serving Layer                               │
+│              (Merges batch + speed views)                       │
+│                    (HBase, Cassandra)                           │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+                         Query / API
 ```
 
-### Key Components
+**Pros:** Accurate batch results + low-latency real-time views
+**Cons:** Complex — must maintain two code paths (batch + streaming)
 
-| Component | Description |
+### Kappa Architecture
+
+Simplification of Lambda — treats everything as a stream:
+
+```
+Raw Data Source
+     │
+     ▼
+┌─────────────────┐
+│  Kafka (event   │  ← All data goes through Kafka
+│   log / source  │    Re-processing: replay from beginning
+│   of truth)     │
+└────────┬────────┘
+         │
+         ▼
+┌─────────────────┐
+│  Stream         │  ← One code path for everything
+│  Processing     │    (Flink / Kafka Streams / Spark Streaming)
+│  (Flink/Spark)  │
+└────────┬────────┘
+         │
+         ▼
+┌─────────────────┐
+│  Serving Layer  │
+│ (Real-time DB)  │
+└─────────────────┘
+```
+
+**Pros:** Simpler — one code path, easier to maintain
+**Cons:** Requires Kafka to store all historical data (long retention)
+
+### Data Lake vs Data Warehouse vs Data Lakehouse
+
+```
+Data Warehouse:
+  - Structured, processed data
+  - Schema-on-write (schema defined upfront)
+  - Optimized for BI queries
+  - Examples: Snowflake, BigQuery, Redshift, Hive
+
+Data Lake:
+  - Raw, unprocessed data in any format
+  - Schema-on-read (schema applied at query time)
+  - Cheap storage (S3, HDFS)
+  - Examples: AWS S3 + Glue, HDFS + Parquet
+
+Data Lakehouse (Modern):
+  - Combines the best of both
+  - ACID transactions on data lake
+  - Schema enforcement + governance
+  - Examples: Delta Lake, Apache Iceberg, Apache Hudi
+```
+
+---
+
+## 3. Big Data Ecosystem Overview
+
+```
+┌──────────────────────────────────────────────────────────────────────────┐
+│                     BIG DATA ECOSYSTEM                                   │
+├──────────────────────────────────────────────────────────────────────────┤
+│  INGESTION                                                               │
+│  Apache Kafka │ Apache Flume │ Apache Sqoop │ AWS Kinesis │ Logstash    │
+├──────────────────────────────────────────────────────────────────────────┤
+│  PROCESSING                                                              │
+│  Batch:     Apache Spark │ Apache Hadoop MapReduce │ Apache Hive         │
+│  Streaming: Apache Flink │ Apache Kafka Streams │ Spark Streaming       │
+├──────────────────────────────────────────────────────────────────────────┤
+│  STORAGE                                                                 │
+│  Distributed FS: HDFS │ AWS S3 │ GCS                                    │
+│  NoSQL:          HBase │ Apache Cassandra │ MongoDB │ DynamoDB           │
+│  RDBMS:          PostgreSQL │ MySQL (for smaller datasets)               │
+│  Cache:          Redis │ Memcached                                       │
+├──────────────────────────────────────────────────────────────────────────┤
+│  QUERY & ANALYTICS                                                       │
+│  Apache Hive │ Apache Spark SQL │ Presto/Trino │ Apache Drill │ BigQuery │
+├──────────────────────────────────────────────────────────────────────────┤
+│  MACHINE LEARNING                                                        │
+│  Spark MLlib │ TensorFlow on Spark │ H2O.ai │ Apache Mahout             │
+├──────────────────────────────────────────────────────────────────────────┤
+│  ORCHESTRATION & WORKFLOW                                                │
+│  Apache Airflow │ Apache Oozie │ Luigi │ Prefect │ Dagster               │
+├──────────────────────────────────────────────────────────────────────────┤
+│  MONITORING & GOVERNANCE                                                 │
+│  Apache Ranger │ Apache Atlas │ Prometheus + Grafana │ Cloudera          │
+└──────────────────────────────────────────────────────────────────────────┘
+```
+
+### Technology Selection Guide
+
+| Use Case | Recommended Tool |
 |---|---|
-| **Class Loader** | Loads .class files into JVM |
-| **Bytecode Verifier** | Ensures code is safe to execute |
-| **Interpreter** | Executes bytecode line by line |
-| **JIT Compiler** | Compiles hot bytecode to native machine code |
-| **Garbage Collector** | Automatically manages memory |
-| **Heap** | Where objects live |
-| **Stack** | Per-thread call frames |
-| **Metaspace** | Class metadata (replaces PermGen in Java 8+) |
+| Batch ETL processing | Apache Spark |
+| Real-time event streaming | Apache Kafka + Flink |
+| Large-scale SQL analytics | Apache Hive / Presto / Spark SQL |
+| Time-series data | Apache Cassandra / InfluxDB |
+| Graph data | Apache TinkerPop / Neo4j |
+| ML on big data | Spark MLlib |
+| Data ingestion from RDBMS | Apache Sqoop / Debezium |
+| Log aggregation | Kafka + ELK Stack |
+| Workflow orchestration | Apache Airflow |
 
 ---
 
-## 5. JVM Memory Structure
+## 4. CAP Theorem & Distributed Systems Basics
 
-### Heap Memory Layout
+### CAP Theorem
 
-```
-+─────────────────────────────────────────────────────────────────+
-│                          HEAP                                    │
-│                                                                  │
-│  ┌─────────────────────────────┐  ┌──────────────────────────┐ │
-│  │         Young Generation    │  │      Old Generation      │ │
-│  │                             │  │      (Tenured Space)     │ │
-│  │  ┌────────┐  ┌──────────┐  │  │                          │ │
-│  │  │  Eden  │  │Survivor 0│  │  │  Long-lived objects      │ │
-│  │  │ Space  │  │    S0    │  │  │  Promoted from Young Gen │ │
-│  │  │        │  ├──────────┤  │  │                          │ │
-│  │  │ New    │  │Survivor 1│  │  │  Major GC (Full GC)      │ │
-│  │  │ objects│  │    S1    │  │  │  runs here               │ │
-│  │  └────────┘  └──────────┘  │  │                          │ │
-│  │                             │  │                          │ │
-│  │  Minor GC runs here         │  │                          │ │
-│  └─────────────────────────────┘  └──────────────────────────┘ │
-│                                                                  │
-+─────────────────────────────────────────────────────────────────+
-
-+─────────────────────────────────────────────────────────────────+
-│                       NON-HEAP MEMORY                           │
-│                                                                  │
-│  ┌──────────────────┐  ┌───────────────┐  ┌──────────────────┐ │
-│  │    Metaspace      │  │  Code Cache   │  │  Direct Buffers  │ │
-│  │                   │  │               │  │  (NIO off-heap)  │ │
-│  │  Class metadata   │  │  JIT-compiled │  │                  │ │
-│  │  Method info      │  │  native code  │  │  Not managed     │ │
-│  │  No fixed limit   │  │               │  │  by GC           │ │
-│  └──────────────────┘  └───────────────┘  └──────────────────┘ │
-+─────────────────────────────────────────────────────────────────+
-```
-
-### Object Lifecycle in Memory
+In a distributed system, you can only **guarantee 2 out of 3** properties simultaneously:
 
 ```
-1. New object created → allocated in Eden Space
-2. Eden fills up → Minor GC triggered
-3. Surviving objects move to Survivor Space (S0 or S1)
-4. Objects surviving multiple Minor GCs → promoted to Old Gen
-5. Old Gen fills up → Major GC (Full GC) triggered
-6. Full GC unable to free enough space → OutOfMemoryError
+         Consistency
+              /\
+             /  \
+            /    \
+           /      \
+          /   CAP  \
+         / Theorem  \
+        /────────────\
+Availability    Partition
+                Tolerance
+
+C = All nodes see the same data at the same time
+A = Every request receives a response (not necessarily latest data)
+P = System continues operating despite network partitions
 ```
 
-### Memory Areas and Flags
-
-```bash
-# Heap
--Xms512m                    # Initial heap size
--Xmx2g                      # Maximum heap size
--XX:NewRatio=3              # Old:Young ratio (3:1 = 75% old, 25% young)
--XX:NewSize=512m            # Initial Young Gen size
--XX:MaxNewSize=512m         # Max Young Gen size
--XX:SurvivorRatio=8         # Eden:Survivor ratio (8:1:1)
-
-# Metaspace
--XX:MetaspaceSize=256m      # Initial Metaspace size
--XX:MaxMetaspaceSize=512m   # Max Metaspace (prevent unlimited growth)
-
-# Stack
--Xss512k                    # Thread stack size (default 512k-1m)
-
-# Direct Memory (NIO)
--XX:MaxDirectMemorySize=1g  # Limit off-heap direct memory
-```
-
----
-
-## 6. Class Loading & JIT Compilation
-
-### Class Loading Phases
-
-```
-Loading → Linking → Initialization
-
-Loading:
-  Read .class file from disk/jar into memory
-
-Linking:
-  Verification  → Ensure bytecode is valid and safe
-  Preparation   → Allocate memory for static fields
-  Resolution    → Replace symbolic references with direct references
-
-Initialization:
-  Execute static initializers and static blocks
-```
-
-### JIT Compilation
-
-The JIT (Just-In-Time) compiler identifies "hot" code (frequently executed methods) and compiles them to native machine code for much faster execution.
-
-```
-Bytecode execution:
-  1st run:  Interpreted (slow)
-  ...runs many times...
-  Hot!  → JIT compiles to native code
-  Next: Native execution (10-100x faster)
-
-Compilation Tiers (Tiered Compilation):
-  Tier 0: Interpreter
-  Tier 1: Simple C1 compilation (client compiler, fast compile)
-  Tier 2: Limited C1 compilation
-  Tier 3: Full C1 compilation with profiling
-  Tier 4: C2 compilation (server compiler, optimized, slower compile)
-```
-
-### JIT Optimizations
-
-```
-Inlining          → Replace method call with method body (eliminates call overhead)
-Loop Unrolling    → Expand small loops to reduce iteration overhead
-Escape Analysis   → Allocate objects on stack instead of heap if they don't escape
-Dead Code Elim    → Remove code that can never execute
-Constant Folding  → Compute constant expressions at compile time
-Vectorization     → Use SIMD CPU instructions for array operations
-```
-
-### JIT Flags
-
-```bash
--server                          # Use C2 (server) JIT compiler
--XX:+TieredCompilation           # Use all tiers (default Java 8+)
--XX:CompileThreshold=10000       # Methods compiled after N invocations
--XX:+PrintCompilation            # Log JIT compilation events
--XX:+PrintInlining               # Log inlining decisions
--XX:+EliminateAllocations        # Enable scalar replacement (escape analysis)
--XX:+DoEscapeAnalysis            # Enable escape analysis (default on)
-```
-
----
-
----
-
-# PART 3 — GARBAGE COLLECTION
-
----
-
-## 7. Garbage Collection Basics
-
-Garbage Collection (GC) automatically reclaims memory occupied by objects that are no longer reachable.
-
-### How GC Determines Reachability
-
-```
-GC Roots:
-  - Local variables in active threads
-  - Static fields
-  - JNI references
-
-An object is LIVE if reachable from any GC root.
-An object is GARBAGE if not reachable from any GC root.
-
-Example:
-  User user = new User();   // user is reachable → LIVE
-  user = null;              // no references left → GARBAGE → eligible for GC
-```
-
-### GC Pause Types
-
-```
-Minor GC (Young GC):
-  - Collects Eden + Survivor spaces
-  - Fast (milliseconds)
-  - Happens frequently
-  - Stop-The-World: briefly pauses all application threads
-
-Major GC (Old GC):
-  - Collects Old Generation
-  - Slower (100ms - seconds)
-  - Happens less frequently
-
-Full GC:
-  - Collects entire heap (Young + Old + Metaspace)
-  - Slowest — can take seconds
-  - MUST be minimized in production
-```
-
-### Stop-The-World (STW) Events
-
-```
-During STW:
-  All application threads are FROZEN
-  GC does its work
-  All threads RESUME
-
-Impact:
-  500ms Full GC = 500ms where your app is completely frozen
-  This causes latency spikes and timeout errors
-```
-
----
-
-## 8. GC Algorithms
-
-### Serial GC
-
-```
-Single-threaded GC — one thread does everything.
-Best for: Small apps, single-core machines, embedded systems.
-
--XX:+UseSerialGC
-```
-
-### Parallel GC (Throughput Collector)
-
-```
-Uses multiple threads for Minor and Major GC.
-Focus: Maximum throughput (minimize total GC time).
-Trade-off: Can have long STW pauses.
-Best for: Batch jobs, CPU-intensive background processing.
-
--XX:+UseParallelGC
--XX:ParallelGCThreads=4    # Number of GC threads
-```
-
-### G1 GC (Garbage First) — Default since Java 9
-
-```
-Divides heap into equal-sized regions (~2048 regions).
-Predictable pause times — tries to meet pause time goal.
-Best for: Applications needing low latency + high throughput.
-Best for: Heaps 4GB - 32GB.
-
-+─────────────────────────────────────────────────────+
-│               Heap (G1 Regions)                      │
-│  ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐ │
-│  │ E │ E │ S │ O │ E │ O │ H │ E │ S │ O │ E │ O │ │
-│  └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘ │
-│  E=Eden, S=Survivor, O=Old, H=Humongous              │
-+─────────────────────────────────────────────────────+
-
--XX:+UseG1GC
--XX:MaxGCPauseMillis=200       # Target max pause time (soft goal)
--XX:G1HeapRegionSize=4m        # Region size (1MB-32MB, power of 2)
--XX:G1NewSizePercent=5         # Min Young Gen % of heap
--XX:G1MaxNewSizePercent=60     # Max Young Gen % of heap
--XX:G1ReservePercent=10        # Reserve % to avoid evacuation failure
--XX:ConcGCThreads=2            # Concurrent marking threads
--XX:InitiatingHeapOccupancyPercent=45  # Start concurrent marking at 45% heap use
-```
-
-### ZGC (Z Garbage Collector) — Java 11+
-
-```
-Concurrent, low-latency GC.
-Sub-millisecond pause times (< 1ms) regardless of heap size.
-Supports heaps from MB to TB.
-Best for: Applications with strict latency requirements.
-
--XX:+UseZGC
--XX:ZUncommitDelay=300         # Return unused memory to OS after 300s
--XX:SoftMaxHeapSize=2g         # Soft heap limit (ZGC can exceed if needed)
-```
-
-### Shenandoah GC — Java 12+
-
-```
-Concurrent evacuation — moves objects while app runs (no STW for evacuation).
-Very low pause times.
-Higher CPU overhead than G1.
-
--XX:+UseShenandoahGC
--XX:ShenandoahGCHeuristics=adaptive   # Adaptive, static, compact, aggressive
-```
-
-### GC Comparison Table
-
-| GC | Java Version | Pause Time | Throughput | Best Heap Size | Best For |
-|---|---|---|---|---|---|
-| Serial | All | High | Low | Small (< 1GB) | Single CPU, embedded |
-| Parallel | All | Medium-High | Highest | Any | Batch processing |
-| G1 | 9+ (default) | Low-Medium | High | 4GB–32GB | General purpose |
-| ZGC | 11+ | Sub-ms | Medium | Any (up to TB) | Ultra-low latency |
-| Shenandoah | 12+ | Sub-ms | Medium | Any | Low latency |
-
----
-
-## 9. GC Tuning & Flags
-
-### General GC Tuning Strategy
-
-```
-Step 1: Choose the right GC algorithm for your use case
-Step 2: Set appropriate heap size (-Xms, -Xmx)
-Step 3: Tune Young/Old generation ratio
-Step 4: Set pause time goals
-Step 5: Monitor and adjust
-```
-
-### Heap Sizing Rules
-
-```bash
-# Rule: Set -Xms = -Xmx to avoid heap resizing overhead
--Xms4g -Xmx4g
-
-# Rule: Leave memory for OS and non-heap (Metaspace, Code Cache, threads)
-# If machine has 8GB RAM:
-#   OS:          1GB
-#   Non-heap:    1GB  (Metaspace, Code Cache, Direct Memory)
-#   Heap:        6GB  → -Xmx6g
-
-# Rule: Young Gen should be 1/4 to 1/3 of total heap
-# 6GB heap → Young Gen ~ 2GB
--XX:NewSize=2g -XX:MaxNewSize=2g
-```
-
-### G1GC Tuning
-
-```bash
-# Start with these settings and measure:
--XX:+UseG1GC
--Xms4g -Xmx4g
--XX:MaxGCPauseMillis=200       # Tune based on your SLA
--XX:G1HeapRegionSize=16m       # Larger regions = fewer Humongous objects
--XX:G1ReservePercent=15        # Increase if you see evacuation failures
--XX:InitiatingHeapOccupancyPercent=35  # Lower if Full GCs happen too often
-
-# If you see too many Full GCs:
-#   1. Increase heap size
-#   2. Lower IHOP threshold
-#   3. Increase G1ReservePercent
-
-# If pause times are too long:
-#   1. Lower MaxGCPauseMillis (but GC will run more often)
-#   2. Increase Young Gen size
-#   3. Reduce G1MixedGCCountTarget
-```
-
-### ZGC Tuning
-
-```bash
--XX:+UseZGC
--Xms8g -Xmx8g
--XX:ConcGCThreads=4            # More threads = faster GC but more CPU
--XX:ZAllocationSpikeTolerance=5 # Tolerance for allocation spikes
-```
-
----
-
-## 10. GC Logging & Analysis
-
-### Enable GC Logging (Java 11+)
-
-```bash
-# Basic GC logging
--Xlog:gc
-
-# Detailed GC logging to file
--Xlog:gc*:file=/var/log/app/gc.log:time,uptime,level,tags:filecount=5,filesize=50m
-
-# Human-readable format
--Xlog:gc+heap=debug:file=/var/log/app/gc.log:time,uptime:filecount=5,filesize=20m
-```
-
-### GC Log Sample Output
-
-```
-[2024-01-15T10:30:00.123+0000][0.456s][info][gc] GC(42) Pause Young (Normal) (G1 Evacuation Pause) 512M->256M(2048M) 45.678ms
-[2024-01-15T10:30:10.456+0000][10.789s][info][gc] GC(43) Pause Full (System.gc()) 1024M->512M(2048M) 1234.567ms  ← ALERT!
-
-Key fields:
-  512M->256M(2048M)  = Before→After(Total Heap)
-  45.678ms           = GC Pause Duration
-```
-
-### GC Analysis Tools
-
-```
-GCEasy        → https://gceasy.io (upload GC log, get analysis)
-GCViewer      → Open source GC log visualizer
-Java Mission Control (JMC) → Oracle's JVM analysis tool
-```
-
-### Common GC Problems and Solutions
-
-| Problem | Symptom | Solution |
+| System | Type | Example |
 |---|---|---|
-| Frequent Minor GC | High GC frequency, short pauses | Increase Eden size (`-XX:NewSize`) |
-| Long Full GC | Long pauses (>1s), memory spikes | Increase heap, switch to G1/ZGC |
-| Memory Leak | Heap grows indefinitely | Fix code, take heap dump, analyze |
-| Humongous Allocations (G1) | Many Full GCs | Increase `G1HeapRegionSize` |
-| Metaspace OOM | `OutOfMemoryError: Metaspace` | Increase `-XX:MaxMetaspaceSize` |
-| Evacuation Failure (G1) | Full GC triggered | Increase `G1ReservePercent`, heap |
+| **CP** (Consistent + Partition Tolerant) | Sacrifices availability | HBase, ZooKeeper, MongoDB (w/ strong consistency) |
+| **AP** (Available + Partition Tolerant) | Sacrifices consistency | Cassandra, CouchDB, DynamoDB |
+| **CA** (Consistent + Available) | Not partition tolerant | Traditional RDBMS (single node) |
 
----
+> In real distributed systems, network partitions WILL happen, so P is a must. The real choice is between C and A.
 
----
-
-# PART 4 — JVM TUNING FLAGS
-
----
-
-## 11. Heap & Memory Flags
-
-```bash
-# ── Heap Size ─────────────────────────────────────────────────────
--Xms2g                          # Initial heap size (set equal to Xmx)
--Xmx4g                          # Maximum heap size
--XX:NewRatio=2                  # Old:Young = 2:1 (Old=67%, Young=33%)
--XX:NewSize=1g                  # Initial Young Gen size
--XX:MaxNewSize=1g               # Max Young Gen size
--XX:SurvivorRatio=8             # Eden:S0:S1 = 8:1:1
-
-# ── Metaspace ──────────────────────────────────────────────────────
--XX:MetaspaceSize=128m          # Triggers first GC Metaspace expansion
--XX:MaxMetaspaceSize=512m       # Hard limit (prevent OOM)
-
-# ── Code Cache (JIT compiled code) ────────────────────────────────
--XX:InitialCodeCacheSize=64m    # Initial code cache
--XX:ReservedCodeCacheSize=256m  # Max code cache size
--XX:+UseCodeCacheFlushing       # Allow code cache eviction
-
-# ── Stack ──────────────────────────────────────────────────────────
--Xss256k                        # Thread stack size (reduce for many threads)
-
-# ── Direct/Off-Heap Memory ────────────────────────────────────────
--XX:MaxDirectMemorySize=512m    # Max NIO direct buffer memory
-
-# ── Object Tenuring ────────────────────────────────────────────────
--XX:MaxTenuringThreshold=15     # GC cycles before promotion to Old Gen
--XX:InitialTenuringThreshold=7  # Initial tenuring threshold
-```
-
----
-
-## 12. GC Selection Flags
-
-```bash
-# ── GC Algorithm Selection ─────────────────────────────────────────
--XX:+UseSerialGC                # Serial (single-threaded)
--XX:+UseParallelGC              # Parallel (throughput)
--XX:+UseG1GC                    # G1 (balanced, default Java 9+)
--XX:+UseZGC                     # ZGC (ultra-low latency, Java 11+)
--XX:+UseShenandoahGC            # Shenandoah (low latency, Java 12+)
-
-# ── G1GC Flags ─────────────────────────────────────────────────────
--XX:MaxGCPauseMillis=200        # Target max pause (soft goal)
--XX:G1HeapRegionSize=16m        # Region size (1m-32m, power of 2)
--XX:G1NewSizePercent=5          # Min young gen as % of heap
--XX:G1MaxNewSizePercent=60      # Max young gen as % of heap
--XX:G1ReservePercent=10         # Reserve heap % for headroom
--XX:InitiatingHeapOccupancyPercent=45  # When to start concurrent marking
--XX:G1MixedGCCountTarget=8      # Target number of mixed GC passes
--XX:ConcGCThreads=4             # Concurrent GC threads
-
-# ── Parallel GC Flags ──────────────────────────────────────────────
--XX:ParallelGCThreads=8         # Number of GC threads (default = CPU count)
--XX:GCTimeRatio=99              # Target: 99% app time, 1% GC time
--XX:MaxGCPauseMillis=500        # Target max pause
-
-# ── ZGC Flags ──────────────────────────────────────────────────────
--XX:ConcGCThreads=4             # Concurrent threads
--XX:ZUncommitDelay=300          # Delay before returning memory to OS
-
-# ── Explicit GC ────────────────────────────────────────────────────
--XX:+DisableExplicitGC          # Disable System.gc() calls
--XX:+ExplicitGCInvokesConcurrent  # Make System.gc() concurrent (G1/CMS)
-```
-
----
-
-## 13. JIT & Compilation Flags
-
-```bash
-# ── Compilation ─────────────────────────────────────────────────────
--XX:+TieredCompilation          # Enable tiered compilation (default)
--XX:CompileThreshold=10000      # Invocations before JIT compiles method
--XX:OnStackReplacePercentage=140  # OSR compilation threshold
--XX:+AggressiveOpts             # Enable aggressive JIT optimizations
-
-# ── Inlining ────────────────────────────────────────────────────────
--XX:MaxInlineSize=35            # Max bytecodes for inline (default 35)
--XX:FreqInlineSize=325          # Max bytecodes for hot method inline
--XX:InlineSmallCode=1000        # Max compiled code size for inlining
--XX:MaxInlineLevel=9            # Max nesting depth for inlining
-
-# ── Optimization ────────────────────────────────────────────────────
--XX:+DoEscapeAnalysis           # Enable escape analysis (default on)
--XX:+EliminateAllocations       # Scalar replacement via escape analysis
--XX:+OptimizeStringConcat       # Optimize String concatenation
--XX:+UseLoopPredicate           # Loop predicate optimization
-
-# ── Debugging JIT (use in dev/staging only) ─────────────────────────
--XX:+PrintCompilation           # Log compiled methods
--XX:+PrintInlining              # Log inlining decisions
--XX:+UnlockDiagnosticVMOptions
--XX:+PrintAssembly              # Print generated native assembly
-```
-
----
-
-## 14. Monitoring & Diagnostic Flags
-
-```bash
-# ── GC Logging ──────────────────────────────────────────────────────
--Xlog:gc*:file=/logs/gc.log:time,uptime,level,tags:filecount=10,filesize=50m
-
-# ── OOM Handling ────────────────────────────────────────────────────
--XX:+HeapDumpOnOutOfMemoryError          # Dump heap on OOM
--XX:HeapDumpPath=/dumps/heap-dump.hprof  # Heap dump location
--XX:OnOutOfMemoryError="kill -9 %p"      # Kill process on OOM (let orchestrator restart it)
-
-# ── Crash Handling ──────────────────────────────────────────────────
--XX:ErrorFile=/logs/hs_err_pid%p.log     # JVM crash log location
-
-# ── JMX Monitoring ──────────────────────────────────────────────────
--Dcom.sun.management.jmxremote
--Dcom.sun.management.jmxremote.port=9999
--Dcom.sun.management.jmxremote.authenticate=false
--Dcom.sun.management.jmxremote.ssl=false
-
-# ── Native Memory Tracking ──────────────────────────────────────────
--XX:NativeMemoryTracking=summary         # Track native memory usage
-# Then run: jcmd <pid> VM.native_memory
-
-# ── Flight Recorder (Java 11+) ──────────────────────────────────────
--XX:+FlightRecorder
--XX:StartFlightRecording=duration=60s,filename=recording.jfr
-
-# ── Useful Diagnostics ──────────────────────────────────────────────
--XX:+PrintFlagsFinal             # Print all JVM flags and their values
--verbose:gc                      # Verbose GC output (older style)
--XX:+PrintGCDetails              # Detailed GC info (older style)
-```
-
----
-
----
-
-# PART 5 — PROFILING & TOOLS
-
----
-
-## 15. Profiling Tools Overview
-
-| Tool | Type | Cost | Best For |
-|---|---|---|---|
-| **VisualVM** | Profiler/Monitor | Free | Development profiling |
-| **Java Mission Control (JMC)** | Profiler/Monitor | Free (OpenJDK) | Production-safe profiling |
-| **async-profiler** | Sampling Profiler | Free | Low-overhead CPU/memory profiling |
-| **JProfiler** | Full Profiler | Paid | Deep profiling in development |
-| **YourKit** | Full Profiler | Paid | Deep profiling in development |
-| **Arthas** | Runtime Diagnoser | Free | Production live diagnostics |
-| **JConsole** | JMX Monitor | Free (JDK) | Basic real-time monitoring |
-| **perf** | System Profiler | Free (Linux) | CPU hotspot analysis |
-
-### Profiling Categories
+### Key Distributed Systems Concepts
 
 ```
-CPU Profiling    → Where is time being spent? (hot methods)
-Memory Profiling → Where are objects being allocated? (allocations, leaks)
-Thread Profiling → Thread states, locks, deadlocks, contention
-I/O Profiling    → Network, disk, database wait times
+Replication    → Copy data across multiple nodes for fault tolerance
+Sharding       → Split data across nodes for horizontal scaling
+Partitioning   → Divide dataset into logical partitions
+Consensus      → Agreement among distributed nodes (Paxos, Raft)
+Leader Election → Choose one coordinator node
+Eventual Consistency → All nodes converge to same state eventually
 ```
 
----
-
-## 16. JDK Built-in Tools
-
-### jps — List Java Processes
-
-```bash
-jps -l           # List Java processes with full class names
-jps -v           # Include JVM flags
-
-# Output:
-# 12345 com.example.MyApp
-# 23456 org.apache.kafka.Kafka
-```
-
-### jstat — JVM Statistics
-
-```bash
-# Monitor GC every 1000ms
-jstat -gcutil <pid> 1000
-
-# Output columns:
-# S0    S1    E      O      M     CCS    YGC  YGCT   FGC  FGCT    CGC  CGCT     GCT
-# 0.00  42.5  72.3   65.8   95.4  92.1   847  12.345   3   2.456     0   0.000  14.801
-
-# S0/S1 = Survivor space %
-# E     = Eden %
-# O     = Old Gen %
-# M     = Metaspace %
-# YGC   = Young GC count
-# FGC   = Full GC count  ← Watch this!
-
-# More stats
-jstat -gc <pid> 1000       # Detailed GC stats
-jstat -gccapacity <pid>    # Memory capacity
-jstat -gcnew <pid>         # Young Gen stats
-jstat -compiler <pid>      # JIT compilation stats
-```
-
-### jcmd — JVM Command Tool
-
-```bash
-# List all running Java processes
-jcmd
-
-# List available commands for a process
-jcmd <pid> help
-
-# Thread dump
-jcmd <pid> Thread.print
-
-# Heap summary
-jcmd <pid> GC.heap_info
-
-# Heap dump
-jcmd <pid> GC.heap_dump /tmp/heap-dump.hprof
-
-# Force GC
-jcmd <pid> GC.run
-
-# JVM flags
-jcmd <pid> VM.flags
-
-# System properties
-jcmd <pid> VM.system_properties
-
-# Flight Recorder
-jcmd <pid> JFR.start duration=60s filename=recording.jfr
-jcmd <pid> JFR.stop
-
-# Native memory tracking
-jcmd <pid> VM.native_memory summary
-
-# Class histogram (top memory consumers)
-jcmd <pid> GC.class_histogram | head -30
-```
-
-### jstack — Thread Dump
-
-```bash
-# Take thread dump
-jstack <pid>
-jstack -l <pid>    # Include lock information
-
-# Save to file
-jstack <pid> > /tmp/thread-dump.txt
-```
-
-### jmap — Heap Dump & Analysis
-
-```bash
-# Heap dump
-jmap -dump:format=b,file=/tmp/heap.hprof <pid>
-
-# Live objects only (trigger GC first)
-jmap -dump:live,format=b,file=/tmp/heap-live.hprof <pid>
-
-# Class histogram
-jmap -histo <pid> | head -30
-jmap -histo:live <pid> | head -30
-
-# Heap summary
-jmap -heap <pid>
-```
-
-### async-profiler (Low-Overhead Profiling)
-
-```bash
-# Download async-profiler
-wget https://github.com/async-profiler/async-profiler/releases/download/v2.9/async-profiler-2.9-linux-x64.tar.gz
-tar -xzf async-profiler-2.9-linux-x64.tar.gz
-
-# CPU profiling for 30 seconds, output flame graph
-./profiler.sh -d 30 -f /tmp/cpu-profile.html <pid>
-
-# Allocation profiling
-./profiler.sh -d 30 -e alloc -f /tmp/alloc-profile.html <pid>
-
-# Wall-clock profiling (includes I/O wait)
-./profiler.sh -d 30 -e wall -f /tmp/wall-profile.html <pid>
-
-# Lock profiling
-./profiler.sh -d 30 -e lock -f /tmp/lock-profile.html <pid>
-```
-
----
-
-## 17. Heap Dump Analysis
-
-### Taking a Heap Dump
-
-```bash
-# Method 1: jcmd (preferred)
-jcmd <pid> GC.heap_dump /tmp/heap.hprof
-
-# Method 2: jmap
-jmap -dump:live,format=b,file=/tmp/heap.hprof <pid>
-
-# Method 3: Automatic on OOM
--XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/dumps/
-```
-
-### Analyzing with Eclipse MAT (Memory Analyzer Tool)
-
-```
-1. Download MAT from https://eclipse.dev/mat/
-2. Open the .hprof file
-3. Run "Leak Suspects Report"
-
-Key reports in MAT:
-  Dominator Tree    → Objects retaining most memory
-  Leak Suspects     → Automatic leak detection
-  Object Query Language (OQL) → Query objects like SQL
-  Retained Heap     → How much memory is freed if object is GC'd
-```
-
-### Common Memory Leak Patterns
+### Data Partitioning Strategies
 
 ```java
-// 1. Static Collections growing unbounded
-public class BadCache {
-    private static Map<String, Object> cache = new HashMap<>();
+// 1. Range Partitioning — partition by value range
+// userId 1-1000000 → Node A
+// userId 1000001-2000000 → Node B
 
-    public void add(String key, Object value) {
-        cache.put(key, value);  // NEVER removed — memory leak!
-    }
-}
+// 2. Hash Partitioning — deterministic distribution
+int partition = Math.abs(key.hashCode()) % numPartitions;
 
-// Fix: Use bounded cache with eviction
-private static Map<String, Object> cache =
-    Collections.synchronizedMap(new LinkedHashMap<>(1000, 0.75f, true) {
-        protected boolean removeEldestEntry(Map.Entry eldest) {
-            return size() > 1000;  // Auto-evict when > 1000 entries
-        }
-    });
+// 3. Round-Robin — sequential distribution
+int partition = recordNumber % numPartitions;
 
-// 2. Listener/Callback not removed
-public class EventService {
-    private List<EventListener> listeners = new ArrayList<>();
+// 4. Consistent Hashing — minimize rebalancing on node addition/removal
+// Used by Cassandra and Kafka
+```
 
-    public void register(EventListener listener) {
-        listeners.add(listener);
+---
+
+---
+
+# PART 2 — HADOOP ECOSYSTEM
+
+---
+
+## 5. Hadoop Core Concepts
+
+Apache Hadoop is an open-source framework for distributed storage and processing of very large datasets using clusters of commodity hardware.
+
+### Core Components
+
+```
+┌─────────────────────────────────────────────┐
+│              APACHE HADOOP                  │
+│                                             │
+│  ┌─────────────┐    ┌─────────────────────┐ │
+│  │    HDFS     │    │      MapReduce      │ │
+│  │ (Storage)   │    │    (Processing)     │ │
+│  └─────────────┘    └─────────────────────┘ │
+│                                             │
+│  ┌─────────────────────────────────────┐   │
+│  │              YARN                   │   │
+│  │       (Resource Management)        │   │
+│  └─────────────────────────────────────┘   │
+│                                             │
+│  ┌─────────────────────────────────────┐   │
+│  │           Hadoop Common             │   │
+│  │       (Shared Utilities)            │   │
+│  └─────────────────────────────────────┘   │
+└─────────────────────────────────────────────┘
+```
+
+### Hadoop Cluster Architecture
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                      HADOOP CLUSTER                              │
+│                                                                  │
+│  ┌──────────────────────────────────┐                          │
+│  │         Master Node              │                          │
+│  │  ┌────────────┐ ┌─────────────┐ │                          │
+│  │  │ NameNode   │ │ResourceMgr  │ │                          │
+│  │  │(HDFS meta) │ │  (YARN)     │ │                          │
+│  │  └────────────┘ └─────────────┘ │                          │
+│  └──────────────────────────────────┘                          │
+│                                                                  │
+│  ┌──────────────┐ ┌──────────────┐ ┌──────────────┐           │
+│  │  Worker Node │ │  Worker Node │ │  Worker Node │  ...       │
+│  │ ┌──────────┐ │ │ ┌──────────┐ │ │ ┌──────────┐ │           │
+│  │ │DataNode  │ │ │ │DataNode  │ │ │ │DataNode  │ │           │
+│  │ │(HDFS)    │ │ │ │(HDFS)    │ │ │ │(HDFS)    │ │           │
+│  │ └──────────┘ │ │ └──────────┘ │ │ └──────────┘ │           │
+│  │ ┌──────────┐ │ │ ┌──────────┐ │ │ ┌──────────┐ │           │
+│  │ │NodeMgr   │ │ │ │NodeMgr   │ │ │ │NodeMgr   │ │           │
+│  │ │(YARN)    │ │ │ │(YARN)    │ │ │ │(YARN)    │ │           │
+│  │ └──────────┘ │ │ └──────────┘ │ │ └──────────┘ │           │
+│  └──────────────┘ └──────────────┘ └──────────────┘           │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### Maven Dependencies
+
+```xml
+<dependencies>
+    <!-- Hadoop Common -->
+    <dependency>
+        <groupId>org.apache.hadoop</groupId>
+        <artifactId>hadoop-common</artifactId>
+        <version>3.3.6</version>
+    </dependency>
+    <!-- Hadoop HDFS -->
+    <dependency>
+        <groupId>org.apache.hadoop</groupId>
+        <artifactId>hadoop-hdfs</artifactId>
+        <version>3.3.6</version>
+    </dependency>
+    <!-- Hadoop MapReduce -->
+    <dependency>
+        <groupId>org.apache.hadoop</groupId>
+        <artifactId>hadoop-mapreduce-client-core</artifactId>
+        <version>3.3.6</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.hadoop</groupId>
+        <artifactId>hadoop-mapreduce-client-jobclient</artifactId>
+        <version>3.3.6</version>
+    </dependency>
+</dependencies>
+```
+
+---
+
+## 6. HDFS — Hadoop Distributed File System
+
+HDFS splits large files into blocks (default 128MB) and distributes them across cluster nodes with replication (default factor 3).
+
+```
+File: sales-data.csv (1.2 GB)
+           │
+           ▼  Split into 128MB blocks
+  ┌────┬────┬────┬────┬────┬────┬────┬────┬────┬────┐
+  │ B1 │ B2 │ B3 │ B4 │ B5 │ B6 │ B7 │ B8 │ B9 │B10│
+  └────┴────┴────┴────┴────┴────┴────┴────┴────┴────┘
+           │  Replicate each block 3 times
+           ▼
+  B1 → Node1, Node2, Node3
+  B2 → Node2, Node3, Node4
+  B3 → Node1, Node3, Node5
+  ...
+```
+
+### HDFS Java API
+
+```java
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.*;
+
+public class HdfsOperations {
+
+    private final FileSystem fileSystem;
+
+    public HdfsOperations() throws IOException {
+        Configuration conf = new Configuration();
+        conf.set("fs.defaultFS", "hdfs://namenode:9000");
+        conf.set("dfs.replication", "3");
+        this.fileSystem = FileSystem.get(conf);
     }
 
-    // BUG: No unregister() — listener held forever
-    // Fix: Add unregister() and call it on cleanup
-    public void unregister(EventListener listener) {
-        listeners.remove(listener);
-    }
-}
-
-// 3. ThreadLocal not cleaned up
-public class RequestContext {
-    private static ThreadLocal<User> currentUser = new ThreadLocal<>();
-
-    public static void setUser(User user) {
-        currentUser.set(user);
+    // ── Upload file to HDFS ────────────────────────────────────
+    public void uploadFile(String localPath, String hdfsPath) throws IOException {
+        Path src = new Path(localPath);
+        Path dst = new Path(hdfsPath);
+        fileSystem.copyFromLocalFile(src, dst);
+        System.out.println("Uploaded: " + localPath + " → " + hdfsPath);
     }
 
-    // BUG: In thread pool, thread is reused but ThreadLocal persists
-    // Fix: Always clean up in finally block
-    public static void clear() {
-        currentUser.remove();  // MUST call this!
-    }
-}
-
-// Usage:
-try {
-    RequestContext.setUser(user);
-    // ... process request
-} finally {
-    RequestContext.clear();  // Always clean up!
-}
-```
-
----
-
-## 18. Thread Dump Analysis
-
-### Reading a Thread Dump
-
-```
-"http-nio-8080-exec-1" #25 daemon prio=5 os_prio=0 cpu=234.56ms elapsed=3600.12s
-   java.lang.Thread.State: WAITING (parking)
-        at sun.misc.Unsafe.park(Native Method)
-        at java.util.concurrent.locks.LockSupport.park(LockSupport.java:175)
-        at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await
-        at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:442)
-        at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1074)
-
-Thread States:
-  RUNNABLE       → Executing or ready to execute (may actually be waiting for I/O)
-  BLOCKED        → Waiting to acquire a monitor lock (synchronized block)
-  WAITING        → Waiting indefinitely (Object.wait(), Thread.join())
-  TIMED_WAITING  → Waiting with a timeout (Thread.sleep(), Object.wait(timeout))
-  TERMINATED     → Thread has finished
-```
-
-### Deadlock Detection
-
-```
-Thread Dump will show:
-  "Found one Java-level deadlock:"
-  Thread A is waiting for lock held by Thread B
-  Thread B is waiting for lock held by Thread A
-
-Example:
-  Thread-1 holds lock 0x000000076b887e30
-  Thread-1 waiting for lock 0x000000076b887e60
-
-  Thread-2 holds lock 0x000000076b887e60
-  Thread-2 waiting for lock 0x000000076b887e30
-
-  → DEADLOCK!
-```
-
-### Thread Dump Analysis Tools
-
-```
-fastThread     → https://fastthread.io (upload thread dump, get analysis)
-TDA (Thread Dump Analyzer) → Eclipse plugin
-VisualVM       → Built-in thread analysis
-```
-
----
-
----
-
-# PART 6 — CODE-LEVEL OPTIMIZATIONS
-
----
-
-## 19. String Optimizations
-
-Strings are one of the most common performance bottlenecks in Java.
-
-### String Concatenation
-
-```java
-// BAD: Creates a new String object on every iteration
-String result = "";
-for (int i = 0; i < 10000; i++) {
-    result += "item" + i;  // O(n²) — creates thousands of temporary Strings
-}
-
-// GOOD: Use StringBuilder (not thread-safe, faster)
-StringBuilder sb = new StringBuilder(50000);  // Pre-size to avoid resizing
-for (int i = 0; i < 10000; i++) {
-    sb.append("item").append(i);
-}
-String result = sb.toString();
-
-// GOOD: Simple concat in non-loop code is fine (JIT optimizes it)
-String name = firstName + " " + lastName;  // OK — JIT converts to StringBuilder
-
-// GOOD: Use String.join() or String.format() for readability
-String csv = String.join(",", "a", "b", "c");
-```
-
-### String Interning & Deduplication
-
-```java
-// String Pool: String literals are automatically interned
-String s1 = "hello";           // Stored in String Pool
-String s2 = "hello";           // Reuses same object from pool
-System.out.println(s1 == s2);  // true — same reference
-
-// new String() bypasses pool
-String s3 = new String("hello");  // New object — NOT from pool
-System.out.println(s1 == s3);     // false!
-System.out.println(s1.equals(s3)); // true — same content
-
-// Manual interning (use sparingly)
-String s4 = s3.intern();       // Returns pooled version
-System.out.println(s1 == s4);  // true
-
-// G1GC String Deduplication (JVM level)
--XX:+UseStringDeduplication    // G1GC deduplicates equal strings on heap
--XX:StringDeduplicationAgeThreshold=3
-```
-
-### Efficient String Operations
-
-```java
-// Check if empty — avoid length() == 0
-if (str.isEmpty()) { }         // Better
-if (str.length() == 0) { }    // Works but less idiomatic
-
-// Check blank (Java 11+)
-if (str.isBlank()) { }         // Better than trim().isEmpty()
-if (str.trim().isEmpty()) { }  // Creates new trimmed String
-
-// String.chars() for iteration (avoids char array creation)
-str.chars().forEach(c -> process((char) c));
-
-// Use startsWith/endsWith instead of substring + equals
-if (str.startsWith("prefix")) { }  // Good
-if (str.substring(0, 6).equals("prefix")) { }  // Creates new String — worse
-
-// Pre-compile regex patterns — ALWAYS outside the loop!
-private static final Pattern EMAIL_PATTERN = Pattern.compile("^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$");
-
-public boolean isValidEmail(String email) {
-    return EMAIL_PATTERN.matcher(email).matches();  // Reuses compiled pattern
-}
-
-// BAD: Compiles regex on every call
-public boolean isValidEmailBad(String email) {
-    return email.matches("^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$");  // Compiles every time!
-}
-```
-
----
-
-## 20. Collections & Data Structures
-
-### Choose the Right Collection
-
-```java
-// List — ordered, allows duplicates
-ArrayList<E>          // Random access O(1), add O(1) amortized, backed by array
-LinkedList<E>         // Add/remove at ends O(1), random access O(n), use as Deque
-
-// Set — no duplicates
-HashSet<E>            // O(1) add/contains/remove, no ordering
-LinkedHashSet<E>      // O(1) operations, maintains insertion order
-TreeSet<E>            // O(log n) operations, sorted
-
-// Map — key-value pairs
-HashMap<K,V>          // O(1) get/put, no ordering
-LinkedHashMap<K,V>    // O(1) operations, insertion or access order
-TreeMap<K,V>          // O(log n) operations, sorted by key
-ConcurrentHashMap<K,V>// Thread-safe HashMap, better than Hashtable/synchronizedMap
-
-// Queue / Deque
-ArrayDeque<E>         // Faster than LinkedList and Stack for queue/stack ops
-PriorityQueue<E>      // Min-heap, O(log n) add/remove, O(1) peek
-LinkedBlockingQueue   // Thread-safe, bounded or unbounded
-```
-
-### Pre-sizing Collections
-
-```java
-// BAD: Default capacity causes multiple resize/copy operations
-List<String> list = new ArrayList<>();
-for (int i = 0; i < 100_000; i++) {
-    list.add("item" + i);  // Resizes 17 times! (16→32→64→...→131072)
-}
-
-// GOOD: Pre-size when count is known
-List<String> list = new ArrayList<>(100_000);  // Single allocation, no resizing
-
-// HashMap initial capacity — account for load factor (0.75 default)
-// If you expect 100 entries: 100 / 0.75 = 134 → use 256 (next power of 2)
-Map<String, String> map = new HashMap<>(256);
-
-// Guava helper for sizing
-Map<String, String> map = Maps.newHashMapWithExpectedSize(100);
-```
-
-### Collection Performance Tips
-
-```java
-// 1. Prefer isEmpty() over size() == 0
-if (list.isEmpty()) { }         // O(1) always
-if (list.size() == 0) { }      // O(1) for most, but misleading semantics
-
-// 2. Avoid contains() on List — use Set instead
-List<String> list = Arrays.asList("a", "b", "c");
-list.contains("b");  // O(n) linear scan
-
-Set<String> set = new HashSet<>(Arrays.asList("a", "b", "c"));
-set.contains("b");   // O(1) hash lookup
-
-// 3. Use removeIf() for bulk removal (Java 8+)
-list.removeIf(s -> s.startsWith("a"));  // Better than iterator remove
-
-// 4. Prefer putIfAbsent / computeIfAbsent for Map
-// BAD: Two lookups
-if (!map.containsKey(key)) {
-    map.put(key, new ArrayList<>());
-}
-map.get(key).add(value);
-
-// GOOD: One lookup
-map.computeIfAbsent(key, k -> new ArrayList<>()).add(value);
-
-// 5. Use Collections.unmodifiableList() or List.of() for immutable collections
-List<String> immutable = List.of("a", "b", "c");  // Java 9+
-
-// 6. Collections.sort() vs Stream.sorted()
-Collections.sort(list);         // Sorts in-place, no new list created
-List<String> sorted = list.stream().sorted().collect(toList()); // Creates new list
-```
-
----
-
-## 21. Java Streams & Lambdas
-
-### Stream Performance Tips
-
-```java
-// 1. Use primitiveStreams to avoid boxing overhead
-IntStream.range(0, 1_000_000).sum();         // No boxing — uses int primitives
-Stream.of(1, 2, 3).mapToInt(Integer::intValue).sum(); // Avoid Integer boxing
-
-// 2. Parallel streams — use only for CPU-intensive, independent operations
-long count = list.parallelStream()
-    .filter(expensiveFilter)       // Only worth it if filter is expensive
-    .count();
-
-// DON'T use parallel for:
-//   - Small lists (overhead > benefit)
-//   - I/O operations
-//   - Operations with shared mutable state
-//   - Ordered operations (findFirst, forEachOrdered)
-
-// 3. Avoid unnecessary intermediate operations
-// BAD: sorted() on everything then filtered
-list.stream()
-    .sorted()
-    .filter(s -> s.length() > 3)
-    .collect(toList());
-
-// GOOD: Filter first (less data to sort)
-list.stream()
-    .filter(s -> s.length() > 3)
-    .sorted()
-    .collect(toList());
-
-// 4. Use findFirst() + filter() instead of collecting then getting first
-// BAD:
-Optional<User> user = users.stream()
-    .filter(u -> u.getAge() > 18)
-    .collect(toList())  // Collects ALL matching users
-    .stream()
-    .findFirst();       // Then takes first
-
-// GOOD:
-Optional<User> user = users.stream()
-    .filter(u -> u.getAge() > 18)
-    .findFirst();       // Short-circuits after finding first match
-
-// 5. Collectors.toUnmodifiableList() (Java 10+)
-List<String> result = stream.collect(Collectors.toUnmodifiableList());
-
-// 6. Stream.toList() (Java 16+) — most concise
-List<String> result = stream.toList();
-
-// 7. avoid Collectors.joining() in loops
-// GOOD: Use once on whole stream
-String result = list.stream().collect(Collectors.joining(", "));
-```
-
----
-
-## 22. Object Creation & Memory
-
-### Reduce Object Creation
-
-```java
-// 1. Reuse objects with Object Pools (for expensive objects)
-// Example: Apache Commons Pool
-GenericObjectPool<Connection> pool = new GenericObjectPool<>(factory);
-pool.setMaxTotal(10);
-pool.setMinIdle(2);
-
-Connection conn = pool.borrowObject();
-try {
-    // use connection
-} finally {
-    pool.returnObject(conn);
-}
-
-// 2. Use static factory methods instead of constructors
-// BAD: Always creates new object
-Boolean b = new Boolean(true);   // Deprecated in Java 9!
-
-// GOOD: Returns cached instance
-Boolean b = Boolean.valueOf(true);   // Returns Boolean.TRUE constant
-Integer i = Integer.valueOf(127);    // Returns cached Integer (-128 to 127)
-
-// 3. Avoid autoboxing in hot paths
-// BAD: Boxes each primitive → creates Integer objects
-List<Integer> list = new ArrayList<>();
-for (int i = 0; i < 1_000_000; i++) {
-    list.add(i);  // Autoboxing: int → Integer (1 million objects!)
-}
-
-// GOOD: Use primitive collections (Eclipse Collections, Trove)
-IntList list = IntLists.mutable.empty();
-for (int i = 0; i < 1_000_000; i++) {
-    list.add(i);  // No boxing
-}
-
-// 4. Flyweight Pattern — share common immutable objects
-public class CharacterFactory {
-    private static final Map<Character, GameCharacter> cache = new HashMap<>();
-
-    public static GameCharacter getCharacter(char type) {
-        return cache.computeIfAbsent(type, GameCharacter::new);
-    }
-}
-
-// 5. StringBuilder pooling (ThreadLocal)
-private static final ThreadLocal<StringBuilder> SB_POOL =
-    ThreadLocal.withInitial(() -> new StringBuilder(512));
-
-public String buildString(String a, String b) {
-    StringBuilder sb = SB_POOL.get();
-    sb.setLength(0);  // Reset without creating new object
-    sb.append(a).append(b);
-    return sb.toString();
-}
-```
-
-### Value Types & Records (Java 16+)
-
-```java
-// Records — concise immutable data classes
-public record Point(double x, double y) {
-    // Compact constructor for validation
-    public Point {
-        if (x < 0 || y < 0) throw new IllegalArgumentException("Coordinates must be positive");
+    // ── Download file from HDFS ────────────────────────────────
+    public void downloadFile(String hdfsPath, String localPath) throws IOException {
+        Path src = new Path(hdfsPath);
+        Path dst = new Path(localPath);
+        fileSystem.copyToLocalFile(src, dst);
     }
 
-    public double distanceTo(Point other) {
-        return Math.sqrt(Math.pow(this.x - other.x, 2) + Math.pow(this.y - other.y, 2));
-    }
-}
-
-// Efficient — equals(), hashCode(), toString() auto-generated
-Point p1 = new Point(1.0, 2.0);
-Point p2 = new Point(1.0, 2.0);
-System.out.println(p1.equals(p2));  // true
-```
-
----
-
-## 23. I/O Optimizations
-
-### File I/O
-
-```java
-// BAD: Unbuffered file reading (system call per byte)
-FileReader reader = new FileReader("data.txt");
-int c;
-while ((c = reader.read()) != -1) { ... }  // One syscall per character!
-
-// GOOD: Buffered reading (batches reads)
-BufferedReader reader = new BufferedReader(new FileReader("data.txt"), 65536);
-String line;
-while ((line = reader.readLine()) != null) { ... }
-
-// BEST (Java 8+): Files utility methods
-List<String> lines = Files.readAllLines(Path.of("data.txt"), StandardCharsets.UTF_8);
-// Or stream for large files:
-try (Stream<String> lines = Files.lines(Path.of("data.txt"))) {
-    lines.filter(l -> l.contains("ERROR")).forEach(System.out::println);
-}
-
-// NIO for large files — Memory-mapped files
-try (FileChannel channel = FileChannel.open(Path.of("large-file.bin"), READ)) {
-    MappedByteBuffer buffer = channel.map(FileChannel.MapMode.READ_ONLY, 0, channel.size());
-    // Access bytes directly from mapped memory — very fast!
-    while (buffer.hasRemaining()) {
-        byte b = buffer.get();
-    }
-}
-```
-
-### Network I/O
-
-```java
-// BAD: Blocking I/O with many threads (one thread per connection)
-ServerSocket server = new ServerSocket(8080);
-while (true) {
-    Socket client = server.accept();
-    new Thread(() -> handleClient(client)).start();  // Thread per connection — doesn't scale!
-}
-
-// GOOD: NIO with Selectors (non-blocking, handles thousands of connections)
-Selector selector = Selector.open();
-ServerSocketChannel serverChannel = ServerSocketChannel.open();
-serverChannel.configureBlocking(false);
-serverChannel.register(selector, SelectionKey.OP_ACCEPT);
-
-while (true) {
-    selector.select();  // Block until events available
-    for (SelectionKey key : selector.selectedKeys()) {
-        if (key.isAcceptable()) handleAccept(key);
-        if (key.isReadable()) handleRead(key);
-    }
-}
-
-// BEST: Use Netty or Vert.x for production async I/O
-// Or use Spring WebFlux for reactive HTTP
-```
-
-### HTTP Client (Java 11+)
-
-```java
-// Java 11+ built-in HTTP client (async, non-blocking)
-HttpClient client = HttpClient.newBuilder()
-        .connectTimeout(Duration.ofSeconds(5))
-        .version(HttpClient.Version.HTTP_2)
-        .build();
-
-// Async request
-HttpRequest request = HttpRequest.newBuilder()
-        .uri(URI.create("https://api.example.com/users"))
-        .timeout(Duration.ofSeconds(10))
-        .header("Accept", "application/json")
-        .GET()
-        .build();
-
-CompletableFuture<HttpResponse<String>> future =
-    client.sendAsync(request, HttpResponse.BodyHandlers.ofString());
-
-// Multiple concurrent requests (parallel)
-List<CompletableFuture<String>> futures = urls.stream()
-    .map(url -> client.sendAsync(
-        HttpRequest.newBuilder(URI.create(url)).build(),
-        HttpResponse.BodyHandlers.ofString())
-        .thenApply(HttpResponse::body))
-    .collect(toList());
-
-List<String> results = futures.stream()
-    .map(CompletableFuture::join)
-    .collect(toList());
-```
-
----
-
-## 24. Reflection & Generics
-
-### Avoid Reflection in Hot Paths
-
-```java
-// BAD: Reflection is 10-100x slower than direct calls
-Method method = obj.getClass().getMethod("getValue");
-Object result = method.invoke(obj);  // Slow! Security checks, boxing, etc.
-
-// GOOD: Direct call
-String result = obj.getValue();  // Fast!
-
-// If you MUST use reflection, cache Method/Field references
-// BAD: Lookup on every call
-public Object getValue(Object obj) throws Exception {
-    return obj.getClass().getMethod("getValue").invoke(obj);  // Lookup every time!
-}
-
-// GOOD: Cache the Method object
-private final Map<Class<?>, Method> methodCache = new ConcurrentHashMap<>();
-
-public Object getValue(Object obj) throws Exception {
-    Method method = methodCache.computeIfAbsent(obj.getClass(),
-        cls -> cls.getMethod("getValue"));
-    return method.invoke(obj);
-}
-
-// BETTER: Use MethodHandles (faster than reflection)
-MethodHandles.Lookup lookup = MethodHandles.lookup();
-MethodHandle handle = lookup.findVirtual(MyClass.class, "getValue",
-    MethodType.methodType(String.class));
-String result = (String) handle.invokeExact(obj);  // Near direct-call speed
-
-// BEST: Use code generation (ByteBuddy, cglib) or interfaces
-```
-
----
-
----
-
-# PART 7 — CONCURRENCY PERFORMANCE
-
----
-
-## 25. Threading Best Practices
-
-### Thread Creation Cost
-
-```java
-// Creating threads is EXPENSIVE (stack allocation, OS resources)
-// BAD: Create thread for every task
-for (Request request : requests) {
-    new Thread(() -> process(request)).start();  // Terrible for high load!
-}
-
-// GOOD: Use Thread Pools (see next section)
-ExecutorService executor = Executors.newFixedThreadPool(10);
-for (Request request : requests) {
-    executor.submit(() -> process(request));
-}
-```
-
-### Synchronization Cost
-
-```java
-// Synchronization adds overhead:
-// - Memory barriers (cache coherence)
-// - Monitor acquisition/release
-// - Thread contention
-
-// BAD: Over-synchronization (lock held too long)
-public synchronized void processAndSave(Data data) {
-    expensiveComputation(data);    // Lock held during expensive op!
-    repository.save(data);         // Lock held during DB call!
-}
-
-// GOOD: Minimize lock scope
-public void processAndSave(Data data) {
-    expensiveComputation(data);    // No lock needed
-    Data result = compute(data);   // No lock needed
-    synchronized (this) {
-        repository.save(result);   // Only lock what's necessary
-    }
-}
-
-// BETTER: Use concurrent collections instead of synchronized blocks
-// BAD:
-private Map<String, Object> cache = Collections.synchronizedMap(new HashMap<>());
-
-// GOOD:
-private Map<String, Object> cache = new ConcurrentHashMap<>();
-```
-
-### Volatile vs Atomic vs Synchronized
-
-```java
-// volatile: Guarantees visibility, NOT atomicity
-// Use for single read/write flags
-private volatile boolean running = true;  // Other threads see updates immediately
-
-public void stop() {
-    running = false;  // Visible to all threads immediately
-}
-
-// Atomic classes: Lock-free, thread-safe operations using CAS
-// Use for counters and single-variable atomic operations
-private AtomicInteger counter = new AtomicInteger(0);
-private AtomicLong requestCount = new AtomicLong(0);
-private AtomicReference<User> currentUser = new AtomicReference<>();
-
-counter.incrementAndGet();            // Thread-safe increment
-counter.compareAndSet(expected, next); // CAS operation
-
-// synchronized: Mutual exclusion for compound operations
-// Use for multiple variables that must be updated atomically
-private int x, y;
-
-public synchronized void move(int dx, int dy) {
-    x += dx;  // Both x and y must be updated atomically
-    y += dy;
-}
-```
-
----
-
-## 26. Thread Pools & Executors
-
-### Choosing the Right Executor
-
-```java
-// 1. Fixed Thread Pool — for CPU-bound tasks
-//    Thread count ≈ number of CPU cores
-int cpuCores = Runtime.getRuntime().availableProcessors();
-ExecutorService cpuPool = Executors.newFixedThreadPool(cpuCores);
-
-// 2. Cached Thread Pool — for short-lived, I/O-bound tasks
-//    Creates threads as needed, reuses idle threads (60s keepalive)
-//    WARNING: Can create unlimited threads — dangerous under high load!
-ExecutorService cachedPool = Executors.newCachedThreadPool();
-
-// 3. Custom ThreadPoolExecutor — RECOMMENDED for production
-//    Full control over core/max threads, queue, rejection policy
-ExecutorService productionPool = new ThreadPoolExecutor(
-    10,                                          // corePoolSize
-    50,                                          // maximumPoolSize
-    60L, TimeUnit.SECONDS,                       // keepAliveTime
-    new ArrayBlockingQueue<>(1000),              // Bounded work queue
-    new ThreadFactory() {                        // Named threads for debugging
-        private final AtomicInteger count = new AtomicInteger(1);
-        public Thread newThread(Runnable r) {
-            Thread t = new Thread(r, "app-worker-" + count.getAndIncrement());
-            t.setDaemon(false);
-            return t;
-        }
-    },
-    new ThreadPoolExecutor.CallerRunsPolicy()    // Rejection policy
-    // CallerRunsPolicy: Caller thread runs the task (natural backpressure)
-    // AbortPolicy: Throw RejectedExecutionException (default)
-    // DiscardPolicy: Silently drop the task
-    // DiscardOldestPolicy: Drop oldest queued task
-);
-
-// 4. Scheduled Thread Pool — for periodic/delayed tasks
-ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(5);
-scheduler.scheduleAtFixedRate(task, 0, 1, TimeUnit.MINUTES);
-scheduler.scheduleWithFixedDelay(task, 0, 1, TimeUnit.MINUTES);
-scheduler.schedule(task, 5, TimeUnit.SECONDS);
-
-// 5. Virtual Threads (Java 21+) — for I/O-bound tasks
-//    Extremely lightweight — can create millions of them!
-ExecutorService virtualPool = Executors.newVirtualThreadPerTaskExecutor();
-// OR
-Thread virtualThread = Thread.ofVirtual().name("virtual-1").start(() -> {
-    // blocking I/O is fine here — virtual thread is unmounted, not blocked
-    String data = callExternalService();
-});
-```
-
-### Thread Pool Sizing Formula
-
-```
-For CPU-bound tasks:
-  Thread count = CPU cores + 1
-  (extra 1 for when a thread is briefly waiting)
-
-For I/O-bound tasks:
-  Thread count = CPU cores × (1 + Wait Time / CPU Time)
-
-Example: If a task spends 90% time waiting (I/O) and 10% on CPU:
-  Wait/CPU = 0.9 / 0.1 = 9
-  Threads = 8 cores × (1 + 9) = 80 threads
-
-For mixed workloads:
-  Start with cores × 2, measure, adjust
-```
-
-### CompletableFuture for Async Tasks
-
-```java
-// Chain async operations without blocking
-CompletableFuture<OrderResponse> orderFuture = CompletableFuture
-    .supplyAsync(() -> userService.getUser(userId), executor)     // Step 1
-    .thenApplyAsync(user -> productService.getProduct(productId), executor)  // Step 2
-    .thenApplyAsync(product -> orderService.createOrder(user, product), executor)  // Step 3
-    .exceptionally(ex -> {
-        log.error("Order failed: {}", ex.getMessage());
-        return OrderResponse.failed();
-    });
-
-// Run multiple async tasks in parallel
-CompletableFuture<UserResponse> userFuture = CompletableFuture
-    .supplyAsync(() -> userService.getUser(userId), executor);
-CompletableFuture<ProductResponse> productFuture = CompletableFuture
-    .supplyAsync(() -> productService.getProduct(productId), executor);
-
-// Wait for all to complete
-CompletableFuture.allOf(userFuture, productFuture).join();
-
-UserResponse user = userFuture.get();
-ProductResponse product = productFuture.get();
-
-// Wait for first to complete
-CompletableFuture.anyOf(userFuture, productFuture).join();
-```
-
----
-
-## 27. Concurrency Utilities
-
-### ReadWriteLock — Multiple Readers, One Writer
-
-```java
-// Allow multiple concurrent readers, exclusive writer
-ReadWriteLock lock = new ReentrantReadWriteLock();
-
-private Map<String, User> cache = new HashMap<>();
-
-public User getUser(String id) {
-    lock.readLock().lock();  // Multiple threads can read simultaneously
-    try {
-        return cache.get(id);
-    } finally {
-        lock.readLock().unlock();
-    }
-}
-
-public void updateUser(String id, User user) {
-    lock.writeLock().lock();  // Exclusive access for writes
-    try {
-        cache.put(id, user);
-    } finally {
-        lock.writeLock().unlock();
-    }
-}
-```
-
-### Semaphore — Limit Concurrent Access
-
-```java
-// Limit concurrent access to a resource (e.g., DB connection, API call)
-Semaphore semaphore = new Semaphore(10);  // Allow max 10 concurrent
-
-public void callExternalApi() {
-    try {
-        semaphore.acquire();       // Block if 10 threads already active
-        try {
-            externalApiClient.call();
-        } finally {
-            semaphore.release();   // Release permit when done
-        }
-    } catch (InterruptedException e) {
-        Thread.currentThread().interrupt();
-    }
-}
-```
-
-### CountDownLatch & CyclicBarrier
-
-```java
-// CountDownLatch — wait for N events to complete
-CountDownLatch latch = new CountDownLatch(3);  // Wait for 3 services
-
-executor.submit(() -> { initDatabase(); latch.countDown(); });
-executor.submit(() -> { initCache(); latch.countDown(); });
-executor.submit(() -> { initMessageBroker(); latch.countDown(); });
-
-latch.await();  // Block until all 3 countdown to 0
-startApplication();
-
-// CyclicBarrier — all threads wait at barrier before proceeding
-CyclicBarrier barrier = new CyclicBarrier(4, () ->
-    System.out.println("All threads reached barrier!"));
-
-for (int i = 0; i < 4; i++) {
-    executor.submit(() -> {
-        doWork();
-        barrier.await();  // Wait until all 4 threads arrive here
-        continueWork();   // All threads proceed together
-    });
-}
-```
-
----
-
-## 28. Avoiding Common Concurrency Bottlenecks
-
-### Lock Contention
-
-```java
-// BAD: High contention — all threads fight for one lock
-private final Object globalLock = new Object();
-private Map<String, User> users = new HashMap<>();
-
-public void updateUser(String key, User user) {
-    synchronized (globalLock) {  // Bottleneck — every update blocks others
-        users.put(key, user);
-    }
-}
-
-// GOOD: ConcurrentHashMap has segment-level locking
-private final ConcurrentHashMap<String, User> users = new ConcurrentHashMap<>();
-
-public void updateUser(String key, User user) {
-    users.put(key, user);  // No explicit lock needed — internally optimized
-}
-
-// GOOD: Stripe locks for finer granularity
-private final Object[] locks = new Object[16];  // 16 stripes
-{
-    for (int i = 0; i < locks.length; i++) locks[i] = new Object();
-}
-
-private Object getLock(String key) {
-    return locks[Math.abs(key.hashCode()) % locks.length];
-}
-
-public void update(String key, User user) {
-    synchronized (getLock(key)) {  // Only blocks threads with same key stripe
-        users.put(key, user);
-    }
-}
-```
-
-### False Sharing (CPU Cache Line Contention)
-
-```java
-// CPUs read/write memory in cache lines (64 bytes)
-// If two threads write to variables in the same cache line → false sharing!
-
-// BAD: counter1 and counter2 might be on the same cache line
-class BadCounters {
-    volatile long counter1;  // These 2 longs (16 bytes) are on same
-    volatile long counter2;  // cache line → false sharing!
-}
-
-// GOOD: Pad to separate cache lines
-class PaddedCounter {
-    volatile long value;
-    long p1, p2, p3, p4, p5, p6, p7;  // 56 bytes of padding
-}
-
-// BEST: Use @Contended annotation (Java 8+)
-@sun.misc.Contended
-class Counter {
-    volatile long value;
-}
-
-// Or use LongAdder for high-contention counters
-LongAdder counter = new LongAdder();
-counter.increment();       // Internally uses striped counters → no false sharing
-long total = counter.sum();
-```
-
----
-
----
-
-# PART 8 — DATABASE & CACHING
-
----
-
-## 29. JDBC & Connection Pooling
-
-### Connection Pooling with HikariCP
-
-```yaml
-# application.yml — HikariCP (Spring Boot default connection pool)
-spring:
-  datasource:
-    url: jdbc:mysql://localhost:3306/mydb
-    username: root
-    password: secret
-    hikari:
-      pool-name: MyHikariPool
-      minimum-idle: 5               # Keep 5 connections always ready
-      maximum-pool-size: 20         # Max 20 connections
-      connection-timeout: 30000     # Wait max 30s for connection
-      idle-timeout: 600000          # Remove idle connection after 10min
-      max-lifetime: 1800000         # Connection max lifetime 30min
-      connection-test-query: SELECT 1  # Validate connection before use
-      leak-detection-threshold: 60000  # Log if connection held > 60s
-```
-
-### Pool Size Formula
-
-```
-Optimal Pool Size = Tn × (Cm - 1) + 1
-
-Where:
-  Tn = Max number of threads in app
-  Cm = Max connections the DB server supports
-
-HikariCP recommendation:
-  Pool Size = (CPU cores × 2) + effective_spindle_count
-
-For most apps: Start with 10, monitor, adjust
-Too many connections = context switching overhead on DB server
-Too few connections = threads wait for connection → slow response
-```
-
-### Efficient JDBC Queries
-
-```java
-// BAD: String concat — SQL injection vulnerability + slow
-String sql = "SELECT * FROM users WHERE email = '" + email + "'";
-
-// GOOD: PreparedStatement — safe + faster (DB caches execution plan)
-String sql = "SELECT id, name, email FROM users WHERE email = ?";
-try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-    stmt.setString(1, email);
-    ResultSet rs = stmt.executeQuery();
-    while (rs.next()) {
-        // process row
-    }
-}
-
-// GOOD: Batch inserts for multiple rows
-String sql = "INSERT INTO events (user_id, action, timestamp) VALUES (?, ?, ?)";
-try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-    for (Event event : events) {
-        stmt.setLong(1, event.getUserId());
-        stmt.setString(2, event.getAction());
-        stmt.setTimestamp(3, Timestamp.from(event.getTimestamp()));
-        stmt.addBatch();
-    }
-    int[] results = stmt.executeBatch();  // One network roundtrip for all!
-}
-
-// GOOD: Fetch only needed columns
-"SELECT id, name FROM users"    // Good — only 2 columns
-"SELECT * FROM users"           // Bad — fetches all columns including BLOBs!
-
-// GOOD: Use LIMIT to avoid fetching millions of rows
-"SELECT id, name FROM users WHERE status = 'ACTIVE' LIMIT 1000"
-```
-
----
-
-## 30. JPA & Hibernate Optimization
-
-### N+1 Query Problem (Most Common JPA Issue)
-
-```java
-// PROBLEM: N+1 queries
-// Fetching 100 orders + 1 query per order for user = 101 queries!
-List<Order> orders = orderRepository.findAll();  // Query 1: SELECT * FROM orders
-for (Order order : orders) {
-    String userName = order.getUser().getName();  // Query 2-101: SELECT * FROM users WHERE id=?
-}
-
-// SOLUTION 1: JPQL JOIN FETCH
-@Query("SELECT o FROM Order o JOIN FETCH o.user WHERE o.status = :status")
-List<Order> findByStatusWithUser(@Param("status") OrderStatus status);
-
-// SOLUTION 2: Entity Graph
-@EntityGraph(attributePaths = {"user", "orderItems"})
-List<Order> findByStatus(OrderStatus status);
-
-// SOLUTION 3: Fetch = EAGER in @ManyToOne (use carefully — always loads)
-@ManyToOne(fetch = FetchType.EAGER)  // Only if always needed
-private User user;
-
-// SOLUTION 4: DTO Projection (best for read-only, skips entity hydration)
-@Query("SELECT new com.example.dto.OrderSummary(o.id, u.name, o.totalPrice) " +
-       "FROM Order o JOIN o.user u WHERE o.status = :status")
-List<OrderSummary> findOrderSummaries(@Param("status") OrderStatus status);
-```
-
-### Lazy vs Eager Loading
-
-```java
-// Default fetch types:
-@OneToMany  → LAZY   (correct default — load on demand)
-@ManyToMany → LAZY   (correct default)
-@ManyToOne  → EAGER  (often causes N+1 — consider changing to LAZY)
-@OneToOne   → EAGER  (often causes N+1 — consider changing to LAZY)
-
-// Recommended: Use LAZY everywhere, explicitly JOIN FETCH when needed
-@ManyToOne(fetch = FetchType.LAZY)  // Change default EAGER to LAZY
-@JoinColumn(name = "user_id")
-private User user;
-```
-
-### Hibernate Batch Operations
-
-```yaml
-# application.yml
-spring:
-  jpa:
-    properties:
-      hibernate:
-        jdbc:
-          batch_size: 50             # Batch up to 50 INSERTs/UPDATEs
-        order_inserts: true          # Group inserts for same entity type
-        order_updates: true          # Group updates for same entity type
-        batch_versioned_data: true   # Enable batching for versioned entities
-```
-
-```java
-// Batch insert with Spring Data
-@Service
-@Transactional
-public class UserBatchService {
-
-    private final UserRepository userRepository;
-    private final EntityManager entityManager;
-
-    public void batchInsert(List<User> users) {
-        int batchSize = 50;
-        for (int i = 0; i < users.size(); i++) {
-            entityManager.persist(users.get(i));
-            if ((i + 1) % batchSize == 0) {
-                entityManager.flush();   // Execute batch
-                entityManager.clear();   // Clear first-level cache
+    // ── Read file from HDFS ────────────────────────────────────
+    public void readFile(String hdfsPath) throws IOException {
+        Path path = new Path(hdfsPath);
+        try (FSDataInputStream inputStream = fileSystem.open(path);
+             BufferedReader reader = new BufferedReader(
+                     new InputStreamReader(inputStream, StandardCharsets.UTF_8))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
             }
         }
-        entityManager.flush();  // Flush remaining
-    }
-}
-```
-
-### Query Optimization
-
-```java
-// 1. Pagination — never load all data
-Page<User> users = userRepository.findAll(PageRequest.of(0, 20));
-// Generates: SELECT * FROM users LIMIT 20 OFFSET 0
-
-// 2. Count query separately (avoid count on every page)
-Page<User> page = userRepository.findActiveUsers(
-    PageRequest.of(0, 20),
-    countQuery = "SELECT count(u.id) FROM User u WHERE u.status = 'ACTIVE'"
-);
-
-// 3. Use @Modifying for bulk updates (avoid loading entities first)
-// BAD: Load all users, update one by one
-List<User> inactiveUsers = userRepository.findByStatus(INACTIVE);
-inactiveUsers.forEach(u -> u.setStatus(DELETED));  // N updates in Hibernate
-
-// GOOD: Single UPDATE statement
-@Modifying
-@Query("UPDATE User u SET u.status = 'DELETED' WHERE u.status = 'INACTIVE' AND u.lastLogin < :cutoff")
-int bulkDeleteInactiveUsers(@Param("cutoff") LocalDateTime cutoff);
-
-// 4. Read-only transactions for queries
-@Transactional(readOnly = true)  // Hibernate skips dirty checking → faster
-public List<User> getAllUsers() {
-    return userRepository.findAll();
-}
-
-// 5. Second-level cache for frequently read, rarely changed data
-@Entity
-@Cache(usage = CacheConcurrencyStrategy.READ_MOSTLY)  // Hibernate 2nd level cache
-public class Country {
-    @Id private Long id;
-    private String name;
-    private String code;
-}
-```
-
----
-
-## 31. Caching Strategies
-
-### Spring Cache Abstraction
-
-```java
-// Enable caching
-@SpringBootApplication
-@EnableCaching
-public class Application { ... }
-
-// Cache a method result
-@Service
-public class UserService {
-
-    @Cacheable(value = "users", key = "#id")  // Cache result by id
-    public User getUserById(Long id) {
-        return userRepository.findById(id).orElseThrow();
-        // First call: hits DB and caches result
-        // Subsequent calls: returns from cache (no DB call)
     }
 
-    @CachePut(value = "users", key = "#user.id")  // Update cache after write
-    public User updateUser(User user) {
-        return userRepository.save(user);
-    }
-
-    @CacheEvict(value = "users", key = "#id")  // Remove from cache on delete
-    public void deleteUser(Long id) {
-        userRepository.deleteById(id);
-    }
-
-    @CacheEvict(value = "users", allEntries = true)  // Clear entire cache
-    @Scheduled(fixedRate = 3600000)  // Every hour
-    public void clearUserCache() { }
-
-    @Caching(
-        evict = {
-            @CacheEvict(value = "users", key = "#user.id"),
-            @CacheEvict(value = "usersByEmail", key = "#user.email")
+    // ── Write file to HDFS ────────────────────────────────────
+    public void writeFile(String hdfsPath, List<String> lines) throws IOException {
+        Path path = new Path(hdfsPath);
+        try (FSDataOutputStream outputStream = fileSystem.create(path, true);
+             BufferedWriter writer = new BufferedWriter(
+                     new OutputStreamWriter(outputStream, StandardCharsets.UTF_8))) {
+            for (String line : lines) {
+                writer.write(line);
+                writer.newLine();
+            }
         }
-    )
-    public void deleteUserComplex(User user) {
-        userRepository.delete(user);
+    }
+
+    // ── List directory ────────────────────────────────────────
+    public void listDirectory(String hdfsPath) throws IOException {
+        Path path = new Path(hdfsPath);
+        FileStatus[] statuses = fileSystem.listStatus(path);
+        for (FileStatus status : statuses) {
+            System.out.printf("%-10s %10d %s%n",
+                status.isDirectory() ? "DIR" : "FILE",
+                status.getLen(),
+                status.getPath().getName());
+        }
+    }
+
+    // ── Create directory ──────────────────────────────────────
+    public void createDirectory(String hdfsPath) throws IOException {
+        fileSystem.mkdirs(new Path(hdfsPath));
+    }
+
+    // ── Delete file or directory ──────────────────────────────
+    public void delete(String hdfsPath, boolean recursive) throws IOException {
+        fileSystem.delete(new Path(hdfsPath), recursive);
+    }
+
+    // ── Check file existence ──────────────────────────────────
+    public boolean exists(String hdfsPath) throws IOException {
+        return fileSystem.exists(new Path(hdfsPath));
+    }
+
+    // ── Get file info ─────────────────────────────────────────
+    public void fileInfo(String hdfsPath) throws IOException {
+        FileStatus status = fileSystem.getFileStatus(new Path(hdfsPath));
+        System.out.println("Path:         " + status.getPath());
+        System.out.println("Size:         " + status.getLen() + " bytes");
+        System.out.println("Block Size:   " + status.getBlockSize() + " bytes");
+        System.out.println("Replication:  " + status.getReplication());
+        System.out.println("Modified:     " + new Date(status.getModificationTime()));
+        System.out.println("Owner:        " + status.getOwner());
+        System.out.println("Permissions:  " + status.getPermission());
+    }
+
+    // ── Append to file ────────────────────────────────────────
+    public void appendToFile(String hdfsPath, String data) throws IOException {
+        Path path = new Path(hdfsPath);
+        try (FSDataOutputStream out = fileSystem.append(path)) {
+            out.write(data.getBytes(StandardCharsets.UTF_8));
+        }
+    }
+
+    public void close() throws IOException {
+        fileSystem.close();
     }
 }
 ```
 
-### Redis Cache Configuration
-
-```yaml
-spring:
-  data:
-    redis:
-      host: localhost
-      port: 6379
-      timeout: 2000ms
-  cache:
-    type: redis
-    redis:
-      time-to-live: 600000  # 10 minutes default TTL
-      cache-null-values: false
-```
-
-```java
-@Configuration
-@EnableCaching
-public class CacheConfig {
-
-    @Bean
-    public RedisCacheManager cacheManager(RedisConnectionFactory factory) {
-        RedisCacheConfiguration defaultConfig = RedisCacheConfiguration.defaultCacheConfig()
-                .entryTtl(Duration.ofMinutes(10))
-                .serializeKeysWith(RedisSerializationContext.SerializationPair
-                        .fromSerializer(new StringRedisSerializer()))
-                .serializeValuesWith(RedisSerializationContext.SerializationPair
-                        .fromSerializer(new GenericJackson2JsonRedisSerializer()))
-                .disableCachingNullValues();
-
-        Map<String, RedisCacheConfiguration> cacheConfigs = new HashMap<>();
-        cacheConfigs.put("users", defaultConfig.entryTtl(Duration.ofHours(1)));
-        cacheConfigs.put("products", defaultConfig.entryTtl(Duration.ofMinutes(30)));
-        cacheConfigs.put("sessions", defaultConfig.entryTtl(Duration.ofMinutes(60)));
-
-        return RedisCacheManager.builder(factory)
-                .cacheDefaults(defaultConfig)
-                .withInitialCacheConfigurations(cacheConfigs)
-                .build();
-    }
-}
-```
-
-### Cache Patterns
-
-```
-Cache-Aside (Lazy Loading):
-  Read:  App checks cache first → miss → read from DB → store in cache → return
-  Write: App writes to DB → invalidate/update cache
-
-Write-Through:
-  Write: App writes to cache AND DB simultaneously → always consistent
-
-Write-Behind (Write-Back):
-  Write: App writes to cache only → asynchronously writes to DB later → higher risk
-
-Read-Through:
-  Read: Cache handles DB read on miss automatically → app always reads from cache
-
-Cache Eviction Policies:
-  LRU  (Least Recently Used)   → Evict oldest-accessed item
-  LFU  (Least Frequently Used) → Evict least-accessed item
-  TTL  (Time To Live)          → Evict after fixed time
-  FIFO (First In First Out)    → Evict in insertion order
-```
-
----
-
----
-
-# PART 9 — SPRING BOOT PERFORMANCE
-
----
-
-## 32. Spring Boot Startup Optimization
-
-### Reduce Startup Time
-
-```java
-// 1. Lazy bean initialization (Spring Boot 2.2+)
-// application.properties
-spring.main.lazy-initialization=true
-// Only initializes beans when first used — reduces startup time
-
-// 2. Exclude unused auto-configurations
-@SpringBootApplication(exclude = {
-    DataSourceAutoConfiguration.class,  // If not using DB
-    SecurityAutoConfiguration.class,    // If not using Security
-    JmxAutoConfiguration.class          // If not using JMX
-})
-
-// 3. Class Data Sharing (CDS) — pre-process class files
-# Create archive
-java -Xshare:dump -XX:SharedArchiveFile=app-cds.jsa -jar app.jar
-
-# Use archive on startup
-java -Xshare:on -XX:SharedArchiveFile=app-cds.jsa -jar app.jar
-
-// 4. Spring AOT (Spring Boot 3+ with GraalVM Native)
-// Moves reflection/proxy computation from runtime to build time
-<plugin>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-maven-plugin</artifactId>
-    <configuration>
-        <image>
-            <builder>paketobuildpacks/builder:tiny</builder>
-        </image>
-    </configuration>
-</plugin>
-```
-
-### JVM Startup Flags
+### HDFS Shell Commands
 
 ```bash
-# Fast startup flags
--XX:TieredStopAtLevel=1          # Use only C1 JIT (faster startup, less optimization)
--XX:+UseSerialGC                 # Simpler GC for small apps
--Xss256k                         # Smaller thread stacks
+# List files
+hdfs dfs -ls /user/data/
 
-# GraalVM Native Image — instant startup (< 100ms), lower memory
-mvn native:compile -Pnative       # Spring Boot 3+ with GraalVM
-./target/app                      # Native binary — no JVM needed!
+# Upload from local
+hdfs dfs -put localfile.csv /user/data/
+
+# Download to local
+hdfs dfs -get /user/data/file.csv ./
+
+# View file content
+hdfs dfs -cat /user/data/file.csv
+hdfs dfs -text /user/data/file.gz   # Auto-decompresses
+
+# Create directory
+hdfs dfs -mkdir -p /user/data/input
+
+# Delete
+hdfs dfs -rm /user/data/file.csv
+hdfs dfs -rm -r /user/data/directory/
+
+# Copy within HDFS
+hdfs dfs -cp /user/data/src /user/data/dst
+
+# Move within HDFS
+hdfs dfs -mv /user/data/src /user/data/dst
+
+# Check disk usage
+hdfs dfs -du -h /user/data/
+hdfs dfs -df -h
+
+# Check file checksums
+hdfs dfs -checksum /user/data/file.csv
+
+# Get block locations
+hdfs fsck /user/data/file.csv -files -blocks -locations
+
+# HDFS admin report
+hdfs dfsadmin -report
 ```
 
 ---
 
-## 33. Spring Web Performance
+## 7. MapReduce Programming Model
 
-### Controller Optimization
+MapReduce breaks computation into two phases: **Map** (transform) and **Reduce** (aggregate).
+
+```
+Input Data (HDFS)
+     │
+     │  Split into chunks (one per Mapper)
+     ▼
+┌─────────┐  ┌─────────┐  ┌─────────┐
+│ Mapper 1│  │ Mapper 2│  │ Mapper 3│
+│ (hello,1)│  │(world, 1)│  │(hello,1)│
+│ (world,1)│  │(spark,1) │  │(big,  1)│
+└────┬────┘  └────┬────┘  └────┬────┘
+     │              │             │
+     └──────┬────────┴──────────┘
+            │  Shuffle & Sort (by key)
+            ▼
+     ┌─────────────────┐
+     │ big    → [1]    │
+     │ hello  → [1,1]  │
+     │ spark  → [1]    │
+     │ world  → [1,1]  │
+     └────────┬────────┘
+              │
+    ┌─────────┴─────────┐
+    │ Reducer           │
+    │ big   → 1         │
+    │ hello → 2         │
+    │ spark → 1         │
+    │ world → 2         │
+    └───────────────────┘
+              │
+           Output (HDFS)
+```
+
+### Word Count — Classic MapReduce Example
 
 ```java
-// 1. Use async processing for long-running tasks
-@GetMapping("/report")
-public CompletableFuture<ResponseEntity<Report>> generateReport() {
-    return CompletableFuture.supplyAsync(() -> {
-        Report report = reportService.generateExpensiveReport();  // Runs in thread pool
-        return ResponseEntity.ok(report);
-    }, taskExecutor);
-    // Frees up servlet thread immediately while report is being generated
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.*;
+import org.apache.hadoop.mapreduce.*;
+import org.apache.hadoop.mapreduce.lib.input.*;
+import org.apache.hadoop.mapreduce.lib.output.*;
+
+// ── Mapper ──────────────────────────────────────────────────────────
+public class WordCountMapper extends Mapper<LongWritable, Text, Text, IntWritable> {
+
+    private final Text word = new Text();
+    private final IntWritable one = new IntWritable(1);
+
+    @Override
+    protected void map(LongWritable key, Text value, Context context)
+            throws IOException, InterruptedException {
+
+        // key = byte offset, value = one line of text
+        String line = value.toString().toLowerCase();
+
+        // Tokenize and emit (word, 1) for each word
+        StringTokenizer tokenizer = new StringTokenizer(line, " \t\n\r\f,.!?;:\"'()[]{}");
+        while (tokenizer.hasMoreTokens()) {
+            String token = tokenizer.nextToken().trim();
+            if (!token.isEmpty()) {
+                word.set(token);
+                context.write(word, one);  // Emit: (word, 1)
+            }
+        }
+    }
 }
 
-// 2. Response compression
-// application.properties
-server.compression.enabled=true
-server.compression.mime-types=application/json,application/xml,text/html
-server.compression.min-response-size=1024  # Only compress responses > 1KB
+// ── Combiner (optional local reducer — reduces data sent across network) ─
+public class WordCountCombiner extends Reducer<Text, IntWritable, Text, IntWritable> {
 
-// 3. HTTP caching headers
-@GetMapping("/products/{id}")
-public ResponseEntity<Product> getProduct(@PathVariable Long id) {
-    Product product = productService.getProduct(id);
-    return ResponseEntity.ok()
-            .cacheControl(CacheControl.maxAge(1, TimeUnit.HOURS))
-            .eTag(String.valueOf(product.getVersion()))
-            .body(product);
+    private final IntWritable result = new IntWritable();
+
+    @Override
+    protected void reduce(Text key, Iterable<IntWritable> values, Context context)
+            throws IOException, InterruptedException {
+        int sum = 0;
+        for (IntWritable val : values) {
+            sum += val.get();
+        }
+        result.set(sum);
+        context.write(key, result);  // Locally aggregated count
+    }
 }
 
-// 4. Pagination for list endpoints
-@GetMapping("/users")
-public Page<UserDto> getUsers(
-        @RequestParam(defaultValue = "0") int page,
-        @RequestParam(defaultValue = "20") int size) {
-    return userService.getUsers(PageRequest.of(page, Math.min(size, 100)));
+// ── Reducer ──────────────────────────────────────────────────────────
+public class WordCountReducer extends Reducer<Text, IntWritable, Text, IntWritable> {
+
+    private final IntWritable result = new IntWritable();
+
+    @Override
+    protected void reduce(Text key, Iterable<IntWritable> values, Context context)
+            throws IOException, InterruptedException {
+        // key = word, values = list of 1s from all mappers
+        int sum = 0;
+        for (IntWritable val : values) {
+            sum += val.get();
+        }
+        result.set(sum);
+        context.write(key, result);  // Emit: (word, total_count)
+    }
 }
 
-// 5. Use DTOs — never expose entities directly
-// Entities may have LAZY fields that trigger unexpected DB queries during serialization
-@GetMapping("/users/{id}")
-public UserDto getUser(@PathVariable Long id) {
-    User user = userService.getUser(id);
-    return userMapper.toDto(user);  // Convert to DTO before returning
+// ── Driver — configures and submits the job ──────────────────────────
+public class WordCountDriver {
+
+    public static void main(String[] args) throws Exception {
+        if (args.length != 2) {
+            System.err.println("Usage: WordCount <input_path> <output_path>");
+            System.exit(1);
+        }
+
+        Configuration conf = new Configuration();
+
+        Job job = Job.getInstance(conf, "Word Count");
+        job.setJarByClass(WordCountDriver.class);
+
+        // Set Mapper, Combiner, Reducer
+        job.setMapperClass(WordCountMapper.class);
+        job.setCombinerClass(WordCountCombiner.class);  // Local reduction
+        job.setReducerClass(WordCountReducer.class);
+
+        // Set output key/value types
+        job.setOutputKeyClass(Text.class);
+        job.setOutputValueClass(IntWritable.class);
+
+        // Set input/output formats
+        job.setInputFormatClass(TextInputFormat.class);
+        job.setOutputFormatClass(TextOutputFormat.class);
+
+        // Set number of reducers
+        job.setNumReduceTasks(4);  // 4 parallel reducers
+
+        // Set input/output paths
+        FileInputFormat.addInputPath(job, new Path(args[0]));
+        FileOutputFormat.setOutputPath(job, new Path(args[1]));
+
+        // Submit and wait
+        System.exit(job.waitForCompletion(true) ? 0 : 1);
+    }
 }
 ```
 
-### WebFlux (Reactive) for High Concurrency
+### Advanced MapReduce — Sales Analysis
 
 ```java
-// Spring WebFlux — non-blocking, reactive web framework
-// Better than MVC for I/O-bound, high-concurrency scenarios
-@RestController
-@RequestMapping("/api/users")
-public class ReactiveUserController {
+// Custom Writable for complex values
+public class SalesRecord implements Writable {
+    private double revenue;
+    private int count;
 
-    private final ReactiveUserService userService;
-
-    @GetMapping
-    public Flux<User> getAllUsers() {
-        return userService.findAll();  // Reactive stream — non-blocking
+    public SalesRecord() {}
+    public SalesRecord(double revenue, int count) {
+        this.revenue = revenue;
+        this.count = count;
     }
 
-    @GetMapping("/{id}")
-    public Mono<ResponseEntity<User>> getUserById(@PathVariable Long id) {
-        return userService.findById(id)
-                .map(ResponseEntity::ok)
-                .defaultIfEmpty(ResponseEntity.notFound().build());
+    @Override
+    public void write(DataOutput out) throws IOException {
+        out.writeDouble(revenue);
+        out.writeInt(count);
     }
 
-    @PostMapping
-    public Mono<ResponseEntity<User>> createUser(@RequestBody Mono<User> userMono) {
-        return userMono
-                .flatMap(userService::save)
-                .map(user -> ResponseEntity.status(HttpStatus.CREATED).body(user));
+    @Override
+    public void readFields(DataInput in) throws IOException {
+        this.revenue = in.readDouble();
+        this.count = in.readInt();
+    }
+
+    public double getAvgRevenue() { return count > 0 ? revenue / count : 0; }
+    // Getters, setters
+}
+
+// Mapper: Parse CSV, emit (product_category, SalesRecord)
+public class SalesMapper extends Mapper<LongWritable, Text, Text, SalesRecord> {
+
+    private final Text category = new Text();
+
+    @Override
+    protected void map(LongWritable key, Text value, Context context)
+            throws IOException, InterruptedException {
+        String line = value.toString();
+        // Skip header
+        if (line.startsWith("order_id")) return;
+
+        String[] fields = line.split(",");
+        if (fields.length < 5) return;
+
+        try {
+            String productCategory = fields[2].trim();
+            double revenue = Double.parseDouble(fields[4].trim());
+            category.set(productCategory);
+            context.write(category, new SalesRecord(revenue, 1));
+        } catch (NumberFormatException e) {
+            context.getCounter("Error", "ParseError").increment(1);
+        }
+    }
+}
+
+// Reducer: Aggregate revenue and count per category
+public class SalesReducer extends Reducer<Text, SalesRecord, Text, Text> {
+
+    @Override
+    protected void reduce(Text key, Iterable<SalesRecord> values, Context context)
+            throws IOException, InterruptedException {
+        double totalRevenue = 0;
+        int totalCount = 0;
+
+        for (SalesRecord record : values) {
+            totalRevenue += record.getRevenue();
+            totalCount += record.getCount();
+        }
+
+        double avgRevenue = totalCount > 0 ? totalRevenue / totalCount : 0;
+        String result = String.format("total=%.2f, count=%d, avg=%.2f",
+                totalRevenue, totalCount, avgRevenue);
+
+        context.write(key, new Text(result));
     }
 }
 ```
 
+### Running MapReduce Job
+
+```bash
+# Compile and package
+mvn clean package
+
+# Submit to Hadoop cluster
+hadoop jar target/wordcount-1.0.jar \
+    com.example.WordCountDriver \
+    /user/input/data/ \
+    /user/output/wordcount
+
+# Monitor job progress
+hadoop job -list
+hadoop job -status <job-id>
+hadoop job -kill <job-id>
+
+# View output
+hdfs dfs -cat /user/output/wordcount/part-r-00000
+```
+
 ---
 
-## 34. Spring Data Performance
+## 8. YARN — Resource Management
+
+**YARN (Yet Another Resource Negotiator)** manages cluster resources for multiple applications (MapReduce, Spark, etc.).
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    Resource Manager (Master)                     │
+│  ┌──────────────────┐    ┌───────────────────────────────────┐  │
+│  │   Scheduler      │    │   Application Manager             │  │
+│  │  (allocates      │    │  (accepts job submissions,        │  │
+│  │   resources)     │    │   negotiates first container)     │  │
+│  └──────────────────┘    └───────────────────────────────────┘  │
+└─────────────────────────────────────────────────────────────────┘
+                │ Allocates containers
+                ▼
+┌───────────────────┐  ┌───────────────────┐  ┌───────────────────┐
+│   Node Manager    │  │   Node Manager    │  │   Node Manager    │
+│   (Worker Node)   │  │   (Worker Node)   │  │   (Worker Node)   │
+│                   │  │                   │  │                   │
+│ ┌───┐ ┌───┐ ┌───┐│  │ ┌───┐ ┌───┐ ┌───┐│  │ ┌───┐ ┌───┐ ┌───┐│
+│ │Cnt│ │Cnt│ │Cnt││  │ │Cnt│ │Cnt│ │Cnt││  │ │Cnt│ │Cnt│ │Cnt││
+│ │App│ │App│ │App││  │ │App│ │App│ │App││  │ │App│ │App│ │App││
+│ │Mst│ │   │ │   ││  │ │   │ │   │ │   ││  │ │   │ │   │ │   ││
+│ └───┘ └───┘ └───┘│  │ └───┘ └───┘ └───┘│  │ └───┘ └───┘ └───┘│
+└───────────────────┘  └───────────────────┘  └───────────────────┘
+      Cnt = Container (CPU + Memory unit)
+      AppMst = Application Master (runs in one container)
+```
+
+---
+
+## 9. Hadoop Java API
+
+### Custom Input Format
 
 ```java
-// 1. Projection interfaces — fetch only needed fields
-public interface UserSummary {
-    Long getId();
-    String getFirstName();
-    String getLastName();
-    String getEmail();
-    // JPA fetches only these 4 columns
-}
+// Custom InputFormat for reading fixed-width records
+public class FixedWidthInputFormat extends FileInputFormat<LongWritable, Text> {
 
-public interface UserRepository extends JpaRepository<User, Long> {
-    List<UserSummary> findByStatus(UserStatus status);
-    // SELECT id, first_name, last_name, email FROM users WHERE status = ?
-    // NOT: SELECT * FROM users WHERE status = ?
-}
-
-// 2. Specification for dynamic queries
-public class UserSpecifications {
-    public static Specification<User> hasStatus(UserStatus status) {
-        return (root, query, cb) -> status == null ? null :
-                cb.equal(root.get("status"), status);
-    }
-
-    public static Specification<User> hasNameLike(String name) {
-        return (root, query, cb) -> name == null ? null :
-                cb.like(cb.lower(root.get("firstName")),
-                        "%" + name.toLowerCase() + "%");
+    @Override
+    public RecordReader<LongWritable, Text> createRecordReader(
+            InputSplit split, TaskAttemptContext context) {
+        return new FixedWidthRecordReader(100); // 100 bytes per record
     }
 }
 
-// Usage — compose specifications dynamically
-Specification<User> spec = Specification
-    .where(UserSpecifications.hasStatus(UserStatus.ACTIVE))
-    .and(UserSpecifications.hasNameLike(searchTerm));
-Page<User> users = userRepository.findAll(spec, PageRequest.of(0, 20));
+public class FixedWidthRecordReader extends RecordReader<LongWritable, Text> {
 
-// 3. @QueryHints for performance
-@QueryHints(value = {
-    @QueryHint(name = HINT_FETCH_SIZE, value = "50"),          // JDBC fetch size
-    @QueryHint(name = HINT_CACHEABLE, value = "true"),         // Query cache
-    @QueryHint(name = HINT_READONLY, value = "true")           // Read-only mode
-})
-@Query("SELECT u FROM User u WHERE u.status = :status")
-List<User> findActiveUsersOptimized(@Param("status") UserStatus status);
+    private final int recordLength;
+    private FSDataInputStream inputStream;
+    private long start, end, current;
+    private LongWritable currentKey = new LongWritable();
+    private Text currentValue = new Text();
+
+    public FixedWidthRecordReader(int recordLength) {
+        this.recordLength = recordLength;
+    }
+
+    @Override
+    public void initialize(InputSplit split, TaskAttemptContext context) throws IOException {
+        FileSplit fileSplit = (FileSplit) split;
+        start = fileSplit.getStart();
+        end = start + fileSplit.getLength();
+        current = start;
+
+        Configuration conf = context.getConfiguration();
+        FileSystem fs = fileSplit.getPath().getFileSystem(conf);
+        inputStream = fs.open(fileSplit.getPath());
+        inputStream.seek(start);
+    }
+
+    @Override
+    public boolean nextKeyValue() throws IOException {
+        if (current >= end) return false;
+        byte[] buffer = new byte[recordLength];
+        int bytesRead = inputStream.read(buffer);
+        if (bytesRead <= 0) return false;
+
+        currentKey.set(current);
+        currentValue.set(new String(buffer, 0, bytesRead, StandardCharsets.UTF_8));
+        current += bytesRead;
+        return true;
+    }
+
+    @Override
+    public LongWritable getCurrentKey() { return currentKey; }
+    @Override
+    public Text getCurrentValue() { return currentValue; }
+    @Override
+    public float getProgress() {
+        return end == start ? 0 : (float)(current - start) / (end - start);
+    }
+    @Override
+    public void close() throws IOException { inputStream.close(); }
+}
+```
+
+### Hadoop Configuration & Counters
+
+```java
+// Using counters for monitoring and validation
+public class DataQualityMapper extends Mapper<LongWritable, Text, Text, IntWritable> {
+
+    // Define counter groups
+    enum DataQualityCounters {
+        VALID_RECORDS,
+        NULL_VALUES,
+        PARSE_ERRORS,
+        RECORDS_PROCESSED
+    }
+
+    @Override
+    protected void map(LongWritable key, Text value, Context context)
+            throws IOException, InterruptedException {
+        context.getCounter(DataQualityCounters.RECORDS_PROCESSED).increment(1);
+
+        String line = value.toString();
+        String[] fields = line.split(",");
+
+        if (fields.length < 5) {
+            context.getCounter(DataQualityCounters.PARSE_ERRORS).increment(1);
+            return;
+        }
+
+        boolean hasNull = false;
+        for (String field : fields) {
+            if (field == null || field.trim().isEmpty()) {
+                context.getCounter(DataQualityCounters.NULL_VALUES).increment(1);
+                hasNull = true;
+            }
+        }
+
+        if (!hasNull) {
+            context.getCounter(DataQualityCounters.VALID_RECORDS).increment(1);
+            context.write(new Text(fields[0]), new IntWritable(1));
+        }
+    }
+}
+
+// Reading counter values after job completion
+public class JobRunner {
+    public static void main(String[] args) throws Exception {
+        Job job = createJob();
+        boolean success = job.waitForCompletion(true);
+
+        if (success) {
+            Counters counters = job.getCounters();
+            CounterGroup group = counters.getGroup("DataQualityCounters");
+            System.out.println("Total Processed: " + group.findCounter("RECORDS_PROCESSED").getValue());
+            System.out.println("Valid Records:   " + group.findCounter("VALID_RECORDS").getValue());
+            System.out.println("Parse Errors:    " + group.findCounter("PARSE_ERRORS").getValue());
+            System.out.println("Null Values:     " + group.findCounter("NULL_VALUES").getValue());
+        }
+    }
+}
 ```
 
 ---
 
 ---
 
-# PART 10 — BENCHMARKING & BEST PRACTICES
+# PART 3 — APACHE SPARK
 
 ---
 
-## 35. Benchmarking with JMH
+## 10. Spark Architecture & Core Concepts
 
-**JMH (Java Microbenchmark Harness)** is the gold standard for measuring Java performance. Never benchmark without it — JIT compilation makes naive benchmarks unreliable.
+Apache Spark is a fast, in-memory distributed computing engine that is 10–100x faster than MapReduce for many workloads.
 
-### Setup
+### Why Spark Over MapReduce?
+
+```
+MapReduce:               Spark:
+  Read from HDFS    →     Read from HDFS/memory
+  Map               →     Transformation (lazy)
+  Write to HDFS     →     Keep in memory (RDD/DataFrame)
+  Read from HDFS    →     Next transformation
+  Reduce            →     Action (triggers execution)
+  Write to HDFS     →     Write to output
+
+Each MapReduce step = disk I/O
+Each Spark step = memory operation (100x faster!)
+```
+
+### Spark Architecture
+
+```
+┌───────────────────────────────────────────────────────────────┐
+│                    SPARK APPLICATION                           │
+│                                                               │
+│  ┌─────────────────────────────────────────────────────────┐ │
+│  │                   Driver Program                         │ │
+│  │  ┌───────────────────────────────────────────────────┐  │ │
+│  │  │            SparkContext / SparkSession            │  │ │
+│  │  │  (entry point — creates RDDs, DataFrames, jobs)  │  │ │
+│  │  └───────────────────────────────────────────────────┘  │ │
+│  │              │ Submits Tasks                             │ │
+│  └──────────────┼──────────────────────────────────────────┘ │
+│                 │                                             │
+│         ┌───────┴────────┐  Cluster Manager                  │
+│         │ YARN / Mesos / │  (allocates resources)            │
+│         │  Kubernetes /  │                                   │
+│         │  Standalone    │                                   │
+│         └───────┬────────┘                                   │
+│                 │  Launches Executors                        │
+│    ┌────────────┼─────────────────┐                         │
+│    ▼            ▼                 ▼                         │
+│ ┌──────┐   ┌──────┐         ┌──────┐                        │
+│ │Execut│   │Execut│   ...   │Execut│  Worker Nodes         │
+│ │  or  │   │  or  │         │  or  │  (run tasks,          │
+│ │      │   │      │         │      │   store data)         │
+│ │Task1 │   │Task2 │         │TaskN │                        │
+│ │Task2 │   │Task3 │         │      │                        │
+│ └──────┘   └──────┘         └──────┘                        │
+└───────────────────────────────────────────────────────────────┘
+```
+
+### Lazy Evaluation
+
+```
+Spark is LAZY — transformations are not executed until an action is called.
+
+Transformations (lazy):   map, filter, flatMap, groupBy, join, union, ...
+Actions (trigger execution): collect, count, show, save, first, take, ...
+
+Example:
+  val rdd = sc.textFile("data.txt")      // Lazy — just a plan
+         .filter(_.contains("ERROR"))    // Lazy — adds to plan
+         .map(_.split(","))              // Lazy — adds to plan
+         .count()                        // ACTION — executes the plan!
+```
+
+### Maven Dependencies
 
 ```xml
 <dependency>
-    <groupId>org.openjdk.jmh</groupId>
-    <artifactId>jmh-core</artifactId>
-    <version>1.37</version>
+    <groupId>org.apache.spark</groupId>
+    <artifactId>spark-core_2.12</artifactId>
+    <version>3.5.0</version>
 </dependency>
 <dependency>
-    <groupId>org.openjdk.jmh</groupId>
-    <artifactId>jmh-generator-annprocess</artifactId>
-    <version>1.37</version>
-    <scope>provided</scope>
+    <groupId>org.apache.spark</groupId>
+    <artifactId>spark-sql_2.12</artifactId>
+    <version>3.5.0</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.spark</groupId>
+    <artifactId>spark-streaming_2.12</artifactId>
+    <version>3.5.0</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.spark</groupId>
+    <artifactId>spark-mllib_2.12</artifactId>
+    <version>3.5.0</version>
 </dependency>
 ```
 
-### Writing Benchmarks
+---
+
+## 11. Spark RDD — Resilient Distributed Datasets
+
+**RDD** is the fundamental data structure in Spark — an immutable, distributed collection of objects partitioned across cluster nodes.
 
 ```java
-@BenchmarkMode(Mode.AverageTime)      // Measure average time per operation
-@OutputTimeUnit(TimeUnit.MICROSECONDS)
-@State(Scope.Benchmark)              // One state instance per benchmark run
-@Warmup(iterations = 5, time = 1, timeUnit = TimeUnit.SECONDS)    // JVM warmup
-@Measurement(iterations = 10, time = 1, timeUnit = TimeUnit.SECONDS)
-@Fork(2)                              // Run in 2 separate JVM processes
-public class StringBenchmark {
+import org.apache.spark.*;
+import org.apache.spark.api.java.*;
+import org.apache.spark.api.java.function.*;
 
-    @Param({"100", "1000", "10000"})  // Run with different sizes
-    private int size;
+public class SparkRDDExamples {
 
-    private List<String> items;
+    public static void main(String[] args) {
 
-    @Setup(Level.Trial)               // Run once before all iterations
-    public void setup() {
-        items = IntStream.range(0, size)
-                .mapToObj(i -> "item" + i)
-                .collect(Collectors.toList());
+        // ── Create SparkContext ──────────────────────────────────────
+        SparkConf conf = new SparkConf()
+                .setAppName("RDD Examples")
+                .setMaster("local[*]");  // local[*] = use all CPU cores
+                // In production: .setMaster("yarn") or spark-submit with --master yarn
+
+        JavaSparkContext sc = new JavaSparkContext(conf);
+        sc.setLogLevel("WARN");  // Reduce log noise
+
+        // ── Creating RDDs ─────────────────────────────────────────────
+
+        // From collection
+        JavaRDD<Integer> numbersRDD = sc.parallelize(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+
+        // From file (HDFS or local)
+        JavaRDD<String> linesRDD = sc.textFile("hdfs://namenode:9000/data/logs/app.log");
+
+        // From multiple files
+        JavaRDD<String> multiRDD = sc.textFile("hdfs:///data/logs/app-2024-01-*.log");
+
+        // ── Transformations (Lazy) ────────────────────────────────────
+
+        // map — transform each element
+        JavaRDD<String> upperRDD = linesRDD.map(line -> line.toUpperCase());
+
+        // filter — keep elements matching condition
+        JavaRDD<String> errorLogs = linesRDD.filter(line -> line.contains("ERROR"));
+
+        // flatMap — each element can produce 0 or more outputs
+        JavaRDD<String> wordsRDD = linesRDD.flatMap(
+                line -> Arrays.asList(line.split(" ")).iterator());
+
+        // distinct — remove duplicates
+        JavaRDD<String> uniqueWords = wordsRDD.distinct();
+
+        // sample — random sample
+        JavaRDD<String> sampleRDD = linesRDD.sample(false, 0.1); // 10% sample
+
+        // union — combine two RDDs
+        JavaRDD<String> errorRDD = linesRDD.filter(l -> l.contains("ERROR"));
+        JavaRDD<String> warnRDD = linesRDD.filter(l -> l.contains("WARN"));
+        JavaRDD<String> combined = errorRDD.union(warnRDD);
+
+        // mapPartitions — more efficient than map for expensive setup
+        JavaRDD<String> processed = linesRDD.mapPartitions(iterator -> {
+            // Setup expensive resources once per partition (e.g., DB connection)
+            List<String> results = new ArrayList<>();
+            while (iterator.hasNext()) {
+                results.add(processLine(iterator.next()));
+            }
+            return results.iterator();
+        });
+
+        // ── Pair RDD (Key-Value) ──────────────────────────────────────
+
+        // Create PairRDD
+        JavaPairRDD<String, Integer> wordPairs = wordsRDD
+                .mapToPair(word -> new Tuple2<>(word, 1));
+
+        // reduceByKey — aggregate values by key
+        JavaPairRDD<String, Integer> wordCounts = wordPairs
+                .reduceByKey((a, b) -> a + b);
+
+        // groupByKey — group all values by key (avoid if possible — use reduceByKey)
+        JavaPairRDD<String, Iterable<Integer>> grouped = wordPairs.groupByKey();
+
+        // sortByKey — sort by key
+        JavaPairRDD<String, Integer> sorted = wordCounts.sortByKey(true); // ascending
+
+        // join — inner join two PairRDDs
+        JavaPairRDD<String, Integer> salesRDD = sc.parallelizePairs(
+                Arrays.asList(new Tuple2<>("A", 100), new Tuple2<>("B", 200)));
+        JavaPairRDD<String, String> regionRDD = sc.parallelizePairs(
+                Arrays.asList(new Tuple2<>("A", "North"), new Tuple2<>("B", "South")));
+
+        JavaPairRDD<String, Tuple2<Integer, String>> joinedRDD = salesRDD.join(regionRDD);
+        // Result: (A, (100, North)), (B, (200, South))
+
+        // leftOuterJoin, rightOuterJoin, fullOuterJoin
+        JavaPairRDD<String, Tuple2<Integer, Optional<String>>> leftJoined =
+                salesRDD.leftOuterJoin(regionRDD);
+
+        // aggregateByKey — flexible aggregation
+        JavaPairRDD<String, Double> avgSalesByRegion = salesRDD.aggregateByKey(
+                new Tuple2<>(0.0, 0),    // Zero value: (sum, count)
+                (acc, val) -> new Tuple2<>(acc._1 + val, acc._2 + 1),  // Seq op
+                (acc1, acc2) -> new Tuple2<>(acc1._1 + acc2._1, acc1._2 + acc2._2)  // Comb op
+        ).mapValues(t -> t._1 / t._2);  // Calculate average
+
+        // ── Actions (Trigger Execution) ───────────────────────────────
+
+        long errorCount = errorLogs.count();
+        System.out.println("Error count: " + errorCount);
+
+        List<String> firstErrors = errorLogs.take(10);  // Take first 10
+        String firstError = errorLogs.first();          // Take first 1
+        List<String> allErrors = errorLogs.collect();   // Collect to driver (careful!)
+
+        // Save to file
+        wordCounts.saveAsTextFile("hdfs:///output/wordcounts/");
+
+        // Reduce
+        int totalCount = numbersRDD.reduce((a, b) -> a + b);
+        System.out.println("Sum: " + totalCount);  // 55
+
+        // CountByValue
+        Map<Integer, Long> countByVal = numbersRDD.countByValue();
+
+        // foreach — side effects (printing, writing to DB)
+        wordCounts.foreach(pair ->
+                System.out.println(pair._1 + ": " + pair._2));
+
+        // ── Caching / Persistence ──────────────────────────────────────
+
+        // Cache RDD in memory (for reuse)
+        JavaRDD<String> cachedErrors = errorLogs.cache();  // = persist(MEMORY_ONLY)
+
+        // Different storage levels
+        JavaRDD<String> diskCached = errorLogs.persist(StorageLevel.DISK_ONLY());
+        JavaRDD<String> memDisk = errorLogs.persist(StorageLevel.MEMORY_AND_DISK());
+        JavaRDD<String> serialized = errorLogs.persist(StorageLevel.MEMORY_ONLY_SER());
+
+        // Unpersist when no longer needed
+        cachedErrors.unpersist();
+
+        sc.close();
+    }
+}
+```
+
+---
+
+## 12. Spark DataFrames & Datasets
+
+**DataFrames** and **Datasets** are higher-level APIs built on top of RDDs with schema information and SQL-style operations.
+
+```java
+import org.apache.spark.sql.*;
+import org.apache.spark.sql.types.*;
+import static org.apache.spark.sql.functions.*;
+
+public class SparkDataFrameExamples {
+
+    public static void main(String[] args) {
+
+        // ── Create SparkSession ──────────────────────────────────────
+        SparkSession spark = SparkSession.builder()
+                .appName("DataFrame Examples")
+                .master("local[*]")
+                .config("spark.sql.shuffle.partitions", "8")  // Tune for cluster size
+                .config("spark.sql.adaptive.enabled", "true") // Enable AQE
+                .getOrCreate();
+
+        // ── Creating DataFrames ───────────────────────────────────────
+
+        // From JSON
+        Dataset<Row> jsonDF = spark.read()
+                .option("multiline", "true")
+                .json("hdfs:///data/users.json");
+
+        // From CSV
+        Dataset<Row> csvDF = spark.read()
+                .option("header", "true")
+                .option("inferSchema", "true")
+                .option("sep", ",")
+                .option("nullValue", "NA")
+                .csv("hdfs:///data/sales.csv");
+
+        // From Parquet (columnar format — very efficient)
+        Dataset<Row> parquetDF = spark.read()
+                .parquet("hdfs:///data/events.parquet");
+
+        // Define explicit schema (better than inferSchema for production)
+        StructType schema = new StructType()
+                .add("order_id", DataTypes.LongType, false)
+                .add("user_id", DataTypes.LongType, false)
+                .add("product", DataTypes.StringType, true)
+                .add("quantity", DataTypes.IntegerType, true)
+                .add("price", DataTypes.DoubleType, true)
+                .add("order_date", DataTypes.DateType, true);
+
+        Dataset<Row> ordersDF = spark.read()
+                .schema(schema)
+                .option("header", "true")
+                .csv("hdfs:///data/orders.csv");
+
+        // From Java objects (JavaBean)
+        List<User> users = Arrays.asList(
+                new User(1L, "Alice", 30, "alice@example.com"),
+                new User(2L, "Bob", 25, "bob@example.com"),
+                new User(3L, "Charlie", 35, "charlie@example.com")
+        );
+        Dataset<Row> usersDF = spark.createDataFrame(users, User.class);
+
+        // ── Basic Operations ──────────────────────────────────────────
+
+        // Show schema and data
+        ordersDF.printSchema();
+        ordersDF.show(20);           // Show first 20 rows
+        ordersDF.show(10, false);    // Don't truncate columns
+
+        // Select columns
+        ordersDF.select("order_id", "product", "price").show();
+        ordersDF.select(col("order_id"), col("price").multiply(1.1).as("price_with_tax")).show();
+
+        // Filter rows
+        Dataset<Row> expensiveOrders = ordersDF.filter(col("price").gt(100.0));
+        Dataset<Row> filtered = ordersDF.filter("price > 100 AND quantity > 1");
+
+        // Add new column
+        Dataset<Row> withTotal = ordersDF.withColumn("total",
+                col("price").multiply(col("quantity")));
+
+        // Rename column
+        Dataset<Row> renamed = ordersDF.withColumnRenamed("order_date", "date");
+
+        // Drop column
+        Dataset<Row> dropped = ordersDF.drop("internal_field");
+
+        // Order by
+        Dataset<Row> sorted = ordersDF.orderBy(col("price").desc(), col("order_id").asc());
+
+        // Limit
+        Dataset<Row> topTen = ordersDF.orderBy(col("price").desc()).limit(10);
+
+        // Distinct
+        Dataset<Row> distinctProducts = ordersDF.select("product").distinct();
+
+        // ── Aggregations ──────────────────────────────────────────────
+
+        // Group by + aggregations
+        Dataset<Row> salesByProduct = ordersDF
+                .groupBy("product")
+                .agg(
+                    count("order_id").as("order_count"),
+                    sum("quantity").as("total_quantity"),
+                    sum(col("price").multiply(col("quantity"))).as("total_revenue"),
+                    avg("price").as("avg_price"),
+                    max("price").as("max_price"),
+                    min("price").as("min_price")
+                )
+                .orderBy(col("total_revenue").desc());
+
+        salesByProduct.show();
+
+        // Multiple group by keys
+        Dataset<Row> salesByRegionProduct = ordersDF
+                .groupBy("region", "product")
+                .agg(
+                    sum("price").as("revenue"),
+                    count("*").as("orders")
+                );
+
+        // Pivot table
+        Dataset<Row> pivotTable = ordersDF
+                .groupBy("region")
+                .pivot("product", Arrays.asList("Laptop", "Phone", "Tablet"))
+                .agg(sum("price"));
+
+        // ── Window Functions ──────────────────────────────────────────
+
+        WindowSpec windowSpec = Window
+                .partitionBy("product")
+                .orderBy(col("order_date").asc());
+
+        Dataset<Row> withRankAndRunning = ordersDF.withColumn(
+                        "rank", rank().over(windowSpec))
+                .withColumn("running_total",
+                        sum("price").over(windowSpec))
+                .withColumn("lag_price",
+                        lag("price", 1).over(windowSpec))
+                .withColumn("lead_price",
+                        lead("price", 1).over(windowSpec));
+
+        // ── Joins ─────────────────────────────────────────────────────
+
+        Dataset<Row> productsDF = spark.read().json("hdfs:///data/products.json");
+
+        // Inner join
+        Dataset<Row> enrichedOrders = ordersDF.join(productsDF,
+                ordersDF.col("product").equalTo(productsDF.col("product_name")),
+                "inner");
+
+        // Left outer join
+        Dataset<Row> leftJoin = ordersDF.join(productsDF,
+                ordersDF.col("product").equalTo(productsDF.col("product_name")),
+                "left_outer");
+
+        // Broadcast join (for small tables — avoids shuffle)
+        Dataset<Row> broadcastJoin = ordersDF.join(
+                broadcast(productsDF),
+                ordersDF.col("product").equalTo(productsDF.col("product_name")));
+
+        // ── Writing DataFrames ────────────────────────────────────────
+
+        // Write to Parquet (recommended format)
+        withTotal.write()
+                .mode(SaveMode.Overwrite)
+                .partitionBy("order_date")  // Partition output by date
+                .parquet("hdfs:///output/orders_enriched/");
+
+        // Write to CSV
+        withTotal.write()
+                .mode(SaveMode.Append)
+                .option("header", "true")
+                .csv("hdfs:///output/orders_csv/");
+
+        // Write to JSON
+        withTotal.coalesce(1)   // Merge to single file
+                .write()
+                .mode(SaveMode.Overwrite)
+                .json("hdfs:///output/orders_json/");
+
+        spark.stop();
+    }
+}
+```
+
+### Typed Dataset API
+
+```java
+// Define Java Bean for typed operations
+public class Order implements Serializable {
+    private Long orderId;
+    private Long userId;
+    private String product;
+    private Integer quantity;
+    private Double price;
+    // Getters, Setters required for Spark Encoder
+}
+
+public class TypedDatasetExample {
+    public static void main(String[] args) {
+        SparkSession spark = SparkSession.builder().appName("Typed").master("local[*]").getOrCreate();
+        Encoder<Order> orderEncoder = Encoders.bean(Order.class);
+
+        // Create typed Dataset<Order>
+        Dataset<Order> ordersDS = spark.read()
+                .option("header", "true")
+                .csv("hdfs:///data/orders.csv")
+                .as(orderEncoder);  // Converts to typed Dataset
+
+        // Typed operations — compile-time type checking!
+        Dataset<Order> expensiveOrders = ordersDS
+                .filter((FilterFunction<Order>) order -> order.getPrice() > 100.0);
+
+        Dataset<Double> revenues = ordersDS
+                .map((MapFunction<Order, Double>) order ->
+                        order.getPrice() * order.getQuantity(),
+                     Encoders.DOUBLE());
+
+        // Converts back to DataFrame for SQL ops
+        Dataset<Row> df = ordersDS.toDF();
+    }
+}
+```
+
+---
+
+## 13. Spark SQL
+
+```java
+public class SparkSQLExamples {
+
+    public static void main(String[] args) {
+        SparkSession spark = SparkSession.builder()
+                .appName("Spark SQL")
+                .master("local[*]")
+                .enableHiveSupport()    // Connect to Hive Metastore
+                .getOrCreate();
+
+        // Register as temp view
+        Dataset<Row> ordersDF = spark.read().parquet("hdfs:///data/orders/");
+        ordersDF.createOrReplaceTempView("orders");
+
+        Dataset<Row> usersDF = spark.read().parquet("hdfs:///data/users/");
+        usersDF.createOrReplaceTempView("users");
+
+        // ── SQL Queries ───────────────────────────────────────────────
+
+        // Basic SQL
+        Dataset<Row> result = spark.sql("""
+            SELECT
+                product,
+                COUNT(*) as order_count,
+                SUM(price * quantity) as total_revenue,
+                AVG(price) as avg_price
+            FROM orders
+            WHERE order_date >= '2024-01-01'
+              AND status = 'COMPLETED'
+            GROUP BY product
+            HAVING COUNT(*) > 100
+            ORDER BY total_revenue DESC
+            LIMIT 20
+        """);
+
+        result.show();
+
+        // SQL with JOINs
+        Dataset<Row> joinedResult = spark.sql("""
+            SELECT
+                u.user_id,
+                u.name,
+                u.region,
+                COUNT(o.order_id) as total_orders,
+                SUM(o.price) as total_spent,
+                MAX(o.order_date) as last_order_date
+            FROM users u
+            LEFT JOIN orders o ON u.user_id = o.user_id
+            WHERE u.status = 'ACTIVE'
+            GROUP BY u.user_id, u.name, u.region
+            ORDER BY total_spent DESC
+        """);
+
+        // SQL with Window Functions
+        Dataset<Row> windowResult = spark.sql("""
+            SELECT
+                product,
+                order_date,
+                price,
+                SUM(price) OVER (
+                    PARTITION BY product
+                    ORDER BY order_date
+                    ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
+                ) as running_total,
+                RANK() OVER (
+                    PARTITION BY product
+                    ORDER BY price DESC
+                ) as price_rank
+            FROM orders
+        """);
+
+        // SQL with Subqueries
+        Dataset<Row> subqueryResult = spark.sql("""
+            SELECT *
+            FROM orders
+            WHERE user_id IN (
+                SELECT user_id
+                FROM users
+                WHERE region = 'North' AND status = 'PREMIUM'
+            )
+            AND price > (
+                SELECT AVG(price) FROM orders
+            )
+        """);
+
+        // Common Table Expressions (CTE)
+        Dataset<Row> cteResult = spark.sql("""
+            WITH monthly_sales AS (
+                SELECT
+                    DATE_TRUNC('month', order_date) as month,
+                    product,
+                    SUM(price * quantity) as revenue
+                FROM orders
+                GROUP BY DATE_TRUNC('month', order_date), product
+            ),
+            ranked_products AS (
+                SELECT
+                    month,
+                    product,
+                    revenue,
+                    RANK() OVER (PARTITION BY month ORDER BY revenue DESC) as rank
+                FROM monthly_sales
+            )
+            SELECT month, product, revenue
+            FROM ranked_products
+            WHERE rank <= 5
+            ORDER BY month, rank
+        """);
+
+        cteResult.show(50, false);
+
+        // ── Global Temporary Views (across sessions) ──────────────────
+        ordersDF.createOrReplaceGlobalTempView("global_orders");
+        spark.sql("SELECT COUNT(*) FROM global_temp.global_orders").show();
+
+        // ── Hive Tables ───────────────────────────────────────────────
+        // Create external Hive table
+        spark.sql("""
+            CREATE EXTERNAL TABLE IF NOT EXISTS sales_data (
+                order_id BIGINT,
+                user_id BIGINT,
+                product STRING,
+                quantity INT,
+                price DOUBLE
+            )
+            STORED AS PARQUET
+            LOCATION 'hdfs:///data/sales/'
+        """);
+
+        // Read Hive table
+        Dataset<Row> hiveData = spark.table("default.sales_data");
+
+        spark.stop();
+    }
+}
+```
+
+---
+
+## 14. Spark Streaming
+
+### Structured Streaming (Modern API)
+
+```java
+import org.apache.spark.sql.streaming.*;
+
+public class SparkStructuredStreamingExample {
+
+    public static void main(String[] args) throws Exception {
+        SparkSession spark = SparkSession.builder()
+                .appName("Structured Streaming")
+                .master("local[*]")
+                .getOrCreate();
+
+        // ── Read from Kafka ───────────────────────────────────────────
+        Dataset<Row> kafkaStream = spark.readStream()
+                .format("kafka")
+                .option("kafka.bootstrap.servers", "kafka1:9092,kafka2:9092")
+                .option("subscribe", "order-events")
+                .option("startingOffsets", "latest")
+                .option("maxOffsetsPerTrigger", 100000)  // Backpressure
+                .load();
+
+        // ── Parse JSON from Kafka ─────────────────────────────────────
+        StructType orderSchema = new StructType()
+                .add("order_id", DataTypes.LongType)
+                .add("user_id", DataTypes.LongType)
+                .add("product", DataTypes.StringType)
+                .add("quantity", DataTypes.IntegerType)
+                .add("price", DataTypes.DoubleType)
+                .add("timestamp", DataTypes.TimestampType);
+
+        Dataset<Row> orders = kafkaStream
+                .select(from_json(
+                        col("value").cast("string"),
+                        orderSchema
+                ).as("data"))
+                .select("data.*")
+                .withColumn("event_time", col("timestamp"));
+
+        // ── Windowed Aggregation ──────────────────────────────────────
+        // Count orders per product per 5-minute window, update every minute
+        Dataset<Row> windowedCounts = orders
+                .withWatermark("event_time", "10 minutes")  // Late data tolerance
+                .groupBy(
+                    window(col("event_time"), "5 minutes", "1 minute"),  // 5-min window, 1-min slide
+                    col("product")
+                )
+                .agg(
+                    count("order_id").as("order_count"),
+                    sum(col("price").multiply(col("quantity"))).as("revenue")
+                )
+                .select(
+                    col("window.start").as("window_start"),
+                    col("window.end").as("window_end"),
+                    col("product"),
+                    col("order_count"),
+                    col("revenue")
+                );
+
+        // ── Write Stream to Console (for testing) ─────────────────────
+        StreamingQuery consoleQuery = windowedCounts
+                .writeStream()
+                .outputMode("update")   // update, append, complete
+                .format("console")
+                .option("truncate", "false")
+                .trigger(Trigger.ProcessingTime("1 minute"))
+                .start();
+
+        // ── Write Stream to Kafka ──────────────────────────────────────
+        StreamingQuery kafkaOutput = windowedCounts
+                .select(to_json(struct("*")).as("value"))
+                .writeStream()
+                .format("kafka")
+                .option("kafka.bootstrap.servers", "kafka1:9092")
+                .option("topic", "order-metrics")
+                .option("checkpointLocation", "hdfs:///checkpoints/order-metrics/")
+                .outputMode("update")
+                .trigger(Trigger.ProcessingTime("30 seconds"))
+                .start();
+
+        // ── Write Stream to Parquet (Data Lake) ───────────────────────
+        StreamingQuery parquetOutput = orders
+                .writeStream()
+                .format("parquet")
+                .option("path", "hdfs:///data/streaming/orders/")
+                .option("checkpointLocation", "hdfs:///checkpoints/orders/")
+                .partitionBy("product")
+                .outputMode("append")
+                .trigger(Trigger.ProcessingTime("5 minutes"))
+                .start();
+
+        // ── Await Termination ──────────────────────────────────────────
+        spark.streams().awaitAnyTermination();
+    }
+}
+```
+
+---
+
+## 15. Spark MLlib — Machine Learning
+
+```java
+import org.apache.spark.ml.*;
+import org.apache.spark.ml.classification.*;
+import org.apache.spark.ml.evaluation.*;
+import org.apache.spark.ml.feature.*;
+import org.apache.spark.ml.regression.*;
+import org.apache.spark.ml.tuning.*;
+
+public class SparkMLlibExample {
+
+    public static void main(String[] args) {
+        SparkSession spark = SparkSession.builder()
+                .appName("Spark MLlib")
+                .master("local[*]")
+                .getOrCreate();
+
+        // ── Load & Prepare Data ────────────────────────────────────────
+        Dataset<Row> rawData = spark.read()
+                .option("header", "true")
+                .option("inferSchema", "true")
+                .csv("hdfs:///data/customer_churn.csv");
+
+        // ── Feature Engineering Pipeline ──────────────────────────────
+
+        // String indexer — convert categorical to numeric
+        StringIndexer regionIndexer = new StringIndexer()
+                .setInputCol("region")
+                .setOutputCol("region_index")
+                .setHandleInvalid("keep");
+
+        // One-hot encoder
+        OneHotEncoder regionEncoder = new OneHotEncoder()
+                .setInputCol("region_index")
+                .setOutputCol("region_vec");
+
+        // Imputer — fill missing values
+        Imputer imputer = new Imputer()
+                .setInputCols(new String[]{"age", "tenure", "monthly_charges"})
+                .setOutputCols(new String[]{"age_imp", "tenure_imp", "charges_imp"})
+                .setStrategy("mean");
+
+        // Vector assembler — combine features into single vector
+        VectorAssembler assembler = new VectorAssembler()
+                .setInputCols(new String[]{
+                    "region_vec", "age_imp", "tenure_imp", "charges_imp"
+                })
+                .setOutputCol("features_raw")
+                .setHandleInvalid("skip");
+
+        // Scaler — normalize features
+        StandardScaler scaler = new StandardScaler()
+                .setInputCol("features_raw")
+                .setOutputCol("features")
+                .setWithMean(true)
+                .setWithStd(true);
+
+        // Logistic Regression model
+        LogisticRegression lr = new LogisticRegression()
+                .setFeaturesCol("features")
+                .setLabelCol("churned")
+                .setMaxIter(100)
+                .setRegParam(0.01);
+
+        // Assemble pipeline
+        Pipeline pipeline = new Pipeline().setStages(new PipelineStage[]{
+                regionIndexer,
+                regionEncoder,
+                imputer,
+                assembler,
+                scaler,
+                lr
+        });
+
+        // ── Train/Test Split ──────────────────────────────────────────
+        Dataset<Row>[] splits = rawData.randomSplit(new double[]{0.8, 0.2}, 42L);
+        Dataset<Row> trainingData = splits[0];
+        Dataset<Row> testData = splits[1];
+
+        // ── Hyperparameter Tuning ──────────────────────────────────────
+        ParamMap[] paramGrid = new ParamGridBuilder()
+                .addGrid(lr.regParam(), new double[]{0.001, 0.01, 0.1})
+                .addGrid(lr.maxIter(), new int[]{50, 100})
+                .build();
+
+        BinaryClassificationEvaluator evaluator = new BinaryClassificationEvaluator()
+                .setLabelCol("churned")
+                .setMetricName("areaUnderROC");
+
+        CrossValidator cv = new CrossValidator()
+                .setEstimator(pipeline)
+                .setEvaluator(evaluator)
+                .setEstimatorParamMaps(paramGrid)
+                .setNumFolds(5)
+                .setParallelism(4);  // Run 4 folds in parallel
+
+        // ── Train Model ───────────────────────────────────────────────
+        CrossValidatorModel model = cv.fit(trainingData);
+
+        // ── Evaluate Model ────────────────────────────────────────────
+        Dataset<Row> predictions = model.transform(testData);
+        predictions.select("churned", "prediction", "probability").show(20);
+
+        double auc = evaluator.evaluate(predictions);
+        System.out.printf("Area Under ROC: %.4f%n", auc);
+
+        // Accuracy
+        long correct = predictions.filter(col("churned").equalTo(col("prediction"))).count();
+        long total = predictions.count();
+        System.out.printf("Accuracy: %.4f%n", (double) correct / total);
+
+        // ── Save & Load Model ──────────────────────────────────────────
+        model.write().overwrite().save("hdfs:///models/churn-model/");
+        CrossValidatorModel loadedModel = CrossValidatorModel.load("hdfs:///models/churn-model/");
+
+        spark.stop();
+    }
+}
+```
+
+---
+
+## 16. Spark Optimization & Tuning
+
+```java
+// ── Partitioning ──────────────────────────────────────────────────────
+// Check current partitions
+System.out.println("Partitions: " + df.rdd().getNumPartitions());
+
+// Repartition (full shuffle) — use to increase or change partition key
+Dataset<Row> repartitioned = df.repartition(100);
+Dataset<Row> keyPartitioned = df.repartition(col("product_id"));
+
+// Coalesce (no shuffle) — use only to REDUCE partitions
+Dataset<Row> coalesced = df.coalesce(10);
+
+// ── Broadcast Join ────────────────────────────────────────────────────
+// For small tables (< 10MB), broadcast to all workers (no shuffle)
+Dataset<Row> smallTable = spark.read().parquet("small_dim_table/");
+Dataset<Row> bigTable = spark.read().parquet("large_fact_table/");
+
+// Automatically broadcasts tables < spark.sql.autoBroadcastJoinThreshold
+spark.conf().set("spark.sql.autoBroadcastJoinThreshold", 10485760); // 10MB
+
+// Manually force broadcast
+Dataset<Row> result = bigTable.join(broadcast(smallTable), "key");
+
+// ── Caching ───────────────────────────────────────────────────────────
+// Cache when DataFrame is used multiple times
+Dataset<Row> filteredDF = df.filter("status = 'ACTIVE'").cache();
+filteredDF.count();          // Materializes the cache
+
+long activeCount = filteredDF.count();  // From cache
+Dataset<Row> activeOrders = filteredDF.join(ordersDF, "user_id");  // From cache
+
+filteredDF.unpersist();  // Free cache when done
+
+// ── Avoiding Data Skew ────────────────────────────────────────────────
+// Problem: One key has millions of records, others have few
+// Check for skew:
+df.groupBy("product_id")
+  .count()
+  .orderBy(col("count").desc())
+  .show(20);
+
+// Solution 1: Salting — add random suffix to skewed key
+Dataset<Row> saltedDF = df
+    .withColumn("salted_key",
+        concat(col("product_id"), lit("_"),
+        (rand().multiply(10).cast("int"))));
+
+// Solution 2: Enable Adaptive Query Execution (Spark 3.0+)
+spark.conf().set("spark.sql.adaptive.enabled", "true");
+spark.conf().set("spark.sql.adaptive.skewJoin.enabled", "true");
+spark.conf().set("spark.sql.adaptive.coalescePartitions.enabled", "true");
+
+// ── Kryo Serialization (faster than Java serialization) ──────────────
+SparkConf conf = new SparkConf()
+    .set("spark.serializer", "org.apache.spark.serializer.KryoSerializer")
+    .set("spark.kryo.registrationRequired", "false");
+
+// ── Tuning spark-submit ───────────────────────────────────────────────
+// spark-submit \
+//   --master yarn \
+//   --deploy-mode cluster \
+//   --num-executors 20 \
+//   --executor-cores 4 \
+//   --executor-memory 8g \
+//   --driver-memory 4g \
+//   --conf spark.sql.shuffle.partitions=400 \
+//   --conf spark.sql.adaptive.enabled=true \
+//   --conf spark.default.parallelism=400 \
+//   --conf spark.memory.fraction=0.8 \
+//   --conf spark.memory.storageFraction=0.3 \
+//   --class com.example.MySparkApp \
+//   myapp.jar
+
+// ── Column Pruning & Predicate Pushdown (automatic) ──────────────────
+// Spark SQL automatically pushes filters to the source
+// and selects only needed columns when reading Parquet/ORC
+Dataset<Row> pruned = spark.read()
+    .parquet("hdfs:///data/orders/")
+    .select("order_id", "product", "price")  // Only reads these columns from Parquet
+    .filter("price > 100");                   // Filter pushed to Parquet reader
+
+// Verify with explain()
+pruned.explain(true);   // Show physical execution plan
+```
+
+---
+
+---
+
+# PART 4 — APACHE KAFKA
+
+---
+
+## 17. Kafka Architecture & Core Concepts
+
+Apache Kafka is a distributed event streaming platform for high-throughput, fault-tolerant, real-time data pipelines.
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                      KAFKA CLUSTER                                   │
+│                                                                      │
+│  ┌───────────────────────────────────────────────────────────────┐  │
+│  │                    ZooKeeper / KRaft                          │  │
+│  │               (Cluster coordination, leader election)         │  │
+│  └───────────────────────────────────────────────────────────────┘  │
+│                                                                      │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐             │
+│  │   Broker 1   │  │   Broker 2   │  │   Broker 3   │             │
+│  │              │  │              │  │              │             │
+│  │ Topic: orders│  │ Topic: orders│  │ Topic: orders│             │
+│  │  Partition 0 │  │  Partition 1 │  │  Partition 2 │             │
+│  │  (Leader)    │  │  (Leader)    │  │  (Leader)    │             │
+│  │  Partition 1 │  │  Partition 0 │  │  Partition 1 │             │
+│  │  (Follower)  │  │  (Follower)  │  │  (Follower)  │             │
+│  └──────────────┘  └──────────────┘  └──────────────┘             │
+│                                                                      │
+│  Producers ──────────────────────────────────── Consumers          │
+│  (write to leader)                              (read from any)     │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+### Key Concepts
+
+```
+Topic        → Named category of messages (like a table in a DB)
+Partition    → Topic is split into partitions for parallelism
+Offset       → Unique sequential ID for each message in a partition
+Broker       → Kafka server that stores and serves messages
+Producer     → Application that writes messages to Kafka
+Consumer     → Application that reads messages from Kafka
+Consumer Group → Multiple consumers sharing the work (each partition = 1 consumer)
+Leader       → The partition replica that handles reads/writes
+Follower     → Replica that copies from the leader (for fault tolerance)
+Replication Factor → How many copies of each partition exist
+Retention    → How long Kafka keeps messages (time or size based)
+Lag          → How far behind a consumer is (current offset - latest offset)
+```
+
+### Topic Partitioning Strategy
+
+```
+Topic: order-events (6 partitions, replication factor 3)
+
+Producer sends order for userId=123
+  → Hash(userId) % 6 = partition 3
+
+All orders for userId=123 always go to partition 3
+  → Guaranteed ordering per user!
+
+Consumer Group A (6 consumers = 1 consumer per partition):
+  Consumer 1 → Partition 0
+  Consumer 2 → Partition 1
+  ...
+  Consumer 6 → Partition 5
+  → Maximum parallelism!
+
+Consumer Group B (2 consumers):
+  Consumer 1 → Partitions 0,1,2
+  Consumer 2 → Partitions 3,4,5
+```
+
+### Maven Dependencies
+
+```xml
+<dependency>
+    <groupId>org.apache.kafka</groupId>
+    <artifactId>kafka-clients</artifactId>
+    <version>3.6.0</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.kafka</groupId>
+    <artifactId>kafka-streams</artifactId>
+    <version>3.6.0</version>
+</dependency>
+```
+
+---
+
+## 18. Kafka Producer API in Java
+
+```java
+import org.apache.kafka.clients.producer.*;
+import org.apache.kafka.common.serialization.*;
+
+public class KafkaProducerExamples {
+
+    // ── Basic Producer ─────────────────────────────────────────────────
+    public static KafkaProducer<String, String> createProducer() {
+        Properties props = new Properties();
+        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "kafka1:9092,kafka2:9092,kafka3:9092");
+        props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
+        props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
+
+        // ── Reliability Settings ───────────────────────────────────────
+        props.put(ProducerConfig.ACKS_CONFIG, "all");         // Wait for all replicas to confirm
+        props.put(ProducerConfig.RETRIES_CONFIG, 3);          // Retry 3 times on failure
+        props.put(ProducerConfig.ENABLE_IDEMPOTENCE_CONFIG, true);  // Exactly-once delivery
+
+        // ── Performance Settings ───────────────────────────────────────
+        props.put(ProducerConfig.BATCH_SIZE_CONFIG, 65536);         // 64KB batch
+        props.put(ProducerConfig.LINGER_MS_CONFIG, 5);              // Wait 5ms to fill batch
+        props.put(ProducerConfig.COMPRESSION_TYPE_CONFIG, "snappy"); // Compress batches
+        props.put(ProducerConfig.BUFFER_MEMORY_CONFIG, 67108864);   // 64MB buffer
+
+        // ── Timeout Settings ────────────────────────────────────────────
+        props.put(ProducerConfig.REQUEST_TIMEOUT_MS_CONFIG, 30000);
+        props.put(ProducerConfig.MAX_BLOCK_MS_CONFIG, 60000);
+
+        return new KafkaProducer<>(props);
     }
 
-    @Benchmark
-    public String concatWithPlus() {
-        String result = "";
-        for (String item : items) {
-            result += item;           // Measure this approach
+    // ── Fire and Forget ────────────────────────────────────────────────
+    public static void fireAndForget(KafkaProducer<String, String> producer) {
+        ProducerRecord<String, String> record = new ProducerRecord<>(
+                "order-events",      // topic
+                "user-123",          // key (determines partition)
+                "{\"orderId\":1001}" // value
+        );
+        producer.send(record);  // Async — don't wait for ack
+    }
+
+    // ── Synchronous Send ───────────────────────────────────────────────
+    public static void synchronousSend(KafkaProducer<String, String> producer)
+            throws Exception {
+        ProducerRecord<String, String> record = new ProducerRecord<>(
+                "order-events", "user-123", "{\"orderId\":1002}");
+
+        // .get() blocks until broker confirms
+        RecordMetadata metadata = producer.send(record).get();
+        System.out.printf("Sent to topic=%s, partition=%d, offset=%d%n",
+                metadata.topic(), metadata.partition(), metadata.offset());
+    }
+
+    // ── Asynchronous Send with Callback ────────────────────────────────
+    public static void asyncSendWithCallback(KafkaProducer<String, String> producer) {
+        ProducerRecord<String, String> record = new ProducerRecord<>(
+                "order-events", "user-123", "{\"orderId\":1003}");
+
+        producer.send(record, (metadata, exception) -> {
+            if (exception != null) {
+                System.err.println("Failed to send message: " + exception.getMessage());
+                // Handle error: retry, log, alert
+            } else {
+                System.out.printf("Sent: partition=%d, offset=%d%n",
+                        metadata.partition(), metadata.offset());
+            }
+        });
+    }
+
+    // ── Batch Producer (high throughput) ───────────────────────────────
+    public static void batchProduce(KafkaProducer<String, String> producer,
+                                     List<Order> orders) {
+        for (Order order : orders) {
+            String key = String.valueOf(order.getUserId());  // Same user → same partition
+            String value = order.toJson();
+            ProducerRecord<String, String> record =
+                    new ProducerRecord<>("order-events", key, value);
+
+            // Send with specific partition (override key-based partitioning)
+            // new ProducerRecord<>("order-events", 2, key, value); // → Partition 2
+
+            // Send with specific timestamp
+            // new ProducerRecord<>("order-events", null, order.getTimestamp(), key, value);
+
+            producer.send(record, (metadata, ex) -> {
+                if (ex != null) {
+                    System.err.println("Failed: " + ex.getMessage());
+                }
+            });
         }
+        producer.flush();  // Ensure all buffered messages are sent
+    }
+
+    // ── JSON Producer with Schema ──────────────────────────────────────
+    public static void main(String[] args) throws Exception {
+        KafkaProducer<String, String> producer = createProducer();
+
+        try {
+            // Send 1000 order events
+            ObjectMapper mapper = new ObjectMapper();
+            for (int i = 1; i <= 1000; i++) {
+                OrderEvent event = new OrderEvent(
+                    (long) i,
+                    "USER-" + (i % 100),
+                    "Product-" + (i % 20),
+                    ThreadLocalRandom.current().nextDouble(10, 1000),
+                    Instant.now()
+                );
+                String json = mapper.writeValueAsString(event);
+                String key = event.getUserId();
+
+                producer.send(
+                    new ProducerRecord<>("order-events", key, json),
+                    (meta, ex) -> {
+                        if (ex != null) System.err.println("Error: " + ex.getMessage());
+                    }
+                );
+            }
+        } finally {
+            producer.flush();
+            producer.close();
+        }
+    }
+}
+```
+
+---
+
+## 19. Kafka Consumer API in Java
+
+```java
+import org.apache.kafka.clients.consumer.*;
+import org.apache.kafka.common.*;
+import org.apache.kafka.common.serialization.*;
+
+public class KafkaConsumerExamples {
+
+    public static KafkaConsumer<String, String> createConsumer(String groupId) {
+        Properties props = new Properties();
+        props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "kafka1:9092,kafka2:9092");
+        props.put(ConsumerConfig.GROUP_ID_CONFIG, groupId);
+        props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
+        props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
+
+        // ── Offset Management ──────────────────────────────────────────
+        props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest"); // earliest or latest
+        props.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, "false");   // Manual commit!
+
+        // ── Performance ────────────────────────────────────────────────
+        props.put(ConsumerConfig.MAX_POLL_RECORDS_CONFIG, 500);         // Max records per poll
+        props.put(ConsumerConfig.FETCH_MIN_BYTES_CONFIG, 1);            // Min bytes to fetch
+        props.put(ConsumerConfig.FETCH_MAX_WAIT_MS_CONFIG, 500);        // Max wait time
+        props.put(ConsumerConfig.MAX_PARTITION_FETCH_BYTES_CONFIG, 1048576); // 1MB per partition
+
+        // ── Session Management ─────────────────────────────────────────
+        props.put(ConsumerConfig.SESSION_TIMEOUT_MS_CONFIG, 45000);
+        props.put(ConsumerConfig.HEARTBEAT_INTERVAL_MS_CONFIG, 3000);
+        props.put(ConsumerConfig.MAX_POLL_INTERVAL_MS_CONFIG, 300000); // Max processing time
+
+        return new KafkaConsumer<>(props);
+    }
+
+    // ── Basic Consumer ─────────────────────────────────────────────────
+    public static void basicConsumer() {
+        KafkaConsumer<String, String> consumer = createConsumer("order-processor-group");
+        consumer.subscribe(Arrays.asList("order-events"));  // Subscribe to topic
+
+        try {
+            while (true) {
+                ConsumerRecords<String, String> records =
+                        consumer.poll(Duration.ofMillis(1000));
+
+                for (ConsumerRecord<String, String> record : records) {
+                    System.out.printf("Topic=%s, Partition=%d, Offset=%d, Key=%s%n",
+                            record.topic(), record.partition(),
+                            record.offset(), record.key());
+
+                    // Process the message
+                    processRecord(record.value());
+                }
+
+                // Commit after processing (at-least-once delivery)
+                consumer.commitSync();
+            }
+        } catch (WakeupException e) {
+            // Ignore — triggered by consumer.wakeup() during shutdown
+        } finally {
+            consumer.close();
+        }
+    }
+
+    // ── Async Commit (higher throughput) ──────────────────────────────
+    public static void asyncCommitConsumer() {
+        KafkaConsumer<String, String> consumer = createConsumer("async-group");
+        consumer.subscribe(Arrays.asList("order-events"));
+
+        try {
+            while (true) {
+                ConsumerRecords<String, String> records =
+                        consumer.poll(Duration.ofMillis(100));
+
+                for (ConsumerRecord<String, String> record : records) {
+                    processRecord(record.value());
+                }
+
+                // Async commit — doesn't block, retry on callback
+                consumer.commitAsync((offsets, exception) -> {
+                    if (exception != null) {
+                        System.err.println("Commit failed: " + exception.getMessage());
+                        // Fall back to sync commit
+                    }
+                });
+            }
+        } finally {
+            // Final sync commit on shutdown (important!)
+            try {
+                consumer.commitSync();
+            } finally {
+                consumer.close();
+            }
+        }
+    }
+
+    // ── Partition-Level Commit (fine-grained control) ─────────────────
+    public static void partitionLevelCommit() {
+        KafkaConsumer<String, String> consumer = createConsumer("partition-group");
+        consumer.subscribe(Arrays.asList("order-events"));
+
+        Map<TopicPartition, OffsetAndMetadata> offsetsToCommit = new HashMap<>();
+
+        try {
+            while (true) {
+                ConsumerRecords<String, String> records =
+                        consumer.poll(Duration.ofMillis(100));
+
+                for (ConsumerRecord<String, String> record : records) {
+                    try {
+                        processRecord(record.value());
+                        // Track offset for this partition
+                        offsetsToCommit.put(
+                            new TopicPartition(record.topic(), record.partition()),
+                            new OffsetAndMetadata(record.offset() + 1)  // +1 = next to read
+                        );
+                    } catch (Exception e) {
+                        System.err.println("Failed processing offset " + record.offset());
+                        // Don't add to commit map — will reprocess on restart
+                    }
+                }
+
+                if (!offsetsToCommit.isEmpty()) {
+                    consumer.commitSync(offsetsToCommit);
+                    offsetsToCommit.clear();
+                }
+            }
+        } finally {
+            consumer.close();
+        }
+    }
+
+    // ── Rebalance Listener ─────────────────────────────────────────────
+    public static void consumerWithRebalanceListener() {
+        KafkaConsumer<String, String> consumer = createConsumer("rebalance-group");
+        Map<TopicPartition, OffsetAndMetadata> currentOffsets = new HashMap<>();
+
+        consumer.subscribe(Arrays.asList("order-events"), new ConsumerRebalanceListener() {
+
+            @Override
+            public void onPartitionsRevoked(Collection<TopicPartition> partitions) {
+                // Called BEFORE rebalance — commit current offsets
+                System.out.println("Partitions revoked: " + partitions);
+                consumer.commitSync(currentOffsets);
+                currentOffsets.clear();
+            }
+
+            @Override
+            public void onPartitionsAssigned(Collection<TopicPartition> partitions) {
+                // Called AFTER rebalance — resume from committed offsets
+                System.out.println("Partitions assigned: " + partitions);
+            }
+        });
+
+        try {
+            while (true) {
+                ConsumerRecords<String, String> records =
+                        consumer.poll(Duration.ofMillis(100));
+
+                for (ConsumerRecord<String, String> record : records) {
+                    processRecord(record.value());
+                    currentOffsets.put(
+                        new TopicPartition(record.topic(), record.partition()),
+                        new OffsetAndMetadata(record.offset() + 1)
+                    );
+                }
+                consumer.commitAsync();
+            }
+        } finally {
+            consumer.close();
+        }
+    }
+
+    // ── Seek to Specific Offset ────────────────────────────────────────
+    public static void seekToOffset() {
+        KafkaConsumer<String, String> consumer = createConsumer("seek-group");
+        TopicPartition partition = new TopicPartition("order-events", 0);
+        consumer.assign(Arrays.asList(partition));
+
+        // Seek to beginning
+        consumer.seekToBeginning(Arrays.asList(partition));
+
+        // Seek to end
+        consumer.seekToEnd(Arrays.asList(partition));
+
+        // Seek to specific offset
+        consumer.seek(partition, 5000L);
+
+        // Seek to timestamp (useful for replaying from a point in time)
+        Map<TopicPartition, Long> timestampsToSearch = new HashMap<>();
+        Instant oneHourAgo = Instant.now().minus(1, ChronoUnit.HOURS);
+        timestampsToSearch.put(partition, oneHourAgo.toEpochMilli());
+
+        Map<TopicPartition, OffsetAndTimestamp> offsets =
+                consumer.offsetsForTimes(timestampsToSearch);
+        offsets.forEach((tp, oat) -> {
+            if (oat != null) consumer.seek(tp, oat.offset());
+        });
+    }
+
+    private static void processRecord(String value) {
+        // Process the message
+        System.out.println("Processing: " + value);
+    }
+}
+```
+
+---
+
+## 20. Kafka Streams
+
+**Kafka Streams** is a client library for building stream processing applications entirely within Kafka — no separate cluster needed.
+
+```java
+import org.apache.kafka.streams.*;
+import org.apache.kafka.streams.kstream.*;
+import org.apache.kafka.streams.state.*;
+
+public class KafkaStreamsExample {
+
+    public static void main(String[] args) throws InterruptedException {
+        Properties props = new Properties();
+        props.put(StreamsConfig.APPLICATION_ID_CONFIG, "order-analytics");
+        props.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, "kafka1:9092");
+        props.put(StreamsConfig.DEFAULT_KEY_SERDE_CLASS_CONFIG, Serdes.String().getClass());
+        props.put(StreamsConfig.DEFAULT_VALUE_SERDE_CLASS_CONFIG, Serdes.String().getClass());
+        props.put(StreamsConfig.COMMIT_INTERVAL_MS_CONFIG, 1000);
+        props.put(StreamsConfig.STATE_DIR_CONFIG, "/tmp/kafka-streams");
+
+        // ── Build Topology ────────────────────────────────────────────
+        StreamsBuilder builder = new StreamsBuilder();
+
+        // Read from input topic
+        KStream<String, String> orderStream = builder.stream("order-events");
+
+        // ── Stateless Operations ──────────────────────────────────────
+
+        // Filter and transform
+        KStream<String, OrderEvent> parsedOrders = orderStream
+                .filter((key, value) -> value != null && !value.isEmpty())
+                .mapValues(value -> parseOrderEvent(value))
+                .filter((key, order) -> order != null && order.getPrice() > 0);
+
+        // Branch into multiple streams
+        Map<String, KStream<String, OrderEvent>> branches = parsedOrders.split(Named.as("branch-"))
+                .branch((key, order) -> order.getPrice() > 1000, Branched.as("high-value"))
+                .branch((key, order) -> order.getPrice() > 100,  Branched.as("medium-value"))
+                .defaultBranch(Branched.as("low-value"));
+
+        KStream<String, OrderEvent> highValueOrders = branches.get("branch-high-value");
+        highValueOrders.to("high-value-orders");  // Write to different topic
+
+        // Re-key the stream (change partition key)
+        KStream<String, OrderEvent> keyedByProduct = parsedOrders
+                .selectKey((userId, order) -> order.getProduct());
+
+        // Flat map — one record becomes many
+        KStream<String, String> allTags = parsedOrders.flatMapValues(order ->
+                Arrays.asList(order.getProduct(), order.getCategory(), order.getBrand()));
+
+        // ── Stateful Operations ───────────────────────────────────────
+
+        // Count orders per user (uses a state store internally)
+        KTable<String, Long> orderCountByUser = parsedOrders
+                .groupByKey()
+                .count(Materialized.as("order-count-store"));
+
+        // Write KTable to output topic
+        orderCountByUser.toStream().to("user-order-counts",
+                Produced.with(Serdes.String(), Serdes.Long()));
+
+        // Aggregate — total revenue per product
+        KTable<String, Double> revenueByProduct = keyedByProduct
+                .groupByKey(Grouped.with(Serdes.String(),
+                        new JsonSerde<>(OrderEvent.class)))
+                .aggregate(
+                    () -> 0.0,                  // Initializer
+                    (product, order, running) -> running + order.getPrice(), // Aggregator
+                    Materialized.<String, Double, KeyValueStore<Bytes, byte[]>>as("revenue-store")
+                        .withValueSerde(Serdes.Double())
+                );
+
+        // ── Windowed Aggregations ──────────────────────────────────────
+
+        // Count orders in 5-minute tumbling windows
+        KTable<Windowed<String>, Long> windowedCounts = parsedOrders
+                .groupByKey()
+                .windowedBy(TimeWindows.ofSizeWithNoGrace(Duration.ofMinutes(5)))
+                .count(Materialized.as("windowed-count-store"));
+
+        windowedCounts.toStream()
+                .map((windowedKey, count) -> {
+                    String key = windowedKey.key() + "@" + windowedKey.window().startTime();
+                    return KeyValue.pair(key, String.valueOf(count));
+                })
+                .to("order-window-counts");
+
+        // Sliding windows
+        KTable<Windowed<String>, Double> slidingRevenue = keyedByProduct
+                .groupByKey(Grouped.with(Serdes.String(), new JsonSerde<>(OrderEvent.class)))
+                .windowedBy(SlidingWindows.ofTimeDifferenceWithNoGrace(Duration.ofMinutes(10)))
+                .aggregate(() -> 0.0,
+                        (k, order, acc) -> acc + order.getPrice(),
+                        Materialized.<String, Double, WindowStore<Bytes, byte[]>>
+                            as("sliding-revenue-store").withValueSerde(Serdes.Double()));
+
+        // Session windows (user activity sessions)
+        KTable<Windowed<String>, Long> sessionCounts = parsedOrders
+                .groupByKey()
+                .windowedBy(SessionWindows.ofInactivityGapWithNoGrace(Duration.ofMinutes(30)))
+                .count(Materialized.as("session-count-store"));
+
+        // ── Stream-Table Join ──────────────────────────────────────────
+
+        // Load user data as GlobalKTable (replicated to all instances)
+        GlobalKTable<String, String> usersTable =
+                builder.globalTable("user-profiles",
+                        Consumed.with(Serdes.String(), Serdes.String()),
+                        Materialized.as("users-store"));
+
+        // Enrich orders with user info
+        KStream<String, String> enrichedOrders = parsedOrders.join(
+                usersTable,
+                (orderId, order) -> order.getUserId(),  // Key extractor
+                (order, userJson) -> {                   // Value joiner
+                    User user = parseUser(userJson);
+                    return order.toJson() + ",\"userName\":\"" + user.getName() + "\"";
+                }
+        );
+        enrichedOrders.to("enriched-orders");
+
+        // ── Query State Store ──────────────────────────────────────────
+        KafkaStreams streams = new KafkaStreams(builder.build(), props);
+        streams.start();
+
+        // Query state interactively
+        Thread.sleep(5000); // Let streams start
+        ReadOnlyKeyValueStore<String, Long> store =
+                streams.store(StoreQueryParameters.fromNameAndType(
+                        "order-count-store", QueryableStoreTypes.keyValueStore()));
+
+        store.all().forEachRemaining(kv ->
+                System.out.println("User: " + kv.key + " Orders: " + kv.value));
+
+        // Shutdown hook
+        Runtime.getRuntime().addShutdownHook(new Thread(streams::close));
+    }
+
+    private static OrderEvent parseOrderEvent(String json) {
+        // Parse JSON to OrderEvent
+        return new OrderEvent(); // Simplified
+    }
+
+    private static User parseUser(String json) {
+        return new User(); // Simplified
+    }
+}
+```
+
+---
+
+## 21. Kafka Connect
+
+**Kafka Connect** imports/exports data between Kafka and external systems without writing code.
+
+```json
+// Source Connector — MySQL → Kafka (using Debezium CDC)
+{
+  "name": "mysql-source-connector",
+  "config": {
+    "connector.class": "io.debezium.connector.mysql.MySqlConnector",
+    "tasks.max": "1",
+    "database.hostname": "mysql-host",
+    "database.port": "3306",
+    "database.user": "debezium",
+    "database.password": "dbz",
+    "database.server.id": "184054",
+    "database.server.name": "mydb",
+    "database.include.list": "ecommerce",
+    "table.include.list": "ecommerce.orders,ecommerce.users",
+    "database.history.kafka.bootstrap.servers": "kafka:9092",
+    "database.history.kafka.topic": "schema-changes.ecommerce",
+    "transforms": "route",
+    "transforms.route.type": "org.apache.kafka.connect.transforms.ReplaceField$Value",
+    "include.schema.changes": "true"
+  }
+}
+
+// Sink Connector — Kafka → Elasticsearch
+{
+  "name": "elasticsearch-sink-connector",
+  "config": {
+    "connector.class": "io.confluent.connect.elasticsearch.ElasticsearchSinkConnector",
+    "tasks.max": "2",
+    "topics": "order-events",
+    "connection.url": "http://elasticsearch:9200",
+    "type.name": "_doc",
+    "key.ignore": "true",
+    "schema.ignore": "true",
+    "behavior.on.malformed.documents": "warn",
+    "transforms": "timestampConverter",
+    "transforms.timestampConverter.type": "org.apache.kafka.connect.transforms.TimestampConverter$Value",
+    "transforms.timestampConverter.field": "timestamp",
+    "transforms.timestampConverter.target.type": "string",
+    "transforms.timestampConverter.format": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+  }
+}
+
+// Sink Connector — Kafka → HDFS
+{
+  "name": "hdfs-sink-connector",
+  "config": {
+    "connector.class": "io.confluent.connect.hdfs.HdfsSinkConnector",
+    "tasks.max": "4",
+    "topics": "order-events",
+    "hdfs.url": "hdfs://namenode:9000",
+    "flush.size": "1000",
+    "storage.class": "io.confluent.connect.hdfs.storage.HdfsStorage",
+    "format.class": "io.confluent.connect.hdfs.parquet.ParquetFormat",
+    "partitioner.class": "io.confluent.connect.storage.partitioner.TimeBasedPartitioner",
+    "path.format": "'year'=YYYY/'month'=MM/'day'=dd/'hour'=HH",
+    "locale": "en_US",
+    "timezone": "UTC",
+    "timestamp.extractor": "RecordField",
+    "timestamp.field": "timestamp"
+  }
+}
+```
+
+---
+
+---
+
+# PART 5 — APACHE FLINK
+
+---
+
+## 22. Flink Architecture & Core Concepts
+
+Apache Flink is a stateful stream processing framework with true streaming (not micro-batch) semantics.
+
+### Flink vs Spark Streaming
+
+```
+Spark Streaming:          Flink:
+  Micro-batch model    →    True streaming (event-by-event)
+  Latency: seconds     →    Latency: milliseconds
+  Windowing: limited   →    Rich windowing (tumbling, sliding, session)
+  State: limited       →    First-class stateful processing
+  Time: processing time→    Event time, processing time, ingestion time
+  Watermarks: basic    →    Advanced watermark strategies
+```
+
+### Flink Architecture
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                       FLINK CLUSTER                              │
+│                                                                  │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │                    Job Manager                           │   │
+│  │  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  │   │
+│  │  │  Dispatcher  │  │  Scheduler   │  │  Checkpoint  │  │   │
+│  │  │(REST, CLI,   │  │(resources,   │  │  Coordinator │  │   │
+│  │  │ submit jobs) │  │ tasks)       │  │              │  │   │
+│  │  └──────────────┘  └──────────────┘  └──────────────┘  │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                  │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐         │
+│  │ Task Manager │  │ Task Manager │  │ Task Manager │         │
+│  │              │  │              │  │              │         │
+│  │ ┌──────────┐ │  │ ┌──────────┐ │  │ ┌──────────┐ │         │
+│  │ │ Task Slot│ │  │ │ Task Slot│ │  │ │ Task Slot│ │         │
+│  │ │(runs one │ │  │ │(runs one │ │  │ │(runs one │ │         │
+│  │ │ task)    │ │  │ │ task)    │ │  │ │ task)    │ │         │
+│  │ └──────────┘ │  │ └──────────┘ │  │ └──────────┘ │         │
+│  └──────────────┘  └──────────────┘  └──────────────┘         │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### Maven Dependencies
+
+```xml
+<dependency>
+    <groupId>org.apache.flink</groupId>
+    <artifactId>flink-java</artifactId>
+    <version>1.18.0</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.flink</groupId>
+    <artifactId>flink-streaming-java</artifactId>
+    <version>1.18.0</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.flink</groupId>
+    <artifactId>flink-connector-kafka</artifactId>
+    <version>3.1.0-1.18</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.flink</groupId>
+    <artifactId>flink-table-api-java-bridge</artifactId>
+    <version>1.18.0</version>
+</dependency>
+```
+
+---
+
+## 23. Flink DataStream API
+
+```java
+import org.apache.flink.streaming.api.environment.*;
+import org.apache.flink.streaming.api.datastream.*;
+import org.apache.flink.streaming.api.functions.*;
+import org.apache.flink.connector.kafka.source.*;
+import org.apache.flink.connector.kafka.sink.*;
+import org.apache.flink.api.common.serialization.*;
+
+public class FlinkDataStreamExample {
+
+    public static void main(String[] args) throws Exception {
+
+        // ── Setup Environment ─────────────────────────────────────────
+        StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
+        env.setParallelism(4);
+
+        // Enable checkpointing (fault tolerance)
+        env.enableCheckpointing(60000);  // Checkpoint every 60 seconds
+        env.getCheckpointConfig().setCheckpointingMode(CheckpointingMode.EXACTLY_ONCE);
+        env.getCheckpointConfig().setMinPauseBetweenCheckpoints(30000);
+        env.getCheckpointConfig().setCheckpointTimeout(120000);
+
+        // ── Kafka Source ──────────────────────────────────────────────
+        KafkaSource<OrderEvent> kafkaSource = KafkaSource.<OrderEvent>builder()
+                .setBootstrapServers("kafka1:9092,kafka2:9092")
+                .setTopics("order-events")
+                .setGroupId("flink-order-processor")
+                .setStartingOffsets(OffsetsInitializer.latest())
+                .setValueOnlyDeserializer(new JsonDeserializationSchema<>(OrderEvent.class))
+                .build();
+
+        // Create stream with event time
+        DataStream<OrderEvent> orderStream = env.fromSource(
+                kafkaSource,
+                WatermarkStrategy
+                    .<OrderEvent>forBoundedOutOfOrderness(Duration.ofSeconds(30))
+                    .withTimestampAssigner((event, ts) -> event.getTimestamp().toEpochMilli()),
+                "kafka-source"
+        );
+
+        // ── Transformations ───────────────────────────────────────────
+
+        // Map and filter
+        DataStream<OrderEvent> validOrders = orderStream
+                .filter(order -> order.getPrice() > 0 && order.getQuantity() > 0)
+                .map(order -> {
+                    order.setTotalPrice(order.getPrice() * order.getQuantity());
+                    return order;
+                })
+                .returns(TypeInformation.of(OrderEvent.class));
+
+        // Key by user ID
+        KeyedStream<OrderEvent, String> keyedOrders =
+                validOrders.keyBy(OrderEvent::getUserId);
+
+        // Process function — stateful per-user processing
+        DataStream<UserStats> userStats = keyedOrders.process(
+                new KeyedProcessFunction<String, OrderEvent, UserStats>() {
+
+                    // State for each user
+                    private ValueState<Integer> orderCount;
+                    private ValueState<Double> totalRevenue;
+
+                    @Override
+                    public void open(Configuration parameters) {
+                        orderCount = getRuntimeContext().getState(
+                            new ValueStateDescriptor<>("order-count", Integer.class));
+                        totalRevenue = getRuntimeContext().getState(
+                            new ValueStateDescriptor<>("total-revenue", Double.class));
+                    }
+
+                    @Override
+                    public void processElement(OrderEvent order,
+                                               Context ctx,
+                                               Collector<UserStats> out) throws Exception {
+                        // Update state
+                        int count = orderCount.value() == null ? 0 : orderCount.value();
+                        double revenue = totalRevenue.value() == null ? 0 : totalRevenue.value();
+
+                        count++;
+                        revenue += order.getTotalPrice();
+
+                        orderCount.update(count);
+                        totalRevenue.update(revenue);
+
+                        // Emit updated stats
+                        out.collect(new UserStats(order.getUserId(), count, revenue));
+
+                        // Schedule a timer (e.g., inactivity detection)
+                        ctx.timerService().registerEventTimeTimer(
+                            ctx.timestamp() + Duration.ofHours(1).toMillis()
+                        );
+                    }
+
+                    @Override
+                    public void onTimer(long timestamp, OnTimerContext ctx,
+                                        Collector<UserStats> out) {
+                        // Called when timer fires — detect user inactivity
+                        System.out.println("No activity for user: " + ctx.getCurrentKey());
+                    }
+                }
+        );
+
+        // ── Kafka Sink ────────────────────────────────────────────────
+        KafkaSink<String> kafkaSink = KafkaSink.<String>builder()
+                .setBootstrapServers("kafka1:9092")
+                .setRecordSerializer(
+                    KafkaRecordSerializationSchema.builder()
+                        .setTopic("user-stats")
+                        .setValueSerializationSchema(new SimpleStringSchema())
+                        .build()
+                )
+                .setDeliveryGuarantee(DeliveryGuarantee.EXACTLY_ONCE)
+                .build();
+
+        userStats
+                .map(stats -> stats.toJson())
+                .sinkTo(kafkaSink);
+
+        // ── Execute ───────────────────────────────────────────────────
+        env.execute("Order Analytics Pipeline");
+    }
+}
+```
+
+---
+
+## 24. Flink Table API & SQL
+
+```java
+import org.apache.flink.table.api.*;
+import org.apache.flink.table.api.bridge.java.*;
+
+public class FlinkTableSQLExample {
+
+    public static void main(String[] args) throws Exception {
+        StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
+        StreamTableEnvironment tableEnv = StreamTableEnvironment.create(env);
+
+        // ── Define Kafka Source Table ──────────────────────────────────
+        tableEnv.executeSql("""
+            CREATE TABLE order_events (
+                order_id     BIGINT,
+                user_id      STRING,
+                product      STRING,
+                quantity     INT,
+                price        DOUBLE,
+                `timestamp`  TIMESTAMP(3),
+                WATERMARK FOR `timestamp` AS `timestamp` - INTERVAL '30' SECOND
+            ) WITH (
+                'connector' = 'kafka',
+                'topic'     = 'order-events',
+                'properties.bootstrap.servers' = 'kafka1:9092',
+                'properties.group.id' = 'flink-sql-group',
+                'format'    = 'json',
+                'scan.startup.mode' = 'latest-offset'
+            )
+        """);
+
+        // ── Define Kafka Sink Table ────────────────────────────────────
+        tableEnv.executeSql("""
+            CREATE TABLE order_metrics (
+                window_start  TIMESTAMP(3),
+                window_end    TIMESTAMP(3),
+                product       STRING,
+                order_count   BIGINT,
+                total_revenue DOUBLE,
+                avg_price     DOUBLE
+            ) WITH (
+                'connector' = 'kafka',
+                'topic'     = 'order-metrics',
+                'properties.bootstrap.servers' = 'kafka1:9092',
+                'format'    = 'json'
+            )
+        """);
+
+        // ── Streaming SQL with Window ──────────────────────────────────
+        tableEnv.executeSql("""
+            INSERT INTO order_metrics
+            SELECT
+                TUMBLE_START(`timestamp`, INTERVAL '5' MINUTE) as window_start,
+                TUMBLE_END(`timestamp`, INTERVAL '5' MINUTE)   as window_end,
+                product,
+                COUNT(order_id)            as order_count,
+                SUM(price * quantity)      as total_revenue,
+                AVG(price)                 as avg_price
+            FROM order_events
+            GROUP BY
+                TUMBLE(`timestamp`, INTERVAL '5' MINUTE),
+                product
+        """);
+
+        // ── Table API (programmatic) ───────────────────────────────────
+        Table orderTable = tableEnv.from("order_events");
+
+        Table result = orderTable
+                .filter($("price").isGreater(100))
+                .groupBy($("product"))
+                .select(
+                    $("product"),
+                    $("order_id").count().as("count"),
+                    $("price").sum().as("revenue")
+                );
+
+        tableEnv.toChangelogStream(result).print();
+    }
+}
+```
+
+---
+
+## 25. Flink Windowing & State Management
+
+```java
+import org.apache.flink.streaming.api.windowing.windows.*;
+import org.apache.flink.streaming.api.windowing.assigners.*;
+
+public class FlinkWindowingExample {
+
+    public static void main(String[] args) throws Exception {
+        StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
+
+        DataStream<OrderEvent> orders = getOrderStream(env);
+        KeyedStream<OrderEvent, String> keyedOrders = orders.keyBy(OrderEvent::getProduct);
+
+        // ── Tumbling Window (non-overlapping, fixed size) ──────────────
+        // 5-minute windows: [0-5min), [5-10min), [10-15min)...
+        keyedOrders
+            .window(TumblingEventTimeWindows.of(Time.minutes(5)))
+            .aggregate(new RevenueAggregator(), new WindowResultFunction())
+            .print();
+
+        // ── Sliding Window (overlapping) ───────────────────────────────
+        // 10-minute window, slide every 5 minutes
+        // Each event appears in multiple windows
+        keyedOrders
+            .window(SlidingEventTimeWindows.of(Time.minutes(10), Time.minutes(5)))
+            .reduce((a, b) -> new OrderEvent(
+                a.getProduct(),
+                a.getQuantity() + b.getQuantity(),
+                a.getPrice() + b.getPrice()
+            ))
+            .print();
+
+        // ── Session Window (activity-based, variable size) ─────────────
+        // Window closes after 30 minutes of inactivity per key
+        keyedOrders
+            .window(EventTimeSessionWindows.withGap(Time.minutes(30)))
+            .sum("quantity")
+            .print();
+
+        // ── Late Data Handling ──────────────────────────────────────────
+        OutputTag<OrderEvent> lateOrdersTag = new OutputTag<OrderEvent>("late-orders") {};
+
+        SingleOutputStreamOperator<String> mainStream = keyedOrders
+            .window(TumblingEventTimeWindows.of(Time.minutes(5)))
+            .allowedLateness(Time.minutes(2))      // Allow 2 min late arrivals
+            .sideOutputLateData(lateOrdersTag)     // Route late data to side output
+            .apply(new WindowFunction<OrderEvent, String, String, TimeWindow>() {
+                @Override
+                public void apply(String key, TimeWindow window,
+                                  Iterable<OrderEvent> input,
+                                  Collector<String> out) {
+                    double total = StreamSupport.stream(input.spliterator(), false)
+                            .mapToDouble(o -> o.getPrice() * o.getQuantity())
+                            .sum();
+                    out.collect(key + ": " + total);
+                }
+            });
+
+        // Process late orders separately
+        DataStream<OrderEvent> lateOrders = mainStream.getSideOutput(lateOrdersTag);
+        lateOrders.print("LATE: ");
+
+        env.execute("Windowing Examples");
+    }
+}
+
+// Custom Aggregator
+class RevenueAggregator implements AggregateFunction<OrderEvent, double[], Double> {
+    @Override
+    public double[] createAccumulator() { return new double[]{0.0, 0}; }
+
+    @Override
+    public double[] add(OrderEvent order, double[] acc) {
+        acc[0] += order.getPrice() * order.getQuantity(); // revenue sum
+        acc[1]++;                                          // count
+        return acc;
+    }
+
+    @Override
+    public Double getResult(double[] acc) { return acc[0]; }
+
+    @Override
+    public double[] merge(double[] a, double[] b) {
+        return new double[]{a[0] + b[0], a[1] + b[1]};
+    }
+}
+```
+
+---
+
+---
+
+# PART 6 — NOSQL & STORAGE
+
+---
+
+## 26. HBase — Wide-Column Store
+
+```java
+import org.apache.hadoop.hbase.*;
+import org.apache.hadoop.hbase.client.*;
+import org.apache.hadoop.hbase.util.*;
+
+public class HBaseOperations {
+
+    private final Connection connection;
+    private static final byte[] CF_ORDERS = Bytes.toBytes("orders");
+    private static final byte[] CF_META = Bytes.toBytes("meta");
+
+    public HBaseOperations() throws IOException {
+        Configuration conf = HBaseConfiguration.create();
+        conf.set("hbase.zookeeper.quorum", "zk1,zk2,zk3");
+        conf.set("hbase.zookeeper.property.clientPort", "2181");
+        this.connection = ConnectionFactory.createConnection(conf);
+    }
+
+    // ── Create Table ───────────────────────────────────────────────────
+    public void createTable(String tableName) throws IOException {
+        try (Admin admin = connection.getAdmin()) {
+            TableName table = TableName.valueOf(tableName);
+            if (!admin.tableExists(table)) {
+                TableDescriptor descriptor = TableDescriptorBuilder.newBuilder(table)
+                    .setColumnFamily(ColumnFamilyDescriptorBuilder.newBuilder(CF_ORDERS)
+                        .setMaxVersions(3)
+                        .setCompressionType(Compression.Algorithm.SNAPPY)
+                        .build())
+                    .setColumnFamily(ColumnFamilyDescriptorBuilder.of(CF_META))
+                    .build();
+                admin.createTable(descriptor);
+                System.out.println("Table created: " + tableName);
+            }
+        }
+    }
+
+    // ── Put (Insert/Update) ────────────────────────────────────────────
+    public void putOrder(String orderId, String userId, String product,
+                          double price, int quantity) throws IOException {
+        Table table = connection.getTable(TableName.valueOf("orders"));
+        try {
+            // Row key design: userId_timestamp_orderId (for scan efficiency)
+            String rowKey = userId + "_" + System.currentTimeMillis() + "_" + orderId;
+            Put put = new Put(Bytes.toBytes(rowKey));
+            put.addColumn(CF_ORDERS, Bytes.toBytes("order_id"), Bytes.toBytes(orderId));
+            put.addColumn(CF_ORDERS, Bytes.toBytes("user_id"), Bytes.toBytes(userId));
+            put.addColumn(CF_ORDERS, Bytes.toBytes("product"), Bytes.toBytes(product));
+            put.addColumn(CF_ORDERS, Bytes.toBytes("price"), Bytes.toBytes(price));
+            put.addColumn(CF_ORDERS, Bytes.toBytes("quantity"), Bytes.toBytes(quantity));
+            put.addColumn(CF_META, Bytes.toBytes("created_at"),
+                    Bytes.toBytes(Instant.now().toString()));
+            table.put(put);
+        } finally {
+            table.close();
+        }
+    }
+
+    // ── Batch Put ─────────────────────────────────────────────────────
+    public void batchPut(List<OrderRecord> orders) throws IOException {
+        Table table = connection.getTable(TableName.valueOf("orders"));
+        try {
+            List<Put> puts = orders.stream().map(order -> {
+                Put put = new Put(Bytes.toBytes(order.getRowKey()));
+                put.addColumn(CF_ORDERS, Bytes.toBytes("product"),
+                        Bytes.toBytes(order.getProduct()));
+                put.addColumn(CF_ORDERS, Bytes.toBytes("price"),
+                        Bytes.toBytes(order.getPrice()));
+                return put;
+            }).collect(Collectors.toList());
+            table.put(puts);
+        } finally {
+            table.close();
+        }
+    }
+
+    // ── Get (Point Lookup) ────────────────────────────────────────────
+    public void getOrder(String rowKey) throws IOException {
+        Table table = connection.getTable(TableName.valueOf("orders"));
+        try {
+            Get get = new Get(Bytes.toBytes(rowKey));
+            get.addFamily(CF_ORDERS);          // Get all columns in family
+            // get.addColumn(CF_ORDERS, Bytes.toBytes("price")); // Or specific column
+            Result result = table.get(get);
+
+            if (!result.isEmpty()) {
+                String product = Bytes.toString(result.getValue(CF_ORDERS, Bytes.toBytes("product")));
+                double price = Bytes.toDouble(result.getValue(CF_ORDERS, Bytes.toBytes("price")));
+                System.out.println("Product: " + product + ", Price: " + price);
+            }
+        } finally {
+            table.close();
+        }
+    }
+
+    // ── Scan (Range Query) ────────────────────────────────────────────
+    public void scanUserOrders(String userId) throws IOException {
+        Table table = connection.getTable(TableName.valueOf("orders"));
+        try {
+            // Scan all orders for userId (range scan using row key prefix)
+            Scan scan = new Scan();
+            scan.withStartRow(Bytes.toBytes(userId + "_"));
+            scan.withStopRow(Bytes.toBytes(userId + "_~"));  // ~ = high value
+            scan.addFamily(CF_ORDERS);
+            scan.setCaching(100);     // Fetch 100 rows at a time
+            scan.setBatch(10);        // 10 columns per RPC
+            scan.setLimit(1000);      // Max 1000 rows
+
+            // Add filter
+            scan.setFilter(new SingleColumnValueFilter(
+                CF_ORDERS,
+                Bytes.toBytes("product"),
+                CompareOperator.EQUAL,
+                Bytes.toBytes("Laptop")
+            ));
+
+            ResultScanner scanner = table.getScanner(scan);
+            for (Result result : scanner) {
+                System.out.println("Row: " + Bytes.toString(result.getRow()));
+                result.getFamilyMap(CF_ORDERS).forEach((col, value) -> {
+                    System.out.println("  " + Bytes.toString(col) + " = " + Bytes.toString(value));
+                });
+            }
+            scanner.close();
+        } finally {
+            table.close();
+        }
+    }
+
+    // ── Delete ────────────────────────────────────────────────────────
+    public void deleteRow(String rowKey) throws IOException {
+        Table table = connection.getTable(TableName.valueOf("orders"));
+        try {
+            Delete delete = new Delete(Bytes.toBytes(rowKey));
+            table.delete(delete);
+        } finally {
+            table.close();
+        }
+    }
+
+    public void close() throws IOException {
+        connection.close();
+    }
+}
+```
+
+---
+
+## 27. Apache Cassandra with Java
+
+```java
+import com.datastax.oss.driver.api.core.*;
+import com.datastax.oss.driver.api.core.cql.*;
+
+public class CassandraOperations {
+
+    private final CqlSession session;
+
+    public CassandraOperations() {
+        this.session = CqlSession.builder()
+                .addContactPoint(new InetSocketAddress("cassandra1", 9042))
+                .addContactPoint(new InetSocketAddress("cassandra2", 9042))
+                .withLocalDatacenter("datacenter1")
+                .withKeyspace("ecommerce")
+                .build();
+    }
+
+    // ── Schema Creation ────────────────────────────────────────────────
+    public void createSchema() {
+        // Create keyspace
+        session.execute("""
+            CREATE KEYSPACE IF NOT EXISTS ecommerce
+            WITH replication = {
+                'class': 'NetworkTopologyStrategy',
+                'datacenter1': 3
+            }
+        """);
+
+        // Create table — design by query pattern!
+        // Query: "Get all orders for a user, sorted by date"
+        session.execute("""
+            CREATE TABLE IF NOT EXISTS orders_by_user (
+                user_id    UUID,
+                order_date TIMESTAMP,
+                order_id   UUID,
+                product    TEXT,
+                quantity   INT,
+                price      DECIMAL,
+                status     TEXT,
+                PRIMARY KEY ((user_id), order_date, order_id)
+            ) WITH CLUSTERING ORDER BY (order_date DESC, order_id ASC)
+              AND default_time_to_live = 7776000  -- 90 days TTL
+        """);
+
+        // Table for product queries
+        session.execute("""
+            CREATE TABLE IF NOT EXISTS orders_by_product (
+                product    TEXT,
+                order_date DATE,
+                order_id   UUID,
+                user_id    UUID,
+                quantity   INT,
+                price      DECIMAL,
+                PRIMARY KEY ((product, order_date), order_id)
+            )
+        """);
+    }
+
+    // ── Prepared Statements (always use for repeated queries!) ──────────
+    private PreparedStatement insertOrderStmt;
+    private PreparedStatement selectOrdersStmt;
+
+    public void prepareStatements() {
+        insertOrderStmt = session.prepare("""
+            INSERT INTO orders_by_user
+            (user_id, order_date, order_id, product, quantity, price, status)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+            USING TTL 7776000
+        """);
+
+        selectOrdersStmt = session.prepare("""
+            SELECT * FROM orders_by_user
+            WHERE user_id = ?
+            AND order_date > ?
+            LIMIT 100
+        """);
+    }
+
+    // ── Insert ────────────────────────────────────────────────────────
+    public void insertOrder(UUID userId, String product, int quantity, BigDecimal price) {
+        UUID orderId = UUID.randomUUID();
+        Instant now = Instant.now();
+
+        BoundStatement bound = insertOrderStmt.bind(
+                userId, now, orderId, product, quantity, price, "PENDING"
+        );
+        bound = bound.setConsistencyLevel(ConsistencyLevel.QUORUM);
+        session.execute(bound);
+    }
+
+    // ── Async Insert ──────────────────────────────────────────────────
+    public CompletableFuture<Void> asyncInsert(UUID userId, String product,
+                                                int quantity, BigDecimal price) {
+        BoundStatement bound = insertOrderStmt.bind(
+                userId, Instant.now(), UUID.randomUUID(), product, quantity, price, "PENDING"
+        );
+        return session.executeAsync(bound)
+                .thenAccept(rs -> {}) // discard result
+                .toCompletableFuture();
+    }
+
+    // ── Batch Insert ──────────────────────────────────────────────────
+    public void batchInsert(List<OrderRecord> orders) {
+        BatchStatement batch = BatchStatement.newInstance(DefaultBatchType.LOGGED);
+        for (OrderRecord order : orders) {
+            batch = batch.add(insertOrderStmt.bind(
+                order.getUserId(), order.getDate(), order.getOrderId(),
+                order.getProduct(), order.getQuantity(), order.getPrice(), "PENDING"
+            ));
+        }
+        session.execute(batch);
+    }
+
+    // ── Query ─────────────────────────────────────────────────────────
+    public List<Row> getRecentOrders(UUID userId) {
+        Instant thirtyDaysAgo = Instant.now().minus(30, ChronoUnit.DAYS);
+        BoundStatement bound = selectOrdersStmt.bind(userId, thirtyDaysAgo)
+                .setConsistencyLevel(ConsistencyLevel.LOCAL_QUORUM);
+
+        ResultSet rs = session.execute(bound);
+        List<Row> rows = new ArrayList<>();
+        for (Row row : rs) {
+            rows.add(row);
+        }
+        return rows;
+    }
+
+    // ── Lightweight Transactions (Compare and Set) ────────────────────
+    public boolean updateOrderStatus(UUID userId, Instant orderDate,
+                                      UUID orderId, String expectedStatus,
+                                      String newStatus) {
+        PreparedStatement stmt = session.prepare("""
+            UPDATE orders_by_user
+            SET status = ?
+            WHERE user_id = ? AND order_date = ? AND order_id = ?
+            IF status = ?
+        """);
+        Row row = session.execute(stmt.bind(
+            newStatus, userId, orderDate, orderId, expectedStatus
+        )).one();
+        return row.getBoolean("[applied]");  // LWT returns applied flag
+    }
+
+    public void close() {
+        session.close();
+    }
+}
+```
+
+---
+
+## 28. Apache Hive — Data Warehousing
+
+```java
+import java.sql.*;
+
+public class HiveJdbcExample {
+
+    // Connect via HiveServer2 JDBC
+    public static Connection createConnection() throws SQLException {
+        String url = "jdbc:hive2://hiveserver:10000/default";
+        Properties props = new Properties();
+        props.setProperty("user", "hive");
+        props.setProperty("password", "");
+        return DriverManager.getConnection(url, props);
+    }
+
+    public static void main(String[] args) throws Exception {
+        try (Connection conn = createConnection();
+             Statement stmt = conn.createStatement()) {
+
+            // ── Create External Table ──────────────────────────────────
+            stmt.execute("""
+                CREATE EXTERNAL TABLE IF NOT EXISTS orders (
+                    order_id    BIGINT,
+                    user_id     BIGINT,
+                    product     STRING,
+                    category    STRING,
+                    quantity    INT,
+                    price       DOUBLE,
+                    order_date  DATE,
+                    status      STRING
+                )
+                ROW FORMAT SERDE 'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe'
+                STORED AS PARQUET
+                LOCATION 'hdfs:///data/warehouse/orders/'
+                TBLPROPERTIES ('parquet.compress'='SNAPPY')
+            """);
+
+            // ── Create Partitioned Table ───────────────────────────────
+            stmt.execute("""
+                CREATE TABLE IF NOT EXISTS orders_partitioned (
+                    order_id  BIGINT,
+                    user_id   BIGINT,
+                    product   STRING,
+                    quantity  INT,
+                    price     DOUBLE,
+                    status    STRING
+                )
+                PARTITIONED BY (year INT, month INT)
+                STORED AS ORC
+                TBLPROPERTIES ('orc.compress'='SNAPPY')
+            """);
+
+            // ── Load Data into Partition ───────────────────────────────
+            stmt.execute("""
+                SET hive.exec.dynamic.partition=true;
+                SET hive.exec.dynamic.partition.mode=nonstrict;
+            """);
+
+            stmt.execute("""
+                INSERT OVERWRITE TABLE orders_partitioned
+                PARTITION (year, month)
+                SELECT
+                    order_id, user_id, product, quantity, price, status,
+                    YEAR(order_date) as year,
+                    MONTH(order_date) as month
+                FROM orders
+            """);
+
+            // ── Analytics Queries ──────────────────────────────────────
+            ResultSet rs = stmt.executeQuery("""
+                SELECT
+                    year,
+                    month,
+                    category,
+                    COUNT(*) as order_count,
+                    SUM(price * quantity) as revenue,
+                    AVG(price) as avg_price,
+                    PERCENTILE_APPROX(price, 0.95) as p95_price
+                FROM orders_partitioned
+                JOIN (SELECT DISTINCT order_id, category FROM orders) cat
+                    ON orders_partitioned.order_id = cat.order_id
+                WHERE year = 2024
+                GROUP BY year, month, category
+                ORDER BY year, month, revenue DESC
+            """);
+
+            while (rs.next()) {
+                System.out.printf("%d-%02d | %-15s | %6d | %10.2f%n",
+                    rs.getInt("year"), rs.getInt("month"),
+                    rs.getString("category"),
+                    rs.getLong("order_count"),
+                    rs.getDouble("revenue"));
+            }
+        }
+    }
+}
+```
+
+---
+
+## 29. Apache Parquet & Avro — Data Formats
+
+### Format Comparison
+
+```
+┌────────────────┬──────────────┬───────────────┬──────────────────────────┐
+│ Format         │ Type         │ Best For       │ Features                 │
+├────────────────┼──────────────┼───────────────┼──────────────────────────┤
+│ CSV            │ Row-based    │ Simple exports │ Human-readable, no schema│
+│ JSON           │ Row-based    │ APIs, NoSQL    │ Flexible, verbose        │
+│ Avro           │ Row-based    │ Streaming, ETL │ Schema evolution, compact│
+│ Parquet        │ Columnar     │ Analytics, DW  │ Column pruning, splittable│
+│ ORC            │ Columnar     │ Hive workloads │ Better for Hive/ACID     │
+│ Delta Lake     │ Columnar+Log │ Data Lakehouse │ ACID, time travel        │
+└────────────────┴──────────────┴───────────────┴──────────────────────────┘
+
+Columnar advantage for analytics:
+  Query: "SELECT SUM(price) FROM orders"
+  Parquet reads ONLY the price column
+  CSV/JSON must read ALL columns
+  → 10x less I/O for wide tables!
+```
+
+### Apache Avro in Java
+
+```java
+import org.apache.avro.*;
+import org.apache.avro.generic.*;
+import org.apache.avro.io.*;
+import org.apache.avro.file.*;
+import org.apache.avro.specific.*;
+
+public class AvroExample {
+
+    // Define schema
+    public static Schema createOrderSchema() {
+        return SchemaBuilder.record("Order")
+                .namespace("com.example")
+                .fields()
+                    .name("order_id").type().longType().noDefault()
+                    .name("user_id").type().longType().noDefault()
+                    .name("product").type().stringType().noDefault()
+                    .name("quantity").type().intType().noDefault()
+                    .name("price").type().doubleType().noDefault()
+                    .name("status").type()
+                        .enumeration("OrderStatus")
+                        .symbols("PENDING", "CONFIRMED", "SHIPPED", "DELIVERED")
+                        .noDefault()
+                .endRecord();
+    }
+
+    // Write Avro file
+    public static void writeAvro(List<GenericRecord> records, String filePath) throws IOException {
+        Schema schema = createOrderSchema();
+        DatumWriter<GenericRecord> writer = new GenericDatumWriter<>(schema);
+
+        try (DataFileWriter<GenericRecord> fileWriter =
+                new DataFileWriter<>(writer)) {
+            fileWriter.setCodec(CodecFactory.snappyCodec());  // Compress
+            fileWriter.create(schema, new File(filePath));
+            for (GenericRecord record : records) {
+                fileWriter.append(record);
+            }
+        }
+    }
+
+    // Read Avro file
+    public static void readAvro(String filePath) throws IOException {
+        DatumReader<GenericRecord> reader = new GenericDatumReader<>();
+        try (DataFileReader<GenericRecord> fileReader =
+                new DataFileReader<>(new File(filePath), reader)) {
+            Schema schema = fileReader.getSchema();
+            System.out.println("Schema: " + schema);
+            for (GenericRecord record : fileReader) {
+                System.out.printf("Order: %s | Product: %s | Price: %.2f%n",
+                    record.get("order_id"),
+                    record.get("product"),
+                    record.get("price"));
+            }
+        }
+    }
+
+    // Serialize to bytes (for Kafka)
+    public static byte[] serialize(GenericRecord record, Schema schema) throws IOException {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        DatumWriter<GenericRecord> writer = new GenericDatumWriter<>(schema);
+        BinaryEncoder encoder = EncoderFactory.get().binaryEncoder(baos, null);
+        writer.write(record, encoder);
+        encoder.flush();
+        return baos.toByteArray();
+    }
+
+    public static void main(String[] args) throws IOException {
+        Schema schema = createOrderSchema();
+        List<GenericRecord> orders = new ArrayList<>();
+
+        for (int i = 1; i <= 1000; i++) {
+            GenericRecord order = new GenericData.Record(schema);
+            order.put("order_id", (long) i);
+            order.put("user_id", (long) (i % 100));
+            order.put("product", "Product-" + (i % 20));
+            order.put("quantity", i % 5 + 1);
+            order.put("price", 10.0 + (i % 990));
+            order.put("status", "PENDING");
+            orders.add(order);
+        }
+
+        writeAvro(orders, "/tmp/orders.avro");
+        readAvro("/tmp/orders.avro");
+    }
+}
+```
+
+### Writing Parquet with Spark
+
+```java
+// Write DataFrame as Parquet (recommended approach)
+Dataset<Row> df = spark.read().csv("input.csv");
+
+df.write()
+  .mode(SaveMode.Overwrite)
+  .option("compression", "snappy")
+  .partitionBy("year", "month")        // Creates year=.../month=... directories
+  .parquet("hdfs:///data/orders/");
+
+// Read Parquet with partition pruning
+Dataset<Row> jan2024 = spark.read()
+    .parquet("hdfs:///data/orders/")
+    .filter("year = 2024 AND month = 1");  // Only reads year=2024/month=1 directory!
+```
+
+---
+
+---
+
+# PART 7 — DATA PIPELINES & ORCHESTRATION
+
+---
+
+## 30. Apache Airflow Concepts
+
+Apache Airflow is a platform for programmatically authoring, scheduling, and monitoring data pipelines (DAGs).
+
+```python
+# airflow_dag_example.py — Python (Airflow uses Python for DAG definition)
+from airflow import DAG
+from airflow.operators.bash import BashOperator
+from airflow.providers.apache.spark.operators.spark_submit import SparkSubmitOperator
+from airflow.providers.apache.hdfs.sensors.hdfs import HdfsSensor
+from datetime import datetime, timedelta
+
+default_args = {
+    'owner': 'data-team',
+    'depends_on_past': False,
+    'start_date': datetime(2024, 1, 1),
+    'email': ['data-team@example.com'],
+    'email_on_failure': True,
+    'retries': 3,
+    'retry_delay': timedelta(minutes=5),
+}
+
+with DAG(
+    dag_id='daily_order_pipeline',
+    default_args=default_args,
+    description='Daily order data processing pipeline',
+    schedule_interval='0 2 * * *',    # Run at 2 AM daily
+    catchup=False,
+    tags=['orders', 'daily', 'production'],
+) as dag:
+
+    # 1. Wait for data to arrive
+    wait_for_data = HdfsSensor(
+        task_id='wait_for_order_data',
+        filepath='/data/raw/orders/{{ ds }}/',   # ds = execution date
+        poke_interval=300,   # Check every 5 minutes
+        timeout=7200,        # Fail after 2 hours
+    )
+
+    # 2. Validate raw data
+    validate_data = SparkSubmitOperator(
+        task_id='validate_raw_data',
+        application='/opt/spark-jobs/data-quality-check.jar',
+        java_class='com.example.DataQualityChecker',
+        application_args=['--date', '{{ ds }}'],
+        conf={'spark.executor.memory': '4g', 'spark.num.executors': '10'},
+    )
+
+    # 3. Process with Spark
+    process_orders = SparkSubmitOperator(
+        task_id='process_orders',
+        application='/opt/spark-jobs/order-processor.jar',
+        java_class='com.example.OrderProcessor',
+        application_args=['--input-date', '{{ ds }}', '--output', '/data/processed/'],
+        conf={
+            'spark.executor.memory': '8g',
+            'spark.executor.cores': '4',
+            'spark.num.executors': '20',
+        },
+    )
+
+    # 4. Update data warehouse
+    update_warehouse = SparkSubmitOperator(
+        task_id='update_warehouse',
+        application='/opt/spark-jobs/warehouse-loader.jar',
+        java_class='com.example.WarehouseLoader',
+        application_args=['--date', '{{ ds }}'],
+    )
+
+    # 5. Run analytics
+    run_analytics = SparkSubmitOperator(
+        task_id='run_analytics',
+        application='/opt/spark-jobs/daily-analytics.jar',
+        java_class='com.example.DailyAnalytics',
+    )
+
+    # 6. Send report
+    send_report = BashOperator(
+        task_id='send_daily_report',
+        bash_command='python /opt/scripts/send_report.py --date {{ ds }}',
+    )
+
+    # Define DAG flow
+    wait_for_data >> validate_data >> process_orders >> update_warehouse >> [run_analytics, send_report]
+```
+
+---
+
+## 31. Spring Batch for Big Data
+
+```java
+import org.springframework.batch.core.*;
+import org.springframework.batch.core.configuration.annotation.*;
+import org.springframework.batch.item.*;
+import org.springframework.batch.item.database.*;
+import org.springframework.batch.item.file.*;
+
+@Configuration
+@EnableBatchProcessing
+public class OrderBatchConfig {
+
+    private final JobBuilderFactory jobBuilderFactory;
+    private final StepBuilderFactory stepBuilderFactory;
+    private final DataSource dataSource;
+
+    // ── Job Definition ─────────────────────────────────────────────────
+    @Bean
+    public Job orderProcessingJob(Step validateStep, Step processStep, Step exportStep) {
+        return jobBuilderFactory.get("orderProcessingJob")
+                .incrementer(new RunIdIncrementer())
+                .listener(new JobExecutionListener() {
+                    @Override
+                    public void beforeJob(JobExecution execution) {
+                        System.out.println("Starting job: " + execution.getJobInstance().getJobName());
+                    }
+                    @Override
+                    public void afterJob(JobExecution execution) {
+                        System.out.println("Job completed: " + execution.getStatus());
+                    }
+                })
+                .start(validateStep)
+                .next(processStep)
+                .next(exportStep)
+                .build();
+    }
+
+    // ── Step: Read CSV → Process → Write to DB ─────────────────────────
+    @Bean
+    @StepScope
+    public FlatFileItemReader<OrderRecord> csvReader(
+            @Value("#{jobParameters['inputFile']}") String inputFile) {
+        return new FlatFileItemReaderBuilder<OrderRecord>()
+                .name("orderCsvReader")
+                .resource(new FileSystemResource(inputFile))
+                .delimited()
+                .names("orderId", "userId", "product", "quantity", "price")
+                .fieldSetMapper(new BeanWrapperFieldSetMapper<>() {{
+                    setTargetType(OrderRecord.class);
+                }})
+                .linesToSkip(1)  // Skip header
+                .build();
+    }
+
+    @Bean
+    public ItemProcessor<OrderRecord, ProcessedOrder> orderProcessor() {
+        return new OrderItemProcessor();
+    }
+
+    @Bean
+    public JdbcBatchItemWriter<ProcessedOrder> dbWriter() {
+        return new JdbcBatchItemWriterBuilder<ProcessedOrder>()
+                .itemSqlParameterSourceProvider(new BeanPropertyItemSqlParameterSourceProvider<>())
+                .sql("INSERT INTO processed_orders (order_id, user_id, product, total, status) " +
+                     "VALUES (:orderId, :userId, :product, :total, :status)")
+                .dataSource(dataSource)
+                .build();
+    }
+
+    @Bean
+    public Step processStep(FlatFileItemReader<OrderRecord> reader,
+                             ItemProcessor<OrderRecord, ProcessedOrder> processor,
+                             JdbcBatchItemWriter<ProcessedOrder> writer) {
+        return stepBuilderFactory.get("processStep")
+                .<OrderRecord, ProcessedOrder>chunk(1000)  // Process 1000 records per transaction
+                .reader(reader)
+                .processor(processor)
+                .writer(writer)
+                .faultTolerant()
+                .skipLimit(100)
+                .skip(FlatFileParseException.class)  // Skip bad records
+                .retryLimit(3)
+                .retry(DataAccessException.class)    // Retry DB errors
+                .listener(new StepExecutionListener() {
+                    @Override
+                    public void beforeStep(StepExecution se) {
+                        System.out.println("Starting step: " + se.getStepName());
+                    }
+                    @Override
+                    public ExitStatus afterStep(StepExecution se) {
+                        System.out.printf("Step done: read=%d, written=%d, skipped=%d%n",
+                            se.getReadCount(), se.getWriteCount(), se.getSkipCount());
+                        return ExitStatus.COMPLETED;
+                    }
+                })
+                .build();
+    }
+}
+
+// Processor — business logic
+public class OrderItemProcessor implements ItemProcessor<OrderRecord, ProcessedOrder> {
+    @Override
+    public ProcessedOrder process(OrderRecord order) {
+        if (order.getPrice() <= 0 || order.getQuantity() <= 0) {
+            return null;  // Return null to skip this item
+        }
+        ProcessedOrder processed = new ProcessedOrder();
+        processed.setOrderId(order.getOrderId());
+        processed.setUserId(order.getUserId());
+        processed.setProduct(order.getProduct().toUpperCase());
+        processed.setTotal(order.getPrice() * order.getQuantity());
+        processed.setStatus("PROCESSED");
+        return processed;
+    }
+}
+```
+
+---
+
+## 32. Building ETL Pipelines in Java
+
+```java
+// Complete ETL Pipeline: MySQL → Transform → Parquet on HDFS
+public class OrderETLPipeline {
+
+    private final SparkSession spark;
+    private final String jdbcUrl;
+    private final String hdfsOutputPath;
+
+    public OrderETLPipeline(SparkSession spark, String jdbcUrl, String hdfsOutputPath) {
+        this.spark = spark;
+        this.jdbcUrl = jdbcUrl;
+        this.hdfsOutputPath = hdfsOutputPath;
+    }
+
+    // ── Extract: Read from MySQL ──────────────────────────────────────
+    public Dataset<Row> extract(String date) {
+        System.out.println("Extracting data for date: " + date);
+        return spark.read()
+                .format("jdbc")
+                .option("url", jdbcUrl)
+                .option("dbtable", "(SELECT * FROM orders WHERE DATE(order_date) = '" + date + "') t")
+                .option("user", "etl_user")
+                .option("password", "secret")
+                .option("driver", "com.mysql.cj.jdbc.Driver")
+                .option("numPartitions", 10)           // Parallel reads
+                .option("partitionColumn", "order_id")
+                .option("lowerBound", "1")
+                .option("upperBound", "10000000")
+                .load();
+    }
+
+    // ── Transform: Clean and enrich ───────────────────────────────────
+    public Dataset<Row> transform(Dataset<Row> rawData) {
+        System.out.println("Transforming data...");
+
+        // Load dimension tables
+        Dataset<Row> usersDF = spark.table("dim_users");
+        Dataset<Row> productsDF = spark.table("dim_products");
+
+        return rawData
+            // Clean data
+            .filter(col("order_id").isNotNull()
+                .and(col("price").gt(0))
+                .and(col("quantity").gt(0)))
+
+            // Deduplicate
+            .dropDuplicates("order_id")
+
+            // Enrich with user info
+            .join(broadcast(usersDF.select("user_id", "region", "tier")),
+                  "user_id", "left")
+
+            // Enrich with product info
+            .join(broadcast(productsDF.select("product_id", "category", "brand")),
+                  "product_id", "left")
+
+            // Compute derived fields
+            .withColumn("total_price", col("price").multiply(col("quantity")))
+            .withColumn("discount_amount",
+                when(col("tier").equalTo("PREMIUM"), col("total_price").multiply(0.1))
+                .otherwise(lit(0.0)))
+            .withColumn("final_price", col("total_price").minus(col("discount_amount")))
+            .withColumn("is_high_value", col("final_price").gt(500))
+
+            // Standardize
+            .withColumn("product_name", upper(col("product_name")))
+            .withColumn("status", lower(col("status")))
+
+            // Add metadata
+            .withColumn("etl_date", current_date())
+            .withColumn("etl_timestamp", current_timestamp())
+
+            // Select final columns
+            .select("order_id", "user_id", "product_id", "region", "category",
+                    "brand", "tier", "quantity", "price", "total_price",
+                    "discount_amount", "final_price", "is_high_value",
+                    "order_date", "status", "etl_date", "etl_timestamp");
+    }
+
+    // ── Load: Write to HDFS as Parquet ────────────────────────────────
+    public void load(Dataset<Row> transformedData, String date) {
+        System.out.println("Loading data to HDFS...");
+
+        // Extract year, month, day from date for partitioning
+        String[] dateParts = date.split("-");
+        String outputPath = String.format("%s/year=%s/month=%s/day=%s",
+                hdfsOutputPath, dateParts[0], dateParts[1], dateParts[2]);
+
+        transformedData
+            .repartition(20)  // Control output file count
+            .write()
+            .mode(SaveMode.Overwrite)
+            .option("compression", "snappy")
+            .parquet(outputPath);
+
+        System.out.println("Data written to: " + outputPath);
+        System.out.println("Total records: " + transformedData.count());
+    }
+
+    // ── Run Full Pipeline ─────────────────────────────────────────────
+    public void run(String date) {
+        long startTime = System.currentTimeMillis();
+        System.out.println("=== Starting ETL Pipeline for " + date + " ===");
+
+        try {
+            Dataset<Row> rawData = extract(date);
+            System.out.println("Extracted records: " + rawData.count());
+
+            Dataset<Row> transformed = transform(rawData);
+            load(transformed, date);
+
+            long elapsed = (System.currentTimeMillis() - startTime) / 1000;
+            System.out.println("=== Pipeline completed in " + elapsed + "s ===");
+
+        } catch (Exception e) {
+            System.err.println("Pipeline failed: " + e.getMessage());
+            throw new RuntimeException("ETL Pipeline failed for date: " + date, e);
+        }
+    }
+
+    public static void main(String[] args) {
+        String date = args.length > 0 ? args[0] : LocalDate.now().minusDays(1).toString();
+
+        SparkSession spark = SparkSession.builder()
+                .appName("Order ETL Pipeline")
+                .master("yarn")
+                .config("spark.sql.shuffle.partitions", "200")
+                .config("spark.sql.adaptive.enabled", "true")
+                .enableHiveSupport()
+                .getOrCreate();
+
+        OrderETLPipeline pipeline = new OrderETLPipeline(
+                spark,
+                "jdbc:mysql://mysql-host:3306/ecommerce",
+                "hdfs:///data/warehouse/orders/"
+        );
+
+        pipeline.run(date);
+        spark.stop();
+    }
+}
+```
+
+---
+
+---
+
+# PART 8 — CLOUD & DEPLOYMENT
+
+---
+
+## 33. Big Data on AWS — EMR, S3, Glue
+
+```java
+// Reading from S3 with Spark on EMR
+public class AWSS3SparkJob {
+
+    public static void main(String[] args) throws Exception {
+        SparkSession spark = SparkSession.builder()
+                .appName("S3 Big Data Job")
+                .getOrCreate();
+
+        // Configure S3 access
+        spark.sparkContext().hadoopConfiguration().set(
+            "fs.s3a.access.key", System.getenv("AWS_ACCESS_KEY_ID"));
+        spark.sparkContext().hadoopConfiguration().set(
+            "fs.s3a.secret.key", System.getenv("AWS_SECRET_ACCESS_KEY"));
+        spark.sparkContext().hadoopConfiguration().set(
+            "fs.s3a.impl", "org.apache.hadoop.fs.s3a.S3AFileSystem");
+
+        // On EMR, S3 credentials are auto-configured via IAM role
+        // Just use s3:// or s3a:// paths directly
+
+        // ── Read from S3 ──────────────────────────────────────────────
+        Dataset<Row> ordersDF = spark.read()
+                .option("header", "true")
+                .option("inferSchema", "true")
+                .csv("s3a://my-data-lake/raw/orders/2024/01/");
+
+        // Read Parquet from S3
+        Dataset<Row> parquetDF = spark.read()
+                .parquet("s3a://my-data-lake/processed/orders/");
+
+        // ── Process ───────────────────────────────────────────────────
+        Dataset<Row> result = ordersDF
+                .groupBy("product")
+                .agg(
+                    count("order_id").as("count"),
+                    sum("price").as("revenue")
+                );
+
+        // ── Write to S3 ───────────────────────────────────────────────
+        result.write()
+                .mode(SaveMode.Overwrite)
+                .partitionBy("year", "month")
+                .parquet("s3a://my-data-lake/processed/order-metrics/");
+
+        spark.stop();
+    }
+}
+```
+
+### AWS Glue Catalog with Spark
+
+```java
+// Using AWS Glue Data Catalog as Hive Metastore
+SparkSession spark = SparkSession.builder()
+        .appName("Glue Catalog")
+        .config("hive.metastore.client.factory.class",
+                "com.amazonaws.glue.catalog.metastore.AWSGlueDataCatalogHiveClientFactory")
+        .enableHiveSupport()
+        .getOrCreate();
+
+// Query tables registered in Glue Catalog
+Dataset<Row> orders = spark.table("my_database.orders");
+orders.createOrReplaceTempView("orders");
+
+spark.sql("""
+    SELECT product, SUM(price) as revenue
+    FROM orders
+    WHERE order_date >= '2024-01-01'
+    GROUP BY product
+    ORDER BY revenue DESC
+""").show();
+```
+
+### EMR Cluster Launch Script
+
+```bash
+# Launch EMR cluster with Spark
+aws emr create-cluster \
+    --name "Order Analytics Cluster" \
+    --release-label emr-7.0.0 \
+    --applications Name=Spark Name=Hadoop Name=Hive Name=Zeppelin \
+    --instance-type m5.xlarge \
+    --instance-count 5 \
+    --ec2-attributes KeyName=my-key,SubnetId=subnet-xxxxx \
+    --use-default-roles \
+    --log-uri s3://my-logs/emr/ \
+    --configurations '[{"Classification":"spark-defaults","Properties":{"spark.executor.memory":"6g"}}]'
+
+# Submit Spark job to EMR
+aws emr add-steps \
+    --cluster-id j-XXXXXXXXXX \
+    --steps '[{
+        "Name": "Order Processing",
+        "ActionOnFailure": "CONTINUE",
+        "HadoopJarStep": {
+            "Jar": "command-runner.jar",
+            "Args": [
+                "spark-submit",
+                "--class", "com.example.OrderProcessor",
+                "--master", "yarn",
+                "--executor-memory", "8g",
+                "--num-executors", "10",
+                "s3://my-code/order-processor.jar",
+                "--date", "2024-01-15"
+            ]
+        }
+    }]'
+```
+
+---
+
+## 34. Big Data on GCP — Dataproc, BigQuery
+
+```java
+// Read from Google Cloud Storage + write to BigQuery
+public class GCPBigDataJob {
+
+    public static void main(String[] args) {
+        SparkSession spark = SparkSession.builder()
+                .appName("GCP Big Data")
+                .getOrCreate();
+
+        // Read from GCS
+        Dataset<Row> ordersDF = spark.read()
+                .parquet("gs://my-bucket/data/orders/");
+
+        // Process
+        Dataset<Row> metrics = ordersDF
+                .groupBy("product", "category")
+                .agg(
+                    count("order_id").as("order_count"),
+                    sum(col("price").multiply(col("quantity"))).as("revenue")
+                );
+
+        // Write to BigQuery (using Spark BigQuery connector)
+        metrics.write()
+                .format("bigquery")
+                .option("table", "my-project.ecommerce.order_metrics")
+                .option("temporaryGcsBucket", "temp-bucket")
+                .mode(SaveMode.Overwrite)
+                .save();
+
+        spark.stop();
+    }
+}
+```
+
+### Dataproc Cluster Commands
+
+```bash
+# Create Dataproc cluster
+gcloud dataproc clusters create my-cluster \
+    --region=us-central1 \
+    --num-workers=5 \
+    --worker-machine-type=n2-standard-4 \
+    --master-machine-type=n2-standard-4 \
+    --image-version=2.1-debian11
+
+# Submit Spark job
+gcloud dataproc jobs submit spark \
+    --cluster=my-cluster \
+    --region=us-central1 \
+    --class=com.example.OrderProcessor \
+    --jars=gs://my-bucket/order-processor.jar \
+    -- --date=2024-01-15 --output=gs://my-bucket/output/
+
+# Delete cluster when done (save costs!)
+gcloud dataproc clusters delete my-cluster --region=us-central1
+```
+
+---
+
+## 35. Containerizing Big Data — Docker & Kubernetes
+
+### Docker Compose for Local Big Data Dev
+
+```yaml
+version: '3.8'
+services:
+
+  # HDFS NameNode
+  namenode:
+    image: apache/hadoop:3.3.6
+    command: ["hdfs", "namenode"]
+    ports:
+      - "9870:9870"    # NameNode Web UI
+      - "9000:9000"    # HDFS port
+    environment:
+      HADOOP_HOME: /opt/hadoop
+    volumes:
+      - namenode-data:/tmp/hadoop-root/dfs/name
+    healthcheck:
+      test: ["CMD", "hdfs", "dfs", "-ls", "/"]
+      interval: 30s
+
+  # HDFS DataNodes
+  datanode1:
+    image: apache/hadoop:3.3.6
+    command: ["hdfs", "datanode"]
+    environment:
+      HDFS_CONF_dfs_namenode_rpc___address: namenode:9000
+    volumes:
+      - datanode1-data:/tmp/hadoop-root/dfs/data
+    depends_on: [namenode]
+
+  # Spark Master
+  spark-master:
+    image: apache/spark:3.5.0
+    command: ["/opt/spark/bin/spark-class", "org.apache.spark.deploy.master.Master"]
+    ports:
+      - "8080:8080"   # Spark Web UI
+      - "7077:7077"   # Spark Master port
+    environment:
+      SPARK_MASTER_HOST: spark-master
+
+  # Spark Workers
+  spark-worker-1:
+    image: apache/spark:3.5.0
+    command: ["/opt/spark/bin/spark-class", "org.apache.spark.deploy.worker.Worker", "spark://spark-master:7077"]
+    environment:
+      SPARK_WORKER_CORES: 2
+      SPARK_WORKER_MEMORY: 4g
+    depends_on: [spark-master]
+
+  # Kafka
+  kafka:
+    image: confluentinc/cp-kafka:7.5.0
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+    depends_on: [zookeeper]
+
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.5.0
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+
+  # Hive Metastore
+  hive-metastore:
+    image: apache/hive:3.1.3
+    ports:
+      - "9083:9083"   # Metastore Thrift port
+    environment:
+      SERVICE_NAME: metastore
+    depends_on: [mysql-metastore]
+
+  mysql-metastore:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: metastore
+
+volumes:
+  namenode-data:
+  datanode1-data:
+```
+
+---
+
+---
+
+# PART 9 — PATTERNS & BEST PRACTICES
+
+---
+
+## 36. Data Engineering Best Practices
+
+### Data Quality
+
+```java
+// Data quality checks as part of pipeline
+public class DataQualityChecker {
+
+    public DataQualityResult check(Dataset<Row> df, String datasetName, String date) {
+        long totalRecords = df.count();
+        DataQualityResult result = new DataQualityResult(datasetName, date, totalRecords);
+
+        // 1. Completeness — check for nulls
+        for (String col : df.columns()) {
+            long nullCount = df.filter(functions.col(col).isNull()).count();
+            double nullPct = (double) nullCount / totalRecords * 100;
+            if (nullPct > 5.0) {  // Alert if > 5% null
+                result.addIssue("HIGH_NULL_RATE", col, nullPct + "% nulls");
+            }
+        }
+
+        // 2. Uniqueness — check for duplicates
+        long uniqueCount = df.dropDuplicates("order_id").count();
+        if (uniqueCount < totalRecords) {
+            long dupCount = totalRecords - uniqueCount;
+            result.addIssue("DUPLICATES", "order_id", dupCount + " duplicates");
+        }
+
+        // 3. Validity — value ranges
+        long negativePrice = df.filter(col("price").lt(0)).count();
+        if (negativePrice > 0) {
+            result.addIssue("INVALID_VALUES", "price", negativePrice + " negative prices");
+        }
+
+        // 4. Freshness — data not too old
+        long oldRecords = df.filter(
+            datediff(current_date(), col("order_date")).gt(7)
+        ).count();
+        if (oldRecords > totalRecords * 0.01) {  // > 1% old records
+            result.addIssue("STALE_DATA", "order_date", "High proportion of old records");
+        }
+
+        // 5. Volume check — compare to historical baseline
+        if (totalRecords < result.getExpectedMinRecords()) {
+            result.addIssue("LOW_VOLUME", "total", "Only " + totalRecords + " records");
+        }
+
         return result;
     }
-
-    @Benchmark
-    public String concatWithStringBuilder() {
-        StringBuilder sb = new StringBuilder(size * 8);
-        for (String item : items) {
-            sb.append(item);          // Compare with this approach
-        }
-        return sb.toString();
-    }
-
-    @Benchmark
-    public String joinWithStreams() {
-        return String.join("", items);  // And this approach
-    }
 }
 ```
 
-### Running Benchmarks
-
-```bash
-# Build and run
-mvn clean install
-java -jar target/benchmarks.jar
-
-# Run specific benchmark
-java -jar target/benchmarks.jar StringBenchmark
-
-# Quick run (fewer iterations)
-java -jar target/benchmarks.jar -wi 2 -i 3 StringBenchmark
-
-# Output results to JSON
-java -jar target/benchmarks.jar -rf json -rff results.json
-```
-
-### Sample Output
-
-```
-Benchmark                          (size)  Mode  Cnt     Score      Error  Units
-StringBenchmark.concatWithPlus        100  avgt   20    12.345 ±  0.234  us/op
-StringBenchmark.concatWithPlus       1000  avgt   20  1234.567 ± 12.345  us/op
-StringBenchmark.concatWithStringBuilder 100  avgt  20     1.234 ±  0.012  us/op
-StringBenchmark.concatWithStringBuilder 1000 avgt  20    10.234 ±  0.123  us/op
-StringBenchmark.joinWithStreams        100  avgt   20     1.456 ±  0.023  us/op
-StringBenchmark.joinWithStreams       1000  avgt   20    12.345 ±  0.234  us/op
-
-Result: StringBuilder is ~100x faster than + for size=1000!
-```
-
----
-
-## 36. Performance Anti-Patterns
-
-### Top Performance Anti-Patterns in Java
+### Idempotent Processing
 
 ```java
-// 1. SYNCHRONIZING UNNECESSARILY
-// BAD:
-public synchronized String buildMessage(String name) {  // No shared state!
-    return "Hello, " + name;  // Pointless sync
+// Design pipelines to be safely re-runnable
+public class IdempotentPipeline {
+
+    public void run(String date) {
+        // Write to partition by date — re-run overwrites same partition
+        Dataset<Row> processed = processData(date);
+        processed.write()
+                .mode(SaveMode.Overwrite)           // Overwrite if already exists
+                .partitionBy("year", "month", "day")
+                .parquet("hdfs:///data/processed/");
+
+        // Use INSERT OVERWRITE in Hive
+        spark.sql("INSERT OVERWRITE TABLE my_table PARTITION(dt='" + date + "') ...");
+    }
 }
-
-// 2. USING WRONG DATA STRUCTURE
-// BAD: O(n) lookup in List
-List<User> users = new ArrayList<>();
-boolean exists = users.contains(target);  // O(n)
-
-// GOOD: O(1) lookup in Set
-Set<User> users = new HashSet<>();
-boolean exists = users.contains(target);  // O(1)
-
-// 3. CREATING OBJECTS IN LOOPS
-// BAD: SimpleDateFormat is expensive to create
-for (String dateStr : dateStrings) {
-    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");  // Created 1000x!
-    Date date = sdf.parse(dateStr);
-}
-
-// GOOD: Reuse or use thread-safe alternatives
-private static final DateTimeFormatter FORMATTER =
-    DateTimeFormatter.ofPattern("yyyy-MM-dd");  // Immutable, thread-safe
-
-for (String dateStr : dateStrings) {
-    LocalDate date = LocalDate.parse(dateStr, FORMATTER);
-}
-
-// 4. CATCHING Exception/Throwable
-// BAD:
-try {
-    processData();
-} catch (Exception e) {
-    // swallowing the exception — hides bugs and can cause memory leaks
-}
-
-// 5. LOADING ALL DATA — no pagination
-// BAD:
-List<User> allUsers = userRepository.findAll();  // Could be millions of rows!
-for (User u : allUsers) { process(u); }
-
-// GOOD: Process in batches
-int page = 0;
-Page<User> batch;
-do {
-    batch = userRepository.findAll(PageRequest.of(page++, 1000));
-    batch.forEach(this::process);
-} while (batch.hasNext());
-
-// 6. IGNORING AUTOBOXING IN HOT CODE
-// BAD:
-Map<String, Integer> counts = new HashMap<>();
-for (String key : keys) {
-    counts.merge(key, 1, Integer::sum);  // Boxing int -> Integer on every increment
-}
-
-// GOOD: Use primitive maps or LongAdder
-Map<String, LongAdder> counts = new ConcurrentHashMap<>();
-for (String key : keys) {
-    counts.computeIfAbsent(key, k -> new LongAdder()).increment();  // No boxing
-}
-
-// 7. BLOCKING IN REACTIVE CODE
-// BAD:
-Flux<Data> result = Flux.fromIterable(ids)
-    .map(id -> {
-        return repository.findById(id).block();  // BLOCKING in reactive stream!
-    });
-
-// GOOD:
-Flux<Data> result = Flux.fromIterable(ids)
-    .flatMap(id -> repository.findById(id));  // Non-blocking flatMap
 ```
 
 ---
 
-## 37. Production Performance Checklist
+## 37. Big Data Design Patterns
 
-### JVM Configuration
+### Lambda vs Kappa Selection
+
+```
+Choose Lambda when:
+  ✅ Need reprocessing from scratch (algorithm changes)
+  ✅ Batch accuracy is critical (financial, compliance)
+  ✅ Different teams own batch and streaming
+
+Choose Kappa when:
+  ✅ Simpler maintenance is priority
+  ✅ Kafka can hold long retention (all historical data)
+  ✅ Stream processing can handle all use cases
+```
+
+### Partitioning Strategy
+
+```java
+// Partition by time + common filter column for fast queries
+df.write()
+    .partitionBy("year", "month", "day", "region")
+    .parquet("hdfs:///data/orders/");
+
+// Query only reads relevant partitions
+spark.read().parquet("hdfs:///data/orders/")
+    .filter("year = 2024 AND month = 1 AND region = 'North'");
+// → Reads only year=2024/month=1/region=North/  directory!
+
+// Partition size rule: aim for 128MB–1GB per partition file
+// Too many small files = NameNode pressure, slow scans
+// Too large files = slow single-file reads
+```
+
+### Change Data Capture (CDC) Pattern
+
+```
+Database (MySQL)
+       │
+       │ Binary log (binlog)
+       ▼
+  Debezium CDC
+  (Kafka Connect)
+       │
+       ▼
+  Kafka Topic
+  (change events)
+       │
+  ┌────┴────┐
+  ▼         ▼
+Flink     Spark
+Stream    Streaming
+(real-    (micro-
+ time)     batch)
+  │         │
+  ▼         ▼
+Elasticsearch  Data Lake
+(search)       (analytics)
+```
+
+---
+
+## 38. Big Data Cheat Sheet
+
+### Technology Selection Quick Reference
+
+```
+Real-time streaming (< 100ms):     Apache Flink
+Near-real-time streaming (seconds): Kafka Streams or Spark Streaming
+Batch processing (minutes-hours):   Apache Spark
+SQL analytics on big data:          Spark SQL / Presto / BigQuery
+Distributed storage:                HDFS / AWS S3 / GCS
+Time-series, IoT data:              Apache Cassandra / InfluxDB
+Wide-column, HBase key-value:       Apache HBase
+Graph processing:                   Apache Giraph / TinkerPop
+ML on big data:                     Spark MLlib / TensorFlow on Spark
+Workflow orchestration:             Apache Airflow
+Change data capture:                Debezium + Kafka
+Column file format:                 Parquet (analytics) / ORC (Hive)
+Row file format:                    Avro (streaming/Kafka)
+Data lakehouse:                     Delta Lake / Apache Iceberg
+```
+
+### Spark Configuration Quick Reference
 
 ```bash
-# Production-ready JVM flags
-java \
-  -server \
-  -Xms4g -Xmx4g \               # Heap: set equal to avoid resizing
-  -XX:+UseG1GC \                 # Use G1 GC
-  -XX:MaxGCPauseMillis=200 \     # Target pause time
-  -XX:G1HeapRegionSize=16m \     # Tune region size
-  -XX:MetaspaceSize=256m \       # Initial Metaspace
-  -XX:MaxMetaspaceSize=512m \    # Max Metaspace
-  -XX:+HeapDumpOnOutOfMemoryError \
-  -XX:HeapDumpPath=/dumps/ \
-  -Xlog:gc*:file=/logs/gc.log:time,uptime:filecount=10,filesize=50m \
-  -XX:+DisableExplicitGC \       # Prevent System.gc() from apps
-  -jar app.jar
+# Cluster mode submission
+spark-submit \
+  --master yarn \
+  --deploy-mode cluster \
+  --executor-cores 4 \
+  --executor-memory 8g \
+  --num-executors 20 \
+  --driver-memory 4g \
+  --conf spark.sql.shuffle.partitions=400 \
+  --conf spark.sql.adaptive.enabled=true \
+  --conf spark.sql.adaptive.coalescePartitions.enabled=true \
+  --conf spark.serializer=org.apache.spark.serializer.KryoSerializer \
+  --class com.example.MySparkApp \
+  myapp.jar
 ```
 
-### Application Code
+### Kafka Producer Settings
 
-```
-[ ] No N+1 queries — use JOIN FETCH or EntityGraph
-[ ] All queries use indexes — verify with EXPLAIN
-[ ] Connection pool sized appropriately (HikariCP)
-[ ] HTTP connections are pooled (RestTemplate/WebClient)
-[ ] Caching implemented for expensive/repeated reads
-[ ] Pagination on all list endpoints
-[ ] Async processing for long-running tasks
-[ ] Thread pool sized correctly (CPU vs I/O bound)
-[ ] No blocking calls in reactive code
-[ ] Resource leaks fixed (streams, connections, ThreadLocal)
-[ ] No memory leaks (bounded caches, listener cleanup)
-[ ] String StringBuilder used for concatenation in loops
-[ ] Regex patterns compiled once (static final)
-[ ] Batch operations for bulk DB writes
-[ ] Read-only transactions for queries
+```java
+// High throughput
+props.put("batch.size", 65536);
+props.put("linger.ms", 5);
+props.put("compression.type", "snappy");
+props.put("buffer.memory", 67108864);
+
+// High reliability
+props.put("acks", "all");
+props.put("retries", 3);
+props.put("enable.idempotence", true);
 ```
 
-### Monitoring & Alerting
+### Kafka Consumer Settings
 
-```
-[ ] JVM metrics (heap, GC, threads) monitored
-[ ] Application metrics (RPS, latency p95/p99, error rate)
-[ ] Database metrics (slow queries, connection pool usage)
-[ ] Distributed tracing enabled (Zipkin/Jaeger)
-[ ] Alerts configured for:
-      - Heap usage > 80%
-      - GC pause time > 500ms
-      - Full GC frequency > 1 per 5 minutes
-      - Response time p99 > SLA threshold
-      - Error rate > 0.1%
-      - Thread count anomaly
-[ ] Dashboards for key metrics (Grafana)
-[ ] Log aggregation (ELK/Loki)
+```java
+// High throughput
+props.put("max.poll.records", 1000);
+props.put("fetch.min.bytes", 65536);
+props.put("enable.auto.commit", false);
+
+// Group management
+props.put("auto.offset.reset", "earliest");
+props.put("session.timeout.ms", 45000);
+props.put("max.poll.interval.ms", 300000);
 ```
 
----
-
-## 38. Performance Tuning Cheat Sheet
-
-### JVM Flags Quick Reference
-
-```bash
-# Heap
--Xms4g -Xmx4g                   # Heap size (set equal)
--XX:NewSize=1g -XX:MaxNewSize=1g # Young Gen size
--XX:MetaspaceSize=256m           # Metaspace initial
--XX:MaxMetaspaceSize=512m        # Metaspace max
-
-# GC
--XX:+UseG1GC                     # Use G1 (best default)
--XX:MaxGCPauseMillis=200         # G1 pause target
--XX:+UseZGC                      # Ultra-low latency (Java 11+)
--XX:+UseParallelGC               # Max throughput (batch jobs)
-
-# Diagnostics
--XX:+HeapDumpOnOutOfMemoryError  # Auto heap dump on OOM
--XX:HeapDumpPath=/dumps/         # Dump location
--Xlog:gc*:file=/logs/gc.log      # GC logging
-
-# Monitoring
--Dcom.sun.management.jmxremote   # Enable JMX
-```
-
-### GC Selection Guide
+### Big Data Pipeline Checklist
 
 ```
-Batch / throughput apps   → -XX:+UseParallelGC
-General web apps          → -XX:+UseG1GC (default)
-Low latency APIs (< 10ms) → -XX:+UseZGC
-Very large heaps (> 32GB) → -XX:+UseZGC
+Design:
+  [ ] Identified data sources and sinks
+  [ ] Defined processing semantics (at-least-once, exactly-once)
+  [ ] Designed partitioning strategy
+  [ ] Chosen batch vs streaming approach
+  [ ] Planned for late data / out-of-order events
+
+Development:
+  [ ] Data quality checks implemented
+  [ ] Pipeline is idempotent (safe to re-run)
+  [ ] Schema evolution handled (Avro/Parquet with evolution)
+  [ ] Error handling and dead-letter queues
+  [ ] Unit tests for transformations
+  [ ] Integration tests with small datasets
+
+Production:
+  [ ] Monitoring and alerting configured
+  [ ] Checkpointing enabled (Spark/Flink)
+  [ ] Data lineage tracked
+  [ ] Backfill strategy defined
+  [ ] SLA defined and monitored
+  [ ] Runbook documented
+  [ ] Cost optimization (spot instances, cluster sizing)
 ```
 
-### Common Bottleneck → Solution Map
-
-| Bottleneck | Symptom | Solution |
-|---|---|---|
-| **N+1 Queries** | Hundreds of DB queries per request | JOIN FETCH, EntityGraph, DTO projection |
-| **Missing DB Index** | Slow queries, high DB CPU | Add index, check EXPLAIN output |
-| **No Connection Pool** | DB connection errors under load | Use HikariCP, tune pool size |
-| **Heap Too Small** | Frequent GC, OOM errors | Increase -Xmx |
-| **Memory Leak** | Heap grows forever | Heap dump → MAT analysis |
-| **Thread Pool Too Small** | Slow response under load | Increase thread pool size |
-| **Thread Contention** | CPU high, throughput low | Reduce sync scope, use concurrent utils |
-| **Full GC Pauses** | Long pauses (>1s) | Switch to G1/ZGC, increase heap |
-| **No Caching** | Repeated expensive calls | Add Redis/Caffeine cache |
-| **Blocking I/O** | High thread count, low throughput | Use async (CompletableFuture, WebFlux) |
-| **Large Response Payload** | Slow API, high bandwidth | Pagination, compression, DTOs |
-
-### Performance Testing Tools
+### Key Big Data Formulas
 
 ```
-Load Testing:
-  Apache JMeter      → Full-featured, GUI and CLI
-  Gatling            → Code-based, great reports, Scala DSL
-  k6                 → Modern, JavaScript, cloud integration
-  wrk / wrk2         → Fast HTTP benchmarking CLI
-  Locust             → Python-based, easy scripting
-
-APM & Monitoring:
-  Micrometer         → JVM metrics collection
-  Prometheus         → Metrics storage & alerting
-  Grafana            → Dashboards & visualization
-  Datadog            → Full-stack APM (paid)
-  New Relic          → Full-stack APM (paid)
-  Dynatrace          → AI-powered APM (paid)
-
-JVM Profilers:
-  async-profiler     → Low overhead, flame graphs, free
-  VisualVM           → Free, good for development
-  JProfiler          → Paid, comprehensive
-  YourKit            → Paid, production-safe
-  Java Flight Recorder → Built-in (Java 11+), low overhead
-```
-
-### Quick Wins List
-
-```
-Database (biggest impact):
-  1. Add missing indexes (check slow query log)
-  2. Fix N+1 queries (JOIN FETCH)
-  3. Use connection pooling (HikariCP)
-  4. Enable query caching (Redis)
-  5. Use read replicas for read-heavy workloads
-
-JVM:
-  1. Set -Xms = -Xmx (avoid heap resizing)
-  2. Switch to G1GC if using older GC
-  3. Enable GC logging and analyze pauses
-  4. Add HeapDumpOnOutOfMemoryError flag
-
-Code:
-  1. Use StringBuilder for string concatenation
-  2. Pre-size collections when size is known
-  3. Use proper data structures (Set for lookups)
-  4. Compile regex patterns as static final
-  5. Move object creation out of loops
-
-Spring Boot:
-  1. Use @Transactional(readOnly=true) for queries
-  2. Use DTO projections instead of full entities
-  3. Enable response compression
-  4. Add HTTP cache headers
-  5. Use lazy initialization for faster startup
+HDFS Block Size:         128MB (default), adjust based on file sizes
+HDFS Replication:        3 (default), 2 for dev clusters
+Spark Partition Count:   2-4 × number of CPU cores in cluster
+Kafka Partitions:        max(consumer threads, throughput / partition_throughput)
+HBase Row Key Design:    distribute evenly to avoid hotspots (salt, hash, reverse timestamp)
+Cassandra Partition Size: aim for 100MB max per partition
 ```
 
 ---
+
+*"In God we trust. All others must bring data." — W. Edwards Deming*
+
+*Build scalable, reliable, and efficient data pipelines!*
