@@ -225,16 +225,16 @@ Types:
 <div class="code-container">
   <h3>Arithmetic Operators:</h3>
   <pre><code class="code-block">
-<span class="keyword">public</span> <span class="keyword">class</span> <span class="classname">ArithmeticDemo</span> <span class="punctuation">{</span>
-    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="method">main</span><span class="parens">(</span><span class="type">String</span>[] args<span class="parens">)</span> <span class="punctuation">{</span>
-        <span class="keyword">int</span> <span class="var">a</span> <span class="operator">=</span> <span class="number">20</span><span class="punctuation">,</span> <span class="var">b</span> <span class="operator">=</span> <span class="number">10</span><span class="punctuation">;</span>
-        <span class="keyword">int</span> <span class="var">add</span> <span class="operator">=</span> <span class="var">a</span> <span class="operator">+</span> <span class="var">b</span><span class="punctuation">;</span>
-        <span class="keyword">int</span> <span class="var">sub</span> <span class="operator">=</span> <span class="var">a</span> <span class="operator">-</span> <span class="var">b</span><span class="punctuation">;</span>
-        <span class="keyword">int</span> <span class="var">mul</span> <span class="operator">=</span> <span class="var">a</span> <span class="operator">*</span> <span class="var">b</span><span class="punctuation">;</span>
-        <span class="keyword">int</span> <span class="var">div</span> <span class="operator">=</span> <span class="var">a</span> <span class="operator">/</span> <span class="var">b</span><span class="punctuation">;</span>
-        <span class="keyword">int</span> <span class="var">mod</span> <span class="operator">=</span> <span class="var">a</span> <span class="operator">%</span> <span class="var">b</span><span class="punctuation">;</span>
-    <span class="punctuation">}</span>
-<span class="punctuation">}</span>
+public class ArithmeticDemo {
+    public static void main(String[] args) {
+        int a = 20, b = 10;
+        int add = a + b;
+        int sub = a - b;
+        int mul = a * b;
+        int div = a / b;
+        int mod = a % b;
+    }
+}
   </code></pre>
 </div>
 
@@ -242,16 +242,16 @@ Types:
 <div class="code-container">
   <h3>Assignment Operators:</h3>
   <pre><code class="code-block">
-<span class="keyword">public</span> <span class="keyword">class</span> <span class="classname">AssignmentDemo</span> <span class="punctuation">{</span>
-    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="method">main</span><span class="parens">(</span><span class="type">String</span>[] <span class="variable">args</span><span class="parens">)</span> <span class="punctuation">{</span>
-        <span class="keyword">int</span> <span class="variable">value</span> <span class="operator">=</span> <span class="number">5</span><span class="punctuation">;</span>
-        <span class="variable">value</span> <span class="operator">+=</span> <span class="number">10</span><span class="punctuation">;</span>
-        <span class="variable">value</span> <span class="operator">-=</span> <span class="number">3</span><span class="punctuation">;</span>
-        <span class="variable">value</span> <span class="operator">*=</span> <span class="number">2</span><span class="punctuation">;</span>
-        <span class="variable">value</span> <span class="operator">/=</span> <span class="number">4</span><span class="punctuation">;</span>
-        <span class="variable">value</span> <span class="operator">%=</span> <span class="number">3</span><span class="punctuation">;</span>
-    <span class="punctuation">}</span>
-<span class="punctuation">}</span>
+public class AssignmentDemo {
+    public static void main(String[] args) {
+        int value = 5;
+        value += 10;
+        value -= 3;
+        value *= 2;
+        value /= 4;
+        value %= 3;
+    }
+}
   </code></pre>
 </div>
 
@@ -260,14 +260,14 @@ Types:
 <div class="code-container">
   <h3>Comparison Operators:</h3>
   <pre><code class="code-block">
-<span class="keyword">public</span> <span class="keyword">class</span> <span class="classname">ComparisonDemo</span> <span class="punctuation">{</span>
-    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="method">main</span><span class="parens">(</span><span class="type">String</span>[] <span class="var">args</span><span class="parens">)</span> <span class="punctuation">{</span>
-        <span class="keyword">int</span> <span class="var">a</span> <span class="operator">=</span> <span class="number">10</span><span class="punctuation">;</span>
-        <span class="keyword">int</span> <span class="var">b</span> <span class="operator">=</span> <span class="number">20</span><span class="punctuation">;</span>
-        <span class="keyword">boolean</span> <span class="var">isEqual</span> <span class="operator">=</span> <span class="var">a</span> <span class="operator">==</span> <span class="var">b</span><span class="punctuation">;</span>
-        <span class="keyword">boolean</span> <span class="var">isLess</span> <span class="operator">=</span> <span class="var">a</span> <span class="operator">&lt;</span> <span class="var">b</span><span class="punctuation">;</span>
-    <span class="punctuation">}</span>
-<span class="punctuation">}</span>
+public class ComparisonDemo {
+    public static void main(String[] args) {
+        int a = 10;
+        int b = 20;
+        boolean isEqual = a == b;
+        boolean isLess = a &lt; b;
+    }
+}
   </code></pre>
 </div>
 
@@ -276,15 +276,15 @@ Types:
 <div class="code-container">
   <h3>Logical Operators:</h3>
   <pre><code class="code-block">
-<span class="keyword">public</span> <span class="keyword">class</span> <span class="classname">LogicalDemo</span> <span class="punctuation">{</span>
-    <span class="keyword">public</span> <span class="keyword">static void</span> <span class="method">main</span><span class="parens">(</span><span class="type">String</span>[] args<span class="parens">)</span> <span class="punctuation">{</span>
-        <span class="keyword">boolean</span> <span class="var">p</span> <span class="operator">=</span> <span class="boolean">true</span><span class="punctuation">;</span>
-        <span class="keyword">boolean</span> <span class="var">q</span> <span class="operator">=</span> <span class="boolean">false</span><span class="punctuation">;</span>
-        <span class="keyword">boolean</span> <span class="var">andResult</span> <span class="operator">=</span> <span class="var">p</span> <span class="operator">&amp;&amp;</span> <span class="var">q</span><span class="punctuation">;</span>
-        <span class="keyword">boolean</span> <span class="var">orResult</span> <span class="operator">=</span> <span class="var">p</span> <span class="operator">||</span> <span class="var">q</span><span class="punctuation">;</span>
-        <span class="keyword">boolean</span> <span class="var">notResult</span> <span class="operator">=</span> <span class="operator">!</span><span class="var">p</span><span class="punctuation">;</span>
-    <span class="punctuation">}</span>
-<span class="punctuation">}</span>
+public class LogicalDemo {
+    public static void main(String[] args) {
+        boolean p = true;
+        boolean q = false;
+        boolean andResult = p &amp;&amp; q;
+        boolean orResult = p || q;
+        boolean notResult = !p;
+    }
+}
   </code></pre>
 </div>
 
@@ -292,18 +292,18 @@ Types:
 <div class="code-container">
   <h3>Bitwise Operators:</h3>
   <pre><code class="code-block">
-<span class="keyword">public</span> <span class="keyword">class</span> <span class="classname">BitwiseDemo</span> <span class="punctuation">{</span>
-    <span class="keyword">public</span> <span class="keyword">static void</span> <span class="method">main</span><span class="parens">(</span><span class="type">String</span>[] <span class="var">args</span><span class="parens">)</span> <span class="punctuation">{</span>
-        <span class="keyword">int</span> <span class="var">x</span> <span class="operator">=</span> <span class="number">12</span><span class="punctuation">;</span> <span class="comment">// 1100 in binary</span>
-        <span class="keyword">int</span> <span class="var">y</span> <span class="operator">=</span> <span class="number">5</span><span class="punctuation">;</span>   <span class="comment">// 0101 in binary</span>
-        <span class="keyword">int</span> <span class="var">and</span> <span class="operator">=</span> <span class="var">x</span> <span class="operator">&amp;</span> <span class="var">y</span><span class="punctuation">;</span>
-        <span class="keyword">int</span> <span class="var">or</span> <span class="operator">=</span> <span class="var">x</span> <span class="operator">|</span> <span class="var">y</span><span class="punctuation">;</span>
-        <span class="keyword">int</span> <span class="var">xor</span> <span class="operator">=</span> <span class="var">x</span> <span class="operator">^</span> <span class="var">y</span><span class="punctuation">;</span>
-        <span class="keyword">int</span> <span class="var">not</span> <span class="operator">=</span> <span class="operator">~</span><span class="var">x</span><span class="punctuation">;</span>
-        <span class="keyword">int</span> <span class="var">leftShift</span> <span class="operator">=</span> <span class="var">x</span> <span class="operator"><<</span> <span class="number">1</span><span class="punctuation">;</span>
-        <span class="keyword">int</span> <span class="var">rightShift</span> <span class="operator">=</span> <span class="var">x</span> <span class="operator">>></span> <span class="number">1</span><span class="punctuation">;</span>
-    <span class="punctuation">}</span>
-<span class="punctuation">}</span>
+public class BitwiseDemo {
+    public static void main(String[] args) {
+        int x = 12; // 1100 in binary
+        int y = 5;   // 0101 in binary
+        int and = x &amp; y;
+        int or = x | y;
+        int xor = x ^ y;
+        int not = ~x;
+        int leftShift = x << 1;
+        int rightShift = x >> 1;
+    }
+}
   </code></pre>
 </div>
 
@@ -312,17 +312,17 @@ Types:
 <div class="code-container">
   <h3>Unary Operators:</h3>
   <pre><code class="code-block">
-<span class="keyword">public</span> <span class="keyword">class</span> <span class="classname">UnaryDemo</span> <span class="punctuation">{</span>
-    <span class="keyword">public</span> <span class="keyword">static void</span> <span class="method">main</span><span class="parens">(</span><span class="type">String</span>[] <span class="var">args</span><span class="parens">)</span> <span class="punctuation">{</span>
-        <span class="keyword">int</span> <span class="var">num</span> <span class="operator">=</span> <span class="number">5</span><span class="punctuation">;</span>
-        <span class="variable">++num</span><span class="punctuation">;</span> <span class="comment">// Prefix increment</span>
-        <span class="variable">num++</span><span class="punctuation">;</span> <span class="comment">// Postfix increment</span>
-        <span class="variable">--num</span><span class="punctuation">;</span> <span class="comment">// Prefix decrement</span>
-        <span class="variable">num--</span><span class="punctuation">;</span> <span class="comment">// Postfix decrement</span>
-        <span class="operator">+</span><span class="var">num</span><span class="punctuation">;</span> <span class="comment">// Unary plus</span>
-        <span class="operator">-</span><span class="var">num</span><span class="punctuation">;</span> <span class="comment">// Unary minus</span>
-    <span class="punctuation">}</span>
-<span class="punctuation">}</span>
+public class UnaryDemo {
+    public static void main(String[] args) {
+        int num = 5;
+        ++num; // Prefix increment
+        num++; // Postfix increment
+        --num; // Prefix decrement
+        num--; // Postfix decrement
+        +num; // Unary plus
+        -num; // Unary minus
+    }
+}
   </code></pre>
 </div>
 
@@ -331,12 +331,12 @@ Types:
 <div class="code-container">
   <h3>Ternary Operator:</h3>
   <pre><code class="code-block">
-<span class="keyword">public</span> <span class="keyword">class</span> <span class="classname">TernaryDemo</span> <span class="punctuation">{</span>
-    <span class="keyword">public</span> <span class="keyword">static void</span> <span class="method">main</span><span class="parens">(</span><span class="type">String</span>[] <span class="var">args</span><span class="parens">)</span> <span class="punctuation">{</span>
-        <span class="keyword">int</span> <span class="var">score</span> <span class="operator">=</span> <span class="number">75</span><span class="punctuation">;</span>
-        <span class="keyword">String</span> <span class="var">result</span> <span class="operator">=</span> <span class="var">score</span> <span class="operator">&gt;</span> <span class="number">50</span> <span class="operator">?</span> <span class="string">"Pass"</span> <span class="operator">:</span> <span class="string">"Fail"</span><span class="punctuation">;</span>
-    <span class="punctuation">}</span>
-<span class="punctuation">}</span>
+public class TernaryDemo {
+    public static void main(String[] args) {
+        int score = 75;
+        String result = score &gt; 50 ? "Pass" : "Fail";
+    }
+}
   </code></pre>
 </div>
 
@@ -348,16 +348,16 @@ Types:
 <div class="code-container">
   <h3>Instance Check &amp; Lambda:</h3>
   <pre><code class="code-block">
-<span class="keyword">public</span> <span class="keyword">class</span> <span class="classname">MiscDemo</span> <span class="punctuation">{</span>
-    <span class="keyword">public static void</span> <span class="method">main</span><span class="parens">(</span><span class="type">String</span>[] args<span class="parens">)</span> <span class="punctuation">{</span>
-        <span class="keyword">Object</span> <span class="var">obj</span> <span class="operator">=</span> <span class="string">"Hello"</span><span class="punctuation">;</span>
-        <span class="keyword">boolean</span> <span class="var">isString</span> <span class="operator">=</span> <span class="var">obj</span> <span class="operator">instanceof</span> <span class="keyword">String</span><span class="punctuation">;</span>
-        <span class="comment">// Lambda expression using -></span>
-        <span class="keyword">Runnable</span> <span class="var">r</span> <span class="operator">=</span> <span class="parens">(</span><span class="parens">)</span> <span class="operator">-&gt;</span> <span class="punctuation">{</span>
-            <span class="class-ref">System</span>.<span class="method">out</span>.<span class="method">println</span><span class="parens">(</span><span class="string">"Lambda expression"</span><span class="parens">)</span><span class="punctuation">;</span>
-        <span class="punctuation">}</span><span class="punctuation">;</span>
-    <span class="punctuation">}</span>
-<span class="punctuation">}</span>
+public class MiscDemo {
+    public static void main(String[] args) {
+        Object obj = "Hello";
+        boolean isString = obj instanceof String;
+        // Lambda expression using ->
+        Runnable r = () -&gt; {
+            System.out.println("Lambda expression");
+        };
+    }
+}
   </code></pre>
 </div>
 
@@ -372,11 +372,11 @@ Character that help to define the boundaries of the statements & code block.
 <div class="code-container">
   <h3>Example Program:</h3>
   <pre><code class="code-block">
-<span class="keyword">public</span> <span class="keyword">class</span> <span class="classname">Example</span> {
-    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="method">main</span><span class="parens">(</span><span class="type">String</span>[] <span class="var">args</span><span class="parens">)</span> <span class="comment">// Signature where the java program starts</span>
+public class Example {
+    public static void main(String[] args) // Signature where the java program starts
     {
-        <span class="type">int</span>[] <span class="var">arr</span> = <span class="punctuation">{</span><span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span><span class="punctuation">}</span>;
-        <span class="class-ref">System</span>.<span class="method">out</span>.<span class="method">println</span><span class="parens">(</span><span class="class-ref">arr</span><span class="punctuation">[</span><span class="number">0</span><span class="punctuation">]</span><span class="parens">)</span>;
+        int[] arr = {1, 2, 3};
+        System.out.println(arr[0]);
     }
 }
   </code></pre>
@@ -390,22 +390,22 @@ There are two types of comments in java.
 <div class="code-container">
 <h4>Single line comment</h4>
   <pre><code class="code-block">
-<span class="comment">// This is single line comment</span>
+// This is single line comment
   </code></pre>
 
   <h4>Multi line comment</h4>
   <pre><code class="code-block">
-<span class="comment">/*</span> This is multiline comment <span class="comment">*/</span>
+/* This is multiline comment */
   </code></pre>
 
   <h4>Java Docs comment</h4>
   <pre><code class="code-block">
-<span class="comment">/**</span>
-<span class="comment"> * This is docs comment for java</span>
-<span class="comment"> * </span><span class="comment">*/</span>
-<span class="keyword">public</span> <span class="keyword">int</span> <span class="method">add</span><span class="parens">(</span><span class="type">int</span> <span class="var">a</span>, <span class="type">int</span> <span class="var">b</span>) <span class="keyword">{</span> 
-  <span class="keyword">return</span> <span class="var">a</span> <span class="operator">+</span> <span class="var">b</span>;
-<span class="keyword">}</span>
+/**
+ * This is docs comment for java
+ * */
+public int add(int a, int b) { 
+  return a + b;
+}
   </code></pre>
 
 </div>
@@ -419,8 +419,8 @@ It is use to seperate tokens with its value and it is ignored by the compiler at
 <div class="code-container">
   <h3>Example Program:</h3>
   <pre><code class="code-block">
-<span class="type">int</span> <span class="var">x</span><span class="operator">=</span><span class="number">10</span> <span class="comment">//invalid, no space between tokens</span>
-<span class="type">int</span> <span class="var">y</span> <span class="operator">=</span> <span class="number">20</span> <span class="comment">//valid</span>
+int x=10 //invalid, no space between tokens
+int y = 20 //valid
   </code></pre>
 
   <p class="note">In the first line, there is no space between the variable name and assignment operator, which makes it invalid. In the second line, spaces are correctly placed.</p>
@@ -439,10 +439,10 @@ Example:
 <div class="code-container">
   <h3>Example Program:</h3>
   <pre><code class="code-block">
-<span class="annotation">@<span class="keyword">override</span></span>
-<span class="keyword">public</span> <span class="keyword">void</span> <span class="method">add</span><span class="parens">(</span><span class="type">int</span> <span class="var">a</span>, <span class="type">int</span> <span class="var">b</span><span class="parens">)</span> <span class="punctuation">{</span>
-    <span class="keyword">return</span> <span class="var">a</span> <span class="operator">/</span> <span class="var">b</span><span class="punctuation">;</span>
-<span class="punctuation">}</span>
+@override
+public void add(int a, int b) {
+    return a / b;
+}
   </code></pre>
 
   <p class="note">This method performs division between two integers.</p>
@@ -634,22 +634,22 @@ In Java, each primitive data type has a corresponding wrapper class that allows 
 <div class="code-container">
   <h3>Integer Wrapper Class Example:</h3>
   <pre><code class="code-block">
-<span class="keyword">class</span> <span class="classname">IntegerWrapper</span> <span class="punctuation">{</span>
-    <span class="keyword">private</span> <span class="type">int</span> <span class="var">value</span>;
-    <span class="keyword">public</span> <span class="classname">IntegerWrapper</span>(<span class="type">int</span> <span class="var">value</span>) <span class="punctuation">{</span>
-        <span class="keyword">this</span>.<span class="var">value</span> <span class="operator">=</span> <span class="var">value</span><span class="punctuation">;</span>
-    <span class="punctuation">}</span>  
-    <span class="keyword">public</span> <span class="type">int</span> <span class="method">getValue</span><span class="parens">()</span> <span class="punctuation">{</span>
-        <span class="keyword">return</span> <span class="var">value</span><span class="punctuation">;</span>
-    <span class="punctuation">}</span>
-<span class="punctuation">}</span>
+class IntegerWrapper {
+    private int value;
+    public IntegerWrapper(int value) {
+        this.value = value;
+    }  
+    public int getValue() {
+        return value;
+    }
+}
 
-<span class="keyword">public</span> <span class="keyword">class</span> <span class="classname">Main</span> <span class="punctuation">{</span>
-    <span class="keyword">public static void</span> <span class="method">main</span><span class="parens">(</span><span class="type">String</span>[] <span class="var">args</span><span class="parens">)</span> <span class="punctuation">{</span>
-        <span class="classname">IntegerWrapper</span> <span class="var">myInt</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="classname">IntegerWrapper</span>(<span class="number">10</span>);
-        <span class="keyword">System</span>.<span class="method">out</span>.<span class="method">println</span><span class="parens">(</span><span class="string">"Value: "</span> + <span class="var">myInt</span>.<span class="method">getValue</span><span class="parens">())</span><span class="punctuation">;</span>
-    <span class="punctuation">}</span>
-<span class="punctuation">}</span>
+public class Main {
+    public static void main(String[] args) {
+        IntegerWrapper myInt = new IntegerWrapper(10);
+        System.out.println("Value: " + myInt.getValue());
+    }
+}
   </code></pre>
 </div>
 

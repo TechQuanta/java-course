@@ -20,12 +20,12 @@ JDBC (Java Database Connectivity) is an API that enables Java programs to connec
 <br/>
 <div class="code-block">
   <pre><code>
-<span class="keyword">import</span> java.sql.Connection<span class="punctuation">;</span>
-<span class="keyword">import</span> java.sql.DriverManager<span class="punctuation">;</span>
-<span class="keyword">import</span> java.sql.ResultSet<span class="punctuation">;</span>
-<span class="keyword">import</span> java.sql.Statement<span class="punctuation">;</span>
-<span class="keyword">import</span> java.sql.PreparedStatement<span class="punctuation">;</span>
-<span class="keyword">import</span> java.sql.SQLException<span class="punctuation">;</span>
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
   </code></pre>
 </div>
 
@@ -37,7 +37,7 @@ These are all part of the `java.sql` package.
 <br/>
 <div class="code-block">
   <pre><code>
-<span class="classname">Class</span><span class="punctuation">.</span><span class="method">forName</span><span class="punctuation">(</span><span class="string">"com.mysql.cj.jdbc.Driver"</span><span class="punctuation">)</span><span class="punctuation">;</span>
+Class.forName("com.mysql.cj.jdbc.Driver");
   </code></pre>
 </div>
 
@@ -49,11 +49,11 @@ This loads the MySQL JDBC driver.
 <br/>
 <div class="code-block">
   <pre><code>
-<span class="keyword">String</span> <span class="variable">url</span> = <span class="string">"jdbc:mysql://localhost:3306/mydatabase"</span><span class="punctuation">;</span> <span class="comment">// 3306 is MySQL default port</span>
-<span class="keyword">String</span> <span class="variable">user</span> = <span class="string">"root"</span><span class="punctuation">;</span>
-<span class="keyword">String</span> <span class="variable">password</span> = <span class="string">"your_password"</span><span class="punctuation">;</span>
+String url = "jdbc:mysql://localhost:3306/mydatabase"; // 3306 is MySQL default port
+String user = "root";
+String password = "your_password";
 
-<span class="classname">Connection</span> <span class="variable">conn</span> = <span class="classname">DriverManager</span><span class="punctuation">.</span><span class="method">getConnection</span><span class="punctuation">(</span><span class="variable">url</span>, <span class="variable">user</span>, <span class="variable">password</span><span class="punctuation">)</span><span class="punctuation">;</span>
+Connection conn = DriverManager.getConnection(url, user, password);
   </code></pre>
 </div>
 
@@ -67,7 +67,7 @@ This loads the MySQL JDBC driver.
 <br/>
 <div class="code-block">
   <pre><code>
-<span class="classname">Statement</span> <span class="variable">stmt</span> = <span class="variable">conn</span><span class="punctuation">.</span><span class="method">createStatement</span><span class="punctuation">();</span>
+Statement stmt = conn.createStatement();
   </code></pre>
 </div>
 
@@ -75,7 +75,7 @@ This loads the MySQL JDBC driver.
 You can also use:
 <div class="code-block">
   <pre><code>
-<span class="classname">PreparedStatement</span> <span class="variable">pstmt</span> = <span class="variable">conn</span><span class="punctuation">.</span><span class="method">prepareStatement</span><span class="punctuation">(</span><span class="string">"INSERT INTO users VALUES (?, ?)"</span><span class="punctuation">);</span>
+PreparedStatement pstmt = conn.prepareStatement("INSERT INTO users VALUES (?, ?)");
   </code></pre>
 </div>
 
@@ -89,10 +89,10 @@ You can also use:
 <br/>
 <div class="code-block">
   <pre><code>
-<span class="classname">ResultSet</span> <span class="variable">rs</span> = <span class="variable">stmt</span><span class="punctuation">.</span><span class="method">executeQuery</span><span class="punctuation">(</span><span class="string">"SELECT * FROM users"</span><span class="punctuation">);</span>
-<span class="keyword">while</span> (<span class="variable">rs</span><span class="punctuation">.</span><span class="method">next</span><span class="punctuation">())</span> <span class="punctuation">{</span>
-    <span class="method">System.out.println</span><span class="punctuation">(</span><span class="variable">rs</span><span class="punctuation">.</span><span class="method">getString</span><span class="punctuation">(</span><span class="string">"username"</span><span class="punctuation">)</span><span class="punctuation">);</span>
-<span class="punctuation">}</span>
+ResultSet rs = stmt.executeQuery("SELECT * FROM users");
+while (rs.next()) {
+    System.out.println(rs.getString("username"));
+}
   </code></pre>
 </div>
 
@@ -101,11 +101,11 @@ You can also use:
 <br/>
 <div class="code-block">
   <pre><code>
-<span class="keyword">String</span> <span class="variable">query</span> = <span class="string">"INSERT INTO users (username, password) VALUES (?, ?)"</span><span class="punctuation">;</span>
-<span class="classname">PreparedStatement</span> <span class="variable">pstmt</span> = <span class="variable">conn</span><span class="punctuation">.</span><span class="method">prepareStatement</span><span class="punctuation">(</span><span class="variable">query</span><span class="punctuation">)</span><span class="punctuation">;</span>
-<span class="variable">pstmt</span><span class="punctuation">.</span><span class="method">setString</span><span class="punctuation">(</span><span class="number">1</span>, <span class="string">"john"</span><span class="punctuation">)</span><span class="punctuation">;</span>
-<span class="variable">pstmt</span><span class="punctuation">.</span><span class="method">setString</span><span class="punctuation">(</span><span class="number">2</span>, <span class="string">"secret"</span><span class="punctuation">)</span><span class="punctuation">;</span>
-<span class="variable">pstmt</span><span class="punctuation">.</span><span class="method">executeUpdate</span><span class="punctuation">()</span><span class="punctuation">;</span>
+String query = "INSERT INTO users (username, password) VALUES (?, ?)";
+PreparedStatement pstmt = conn.prepareStatement(query);
+pstmt.setString(1, "john");
+pstmt.setString(2, "secret");
+pstmt.executeUpdate();
   </code></pre>
 </div>
 
@@ -116,9 +116,9 @@ You can also use:
 <br/>
 <div class="code-block">
   <pre><code>
-<span class="variable">rs</span><span class="punctuation">.</span><span class="method">close</span><span class="punctuation">()</span><span class="punctuation">;</span>
-<span class="variable">stmt</span><span class="punctuation">.</span><span class="method">close</span><span class="punctuation">()</span><span class="punctuation">;</span>
-<span class="variable">conn</span><span class="punctuation">.</span><span class="method">close</span><span class="punctuation">()</span><span class="punctuation">;</span>
+rs.close();
+stmt.close();
+conn.close();
   </code></pre>
 </div>
 
@@ -132,7 +132,7 @@ Always close connections to avoid memory leaks.
 
 <div class="code-block">
   <pre><code>
-<span class="string">jdbc:mysql://</span><span class="variable">&lt;host&gt;</span><span class="punctuation">:</span><span class="variable">&lt;port&gt;</span><span class="punctuation">/</span><span class="variable">&lt;database&gt;</span><span class="punctuation">?</span><span class="variable">&lt;options&gt;</span>
+jdbc:mysql://&lt;host&gt;:&lt;port&gt;/&lt;database&gt;?&lt;options&gt;
   </code></pre>
 </div>
 
@@ -141,7 +141,7 @@ Example:
 <br/>
 <div class="code-block">
   <pre><code>
-<span class="string">jdbc:mysql://</span><span class="variable">localhost</span><span class="punctuation">:</span><span class="number">3306</span><span class="punctuation">/</span><span class="variable">school</span><span class="punctuation">?</span><span class="keyword">useSSL</span><span class="punctuation">=</span><span class="boolean">false</span><span class="punctuation">&amp;</span><span class="keyword">serverTimezone</span><span class="punctuation">=</span><span class="string">UTC</span>
+jdbc:mysql://localhost:3306/school?useSSL=false&amp;serverTimezone=UTC
   </code></pre>
 </div>
 
@@ -182,12 +182,12 @@ If using manually, download `mysql-connector-java.jar` and add it to your classp
 
 <div class="code-block">
   <pre><code>
-<span class="keyword">try</span> <span class="punctuation">{</span>
-    <span class="comment">// operations</span>
-    <span class="keyword">Connection</span> <span class="variable">conn</span> = <span class="method">DriverManager.getConnection</span>(<span class="variable">url</span>, <span class="variable">user</span>, <span class="variable">pass</span><span class="punctuation">);</span>
-<span class="punctuation">}</span> <span class="keyword">catch</span> (<span class="keyword">SQLException</span> <span class="variable">e</span>) <span class="punctuation">{</span>
-    <span class="method">e.printStackTrace</span><span class="punctuation">();</span>
-<span class="punctuation">}</span>
+try {
+    // operations
+    Connection conn = DriverManager.getConnection(url, user, pass);
+} catch (SQLException e) {
+    e.printStackTrace();
+}
   </code></pre>
 </div>
 
@@ -198,29 +198,29 @@ If using manually, download `mysql-connector-java.jar` and add it to your classp
 <br/>
 <div class="code-block">
   <pre><code>
-<span class="keyword">import</span> <span class="package">java.sql.*;</span>
+import java.sql.*;
 
-<span class="keyword">public</span> <span class="keyword">class</span> <span class="classname">JDBCExample</span> <span class="punctuation">{</span>
-    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="method">main</span>(<span class="keyword">String</span>[] <span class="variable">args</span>) <span class="punctuation">{</span>
-        <span class="keyword">String</span> <span class="variable">url</span> = <span class="string">"jdbc:mysql://localhost:3306/testdb"</span>;
-        <span class="keyword">String</span> <span class="variable">user</span> = <span class="string">"root"</span>;
-        <span class="keyword">String</span> <span class="variable">password</span> = <span class="string">"password"</span>;
-        <span class="keyword">try</span> <span class="punctuation">{</span>
-            <span class="keyword">Class</span>.forName(<span class="string">"com.mysql.cj.jdbc.Driver"</span>);
-            <span class="keyword">Connection</span> <span class="variable">conn</span> = <span class="method">DriverManager.getConnection</span>(<span class="variable">url</span>, <span class="variable">user</span>, <span class="variable">password</span><span class="punctuation">);</span>
-            <span class="keyword">Statement</span> <span class="variable">stmt</span> = <span class="variable">conn</span>.<span class="method">createStatement</span><span class="punctuation">();</span>
-            <span class="keyword">ResultSet</span> <span class="variable">rs</span> = <span class="variable">stmt</span>.<span class="method">executeQuery</span>(<span class="string">"SELECT * FROM students"</span>);
-            <span class="keyword">while</span> (<span class="variable">rs</span>.<span class="method">next</span>()) <span class="punctuation">{</span>
-                <span class="method">System.out.println</span>(<span class="variable">rs</span>.<span class="method">getInt</span>(<span class="string">"id"</span>) + <span class="string">" "</span> + <span class="variable">rs</span>.<span class="method">getString</span>(<span class="string">"name"</span>));
-            <span class="punctuation">}</span>
-            <span class="variable">rs</span>.<span class="method">close</span><span class="punctuation">();</span>
-            <span class="variable">stmt</span>.<span class="method">close</span><span class="punctuation">();</span>
-            <span class="variable">conn</span>.<span class="method">close</span><span class="punctuation">();</span>
-        <span class="keyword">} catch</span> (<span class="keyword">Exception</span> <span class="variable">e</span>) <span class="punctuation">{</span>
-            <span class="method">e.printStackTrace</span><span class="punctuation">();</span>
-        <span class="punctuation">}</span>
-    <span class="punctuation">}</span>
-<span class="punctuation">}</span>
+public class JDBCExample {
+    public static void main(String[] args) {
+        String url = "jdbc:mysql://localhost:3306/testdb";
+        String user = "root";
+        String password = "password";
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection(url, user, password);
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM students");
+            while (rs.next()) {
+                System.out.println(rs.getInt("id") + " " + rs.getString("name"));
+            }
+            rs.close();
+            stmt.close();
+            conn.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
   </code></pre>
 </div>
 

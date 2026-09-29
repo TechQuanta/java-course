@@ -34,21 +34,21 @@ Encapsulation ensures that the internal representation of an object is hidden fr
 <br/>
 <div class="code-container">
   <pre><code class="code-block">
-    <span class="keyword">class</span> <span class="classname">Student</span> {
-        <span class="keyword">private</span> <span class="classname">String</span> <span class="variable-name">name</span>;
-        <span class="keyword">private</span> <span class="classname">int</span> <span class="variable-name">age</span>;
-        <span class="keyword">public</span> <span class="classname">String</span> <span class="method">getName</span>() {
-            <span class="keyword">return</span> <span class="variable-name">name</span>;
+    class Student {
+        private String name;
+        private int age;
+        public String getName() {
+            return name;
         }
-        <span class="keyword">public</span> <span class="keyword">void</span> <span class="method">setName</span>(<span class="classname">String</span> <span class="variable-name">name</span>) {
-            <span class="keyword">this</span>.<span class="variable-name">name</span> = <span class="variable-name">name</span>;
+        public void setName(String name) {
+            this.name = name;
         }
-        <span class="keyword">public</span> <span class="classname">int</span> <span class="method">getAge</span>() {
-            <span class="keyword">return</span> <span class="variable-name">age</span>;
+        public int getAge() {
+            return age;
         }
-        <span class="keyword">public</span> <span class="keyword">void</span> <span class="method">setAge</span>(<span class="classname">int</span> <span class="variable-name">age</span>) {
-            <span class="keyword">if</span> (<span class="variable-name">age</span> > <span class="number">0</span>) {
-                <span class="keyword">this</span>.<span class="variable-name">age</span> = <span class="variable-name">age</span>;
+        public void setAge(int age) {
+            if (age > 0) {
+                this.age = age;
             }
         }
     }
@@ -61,13 +61,13 @@ Encapsulation ensures that the internal representation of an object is hidden fr
 <br/>
 <div class="code-container">
   <pre><code class="code-block">
-    <span class="keyword">public</span> <span class="keyword">class</span> <span class="classname">EncapsulationTest</span> {
-        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="function-name">main</span>(<span class="keyword">String</span>[] <span class="variable-name">args</span>) {
-            <span class="classname">Student</span> <span class="variable-name">st</span> = <span class="keyword">new</span> <span class="classname">Student</span>();
-            <span class="variable-name">st</span>.<span class="function-name">setName</span>(<span class="string">"Alice"</span>);
-            <span class="variable-name">st</span>.<span class="function-name">setAge</span>(<span class="number">20</span>);
-            <span class="keyword">System</span>.<span class="function-name">out</span>.<span class="function-name">println</span>(<span class="string">"Name: "</span> + <span class="variable-name">st</span>.<span class="function-name">getName</span>());
-            <span class="keyword">System</span>.<span class="function-name">out</span>.<span class="function-name">println</span>(<span class="string">"Age: "</span> + <span class="variable-name">st</span>.<span class="function-name">getAge</span>());
+    public class EncapsulationTest {
+        public static void main(String[] args) {
+            Student st = new Student();
+            st.setName("Alice");
+            st.setAge(20);
+            System.out.println("Name: " + st.getName());
+            System.out.println("Age: " + st.getAge());
         }
     }
   </code></pre>
@@ -88,18 +88,18 @@ Encapsulation ensures that the internal representation of an object is hidden fr
 <br/><br/>
 <div class="code-container">
   <pre><code class="code-block">
-    <span class="keyword">final</span> <span class="keyword">class</span> <span class="classname">Employee</span> {
-        <span class="keyword">private</span> <span class="keyword">final</span> <span class="classname">String</span> <span class="variable-name">name</span>;
-        <span class="keyword">private</span> <span class="keyword">final</span> <span class="classname">int</span> <span class="variable-name">id</span>;
-        <span class="keyword">public</span> <span class="classname">Employee</span>(<span class="classname">String</span> <span class="variable-name">name</span>, <span class="classname">int</span> <span class="variable-name">id</span>) {
-            <span class="variable-name">this</span>.<span class="variable-name">name</span> = <span class="variable-name">name</span>;
-            <span class="variable-name">this</span>.<span class="variable-name">id</span> = <span class="variable-name">id</span>;
+    final class Employee {
+        private final String name;
+        private final int id;
+        public Employee(String name, int id) {
+            this.name = name;
+            this.id = id;
         }
-        <span class="keyword">public</span> <span class="classname">String</span> <span class="function-name">getName</span>() {
-            <span class="keyword">return</span> <span class="variable-name">name</span>;
+        public String getName() {
+            return name;
         }
-        <span class="keyword">public</span> <span class="classname">int</span> <span class="function-name">getId</span>() {
-            <span class="keyword">return</span> <span class="variable-name">id</span>;
+        public int getId() {
+            return id;
         }
     }
   </code></pre>
@@ -115,19 +115,19 @@ Encapsulation ensures that the internal representation of an object is hidden fr
 <br/>
 <div class="code-container">
   <pre><code class="code-block">
-    <span class="keyword">class</span> <span class="classname">BankAccount</span> {
-        <span class="keyword">private</span> <span class="classname">double</span> <span class="variable-name">balance</span>;
-        <span class="keyword">public</span> <span class="classname">double</span> <span class="function-name">getBalance</span>() {
-            <span class="keyword">return</span> <span class="variable-name">balance</span>;
+    class BankAccount {
+        private double balance;
+        public double getBalance() {
+            return balance;
         }
-        <span class="keyword">public</span> <span class="keyword">void</span> <span class="function-name">deposit</span>(<span class="classname">double</span> <span class="variable-name">amount</span>) {
-            <span class="keyword">if</span> (<span class="variable-name">amount</span> <span class="operator">></span> <span class="number">0</span>) {
-                <span class="variable-name">balance</span> <span class="operator">+=</span> <span class="variable-name">amount</span>;
+        public void deposit(double amount) {
+            if (amount > 0) {
+                balance += amount;
             }
         }
-        <span class="keyword">public</span> <span class="keyword">void</span> <span class="function-name">withdraw</span>(<span class="classname">double</span> <span class="variable-name">amount</span>) {
-            <span class="keyword">if</span> (<span class="variable-name">amount</span> <span class="operator">></span> <span class="number">0</span> <span class="keyword">&&</span> <span class="variable-name">amount</span> <span class="operator"><=</span> <span class="variable-name">balance</span>) {
-                <span class="variable-name">balance</span> <span class="operator">-=</span> <span class="variable-name">amount</span>;
+        public void withdraw(double amount) {
+            if (amount > 0 && amount <= balance) {
+                balance -= amount;
             }
         }
     }

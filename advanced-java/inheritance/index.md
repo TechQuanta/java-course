@@ -20,21 +20,21 @@ Inheritance allows a subclass to inherit fields and methods from a superclass. T
 
 <div class="code-container">
   <pre><code class="language-java">
-    <span class="keyword">class</span> <span class="classname">Animal</span> {
-        <span class="keyword">void</span> <span class="function-name">eat</span>() {
-            <span class="class-ref">System</span>.<span class="class-ref">out</span>.<span class="method">println</span>(<span class="string">"Eating..."</span>);
+    class Animal {
+        void eat() {
+            System.out.println("Eating...");
         }
     }
-    <span class="keyword">class</span> <span class="classname">Dog</span> <span class="keyword">extends</span> <span class="classname">Animal</span> {
-        <span class="keyword">void</span> <span class="function-name">bark</span>() {
-            <span class="class-ref">System</span>.<span class="class-ref">out</span>.<span class="method">println</span>(<span class="string">"Barking..."</span>);
+    class Dog extends Animal {
+        void bark() {
+            System.out.println("Barking...");
         }
     }
-    <span class="keyword">public</span> <span class="keyword">class</span> <span class="classname">Main</span> {
-        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="function-name">main</span>(<span class="classname">String</span>[] <span class="variable-name">args</span>) {
-            <span class="classname">Dog</span> <span class="variable-name">dog</span> = <span class="keyword">new</span> <span class="classname">Dog</span>();
-            <span class="variable-name">dog</span>.<span class="function-name">eat</span>();  <span class="comment">// Inherited from Animal</span>
-            <span class="variable-name">dog</span>.<span class="function-name">bark</span>(); <span class="comment">// Defined in Dog</span>
+    public class Main {
+        public static void main(String[] args) {
+            Dog dog = new Dog();
+            dog.eat();  // Inherited from Animal
+            dog.bark(); // Defined in Dog
         }
     }
   </code></pre>
@@ -64,21 +64,21 @@ In Java, a class can only extend one other class, which makes Java a **single in
 
 <div class="code-container">
   <pre><code class="language-java">
-    <span class="keyword">class</span> <span class="classname">Vehicle</span> {
-        <span class="keyword">void</span> <span class="function-name">drive</span>() {
-            <span class="class-ref">System</span>.<span class="class-ref">out</span>.<span class="method">println</span>(<span class="string">"Driving..."</span>);
+    class Vehicle {
+        void drive() {
+            System.out.println("Driving...");
         }
     }
-    <span class="keyword">class</span> <span class="classname">Car</span> <span class="keyword">extends</span> <span class="classname">Vehicle</span> {
-        <span class="keyword">void</span> <span class="function-name">honk</span>() {
-            <span class="class-ref">System</span>.<span class="class-ref">out</span>.<span class="method">println</span>(<span class="string">"Honking..."</span>);
+    class Car extends Vehicle {
+        void honk() {
+            System.out.println("Honking...");
         }
     }
-    <span class="keyword">public</span> <span class="keyword">class</span> <span class="classname">Main</span> {
-        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="function-name">main</span>(<span class="classname">String</span>[] <span class="variable-name">args</span>) {
-            <span class="classname">Car</span> <span class="variable-name">car</span> = <span class="keyword">new</span> <span class="classname">Car</span>();
-            <span class="variable-name">car</span>.<span class="function-name">drive</span>(); <span class="comment">// Inherited from Vehicle</span>
-            <span class="variable-name">car</span>.<span class="function-name">honk</span>();  <span class="comment">// Defined in Car</span>
+    public class Main {
+        public static void main(String[] args) {
+            Car car = new Car();
+            car.drive(); // Inherited from Vehicle
+            car.honk();  // Defined in Car
         }
     }
   </code></pre>
@@ -110,25 +110,25 @@ Although Java does not support multiple inheritance with classes, it supports mu
 
 <div class="code-container">
   <pre><code class="language-java">
-    <span class="keyword">interface</span> <span class="classname">Animal</span> {
-        <span class="keyword">void</span> <span class="function-name">eat</span>();
+    interface Animal {
+        void eat();
     }
-    <span class="keyword">interface</span> <span class="classname">Pet</span> {
-        <span class="keyword">void</span> <span class="function-name">play</span>();
+    interface Pet {
+        void play();
     }
-    <span class="keyword">class</span> <span class="classname">Dog</span> <span class="keyword">implements</span> <span class="classname">Animal</span>, <span class="classname">Pet</span> {
-        <span class="keyword">public</span> <span class="keyword">void</span> <span class="function-name">eat</span>() {
-            <span class="class-ref">System</span>.<span class="class-ref">out</span>.<span class="method">println</span>(<span class="string">"Dog is eating..."</span>);
+    class Dog implements Animal, Pet {
+        public void eat() {
+            System.out.println("Dog is eating...");
         }
-        <span class="keyword">public</span> <span class="keyword">void</span> <span class="function-name">play</span>() {
-            <span class="class-ref">System</span>.<span class="class-ref">out</span>.<span class="method">println</span>(<span class="string">"Dog is playing..."</span>);
+        public void play() {
+            System.out.println("Dog is playing...");
         }
     }
-    <span class="keyword">public</span> <span class="keyword">class</span> <span class="classname">Main</span> {
-        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="function-name">main</span>(<span class="classname">String</span>[] <span class="variable-name">args</span>) {
-            <span class="classname">Dog</span> <span class="variable-name">dog</span> = <span class="keyword">new</span> <span class="classname">Dog</span>();
-            <span class="variable-name">dog</span>.<span class="function-name">eat</span>();  <span class="comment">// From Animal interface</span>
-            <span class="variable-name">dog</span>.<span class="function-name">play</span>();  <span class="comment">// From Pet interface</span>
+    public class Main {
+        public static void main(String[] args) {
+            Dog dog = new Dog();
+            dog.eat();  // From Animal interface
+            dog.play();  // From Pet interface
         }
     }
   </code></pre>
@@ -159,32 +159,32 @@ The **Diamond Problem** arises in languages that support multiple inheritance, w
 
 <div class="code-container">
   <pre><code class="language-java">
-    <span class="keyword">interface</span> <span class="classname">A</span> {
-        <span class="keyword">void</span> <span class="function-name">methodA</span>();
+    interface A {
+        void methodA();
     }
-    <span class="keyword">interface</span> <span class="classname">B</span> <span class="keyword">extends</span> <span class="classname">A</span> {
-        <span class="keyword">void</span> <span class="function-name">methodB</span>();
+    interface B extends A {
+        void methodB();
     }
-    <span class="keyword">interface</span> <span class="classname">C</span> <span class="keyword">extends</span> <span class="classname">A</span> {
-        <span class="keyword">void</span> <span class="function-name">methodC</span>();
+    interface C extends A {
+        void methodC();
     }
-    <span class="keyword">class</span> <span class="classname">D</span> <span class="keyword">implements</span> <span class="classname">B</span>, <span class="classname">C</span> {
-        <span class="keyword">public</span> <span class="keyword">void</span> <span class="function-name">methodA</span>() {
-            <span class="class-ref">System</span>.<span class="class-ref">out</span>.<span class="method">println</span>(<span class="string">"methodA"</span>);
+    class D implements B, C {
+        public void methodA() {
+            System.out.println("methodA");
         }
-        <span class="keyword">public</span> <span class="keyword">void</span> <span class="function-name">methodB</span>() {
-            <span class="class-ref">System</span>.<span class="class-ref">out</span>.<span class="method">println</span>(<span class="string">"methodB"</span>);
+        public void methodB() {
+            System.out.println("methodB");
         }
-        <span class="keyword">public</span> <span class="keyword">void</span> <span class="function-name">methodC</span>() {
-            <span class="class-ref">System</span>.<span class="class-ref">out</span>.<span class="method">println</span>(<span class="string">"methodC"</span>);
+        public void methodC() {
+            System.out.println("methodC");
         }
     }
-    <span class="keyword">public</span> <span class="keyword">class</span> <span class="classname">Main</span> {
-        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="function-name">main</span>(<span class="classname">String</span>[] <span class="variable-name">args</span>) {
-            <span class="classname">D</span> <span class="variable-name">obj</span> = <span class="keyword">new</span> <span class="classname">D</span>();
-            <span class="variable-name">obj</span>.<span class="function-name">methodA</span>();
-            <span class="variable-name">obj</span>.<span class="function-name">methodB</span>();
-            <span class="variable-name">obj</span>.<span class="function-name">methodC</span>();
+    public class Main {
+        public static void main(String[] args) {
+            D obj = new D();
+            obj.methodA();
+            obj.methodB();
+            obj.methodC();
         }
     }
   </code></pre>
@@ -211,19 +211,19 @@ In Java, method overloading and method overriding are key concepts related to po
 
 <div class="code-container">
   <pre><code class="language-java">
-    <span class="keyword">class</span> <span class="classname">Calculator</span> {
-        <span class="keyword">int</span> <span class="function-name">add</span>(<span class="keyword">int</span> <span class="variable-name">a</span>, <span class="keyword">int</span> <span class="variable-name">b</span>) {
-            <span class="keyword">return</span> <span class="variable-name">a</span> <span class="operator">+</span> <span class="variable-name">b</span>;
+    class Calculator {
+        int add(int a, int b) {
+            return a + b;
         }
-        <span class="keyword">double</span> <span class="function-name">add</span>(<span class="keyword">double</span> <span class="variable-name">a</span>, <span class="keyword">double</span> <span class="variable-name">b</span>) {
-            <span class="keyword">return</span> <span class="variable-name">a</span> <span class="operator">+</span> <span class="variable-name">b</span>;
+        double add(double a, double b) {
+            return a + b;
         }
     }
-    <span class="keyword">public</span> <span class="keyword">class</span> <span class="classname">Main</span> {
-        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="function-name">main</span>(<span class="classname">String</span>[] <span class="variable-name">args</span>) {
-            <span class="classname">Calculator</span> <span class="variable-name">calc</span> = <span class="keyword">new</span> <span class="classname">Calculator</span>();
-            <span class="class-ref">System</span>.<span class="class-ref">out</span>.<span class="method">println</span>(<span class="variable-name">calc</span>.<span class="function-name">add</span>(<span class="number">10</span>, <span class="number">20</span>));    <span class="comment">// int version</span>
-            <span class="class-ref">System</span>.<span class="class-ref">out</span>.<span class="method">println</span>(<span class="variable-name">calc</span>.<span class="function-name">add</span>(<span class="number">10.5</span>, <span class="number">20.5</span>)); <span class="comment">// double version</span>
+    public class Main {
+        public static void main(String[] args) {
+            Calculator calc = new Calculator();
+            System.out.println(calc.add(10, 20));    // int version
+            System.out.println(calc.add(10.5, 20.5)); // double version
         }
     }
   </code></pre>
@@ -237,21 +237,21 @@ In Java, method overloading and method overriding are key concepts related to po
 
 <div class="code-container">
   <pre><code class="language-java">
-    <span class="keyword">class</span> <span class="classname">Animal</span> {
-        <span class="keyword">void</span> <span class="function-name">sound</span>() {
-            <span class="class-ref">System</span>.<span class="class-ref">out</span>.<span class="method">println</span>(<span class="string">"Some sound"</span>);
+    class Animal {
+        void sound() {
+            System.out.println("Some sound");
         }
     }
-    <span class="keyword">class</span> <span class="classname">Dog</span> <span class="keyword">extends</span> <span class="classname">Animal</span> {
-        <span class="annotation">@Override</span>
-        <span class="keyword">void</span> <span class="function-name">sound</span>() {
-            <span class="class-ref">System</span>.<span class="class-ref">out</span>.<span class="method">println</span>(<span class="string">"Barks"</span>);
+    class Dog extends Animal {
+        @Override
+        void sound() {
+            System.out.println("Barks");
         }
     }
-    <span class="keyword">public</span> <span class="keyword">class</span> <span class="classname">Main</span> {
-        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="function-name">main</span>(<span class="classname">String</span>[] <span class="variable-name">args</span>) {
-            <span class="classname">Animal</span> <span class="variable-name">animal</span> = <span class="keyword">new</span> <span class="classname">Dog</span>();
-            <span class="variable-name">animal</span>.<span class="function-name">sound</span>();  <span class="comment">// Output: Barks</span>
+    public class Main {
+        public static void main(String[] args) {
+            Animal animal = new Dog();
+            animal.sound();  // Output: Barks
         }
     }
   </code></pre>
@@ -280,20 +280,20 @@ Constructors are not inherited in Java, but the subclass can invoke the supercla
 
 <div class="code-container">
   <pre><code class="language-java">
-    <span class="keyword">class</span> <span class="classname">Animal</span> {
-        <span class="classname">Animal</span>() {
-            <span class="class-ref">System</span>.<span class="class-ref">out</span>.<span class="method">println</span>(<span class="string">"Animal is created"</span>);
+    class Animal {
+        Animal() {
+            System.out.println("Animal is created");
         }
     }
-    <span class="keyword">class</span> <span class="classname">Dog</span> <span class="keyword">extends</span> <span class="classname">Animal</span> {
-        <span class="classname">Dog</span>() {
-            <span class="keyword">super</span>();  <span class="comment">// Calls Animal constructor</span>
-            <span class="class-ref">System</span>.<span class="class-ref">out</span>.<span class="method">println</span>(<span class="string">"Dog is created"</span>);
+    class Dog extends Animal {
+        Dog() {
+            super();  // Calls Animal constructor
+            System.out.println("Dog is created");
         }
     }
-    <span class="keyword">public</span> <span class="keyword">class</span> <span class="classname">Main</span> {
-        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="function-name">main</span>(<span class="classname">String</span>[] <span class="variable-name">args</span>) {
-            <span class="classname">Dog</span> <span class="variable-name">dog</span> = <span class="keyword">new</span> <span class="classname">Dog</span>();  <span class="comment">// Output: Animal is created \n Dog is created</span>
+    public class Main {
+        public static void main(String[] args) {
+            Dog dog = new Dog();  // Output: Animal is created \n Dog is created
         }
     }
   </code></pre>
@@ -319,23 +319,23 @@ The `super` keyword is used to refer to the superclass and can be used to:
 
 <div class="code-container">
   <pre><code class="language-java">
-    <span class="keyword">class</span> <span class="classname">Animal</span> {
-        <span class="variable-name">String</span> <span class="variable-name">name</span> = <span class="string">"Animal"</span>;
-        <span class="keyword">void</span> <span class="function-name">speak</span>() {
-            <span class="class-ref">System</span>.<span class="class-ref">out</span>.<span class="method">println</span>(<span class="string">"Animal speaking..."</span>);
+    class Animal {
+        String name = "Animal";
+        void speak() {
+            System.out.println("Animal speaking...");
         }
     }
-    <span class="keyword">class</span> <span class="classname">Dog</span> <span class="keyword">extends</span> <span class="classname">Animal</span> {
-        <span class="variable-name">String</span> <span class="variable-name">name</span> = <span class="string">"Dog"</span>;
-        <span class="keyword">void</span> <span class="function-name">printNames</span>() {
-            <span class="class-ref">System</span>.<span class="class-ref">out</span>.<span class="method">println</span>(<span class="string">"Name in Dog class: "</span> + <span class="variable-name">name</span>);
-            <span class="class-ref">System</span>.<span class="class-ref">out</span>.<span class="method">println</span>(<span class="string">"Name in Animal class: "</span> + <span class="keyword">super</span>.<span class="variable-name">name</span>);
+    class Dog extends Animal {
+        String name = "Dog";
+        void printNames() {
+            System.out.println("Name in Dog class: " + name);
+            System.out.println("Name in Animal class: " + super.name);
         }
     }
-    <span class="keyword">public</span> <span class="keyword">class</span> <span class="classname">Main</span> {
-        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="function-name">main</span>(<span class="classname">String</span>[] <span class="variable-name">args</span>) {
-            <span class="classname">Dog</span> <span class="variable-name">dog</span> = <span class="keyword">new</span> <span class="classname">Dog</span>();
-            <span class="variable-name">dog</span>.<span class="function-name">printNames</span>();  <span class="comment">// Output: Name in Dog class: Dog \n Name in Animal class: Animal</span>
+    public class Main {
+        public static void main(String[] args) {
+            Dog dog = new Dog();
+            dog.printNames();  // Output: Name in Dog class: Dog \n Name in Animal class: Animal
         }
     }
   </code></pre>

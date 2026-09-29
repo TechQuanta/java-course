@@ -51,12 +51,12 @@ This example demonstrates how an `ArithmeticException` (division by zero) is cau
 
 <div class="code-block">
   <pre><code>
-<span class="keyword">try</span> <span class="punctuation">{</span>
-    <span class="comment">// risky code</span>
-    <span class="keyword">int</span> <span class="variable">result</span> = <span class="number">10</span> / <span class="number">0</span><span class="punctuation">;</span>
-<span class="punctuation">}</span> <span class="keyword">catch</span> (<span class="classname">ArithmeticException</span> <span class="variable">e</span>) <span class="punctuation">{</span>
-    <span class="method">System.out.println</span>(<span class="variable">e</span>)<span class="punctuation">;</span>
-<span class="punctuation">}</span>
+try {
+    // risky code
+    int result = 10 / 0;
+} catch (ArithmeticException e) {
+    System.out.println(e);
+}
   </code></pre>
 </div>
 
@@ -69,15 +69,15 @@ n Java, handling multiple exceptions can be done using multiple catch blocks. Th
 
 <div class="code-block">
   <pre><code>
-<span class="keyword">try</span> <span class="punctuation">{</span>
-    <span class="comment">// code with multiple possible exceptions</span>
-<span class="punctuation">}</span> 
-<span class="keyword">catch</span> (<span class="classname">NullPointerException</span> <span class="variable">e</span>) <span class="punctuation">{</span>
-    <span class="comment">// handle null pointer</span>
-<span class="punctuation">}</span>
-<span class="keyword">catch</span> (<span class="classname">ArithmeticException</span> <span class="variable">e</span>) <span class="punctuation">{</span>
-    <span class="comment">// handle arithmetic</span>
-<span class="punctuation">}</span>
+try {
+    // code with multiple possible exceptions
+} 
+catch (NullPointerException e) {
+    // handle null pointer
+}
+catch (ArithmeticException e) {
+    // handle arithmetic
+}
   </code></pre>
 </div>
 
@@ -90,15 +90,15 @@ In this example, the finally block is used to execute code after the try and cat
 
 <div class="code-block">
   <pre><code>
-<span class="keyword">try</span> <span class="punctuation">{</span>
-    <span class="comment">// code</span>
-<span class="punctuation">}</span> 
-<span class="keyword">catch</span> (<span class="classname">Exception</span> <span class="variable">e</span>) <span class="punctuation">{</span>
-    <span class="comment">// handling</span>
-<span class="punctuation">}</span> 
-<span class="keyword">finally</span> <span class="punctuation">{</span>
-    <span class="method">System.out.println</span>(<span class="string">"Always executed"</span>)<span class="punctuation">;</span>
-<span class="punctuation">}</span>
+try {
+    // code
+} 
+catch (Exception e) {
+    // handling
+} 
+finally {
+    System.out.println("Always executed");
+}
   </code></pre>
 </div>
 
@@ -110,7 +110,7 @@ throw keyword is use to throw the exception.
 
 <div class="code-block">
   <pre><code>
-<span class="keyword">throw</span> <span class="keyword">new</span> <span class="classname">ArithmeticException</span>(<span class="string">"Divide by zero"</span>)<span class="punctuation">;</span>
+throw new ArithmeticException("Divide by zero");
   </code></pre>
 </div>
 
@@ -121,9 +121,9 @@ throw keyword is use to throw the exception.
 throws keyword use to throw the exception and used in the method signature rather than directly like throw();
 <div class="code-block">
   <pre><code>
-<span class="keyword">public</span> <span class="keyword">void</span> <span class="method">readFile</span>() <span class="keyword">throws</span> <span class="classname">IOException</span> <span class="punctuation">{</span>
-    <span class="comment">// file operations</span>
-<span class="punctuation">}</span>
+public void readFile() throws IOException {
+    // file operations
+}
   </code></pre>
 </div>
 
@@ -135,17 +135,17 @@ In this example, a try block contains another try-catch block inside it. This de
 
 <div class="code-block">
   <pre><code>
-<span class="keyword">try</span> <span class="punctuation">{</span>
-    <span class="comment">// outer block</span>
-    <span class="keyword">try</span> <span class="punctuation">{</span>
-        <span class="comment">// inner block</span>
-        <span class="keyword">int</span> <span class="variable">x</span> = <span class="number">10</span> / <span class="number">0</span><span class="punctuation">;</span>
-    <span class="punctuation">}</span> <span class="keyword">catch</span> (<span class="classname">ArithmeticException</span> <span class="variable">e</span>) <span class="punctuation">{</span>
-        <span class="method">System.out.println</span>(<span class="string">"Inner catch"</span>)<span class="punctuation">;</span>
-    <span class="punctuation">}</span>
-<span class="punctuation">}</span> <span class="keyword">catch</span> (<span class="classname">Exception</span> <span class="variable">e</span>) <span class="punctuation">{</span>
-    <span class="method">System.out.println</span>(<span class="string">"Outer catch"</span>)<span class="punctuation">;</span>
-<span class="punctuation">}</span>
+try {
+    // outer block
+    try {
+        // inner block
+        int x = 10 / 0;
+    } catch (ArithmeticException e) {
+        System.out.println("Inner catch");
+    }
+} catch (Exception e) {
+    System.out.println("Outer catch");
+}
   </code></pre>
 </div>
 <br/>
@@ -156,11 +156,11 @@ In this example, we create a custom exception by extending the Exception class. 
 
 <div class="code-block">
   <pre><code>
-<span class="keyword">class</span> <span class="classname">MyException</span> <span class="keyword">extends</span> <span class="classname">Exception</span> <span class="punctuation">{</span>
-    <span class="keyword">public</span> <span class="classname">MyException</span>(<span class="keyword">String</span> <span class="variable">message</span>) <span class="punctuation">{</span>
-        <span class="keyword">super</span>(<span class="variable">message</span>)<span class="punctuation">;</span>
-    <span class="punctuation">}</span>
-<span class="punctuation">}</span>
+class MyException extends Exception {
+    public MyException(String message) {
+        super(message);
+    }
+}
   </code></pre>
 </div>
 
@@ -168,20 +168,20 @@ we create a custom exception called MyException and use it in a method checkAge 
 
 <div class="code-block">
   <pre><code>
-<span class="keyword">public</span> <span class="keyword">class</span> <span class="classname">Test</span> <span class="punctuation">{</span>
-    <span class="keyword">static void</span> <span class="method">checkAge</span>(<span class="keyword">int</span> <span class="variable">age</span>) <span class="keyword">throws</span> <span class="classname">MyException</span> <span class="punctuation">{</span>
-        <span class="keyword">if</span> (<span class="variable">age</span> &lt; <span class="number">18</span>) <span class="punctuation">{</span>
-            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="classname">MyException</span>(<span class="string">"Underage not allowed"</span>)<span class="punctuation">;</span>
-        <span class="punctuation">}</span>
-    <span class="punctuation">}</span>
-    <span class="keyword">public static void</span> <span class="method">main</span>(<span class="keyword">String</span>[] <span class="variable">args</span>) <span class="punctuation">{</span>
-        <span class="keyword">try</span> <span class="punctuation">{</span>
-            <span class="method">checkAge</span>(<span class="number">15</span>)<span class="punctuation">;</span>
-        <span class="punctuation">}</span> <span class="keyword">catch</span> (<span class="classname">MyException</span> <span class="variable">e</span>) <span class="punctuation">{</span>
-            <span class="method">System.out.println</span>(<span class="variable">e</span>.getMessage())<span class="punctuation">;</span>
-        <span class="punctuation">}</span>
-    <span class="punctuation">}</span>
-<span class="punctuation">}</span>
+public class Test {
+    static void checkAge(int age) throws MyException {
+        if (age &lt; 18) {
+            throw new MyException("Underage not allowed");
+        }
+    }
+    public static void main(String[] args) {
+        try {
+            checkAge(15);
+        } catch (MyException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}
   </code></pre>
 </div>
 

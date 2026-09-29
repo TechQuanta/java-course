@@ -16,19 +16,19 @@ Object-Oriented Programming (OOP) is a programming paradigm that is based on the
     <h2>1. Classes and Objects</h2>
     <p>A <strong>class</strong> is a blueprint or prototype from which objects are created. It defines the properties (fields) and behaviors (methods) that the objects created from the class will have.</p>
     <h3>Example</h3>
-    <pre><code class="code-container">
-<span class="keyword">class</span> Car {
-    <span class="keyword">String</span> model;
-    <span class="keyword">int</span> year;
-    <span class="keyword">void</span> startEngine() {
-        <span class="keyword">System</span>.<span class="method">out</span>.<span class="method">println</span>(<span class="string">"Engine started"</span>);
+    <pre><code class="language-java">
+class Car {
+    String model;
+    int year;
+    void startEngine() {
+        System.out.println("Engine started");
     }
 }
-<span class="keyword">public</span> <span class="keyword">class</span> <span class="classname">Main</span> {
-    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">void</span> <span class="method">main</span>(String[] args) {
-        Car car1 = <span class="keyword">new</span> Car();
-        car1.model = <span class="string">"Toyota"</span>;
-        car1.year = <span class="number">2021</span>;
+public class Main {
+    public static void main(String[] args) {
+        Car car1 = new Car();
+        car1.model = "Toyota";
+        car1.year = 2021;
         car1.startEngine();
     }
 }
@@ -42,24 +42,24 @@ Object-Oriented Programming (OOP) is a programming paradigm that is based on the
     <h2>2. Encapsulation</h2>
     <p>Encapsulation means binding the data (variables) and the code acting on the data (methods) together as a single unit. It’s achieved using <code>private</code> access modifiers and public getters/setters.</p>
     <h3>Example</h3>
-    <pre><code class="code-container">
-<span class="keyword">class</span> Person {
-    <span class="keyword">private</span> <span class="type">String</span> name;
-    <span class="comment">// Getter method</span>
-    <span class="keyword">public</span> <span class="type">String</span> <span class="method">getName</span>() {
-        <span class="keyword">return</span> name;
+    <pre><code class="language-java">
+class Person {
+    private String name;
+    // Getter method
+    public String getName() {
+        return name;
     }
-    <span class="comment">// Setter method</span>
-    <span class="keyword">public</span> <span class="type">void</span> <span class="method">setName</span>(<span class="type">String</span> name) {
-        <span class="keyword">this</span>.name = name;
+    // Setter method
+    public void setName(String name) {
+        this.name = name;
     }
 }
 
-<span class="keyword">public class</span> Main {
-    <span class="keyword">public static void</span> <span class="method">main</span>(<span class="type">String</span>[] args) {
-        <span class="type">Person</span> person = <span class="keyword">new</span> <span class="type">Person</span>();
-        person.setName(<span class="string">"Alice"</span>);
-        System.out.println(<span class="string">"Name: "</span> + person.getName());
+public class Main {
+    public static void main(String[] args) {
+        Person person = new Person();
+        person.setName("Alice");
+        System.out.println("Name: " + person.getName());
     }
 }
     </code></pre>
@@ -70,15 +70,15 @@ Object-Oriented Programming (OOP) is a programming paradigm that is based on the
 <div class="section">
     <h2>3. Inheritance</h2>
     <p>Inheritance allows one class to inherit fields and methods from another class using the <code>extends</code> keyword.</p>
-    <pre><code class="code-container">
-<span class="keyword">class</span> Animal {
-    <span class="method">void</span> eat() {
-        <span class="keyword">System</span>.<span class="method">out</span>.<span class="method">println</span>(<span class="string">"Animal is eating"</span>);
+    <pre><code class="language-java">
+class Animal {
+    void eat() {
+        System.out.println("Animal is eating");
     }
 }
-<span class="keyword">class</span> Dog <span class="keyword">extends</span> Animal {
-    <span class="method">void</span> bark() {
-        <span class="keyword">System</span>.<span class="method">out</span>.<span class="method">println</span>(<span class="string">"Dog is barking"</span>);
+class Dog extends Animal {
+    void bark() {
+        System.out.println("Dog is barking");
     }
 }
     </code></pre>
@@ -89,26 +89,26 @@ Object-Oriented Programming (OOP) is a programming paradigm that is based on the
     <h2>4. Polymorphism</h2>
     <p><strong>Polymorphism</strong> allows methods to behave differently based on the object that is invoking them.</p>
     <h4>Method Overloading</h4>
-    <pre><code class="code-container">
-<span class="keyword">class</span> Calculator {
-    <span class="method">int</span> add(<span class="type">int</span> a, <span class="type">int</span> b) {
-        <span class="keyword">return</span> a + b;
+    <pre><code class="language-java">
+class Calculator {
+    int add(int a, int b) {
+        return a + b;
     }
-    <span class="method">double</span> add(<span class="type">double</span> a, <span class="type">double</span> b) {
-        <span class="keyword">return</span> a + b;
+    double add(double a, double b) {
+        return a + b;
     }
 }
     </code></pre>
     <h4>Method Overriding</h4>
-    <pre><code class="code-container">
-<span class="keyword">class</span> Animal {
-    <span class="method">void</span> sound() {
-        <span class="keyword">System</span>.<span class="method">out</span>.<span class="method">println</span>(<span class="string">"Animal makes a sound"</span>);
+    <pre><code class="language-java">
+class Animal {
+    void sound() {
+        System.out.println("Animal makes a sound");
     }
 }
-<span class="keyword">class</span> Dog <span class="keyword">extends</span> Animal {
-    <span class="method">void</span> sound() {
-        <span class="keyword">System</span>.<span class="method">out</span>.<span class="method">println</span>(<span class="string">"Dog barks"</span>);
+class Dog extends Animal {
+    void sound() {
+        System.out.println("Dog barks");
     }
 }
     </code></pre>
@@ -120,25 +120,25 @@ Object-Oriented Programming (OOP) is a programming paradigm that is based on the
     <h2>5. Abstraction</h2>
     <p>Abstraction means hiding internal details and showing only the functionality. It is achieved using <code>abstract</code> classes and <code>interfaces</code>.</p>
     <h4>Using Abstract Class</h4>
-    <pre><code class="code-container">
-<span class="keyword">abstract</span> <span class="keyword">class</span> Animal {
-    <span class="method">abstract</span> <span class="method">void</span> sound();
+    <pre><code class="language-java">
+abstract class Animal {
+    abstract void sound();
 }
-<span class="keyword">class</span> Dog <span class="keyword">extends</span> Animal {
-    <span class="method">void</span> sound() {
-        <span class="keyword">System</span>.<span class="method">out</span>.<span class="method">println</span>(<span class="string">"Dog barks"</span>);
+class Dog extends Animal {
+    void sound() {
+        System.out.println("Dog barks");
     }
 }
 <br>
     </code></pre>
     <h4>Using Interface</h4>
-    <pre><code class="code-container">
-<span class="keyword">interface</span> Animal {
-    <span class="method">void</span> sound();
+    <pre><code class="language-java">
+interface Animal {
+    void sound();
 }
-<span class="keyword">class</span> Dog <span class="keyword">implements</span> Animal {
-    <span class="method">public</span> <span class="method">void</span> sound() {
-        <span class="keyword">System</span>.<span class="method">out</span>.<span class="method">println</span>(<span class="string">"Dog barks"</span>);
+class Dog implements Animal {
+    public void sound() {
+        System.out.println("Dog barks");
     }
 }
     </code></pre>
@@ -148,11 +148,11 @@ Object-Oriented Programming (OOP) is a programming paradigm that is based on the
 <div class="section">
     <h2>6. Constructors</h2>
     <p>A constructor initializes an object. Java supports <strong>default</strong> , <strong>parameterized</strong> and <strong> copy constructor</strong> constructors.</p>
-    <pre><code class="code-container">
-<span class="keyword">class</span> Car {
-    <span class="type">String</span> model;
-    <span class="type">int</span> year;
-    <span class="keyword">Car</span>(<span class="type">String</span> model, <span class="type">int</span> year) {
+    <pre><code class="language-java">
+class Car {
+    String model;
+    int year;
+    Car(String model, int year) {
         this.model = model;
         this.year = year;
     }

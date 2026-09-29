@@ -22,13 +22,13 @@
   <h4>Example of One-Dimensional Array:</h4><br>
 <div class="example">
   <pre><code class="language-java">
-    <span class="keyword">int[]</span> <span class="variable">numbers</span> = <span class="keyword">new</span> <span class="class-name">int</span>[<span class="number">5</span>]; <span class="comment">// Declare an array of 5 integers</span>
-    <span class="variable">numbers</span>[<span class="number">0</span>] = <span class="number">10</span>; <span class="comment">// Assign values</span>
-    <span class="variable">numbers</span>[<span class="number">1</span>] = <span class="number">20</span>;
-    <span class="variable">numbers</span>[<span class="number">2</span>] = <span class="number">30</span>;
-    <span class="variable">numbers</span>[<span class="number">3</span>] = <span class="number">40</span>;
-    <span class="variable">numbers</span>[<span class="number">4</span>] = <span class="number">50</span>;
-    <span class="keyword">System.out</span>.<span class="method">println</span>(<span class="variable">numbers</span>[<span class="number">2</span>]); <span class="comment">// Output: 30</span>
+    int[] numbers = new int[5]; // Declare an array of 5 integers
+    numbers[0] = 10; // Assign values
+    numbers[1] = 20;
+    numbers[2] = 30;
+    numbers[3] = 40;
+    numbers[4] = 50;
+    System.out.println(numbers[2]); // Output: 30
   </code></pre>
 </div>
 <br>
@@ -43,17 +43,17 @@
   <h4>Example of Multi-Dimensional Array:</h4><br>
 <div class="example">
   <pre><code class="language-java">
-    <span class="keyword">int[][]</span> <span class="variable">matrix</span> = <span class="keyword">new</span> <span class="class-name">int</span>[<span class="number">3</span>][<span class="number">3</span>]; <span class="comment">// Declare a 3x3 matrix</span>
-    <span class="variable">matrix</span>[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>;
-    <span class="variable">matrix</span>[<span class="number">0</span>][<span class="number">1</span>] = <span class="number">2</span>;
-    <span class="variable">matrix</span>[<span class="number">0</span>][<span class="number">2</span>] = <span class="number">3</span>;
-    <span class="variable">matrix</span>[<span class="number">1</span>][<span class="number">0</span>] = <span class="number">4</span>;
-    <span class="variable">matrix</span>[<span class="number">1</span>][<span class="number">1</span>] = <span class="number">5</span>;
-    <span class="variable">matrix</span>[<span class="number">1</span>][<span class="number">2</span>] = <span class="number">6</span>;
-    <span class="variable">matrix</span>[<span class="number">2</span>][<span class="number">0</span>] = <span class="number">7</span>;
-    <span class="variable">matrix</span>[<span class="number">2</span>][<span class="number">1</span>] = <span class="number">8</span>;
-    <span class="variable">matrix</span>[<span class="number">2</span>][<span class="number">2</span>] = <span class="number">9</span>;
-    <span class="keyword">System.out</span>.<span class="method">println</span>(<span class="variable">matrix</span>[<span class="number">1</span>][<span class="number">1</span>]); <span class="comment">// Output: 5</span>
+    int[][] matrix = new int[3][3]; // Declare a 3x3 matrix
+    matrix[0][0] = 1;
+    matrix[0][1] = 2;
+    matrix[0][2] = 3;
+    matrix[1][0] = 4;
+    matrix[1][1] = 5;
+    matrix[1][2] = 6;
+    matrix[2][0] = 7;
+    matrix[2][1] = 8;
+    matrix[2][2] = 9;
+    System.out.println(matrix[1][1]); // Output: 5
   </code></pre>
 </div>
 
@@ -67,13 +67,13 @@
   <h4>Example of Sorting Array:</h4><br>
   <div class="example">
   <pre><code class="language-java">
-    <span class="keyword">import</span> <span class="class-name">java.util.Arrays</span>;
-    <span class="keyword">int[]</span> <span class="variable">numbers</span> = <span class="array">{
-      <span class="number">5</span>, <span class="number">3</span>, <span class="number">8</span>, <span class="number">1</span>, <span class="number">2</span>
+    import java.util.Arrays;
+    int[] numbers = {
+      5, 3, 8, 1, 2
     };
-    <span class="class-name">Arrays</span>.<span class="method">sort</span>(<span class="variable">numbers</span>); <span class="comment">// Sort the array in ascending order</span>
-    <span class="keyword">for</span>(<span class="keyword">int</span> <span class="variable">num</span> : <span class="variable">numbers</span>) {
-      <span class="keyword">System.out</span>.<span class="method">print</span>(<span class="variable">num</span> + <span class="string">" "</span>); <span class="comment">// Output: 1 2 3 5 8</span>
+    Arrays.sort(numbers); // Sort the array in ascending order
+    for(int num : numbers) {
+      System.out.print(num + " "); // Output: 1 2 3 5 8
     }
   </code></pre>
 </div>
@@ -87,12 +87,12 @@
   <h4>Example of Searching in an Array:</h4><br>
   <div class="example">
   <pre><code class="language-java">
-    <span class="keyword">import</span> <span class="class-name">java.util.Arrays</span>;
-    <span class="keyword">int[]</span> <span class="variable">numbers</span> = <span class="array">{
-      <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">8</span>
+    import java.util.Arrays;
+    int[] numbers = {
+      1, 2, 3, 5, 8
     };
-    <span class="keyword">int</span> <span class="variable">index</span> = <span class="class-name">Arrays</span>.<span class="method">binarySearch</span>(<span class="variable">numbers</span>, <span class="number">5</span>); <span class="comment">// Search for element 5</span>
-    <span class="keyword">System.out</span>.<span class="method">println</span>(<span class="string">"Element found at index: "</span> + <span class="variable">index</span>); <span class="comment">// Output: 3</span>
+    int index = Arrays.binarySearch(numbers, 5); // Search for element 5
+    System.out.println("Element found at index: " + index); // Output: 3
   </code></pre>
 </div>
 
@@ -171,12 +171,12 @@
   <h4>Example using ArrayList:</h4><br>
   <div class="example">
   <pre><code class="language-java">
-    <span class="keyword">import</span> <span class="class-name">java.util.ArrayList</span>;
-    <span class="variable">ArrayList&lt;String&gt;</span> <span class="variable">fruits</span> = <span class="keyword">new</span> <span class="class-name">ArrayList</span>&lt;&gt;();
-    <span class="variable">fruits</span>.<span class="method">add</span>(<span class="string">"Apple"</span>);
-    <span class="variable">fruits</span>.<span class="method">add</span>(<span class="string">"Banana"</span>);
-    <span class="variable">fruits</span>.<span class="method">add</span>(<span class="string">"Orange"</span>);
-    <span class="keyword">System.out</span>.<span class="method">println</span>(<span class="variable">fruits</span>.<span class="method">get</span>(<span class="number">1</span>)); <span class="comment">// Output: Banana</span>
+    import java.util.ArrayList;
+    ArrayList&lt;String&gt; fruits = new ArrayList&lt;&gt;();
+    fruits.add("Apple");
+    fruits.add("Banana");
+    fruits.add("Orange");
+    System.out.println(fruits.get(1)); // Output: Banana
   </code></pre>
 </div>
 
@@ -205,14 +205,14 @@ The `List` interface provides an ordered collection of elements. Common implemen
 
 <div class="example">
   <pre><code class="language-java">
-    <span class="keyword">import</span> <span class="class-name">java.util.ArrayList</span>;
-    <span class="keyword">import</span> <span class="class-name">java.util.List</span>;
-    <span class="class-name">List&lt;String&gt;</span> <span class="variable">fruits</span> = <span class="keyword">new</span> <span class="class-name">ArrayList</span>&lt;&gt;();
-    <span class="variable">fruits</span>.<span class="method">add</span>(<span class="string">"Apple"</span>);
-    <span class="variable">fruits</span>.<span class="method">add</span>(<span class="string">"Banana"</span>);
-    <span class="variable">fruits</span>.<span class="method">add</span>(<span class="string">"Mango"</span>);
-    <span class="keyword">for</span>(<span class="keyword">String</span> <span class="variable">fruit</span> : <span class="variable">fruits</span>) {
-      <span class="keyword">System.out</span>.<span class="method">println</span>(<span class="variable">fruit</span>);
+    import java.util.ArrayList;
+    import java.util.List;
+    List&lt;String&gt; fruits = new ArrayList&lt;&gt;();
+    fruits.add("Apple");
+    fruits.add("Banana");
+    fruits.add("Mango");
+    for(String fruit : fruits) {
+      System.out.println(fruit);
     }
   </code></pre>
 </div>
@@ -227,14 +227,14 @@ The `Set` interface does not allow duplicate elements. The most common implement
 
 <div class="example">
   <pre><code class="language-java">
-    <span class="keyword">import</span> <span class="class-name">java.util.HashSet</span>;
-    <span class="keyword">import</span> <span class="class-name">java.util.Set</span>;
-    <span class="class-name">Set&lt;String&gt;</span> <span class="variable">colors</span> = <span class="keyword">new</span> <span class="class-name">HashSet</span>&lt;&gt;();
-    <span class="variable">colors</span>.<span class="method">add</span>(<span class="string">"Red"</span>);
-    <span class="variable">colors</span>.<span class="method">add</span>(<span class="string">"Blue"</span>);
-    <span class="variable">colors</span>.<span class="method">add</span>(<span class="string">"Green"</span>);
-    <span class="keyword">for</span>(<span class="keyword">String</span> <span class="variable">color</span> : <span class="variable">colors</span>) {
-      <span class="keyword">System.out</span>.<span class="method">println</span>(<span class="variable">color</span>);
+    import java.util.HashSet;
+    import java.util.Set;
+    Set&lt;String&gt; colors = new HashSet&lt;&gt;();
+    colors.add("Red");
+    colors.add("Blue");
+    colors.add("Green");
+    for(String color : colors) {
+      System.out.println(color);
     }
   </code></pre>
 </div>
@@ -249,13 +249,13 @@ The `Queue` interface represents a collection designed for holding elements prio
 
 <div class="example">
   <pre><code class="language-java">
-    <span class="keyword">import</span> <span class="class-name">java.util.LinkedList</span>;
-    <span class="keyword">import</span> <span class="class-name">java.util.Queue</span>;
-    <span class="class-name">Queue&lt;String&gt;</span> <span class="variable">queue</span> = <span class="keyword">new</span> <span class="class-name">LinkedList</span>&lt;&gt;();
-    <span class="variable">queue</span>.<span class="method">add</span>(<span class="string">"First"</span>);
-    <span class="variable">queue</span>.<span class="method">add</span>(<span class="string">"Second"</span>);
-    <span class="variable">queue</span>.<span class="method">add</span>(<span class="string">"Third"</span>);
-    <span class="keyword">System.out</span>.<span class="method">println</span>(<span class="variable">queue</span>.<span class="method">poll</span>()); <span class="comment">// Output: First</span>
+    import java.util.LinkedList;
+    import java.util.Queue;
+    Queue&lt;String&gt; queue = new LinkedList&lt;&gt;();
+    queue.add("First");
+    queue.add("Second");
+    queue.add("Third");
+    System.out.println(queue.poll()); // Output: First
   </code></pre>
 </div>
 <br>
@@ -269,13 +269,13 @@ The `Map` interface represents a collection of key-value pairs. `HashMap` is one
 
 <div class="example">
   <pre><code class="language-java">
-    <span class="keyword">import</span> <span class="class-name">java.util.HashMap</span>;
-    <span class="keyword">import</span> <span class="class-name">java.util.Map</span>;
-    <span class="class-name">Map&lt;String, Integer&gt;</span> <span class="variable">ageMap</span> = <span class="keyword">new</span> <span class="class-name">HashMap</span>&lt;&gt;();
-    <span class="variable">ageMap</span>.<span class="method">put</span>(<span class="string">"Alice"</span>, <span class="number">30</span>);
-    <span class="variable">ageMap</span>.<span class="method">put</span>(<span class="string">"Bob"</span>, <span class="number">25</span>);
-    <span class="variable">ageMap</span>.<span class="method">put</span>(<span class="string">"Charlie"</span>, <span class="number">35</span>);
-    <span class="keyword">System.out</span>.<span class="method">println</span>(<span class="variable">ageMap</span>.<span class="method">get</span>(<span class="string">"Bob"</span>)); <span class="comment">// Output: 25</span>
+    import java.util.HashMap;
+    import java.util.Map;
+    Map&lt;String, Integer&gt; ageMap = new HashMap&lt;&gt;();
+    ageMap.put("Alice", 30);
+    ageMap.put("Bob", 25);
+    ageMap.put("Charlie", 35);
+    System.out.println(ageMap.get("Bob")); // Output: 25
   </code></pre>
 </div>
 <br>
@@ -298,13 +298,13 @@ Maps are powerful structures that associate keys with values. Here’s an exampl
 
 <div class="example">
   <pre><code class="language-java">
-    <span class="keyword">import</span> <span class="class-name">java.util.HashMap</span>;
-    <span class="keyword">import</span> <span class="class-name">java.util.Map</span>;
-    <span class="class-name">Map&lt;Integer, String&gt;</span> <span class="variable">map</span> = <span class="keyword">new</span> <span class="class-name">HashMap</span>&lt;&gt;();
-    <span class="variable">map</span>.<span class="method">put</span>(<span class="number">1</span>, <span class="string">"Apple"</span>);
-    <span class="variable">map</span>.<span class="method">put</span>(<span class="number">2</span>, <span class="string">"Banana"</span>);
-    <span class="variable">map</span>.<span class="method">put</span>(<span class="number">3</span>, <span class="string">"Cherry"</span>);
-    <span class="keyword">System.out</span>.<span class="method">println</span>(<span class="variable">map</span>.<span class="method">get</span>(<span class="number">1</span>)); <span class="comment">// Output: Apple</span>
+    import java.util.HashMap;
+    import java.util.Map;
+    Map&lt;Integer, String&gt; map = new HashMap&lt;&gt;();
+    map.put(1, "Apple");
+    map.put(2, "Banana");
+    map.put(3, "Cherry");
+    System.out.println(map.get(1)); // Output: Apple
   </code></pre>
 </div>
 

@@ -5,194 +5,134 @@
     <link rel="icon" href="https://avatars.githubusercontent.com/u/172573281?s=200&v=4" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Java Learning Platform</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Highlight.js for beautiful syntax highlighting (GitHub theme) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+    
     <link rel="stylesheet" href="styles.css" />
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/java.min.js"></script>
   </head>
   <body>
-    <!-- Theme Toggle -->
-    <button id="theme-toggle">🌓</button>
 
-    <!-- Mobile Nav Toggle -->
-    <button id="menu-toggle">
-      <img src="IMAGES/menu.png" alt="Menu" class="menu-icon">
-    </button>
-    
-
-    <!-- Sidebar -->
-    <aside id="sidebar">
-      <div class="logo">
-        <img src="https://avatars.githubusercontent.com/u/172573281?s=200&v=4" alt="Java Logo" style="border-radius:100%" class="java-logo" />
-        <h2>Java Course</h2>
-        <br />
-        <h3>Beginner ---> Advance </h3>
-        <hr class="styled-hr" />
+    <!-- Top Navigation Bar -->
+    <header id="top-navbar">
+      <div class="logo" id="logo-menu-toggle" title="Toggle Sidebar (Mobile)">
+        <img src="https://avatars.githubusercontent.com/u/172573281?s=200&v=4" alt="Java Logo" class="java-logo" />
+        <div class="logo-text">
+          <h2>Java Course</h2>
+        </div>
       </div>
 
-      <nav class="nav-sections">
-        <!-- Java Installation -->
-        <section>
-          <button class="dropdown-btn"><a href="#java-installation/" onclick="loadContent('java-installation/')">--->Java 🛠️⚙️📥</a>
-        </section>
-        <!-- Core Java -->
-        <section>
-          <button class="dropdown-btn">Core Java ▾</button>
-          <ul class="dropdown-container">
-            <li>
-              <a href="#core-java/java-basics" onclick="loadContent('core-java/java-basics/')"
-                >📘 Java Basics</a
-              >
-            </li>
-            <li>
-              <a
-                href="#core-java/variables-data-types"
-                onclick="loadContent('core-java/variables-data-types/')"
-                >🔡 Tokens & Data Types</a
-              >
-            </li>
-            <li>
-              <a href="#core-java/control-flow" onclick="loadContent('core-java/control-flow/')"
-                >🔁 Control Flow</a
-              >
-            </li>
-            <li>
-              <a href="#core-java/oops-basics" onclick="loadContent('core-java/oops-basics/')"
-                >🏛️ OOP Basics</a
-              >
-            </li>
-            <li>
-              <a href="#core-java/methods" onclick="loadContent('core-java/methods/')"
-                >🔧 Methods</a
-              >
-            </li>
-            <li>
-              <a href="#core-java/threads" onclick="loadContent('core-java/threads/')"
-              >🧵 Threads</a
-              >
-            </li>
-            <li>
-              <a href="#core-java/arrays-collections" onclick="loadContent('core-java/arrays-collections/')"
-              >[1,2,3] Arrays & Collections</a
-              >
-            </li>
-            <li>
-              <a
-              href="#core-java/functional-programming"
-              onclick="loadContent('core-java/functional-programming/')"
-              >🧠 Functional Programming</a
-              >
-            </li>
-            <li>  
-              <a href="#core-java/exception-handling" onclick="loadContent('core-java/exception-handling/')"
-                >⚠️ Exception Handling</a
-              >
-            </li>
-          </ul>
-        </section>
-
-        <!-- Advanced Java -->
-        <section>
-          <button class="dropdown-btn">Advanced Java ▾</button>
-          <ul class="dropdown-container">
-            <li>
-              <a href="#advanced-java/inheritance" onclick="loadContent('advanced-java/inheritance/')"
-                >🧬  Inheritance</a
-              >
-            </li>
-            <li>
-              <a href="#advanced-java/abstraction" onclick="loadContent('advanced-java/abstraction/')"
-                >🌀 Abstraction</a
-              >
-            </li>
-            <li>
-              <a href="#advanced-java/encapsulation" onclick="loadContent('advanced-java/encapsulation/')"
-                >🔐 Encapsulation</a
-              >
-            </li>
-            <li>
-              <a href="#advanced-java/polymorphism" onclick="loadContent('advanced-java/polymorphism/')"
-                >🌀 Polymorphism </a
-              >
-            </li>
-            <li>
-              <a
-                href="#advanced-java/advanced-threads"
-                onclick="loadContent('advanced-java/advanced-threads/')"
-                >🔀 Advanced Threads</a
-              >
-            </li>
-            <li>
-              <a href="#advanced-java/file-io" onclick="loadContent('advanced-java/file-io/')"
-                >📁 File I/O</a
-              >
-            </li>
-            <li>
-              <a href="#advanced-java/jdbcodbc" onclick="loadContent('advanced-java/jdbcodbc/')"
-                >🗄️ JDBC</a
-              >
-            </li>
-            <li>
-              <a href="#advanced-java/collections" onclick="loadContent('advanced-java/collections/')"
-                >📦 COLLECTIONS</a
-              >
-            </li>
-          </ul>
-        </section>
-
-        <!-- Senior Level -->
-        <section>
-          <button class="dropdown-btn">Senior Level ▾</button>
-          <ul class="dropdown-container">
-            <li>
-              <a href="#senior-java/advanced-jdbc" onclick="loadContent('senior-java/advanced-jdbc/')"
-                >🔌Advanced JDBC /ODBC </a
-              >
-            </li>
-            <li>
-              <a href="#senior-java/big-data" onclick="loadContent('senior-java/big-data/')"
-                >📊 Big Data</a
-              >
-            </li>
-            <li>
-              <a href="#senior-java/design-pattern" onclick="loadContent('senior-java/design-pattern/')"
-                >🎨 Design Pattern</a
-              >
-            </li>
-            <li>
-              <a href="#senior-java/microservices" onclick="loadContent('senior-java/microservices/')"
-                >☁️ Microservices</a
-              >
-            </li>
-            <li>
-              <a
-                href="#senior-java/performance-tunning"
-                onclick="loadContent('senior-java/performance-tunning/')"
-                >🚀 Performance Tuning</a
-              >
-            </li>
-            <li>
-              <a href="#senior-java/servelt-jsp" onclick="loadContent('senior-java/servelt-jsp/')"
-                >🌐 Servlet & JSP</a
-              >
-            </li>
-            <li>
-              <a
-                href="#senior-java/spring-framework"
-                onclick="loadContent('senior-java/spring-framework/')"
-                >🌿 Spring Framework</a
-              >
-            </li>
-          </ul>
-        </section>
-        <section>
-          <button class="dropdown-btn" style="background-color:rgb(16, 217, 16);"><a href="#interviewquestions/" onclick="loadContent('interviewquestions/')">Interview Questions</a>
-        </section>
+      <nav class="top-nav-links">
+        <a href="#java-installation/" onclick="loadContent('java-installation/'); showCategory('setup')" class="top-link category-link">Setup</a>
+        <a href="#" onclick="showCategory('core'); return false;" class="top-link category-link active-top">Core Java</a>
+        <a href="#" onclick="showCategory('advanced'); return false;" class="top-link category-link">Advanced Java</a>
+        <a href="#" onclick="showCategory('senior'); return false;" class="top-link category-link">Senior Level</a>
+        <a href="#interviewquestions/" onclick="loadContent('interviewquestions/'); showCategory('interview')" class="top-link category-link">Interview Prep</a>
       </nav>
+
       <div class="join-community-wrapper">
-        <a href="http://github.com/techquanta" class="join-community" target="_blank" rel="noopener">
-          🤝 Join Our Community
-        </a>
+        <button id="theme-toggle" class="theme-btn" title="Toggle dark mode">
+          <span class="icon">🌓</span>
+        </button>
       </div>
-      
+    </header>
+
+    <!-- Unified Left Sidebar -->
+    <aside id="left-sidebar">
+      <div class="sidebar-scrollable">
+        
+        <!-- Mobile Main Categories (Visible only on mobile) -->
+        <nav class="mobile-main-nav">
+          <h3 class="nav-heading">Categories</h3>
+          <div class="nav-list">
+            <a href="#java-installation/" onclick="loadContent('java-installation/'); showCategory('setup')" class="nav-link category-link">Setup</a>
+            <a href="#" onclick="showCategory('core'); return false;" class="nav-link category-link active">Core Java</a>
+            <a href="#" onclick="showCategory('advanced'); return false;" class="nav-link category-link">Advanced Java</a>
+            <a href="#" onclick="showCategory('senior'); return false;" class="nav-link category-link">Senior Level</a>
+            <a href="#interviewquestions/" onclick="loadContent('interviewquestions/'); showCategory('interview')" class="nav-link category-link">Interview Prep</a>
+          </div>
+          <hr class="sidebar-divider" />
+        </nav>
+
+        <!-- Table of Contents (Dynamic) -->
+        <div class="toc-section">
+          <h3 class="nav-heading">On this page</h3>
+          <div id="toc-content"></div>
+        </div>
+
+        <hr class="sidebar-divider" />
+
+        <!-- Course Sub-Navigation -->
+        <nav class="course-nav">
+          
+          <div id="cat-setup" class="submenu" style="display: none;">
+             <p style="font-size: 14px; padding: 10px; color: var(--fg);">Click the link above to view Setup & Installation.</p>
+          </div>
+
+          <div id="cat-core" class="submenu">
+            <h3 class="nav-heading">Core Java Topics</h3>
+            <ul class="nav-list">
+              <li><a href="#core-java/java-basics" class="nav-link" onclick="loadContent('core-java/java-basics/')">📘 Java Basics</a></li>
+              <li><a href="#core-java/variables-data-types" class="nav-link" onclick="loadContent('core-java/variables-data-types/')">🔡 Tokens & Data Types</a></li>
+              <li><a href="#core-java/control-flow" class="nav-link" onclick="loadContent('core-java/control-flow/')">🔁 Control Flow</a></li>
+              <li><a href="#core-java/oops-basics" class="nav-link" onclick="loadContent('core-java/oops-basics/')">🏛️ OOP Basics</a></li>
+              <li><a href="#core-java/string-handling" class="nav-link" onclick="loadContent('core-java/string-handling/')">🔤 String Handling</a></li>
+              <li><a href="#core-java/packages-access-modifiers" class="nav-link" onclick="loadContent('core-java/packages-access-modifiers/')">📦 Packages & Access Modifiers</a></li>
+              <li><a href="#core-java/wrapper-classes" class="nav-link" onclick="loadContent('core-java/wrapper-classes/')">🎁 Wrapper Classes</a></li>
+              <li><a href="#core-java/methods" class="nav-link" onclick="loadContent('core-java/methods/')">🔧 Methods</a></li>
+              <li><a href="#core-java/threads" class="nav-link" onclick="loadContent('core-java/threads/')">🧵 Threads</a></li>
+              <li><a href="#core-java/arrays-collections" class="nav-link" onclick="loadContent('core-java/arrays-collections/')">[1,2,3] Arrays & Collections</a></li>
+              <li><a href="#core-java/functional-programming" class="nav-link" onclick="loadContent('core-java/functional-programming/')">🧠 Functional Programming</a></li>
+              <li><a href="#core-java/java8-features" class="nav-link" onclick="loadContent('core-java/java8-features/')">🚀 Java 8+ Features</a></li>
+              <li><a href="#core-java/exception-handling" class="nav-link" onclick="loadContent('core-java/exception-handling/')">⚠️ Exception Handling</a></li>
+            </ul>
+          </div>
+
+          <div id="cat-advanced" class="submenu" style="display: none;">
+            <h3 class="nav-heading">Advanced Java Topics</h3>
+            <ul class="nav-list">
+              <li><a href="#advanced-java/inheritance" class="nav-link" onclick="loadContent('advanced-java/inheritance/')">🧬 Inheritance</a></li>
+              <li><a href="#advanced-java/abstraction" class="nav-link" onclick="loadContent('advanced-java/abstraction/')">🌀 Abstraction</a></li>
+              <li><a href="#advanced-java/encapsulation" class="nav-link" onclick="loadContent('advanced-java/encapsulation/')">🔐 Encapsulation</a></li>
+              <li><a href="#advanced-java/polymorphism" class="nav-link" onclick="loadContent('advanced-java/polymorphism/')">🌀 Polymorphism</a></li>
+              <li><a href="#advanced-java/generics" class="nav-link" onclick="loadContent('advanced-java/generics/')">📐 Generics</a></li>
+              <li><a href="#advanced-java/annotations" class="nav-link" onclick="loadContent('advanced-java/annotations/')">🏷️ Annotations</a></li>
+              <li><a href="#advanced-java/enums" class="nav-link" onclick="loadContent('advanced-java/enums/')">🔢 Enums</a></li>
+              <li><a href="#advanced-java/inner-classes" class="nav-link" onclick="loadContent('advanced-java/inner-classes/')">🧅 Inner Classes</a></li>
+              <li><a href="#advanced-java/advanced-threads" class="nav-link" onclick="loadContent('advanced-java/advanced-threads/')">🔀 Advanced Threads</a></li>
+              <li><a href="#advanced-java/file-io" class="nav-link" onclick="loadContent('advanced-java/file-io/')">📁 File I/O</a></li>
+              <li><a href="#advanced-java/serialization" class="nav-link" onclick="loadContent('advanced-java/serialization/')">🧊 Serialization</a></li>
+              <li><a href="#advanced-java/networking" class="nav-link" onclick="loadContent('advanced-java/networking/')">🌐 Networking</a></li>
+              <li><a href="#advanced-java/regex" class="nav-link" onclick="loadContent('advanced-java/regex/')">🔍 Regular Expressions</a></li>
+              <li><a href="#advanced-java/jdbcodbc" class="nav-link" onclick="loadContent('advanced-java/jdbcodbc/')">🗄️ JDBC</a></li>
+              <li><a href="#advanced-java/collections" class="nav-link" onclick="loadContent('advanced-java/collections/')">📦 COLLECTIONS</a></li>
+            </ul>
+          </div>
+
+          <div id="cat-senior" class="submenu" style="display: none;">
+            <h3 class="nav-heading">Senior Level Topics</h3>
+            <ul class="nav-list">
+              <li><a href="#senior-java/advanced-jdbc" class="nav-link" onclick="loadContent('senior-java/advanced-jdbc/')">🔌 Advanced JDBC / ODBC</a></li>
+              <li><a href="#senior-java/big-data" class="nav-link" onclick="loadContent('senior-java/big-data/')">📊 Big Data</a></li>
+              <li><a href="#senior-java/design-pattern" class="nav-link" onclick="loadContent('senior-java/design-pattern/')">🎨 Design Pattern</a></li>
+              <li><a href="#senior-java/microservices" class="nav-link" onclick="loadContent('senior-java/microservices/')">☁️ Microservices</a></li>
+              <li><a href="#senior-java/performance-tunning" class="nav-link" onclick="loadContent('senior-java/performance-tunning/')">🚀 Performance Tuning</a></li>
+              <li><a href="#senior-java/servelt-jsp" class="nav-link" onclick="loadContent('senior-java/servelt-jsp/')">🌐 Servlet & JSP</a></li>
+              <li><a href="#senior-java/spring-framework" class="nav-link" onclick="loadContent('senior-java/spring-framework/')">🌿 Spring Framework</a></li>
+            </ul>
+          </div>
+          
+          <div id="cat-interview" class="submenu" style="display: none;">
+             <p style="font-size: 14px; padding: 10px; color: var(--fg); opacity: 0.8;">Click the link above or check the main content.</p>
+          </div>
+      </div>
     </aside>
 
     <!-- Main Content -->

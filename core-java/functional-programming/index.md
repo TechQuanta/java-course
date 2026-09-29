@@ -7,8 +7,8 @@ Functional programming (FP) is a programming paradigm where computation is treat
 Lambda expressions allow you to write methods or functions as expressions. They provide a clear and concise way to represent a method interface (functional interface). A lambda expression can be used to implement the abstract method of a functional interface.
 <div class="example">
   <pre><code class="language-java">
-<span class="keyword">BinaryOperator&lt;Integer&gt;</span> add = <span class="lambda">(a, b) -&gt; a + b;</span>
-System.out.println(add.apply(5, 10));  <span class="comment">// Output: 15</span>
+BinaryOperator&lt;Integer&gt; add = (a, b) -&gt; a + b;
+System.out.println(add.apply(5, 10));  // Output: 15
   </code></pre>
 </div>
 
@@ -17,14 +17,14 @@ Lambda expressions help simplify code, making it more readable and concise. Here
 
 <div class="example">
   <pre><code class="language-java">
-<span class="annotation">@FunctionalInterface</span>
-public interface <span class="keyword">MyFunctionalInterface</span> {
-    void <span class="method">myMethod</span>();
+@FunctionalInterface
+public interface MyFunctionalInterface {
+    void myMethod();
 }
 
-// Using <span class="lambda">Lambda Expression</span>
-<span class="variable">MyFunctionalInterface</span> myFunc = () -&gt; <span class="string">System.out.println("Hello, Functional Programming!");</span>
-myFunc.<span class="method">myMethod</span>();  <span class="comment">// Output: Hello, Functional Programming!</span>
+// Using Lambda Expression
+MyFunctionalInterface myFunc = () -&gt; System.out.println("Hello, Functional Programming!");
+myFunc.myMethod();  // Output: Hello, Functional Programming!
   </code></pre>
 </div>
 
@@ -35,14 +35,14 @@ A functional interface is an interface with just one abstract method. It can hav
 
 <div class="example">
   <pre><code class="language-java">
-<span class="annotation">@FunctionalInterface</span>
-public interface <span class="keyword">MyFunctionalInterface</span> {
-    void <span class="method">myMethod</span>();
+@FunctionalInterface
+public interface MyFunctionalInterface {
+    void myMethod();
 }
 
-// Using <span class="lambda">Lambda Expression</span>
-<span class="variable">MyFunctionalInterface</span> myFunc = () -&gt; <span class="string">System.out.println("Hello, Functional Programming!");</span>
-myFunc.<span class="method">myMethod</span>();  <span class="comment">// Output: Hello, Functional Programming!</span>
+// Using Lambda Expression
+MyFunctionalInterface myFunc = () -&gt; System.out.println("Hello, Functional Programming!");
+myFunc.myMethod();  // Output: Hello, Functional Programming!
   </code></pre>
 </div>
 
@@ -53,11 +53,11 @@ Streams are sequences of elements that support aggregate operations. You can pro
 
 <div class="example">
   <pre><code class="language-java">
-<span class="keyword">List</span>&lt;<span class="keyword">Integer</span>&gt; numbers = <span class="method">Arrays.asList</span>(1, 2, 3, 4, 5);
-numbers.<span class="method">stream</span>()
-       .<span class="method">filter</span>(n -&gt; n % 2 == 0) <span class="comment">// Filter even numbers</span>
-       .<span class="method">map</span>(n -&gt; n * n)         <span class="comment">// Square the numbers</span>
-       .<span class="method">forEach</span>(<span class="method">System.out</span>::<span class="method">println</span>);  <span class="comment">// Output: 4 16</span>
+List&lt;Integer&gt; numbers = Arrays.asList(1, 2, 3, 4, 5);
+numbers.stream()
+       .filter(n -&gt; n % 2 == 0) // Filter even numbers
+       .map(n -&gt; n * n)         // Square the numbers
+       .forEach(System.out::println);  // Output: 4 16
   </code></pre>
 </div>
 
@@ -68,8 +68,8 @@ Method references are a shorthand notation of a lambda expression that calls a m
 
 <div class="example">
   <pre><code class="language-java">
-<span class="keyword">List</span>&lt;<span class="keyword">String</span>&gt; fruits = <span class="method">Arrays.asList</span>(<span class="string">"Apple"</span>, <span class="string">"Banana"</span>, <span class="string">"Cherry"</span>);
-fruits.<span class="method">forEach</span>(<span class="method">System.out</span>::<span class="method">println</span>);  <span class="comment">// Output: Apple, Banana, Cherry</span>
+List&lt;String&gt; fruits = Arrays.asList("Apple", "Banana", "Cherry");
+fruits.forEach(System.out::println);  // Output: Apple, Banana, Cherry
   </code></pre>
 </div>
 
@@ -80,8 +80,8 @@ fruits.<span class="method">forEach</span>(<span class="method">System.out</span
 
 <div class="example">
   <pre><code class="language-java">
-<span class="keyword">Optional</span>&lt;<span class="keyword">String</span>&gt; name = <span class="method">Optional.of</span>(<span class="string">"John"</span>);
-name.<span class="method">ifPresent</span>(<span class="method">System.out</span>::<span class="method">println</span>);  <span class="comment">// Output: John</span>
+Optional&lt;String&gt; name = Optional.of("John");
+name.ifPresent(System.out::println);  // Output: John
   </code></pre>
 </div>
 
@@ -91,8 +91,8 @@ The `Predicate` interface represents a boolean-valued function of one argument. 
 
 <div class="example">
   <pre><code class="language-java">
-<span class="keyword">Predicate</span>&lt;<span class="keyword">String</span>&gt; isNotEmpty = str -&gt; <span class="operator">!</span>str.<span class="method">isEmpty</span>();
-System.out.println(isNotEmpty.<span class="method">test</span>(<span class="string">"Hello"</span>));  <span class="comment">// Output: true</span>
+Predicate&lt;String&gt; isNotEmpty = str -&gt; !str.isEmpty();
+System.out.println(isNotEmpty.test("Hello"));  // Output: true
   </code></pre>
 </div>
 
@@ -103,8 +103,8 @@ The `Consumer` interface represents an operation that accepts a single input arg
 
 <div class="example">
   <pre><code class="language-java">
-<span class="keyword">Consumer</span>&lt;<span class="keyword">String</span>&gt; print = str -&gt; System.out.<span class="method">println</span>(str);
-print.<span class="method">accept</span>(<span class="string">"Hello, Consumer!"</span>);  <span class="comment">// Output: Hello, Consumer!</span>
+Consumer&lt;String&gt; print = str -&gt; System.out.println(str);
+print.accept("Hello, Consumer!");  // Output: Hello, Consumer!
   </code></pre>
 </div>
 
@@ -115,8 +115,8 @@ The `Function` interface represents a function that accepts one argument and pro
 
 <div class="example">
   <pre><code class="language-java">
-<span class="keyword">Function</span>&lt;<span class="keyword">Integer</span>, <span class="keyword">Integer</span>&gt; square = x -&gt; x * x;
-System.out.<span class="method">println</span>(square.<span class="method">apply</span>(<span class="number">5</span>));  <span class="comment">// Output: 25</span>
+Function&lt;Integer, Integer&gt; square = x -&gt; x * x;
+System.out.println(square.apply(5));  // Output: 25
   </code></pre>
 </div>
 

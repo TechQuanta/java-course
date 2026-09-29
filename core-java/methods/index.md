@@ -55,9 +55,9 @@
     <h3 id="method-syntax">Method Syntax</h3>
     <p>The basic syntax of a method in Java is as follows:</p>
 <pre><code class="code-block">
-<span class="comment">// Method syntax</span>
-<span class="keyword">[access_modifier]</span> <span class="type">[return_type]</span> <span class="method">methodName</span>(<span class="type">[parameters]</span>) {
-    <span class="comment">// Method body</span>
+// Method syntax
+[access_modifier] [return_type] methodName([parameters]) {
+    // Method body
 }
 </code></pre>
 
@@ -103,18 +103,18 @@
     </div>
     <p>Example:</p>
 <pre><code class="code-block">
-<span class="keyword">public class</span> <span class="class-name">MyClass</span> {
-    <span class="keyword">public void</span> <span class="method">publicMethod</span>() {
-        <span class="keyword">System.out</span>.println(<span class="string">"I am public."</span>);
+public class MyClass {
+    public void publicMethod() {
+        System.out.println("I am public.");
     }
-    <span class="keyword">private void</span> <span class="method">privateMethod</span>() {
-        <span class="keyword">System.out</span>.println(<span class="string">"I am private."</span>);
+    private void privateMethod() {
+        System.out.println("I am private.");
     }
-    <span class="keyword">protected void</span> <span class="method">protectedMethod</span>() {
-        <span class="keyword">System.out</span>.println(<span class="string">"I am protected."</span>);
+    protected void protectedMethod() {
+        System.out.println("I am protected.");
     }
-    <span class="keyword">void</span> <span class="method">defaultMethod</span>() {
-        <span class="keyword">System.out</span>.println(<span class="string">"I am default."</span>);
+    void defaultMethod() {
+        System.out.println("I am default.");
     }
 }
 </code></pre>
@@ -156,12 +156,12 @@
         </table>
     </div>
 <pre><code class="code-block">
-<span class="keyword">class</span> <span class="class-name">MyClass</span> {
-    <span class="keyword">static void</span> <span class="method">staticMethod</span>() {
-        <span class="keyword">System.out</span>.println(<span class="string">"I am static."</span>);
+class MyClass {
+    static void staticMethod() {
+        System.out.println("I am static.");
     }
-    <span class="keyword">void</span> <span class="method">instanceMethod</span>() {
-        <span class="keyword">System.out</span>.println(<span class="string">"I am an instance method."</span>);
+    void instanceMethod() {
+        System.out.println("I am an instance method.");
     }
 }
 </code></pre>
@@ -192,13 +192,13 @@
     <p>Example:</p>
 <pre><code class="code-block">
 // Returning an integer
-<span class="keyword">public int</span> <span class="method">addNumbers</span>(<span class="type">int</span> a, <span class="type">int</span> b) {
-    <span class="keyword">return</span> a + b;
+public int addNumbers(int a, int b) {
+    return a + b;
 }
 
 // Returning void
-<span class="keyword">public void</span> <span class="method">printMessage</span>(<span class="type">String</span> message) {
-    <span class="keyword">System.out</span>.println(message);
+public void printMessage(String message) {
+    System.out.println(message);
 }
 </code></pre>
 
@@ -206,12 +206,12 @@
     <h3 id="method-overloading">Method Overloading</h3>
     <p>Java allows methods to have the same name but different parameter lists. This feature is known as method overloading. Overloading can happen by changing the number or type of parameters.</p>
 <pre><code class="code-block">
-<span class="keyword">public class</span> MyClass {
-    <span class="keyword">public void</span> <span class="method">display</span>(<span class="type">String</span> msg) {
-        <span class="keyword">System.out</span>.println(<span class="string">"Message: "</span> + msg);
+public class MyClass {
+    public void display(String msg) {
+        System.out.println("Message: " + msg);
     }
-    <span class="keyword">public void</span> <span class="method">display</span>(<span class="type">int</span> num) {
-        <span class="keyword">System.out</span>.println(<span class="string">"Number: "</span> + num);
+    public void display(int num) {
+        System.out.println("Number: " + num);
     }
 }
 </code></pre>
@@ -220,16 +220,16 @@
     <h3 id="method-overriding">Method Overriding</h3>
     <p>Method overriding occurs when a subclass provides a specific implementation of a method already defined in its superclass. The method in the subclass should have the same name, return type, and parameters.</p>
 <pre><code class="code-block">
-<span class="keyword">class</span> Animal {
-    <span class="keyword">public void</span> <span class="method">sound</span>() {
-        <span class="keyword">System.out</span>.println(<span class="string">"Animal makes a sound"</span>);
+class Animal {
+    public void sound() {
+        System.out.println("Animal makes a sound");
     }
 }
 
-<span class="keyword">class</span> Dog <span class="keyword">extends</span> Animal {
-    <span class="annotation">@Override</span>
-    <span class="keyword">public void</span> <span class="method">sound</span>() {
-        <span class="keyword">System.out</span>.println(<span class="string">"Dog barks"</span>);
+class Dog extends Animal {
+    @Override
+    public void sound() {
+        System.out.println("Dog barks");
     }
 }
 </code></pre>

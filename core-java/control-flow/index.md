@@ -27,9 +27,9 @@ Executes code block only if condition is `true`.
 <!-- if statement -->
 <div class="code-container">
   <pre><code class="code-block">
-<span class="keyword">if</span> (<span class="variable">condition</span>) <span class="punctuation">{</span>
-    <span class="comment">// code to execute if condition is true</span>
-<span class="punctuation">}</span>
+if (condition) {
+    // code to execute if condition is true
+}
   </code></pre>
 </div>
 
@@ -45,11 +45,11 @@ Executes one block if true, another if false.
 <!-- if-else statement -->
 <div class="code-container">
   <pre><code class="code-block">
-<span class="keyword">if</span> (<span class="variable">condition</span>) <span class="punctuation">{</span>
-    <span class="comment">// code if true</span>
-<span class="punctuation">}</span> <span class="keyword">else</span> <span class="punctuation">{</span>
-    <span class="comment">// code if false</span>
-<span class="punctuation">}</span>
+if (condition) {
+    // code if true
+} else {
+    // code if false
+}
   </code></pre>
 </div>
 
@@ -64,13 +64,13 @@ Checks multiple conditions in order.
 <!-- if-else-if ladder -->
 <div class="code-container">
   <pre><code class="code-block">
-<span class="keyword">if</span> (<span class="variable">condition1</span>) <span class="punctuation">{</span>
-    <span class="comment">// code if condition1 is true</span>
-<span class="punctuation">}</span> <span class="keyword">else if</span> (<span class="variable">condition2</span>) <span class="punctuation">{</span>
-    <span class="comment">// code if condition2 is true</span>
-<span class="punctuation">}</span> <span class="keyword">else</span> <span class="punctuation">{</span>
-    <span class="comment">// code if none are true</span>
-<span class="punctuation">}</span>
+if (condition1) {
+    // code if condition1 is true
+} else if (condition2) {
+    // code if condition2 is true
+} else {
+    // code if none are true
+}
   </code></pre>
 </div>
 
@@ -84,11 +84,11 @@ An `if` inside another `if`.
 <!-- nested if -->
 <div class="code-container">
   <pre><code class="code-block">
-<span class="keyword">if</span> (<span class="variable">condition1</span>) <span class="punctuation">{</span>
-    <span class="keyword">if</span> (<span class="variable">condition2</span>) <span class="punctuation">{</span>
-        <span class="comment">// code if both are true</span>
-    <span class="punctuation">}</span>
-<span class="punctuation">}</span>
+if (condition1) {
+    if (condition2) {
+        // code if both are true
+    }
+}
   </code></pre>
 </div>
 
@@ -104,16 +104,16 @@ Simplifies checking multiple fixed values.
 <!-- switch-case -->
 <div class="code-container">
   <pre><code class="code-block">
-<span class="keyword">switch</span> (<span class="variable">expression</span>) <span class="punctuation">{</span>
-    <span class="keyword">case</span> <span class="value">value1</span><span class="punctuation">:</span>
-        <span class="comment">// code block</span>
-        <span class="keyword">break</span><span class="punctuation">;</span>
-    <span class="keyword">case</span> <span class="value">value2</span><span class="punctuation">:</span>
-        <span class="comment">// code block</span>
-        <span class="keyword">break</span><span class="punctuation">;</span>
-    <span class="keyword">default</span><span class="punctuation">:</span>
-        <span class="comment">// default block</span>
-<span class="punctuation">}</span>
+switch (expression) {
+    case value1:
+        // code block
+        break;
+    case value2:
+        // code block
+        break;
+    default:
+        // default block
+}
   </code></pre>
 </div>
 
@@ -132,8 +132,8 @@ Loops with counter logic.
 <!-- for loop -->
 <div class="code-container">
   <pre><code class="code-block">
-<span class="keyword">for</span> (<span class="datatype">int</span> <span class="variable">i</span> = <span class="number">0</span>; <span class="variable">i</span> &lt; <span class="variable">n</span>; <span class="variable">i</span>++) {
-    <span class="comment">// loop body</span>
+for (int i = 0; i &lt; n; i++) {
+    // loop body
 }
   </code></pre>
 </div>
@@ -149,8 +149,8 @@ Continues as long as condition is true.
 <!-- while loop -->
 <div class="code-container">
   <pre><code class="code-block">
-<span class="keyword">while</span> (<span class="variable">condition</span>) {
-    <span class="comment">// loop body</span>
+while (condition) {
+    // loop body
 }
   </code></pre>
 </div>
@@ -166,9 +166,9 @@ Executes once before checking condition.
 <!-- do-while loop -->
 <div class="code-container">
   <pre><code class="code-block">
-<span class="keyword">do</span> {
-    <span class="comment">// loop body</span>
-} <span class="keyword">while</span> (<span class="variable">condition</span>);
+do {
+    // loop body
+} while (condition);
   </code></pre>
 </div>
 
@@ -183,8 +183,8 @@ Iterates through arrays or collections.
 <!-- enhanced for loop -->
 <div class="code-container">
   <pre><code class="code-block">
-<span class="keyword">for</span> (<span class="keyword">int</span> <span class="variable">item</span> : <span class="variable">array</span>) {
-    <span class="comment">// loop body</span>
+for (int item : array) {
+    // loop body
 }
   </code></pre>
 </div>
@@ -199,9 +199,9 @@ A loop inside another loop.
 <!-- nested for loop -->
 <div class="code-container">
   <pre><code class="code-block">
-<span class="keyword">for</span> (<span class="keyword">int</span> <span class="variable">i</span> = 0; <span class="variable">i</span> &lt; <span class="variable">n</span>; <span class="variable">i</span>++) {
-    <span class="keyword">for</span> (<span class="keyword">int</span> <span class="variable">j</span> = 0; <span class="variable">j</span> &lt; <span class="variable">m</span>; <span class="variable">j</span>++) {
-        <span class="comment">// inner loop code</span>
+for (int i = 0; i &lt; n; i++) {
+    for (int j = 0; j &lt; m; j++) {
+        // inner loop code
     }
 }
   </code></pre>
@@ -217,11 +217,11 @@ Used to break/continue specific `outer` loop.
 <!-- labeled loop -->
 <div class="code-container">
   <pre><code class="code-block">
-<span class="keyword">outer</span>:
-<span class="keyword">for</span> (<span class="keyword">int</span> <span class="variable">i</span> = 0; <span class="variable">i</span> &lt; 3; <span class="variable">i</span>++) {
-    <span class="keyword">for</span> (<span class="keyword">int</span> <span class="variable">j</span> = 0; <span class="variable">j</span> &lt; 3; <span class="variable">j</span>++) {
-        <span class="keyword">if</span> (<span class="variable">i</span> == <span class="variable">j</span>) {
-            <span class="keyword">break</span> <span class="variable">outer</span>;
+outer:
+for (int i = 0; i &lt; 3; i++) {
+    for (int j = 0; j &lt; 3; j++) {
+        if (i == j) {
+            break outer;
         }
     }
 }
@@ -238,9 +238,9 @@ Break/continue affects nearest loop only.
 <!-- unlabeled loop -->
 <div class="code-container">
   <pre><code class="code-block">
-<span class="keyword">for</span> (<span class="keyword">int</span> <span class="variable">i</span> = 0; <span class="variable">i</span> &lt; 5; <span class="variable">i</span>++) {
-    <span class="keyword">if</span> (<span class="variable">i</span> == 3) {
-        <span class="keyword">break</span>;
+for (int i = 0; i &lt; 5; i++) {
+    if (i == 3) {
+        break;
     }
 }
   </code></pre>
@@ -260,11 +260,11 @@ Exits loop or switch early.
 <!-- break statement -->
 <div class="code-container">
   <pre><code class="code-block">
-<span class="keyword">for</span> (<span class="keyword">int</span> <span class="variable">i</span> = 0; <span class="variable">i</span> &lt; 10; <span class="variable">i</span>++) {
-    <span class="keyword">if</span> (<span class="variable">i</span> == 5) {
-        <span class="keyword">break</span>;
+for (int i = 0; i &lt; 10; i++) {
+    if (i == 5) {
+        break;
     }
-    <span class="comment">// code</span>
+    // code
 }
   </code></pre>
 </div>
@@ -279,11 +279,11 @@ Skips current loop iteration.
 <!-- continue statement -->
 <div class="code-container">
   <pre><code class="code-block">
-<span class="keyword">for</span> (<span class="keyword">int</span> <span class="variable">i</span> = 0; <span class="variable">i</span> &lt; 10; <span class="variable">i</span>++) {
-    <span class="keyword">if</span> (<span class="variable">i</span> % 2 == 0) {
-        <span class="keyword">continue</span>;
+for (int i = 0; i &lt; 10; i++) {
+    if (i % 2 == 0) {
+        continue;
     }
-    <span class="comment">// code for odd i</span>
+    // code for odd i
 }
   </code></pre>
 </div>
@@ -298,8 +298,8 @@ Exits from method and optionally returns value.
 <!-- return statement -->
 <div class="code-container">
   <pre><code class="code-block">
-<span class="modifier">public</span> <span class="keyword">int</span> <span class="function">sum</span>(<span class="keyword">int</span> <span class="variable">a</span>, <span class="keyword">int</span> <span class="variable">b</span>) {
-    <span class="keyword">return</span> <span class="variable">a</span> + <span class="variable">b</span>;
+public int sum(int a, int b) {
+    return a + b;
 }
   </code></pre>
 </div>

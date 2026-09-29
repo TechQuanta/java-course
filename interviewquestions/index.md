@@ -79,3 +79,55 @@
 #### Q53. Can a Java application run without setting the classpath?  
 #### Q54. What are the best practices for managing classpath in large projects?
 
+<br/>
+
+## `Modern Java Features (Java 8 to Java 21+)`
+<br/>
+
+#### Q55. Explain the significance of Virtual Threads introduced in Java 21 (Project Loom).  
+#### Q56. What are Java Records (Java 14+) and when should you use them?  
+#### Q57. How does Pattern Matching for `instanceof` and switch statements improve code readability?  
+#### Q58. What is the difference between `var` (Local-Variable Type Inference) and dynamic typing?  
+#### Q59. Explain the Stream API. What are intermediate and terminal operations?  
+#### Q60. How does the `Optional` class prevent NullPointerExceptions?  
+#### Q61. What are default and static methods in interfaces?  
+#### Q62. Explain the purpose of Sealed Classes (Java 15+).  
+
+<br/>
+
+## `Spring Boot & Microservices (Today's Market Standard)`
+<br/>
+
+#### Q63. What is the difference between Spring and Spring Boot?  
+#### Q64. Explain the `@SpringBootApplication` annotation and what it encapsulates.  
+#### Q65. How does Spring Boot auto-configuration work behind the scenes?  
+#### Q66. What is Dependency Injection and Inversion of Control (IoC) in Spring?  
+#### Q67. How do you handle exceptions globally in a Spring Boot REST API? (`@ControllerAdvice`)  
+#### Q68. What are Spring Boot Actuators used for?  
+#### Q69. Explain the principles of Microservices Architecture.  
+#### Q70. How do microservices communicate with each other? (REST, gRPC, Message Brokers like Kafka/RabbitMQ)  
+#### Q71. What is an API Gateway and why is it necessary in a microservices environment?  
+#### Q72. How do you handle distributed transactions (Saga Pattern)?  
+#### Q73. Explain Circuit Breaker pattern (Resilience4j) in microservices.  
+
+<br/>
+
+## `Cloud, Docker & Security`
+<br/>
+
+#### Q74. How do you containerize a Spring Boot application using Docker?  
+#### Q75. What is the difference between OAuth2 and JWT (JSON Web Tokens) for API Security?  
+#### Q76. How do you secure a Spring Boot application against CSRF and XSS attacks?  
+#### Q77. What is Kubernetes and how does it help in scaling Java applications?  
+#### Q78. Have you used AWS, Azure, or GCP to deploy Java applications? Explain your workflow.  
+
+<br/>
+
+## `System Design (For Senior Roles)`
+<br/>
+
+#### Q79. How would you design a URL shortener (like TinyURL) using Java?  
+#### Q80. Explain how you would implement caching (Redis/Memcached) to improve application performance.  
+#### Q81. What is the difference between horizontal and vertical scaling?  
+#### Q82. How do you design a rate limiter for a Java API?  
+

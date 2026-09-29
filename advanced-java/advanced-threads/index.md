@@ -10,14 +10,14 @@ Java supports multithreading to allow concurrent execution. Threads can be creat
 <br/>
 <div class="code-container">
 <pre><code class="language-java">
-<span class="keyword">class</span> <span class="class-name">MyThread</span> <span class="keyword">extends</span> <span class="class-name">Thread</span> {
-    <span class="keyword">public</span> <span class="keyword">void</span> <span class="function-name">run</span>() {
-        <span class="class-ref">System</span>.<span class="class-ref">out</span>.<span class="method">println</span>(<span class="string">"Thread using Thread class"</span>);
+class MyThread extends Thread {
+    public void run() {
+        System.out.println("Thread using Thread class");
     }
 }
 
-<span class="class-name">MyThread</span> <span class="variable-name">t1</span> = <span class="keyword">new</span> <span class="class-name">MyThread</span>();
-<span class="variable-name">t1</span>.<span class="method">start</span>();
+MyThread t1 = new MyThread();
+t1.start();
 </code></pre>
 </div>
 
@@ -30,14 +30,14 @@ Java supports multithreading to allow concurrent execution. Threads can be creat
 <br/>
 <div class="code-container">
 <pre><code class="language-java">
-<span class="keyword">class</span> <span class="class-name">MyRunnable</span> <span class="keyword">implements</span> <span class="class-name">Runnable</span> {
-    <span class="keyword">public</span> <span class="keyword">void</span> <span class="function-name">run</span>() {
-        <span class="class-ref">System</span>.<span class="class-ref">out</span>.<span class="method">println</span>(<span class="string">"Thread using Runnable interface"</span>);
+class MyRunnable implements Runnable {
+    public void run() {
+        System.out.println("Thread using Runnable interface");
     }
 }
 
-<span class="class-name">Thread</span> <span class="variable-name">t2</span> = <span class="keyword">new</span> <span class="class-name">Thread</span>(<span class="keyword">new</span> <span class="class-name">MyRunnable</span>());
-<span class="variable-name">t2</span>.<span class="method">start</span>();
+Thread t2 = new Thread(new MyRunnable());
+t2.start();
 </code></pre>
 </div>
 
@@ -49,12 +49,12 @@ Java supports multithreading to allow concurrent execution. Threads can be creat
 <br/>
 <div class="code-container">
 <pre><code class="language-java">
-<span class="class-name">Thread</span> <span class="variable-name">t3</span> = <span class="keyword">new</span> <span class="class-name">Thread</span>() {
-    <span class="keyword">public</span> <span class="keyword">void</span> <span class="function-name">run</span>() {
-        <span class="class-ref">System</span>.<span class="class-ref">out</span>.<span class="method">println</span>(<span class="string">"Thread using anonymous Thread class"</span>);
+Thread t3 = new Thread() {
+    public void run() {
+        System.out.println("Thread using anonymous Thread class");
     }
 };
-<span class="variable-name">t3</span>.<span class="method">start</span>();
+t3.start();
 </code></pre>
 </div>
 
@@ -66,12 +66,12 @@ Java supports multithreading to allow concurrent execution. Threads can be creat
 <br/>
 <div class="code-container">
 <pre><code class="language-java">
-<span class="class-name">Thread</span> <span class="variable-name">t4</span> = <span class="keyword">new</span> <span class="class-name">Thread</span>(<span class="keyword">new</span> <span class="class-name">Runnable</span>() {
-    <span class="keyword">public</span> <span class="keyword">void</span> <span class="function-name">run</span>() {
-        <span class="class-ref">System</span>.<span class="class-ref">out</span>.<span class="method">println</span>(<span class="string">"Thread using anonymous Runnable"</span>);
+Thread t4 = new Thread(new Runnable() {
+    public void run() {
+        System.out.println("Thread using anonymous Runnable");
     }
 });
-<span class="variable-name">t4</span>.<span class="method">start</span>();
+t4.start();
 </code></pre>
 </div>
 
@@ -82,10 +82,10 @@ Java supports multithreading to allow concurrent execution. Threads can be creat
 <br/>
 <div class="code-container">
 <pre><code class="language-java">
-<span class="class-name">Thread</span> <span class="variable-name">t5</span> = <span class="keyword">new</span> <span class="class-name">Thread</span>(() -> {
-    <span class="class-ref">System</span>.<span class="class-ref">out</span>.<span class="method">println</span>(<span class="string">"Thread using lambda expression"</span>);
+Thread t5 = new Thread(() -> {
+    System.out.println("Thread using lambda expression");
 });
-<span class="variable-name">t5</span>.<span class="method">start</span>();
+t5.start();
 </code></pre>
 </div>
 
@@ -96,17 +96,17 @@ Java supports multithreading to allow concurrent execution. Threads can be creat
 <br/>
 <div class="code-container">
 <pre><code class="language-java">
-<span class="keyword">import</span> <span class="classname">java.util.concurrent.ExecutorService</span>;
-<span class="keyword">import</span> <span class="classname">java.util.concurrent.Executors</span>;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
-<span class="keyword">public class</span> <span class="classname">ExecutorExample</span> {
-    <span class="keyword">public static void</span> <span class="method">main</span>(<span class="type">String</span>[] <span class="variable-name">args</span>) {
-        <span class="classname">ExecutorService</span> <span class="variable-name">executor</span> = 
-            <span class="classname">Executors</span>.newFixedThreadPool(<span class="number">2</span>);
-        <span class="variable-name">executor</span>.<span class="method">execute</span>(() -> {
-            <span class="class-ref">System</span>.<span class="class-ref">out</span>.<span class="method">println</span>(<span class="string">"Thread using ExecutorService"</span>);
+public class ExecutorExample {
+    public static void main(String[] args) {
+        ExecutorService executor = 
+            Executors.newFixedThreadPool(2);
+        executor.execute(() -> {
+            System.out.println("Thread using ExecutorService");
         });
-        <span class="variable-name">executor</span>.<span class="method">shutdown</span>();
+        executor.shutdown();
     }
 }
 </code></pre>

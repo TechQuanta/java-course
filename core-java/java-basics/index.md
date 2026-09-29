@@ -96,10 +96,10 @@ Java implementation was begun in 1991 by *James Gosling, Mike Sheridan, and Patr
 <div class="code-container">
   <h3>Example Program:</h3>
   <pre><code class="code-block">
-<span class="keyword">public</span> <span class="keyword">class</span> <span class="classname">HelloWorld</span> {
-    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="method">main</span><span class="parens">(</span><span class="type">String</span>[] args<span class="parens">)</span>//Signature where the java program starts
+public class HelloWorld {
+    public static void main(String[] args)//Signature where the java program starts
     {
-        <span class="class-ref">System</span>.<span class="method">out</span>.<span class="method">println</span><span class="parens">(</span><span class="string">"Hello, World!"</span><span class="parens">)</span>;
+        System.out.println("Hello, World!");
     }
 }
   </code></pre>
@@ -107,8 +107,8 @@ Java implementation was begun in 1991 by *James Gosling, Mike Sheridan, and Patr
   <p class="note">Creating this program in your file. Do make sure you are on the right path on the terminal.</p>
 
   <pre><code class="code-block">
-<span class="command">javac</span> HelloWorld.java
-<span class="command">java</span> HelloWorld
+javac HelloWorld.java
+java HelloWorld
   </code></pre>
 </div>
 
@@ -221,16 +221,16 @@ The class loader loads class files from storage.
 
 <h3>Java Code:</h3>
 <pre><code class="code-block">
-<span class="keyword">public</span> <span class="keyword">class</span> <span class="classname">Person</span> {
-    <span class="type">String</span> <span class="variable">name</span> = <span class="string">"Alice"</span>;
-    <span class="type">int</span> <span class="variable">age</span> = <span class="number">25</span>;
-    <span class="keyword">static</span> <span class="type">String</span> <span class="variable">species</span> = <span class="string">"Human"</span>;
-    <span class="keyword">void</span> <span class="method">greet</span><span class="parens">()</span> {
-        <span class="class-ref">System</span>.<span class="method">out</span>.<span class="method">println</span><span class="parens">(</span><span class="string">"Hello, my name is "</span> + <span class="variable">name</span><span class="parens">)</span>;
+public class Person {
+    String name = "Alice";
+    int age = 25;
+    static String species = "Human";
+    void greet() {
+        System.out.println("Hello, my name is " + name);
     }
-    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="method">main</span><span class="parens">(</span><span class="type">String</span>[] <span class="variable">args</span><span class="parens">)</span> {
-        <span class="classname">Person</span> <span class="variable">p</span> = <span class="classname">new</span> <span class="classname">Person</span><span class="parens">()</span>;
-        <span class="variable">p</span>.<span class="method">greet</span><span class="parens">()</span>;
+    public static void main(String[] args) {
+        Person p = new Person();
+        p.greet();
     }
 }
 </code></pre>
